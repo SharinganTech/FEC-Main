@@ -2,7 +2,7 @@ import React from 'react';
 import Overview from './Overview';
 import RR from './RR';
 import QA from './QA';
-import RIC from './RIC';
+import RelatedItemsAndComparison from './RIC';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Overview />
       <RR />
       <QA />
-      <RIC />
+      <RelatedItemsAndComparison />
     </div>
   );
 }
