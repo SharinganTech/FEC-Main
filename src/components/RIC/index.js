@@ -1,3 +1,3 @@
-import * as RIC from './RelatedItemsAndComparison';
+import RelatedItemsAndComparison from './RelatedItemsAndComparison';
 
-export default RIC;
+export default RelatedItemsAndComparison;
