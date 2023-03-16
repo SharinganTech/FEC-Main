@@ -2,9 +2,8 @@ import React from 'react';
 
 function App() {
   return (
-    <div class='text-red'>
+    <div className="text-red-600">
       Hello World!
-      hello world #2
     </div>
   );
 }
