@@ -20,21 +20,21 @@ function App() {
     axios
       .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
         headers: {
-          Authorization: '',
+          Authorization: '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',
         },
       })
       .then((result) => {
-        console.log('results data', result.data);
+        // console.log('results data', result.data);
         setProductId(result.data[0].id);
       });
   }, []);
 
   return (
     <ProductContext.Provider value={productId}>
-      <Overview />
+      {/* <Overview /> */}
       <RelatedItemsAndComparison />
-      <QA />
-      <RatingsAndReviews />
+      {/* <QA /> */}
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
