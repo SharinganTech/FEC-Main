@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import Features from './Features';
+import { CurrentProduct } from './Overview';
 
-function ProductOverview({ prodDetails }) {
-  return (
-    <div>
-      <p>{prodDetails.slogan}</p>
-      <p>{prodDetails.description}</p>
-      {prodDetails.features.map((feature, index) => (
-        <Features feature={feature} key={index} />
-      ))}
-    </div>
-  );
+function ProductOverview() {
+  const product = useContext(CurrentProduct);
+  console.log('in PO: ', product.features, Array.isArray(product.features));
+  if (product) {
+    return (
+      <div>
+        <p>{product.slogan}</p>
+        <p>{product.description}</p>
+      </div>
+    );
+  }
 }
 
 export default ProductOverview;

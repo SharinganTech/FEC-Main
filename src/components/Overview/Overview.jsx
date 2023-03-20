@@ -1,9 +1,11 @@
 import axios from 'axios';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, createContext, useState, useEffect } from 'react';
 import ProductInfo from './ProductInfo';
-import Price from './Price';
 import ProductOverview from './ProductOverview';
+import Price from './Price';
 import { ProductContext } from '../App';
+
+export const CurrentProduct = createContext(null);
 
 function Overview() {
   const prodID = useContext(ProductContext);
@@ -11,7 +13,8 @@ function Overview() {
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
-  console.log('in productInfo: ', prodID);
+
+  console.log('in Overview: ', prodID);
 
   useEffect(() => {
     //get product details using the current product ID
@@ -19,7 +22,6 @@ function Overview() {
       headers: { Authorization: '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' },
     })
       .then((response) => {
-        console.log('response: ', response.data);
         setDataRetrieved(true);
         setProdDetails(response.data);
       })
@@ -44,12 +46,12 @@ function Overview() {
     return (<div>Retrieving data</div>);
   }
   return (
-    <div>
+    <CurrentProduct.Provider value={prodDetails}>
       Hello from Overview
-      <ProductInfo prodDetails={prodDetails} />
+      <ProductInfo />
       <Price currentStyle={currentStyle} />
-      <ProductOverview prodDetails={prodDetails} />
-    </div>
+      <ProductOverview />
+    </CurrentProduct.Provider>
   );
 }
 
