@@ -3,6 +3,9 @@ import React, { useContext, createContext, useState, useEffect } from 'react';
 import ProductInfo from './ProductInfo';
 import ProductOverview from './ProductOverview';
 import Price from './Price';
+import StyleSelector from './StyleSelector';
+import AddToCart from './AddToCart';
+import Gallery from './Gallery';
 import { ProductContext } from '../App';
 
 export const CurrentProduct = createContext(null);
@@ -47,9 +50,11 @@ function Overview() {
   }
   return (
     <CurrentProduct.Provider value={prodDetails}>
+      <Gallery />
       Hello from Overview
       <ProductInfo />
       <Price currentStyle={currentStyle} />
+      <StyleSelector />
       <ProductOverview />
     </CurrentProduct.Provider>
   );
