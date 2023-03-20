@@ -15,20 +15,30 @@ export const ProductContext = createContext(null);
 
 function App() {
   const [productId, setProductId] = useState(0);
+  const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
     axios
       .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
         headers: {
-          Authorization: '',
+          Authorization: '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',
         },
       })
       .then((result) => {
         console.log('results data', result.data);
         setProductId(result.data[0].id);
+        setCanRender(true);
+      })
+      .catch((err) => {
+        console.log('err getting list of products: ', err);
       });
   }, []);
 
+  if (!canRender) {
+    return (
+      <div>Loading Page</div>
+    );
+  }
   return (
     <ProductContext.Provider value={productId}>
       <Overview />
