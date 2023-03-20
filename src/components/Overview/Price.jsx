@@ -1,10 +1,17 @@
 import React from 'react';
 
 function Price({ currentStyle }) {
-  console.log('in current Price', currentStyle);
+  if (!currentStyle.sale_price) {
+    return (
+      <div className="text-red-600">
+        ${currentStyle.original_price}
+      </div>
+    );
+  }
   return (
     <div>
-      hello from price
+      <div class="line-through">${currentStyle.original_price}</div>
+      <div class="text-red-600">${currentStyle.sale_price}</div>
     </div>
   );
 }

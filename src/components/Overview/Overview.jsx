@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useState, useEffect } from 'react';
 import ProductInfo from './ProductInfo';
 import Price from './Price';
+import ProductOverview from './ProductOverview';
 import { ProductContext } from '../App';
 
 function Overview() {
@@ -47,6 +48,7 @@ function Overview() {
       Hello from Overview
       <ProductInfo prodDetails={prodDetails} />
       <Price currentStyle={currentStyle} />
+      <ProductOverview prodDetails={prodDetails} />
     </div>
   );
 }
