@@ -1,9 +1,11 @@
 import React from 'react';
+import ReviewList from './Reviews/ReviewList';
 
 function RatingsAndReviews() {
   return (
-    <div className="text-green-600">
+    <div>
       <div>Hello from R&R</div>
+      <ReviewList />
     </div>
   );
 }
