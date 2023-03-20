@@ -1,10 +1,11 @@
 import React from 'react';
+import Ratings from './Ratings/Ratings';
 import ReviewList from './Reviews/ReviewList';
 
 function RatingsAndReviews() {
   return (
     <div>
-      <div>Hello from R&R</div>
+      <Ratings />
       <ReviewList />
     </div>
   );
