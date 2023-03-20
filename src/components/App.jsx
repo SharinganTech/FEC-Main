@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { createContext, useEffect, useState } from 'react';
+import axios from 'axios';
 import Overview from './Overview';
 import RatingsAndReviews from './RR';
 import QA from './QA';
 import RelatedItemsAndComparison from './RIC';
 
+// const fs = require('fs');
+// const dotenv = require('dotenv');
+
+// dotenv.config({ path: '.env' });
+// console.log(process.env.GITHUB_TOKEN);
+
+export const ProductContext = createContext(null);
+
 function App() {
+  const [productId, setProductId] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
+        headers: {
+          Authorization: '',
+        },
+      })
+      .then((result) => {
+        console.log('results data', result.data);
+        setProductId(result.data[0].id);
+      });
+  }, []);
+
   return (
-    <div className="text-red-600">
+    <ProductContext.Provider value={productId}>
       <Overview />
-      <RatingsAndReviews />
-      <QA />
       <RelatedItemsAndComparison />
-    </div>
+      <QA />
+      <RatingsAndReviews />
+    </ProductContext.Provider>
   );
 }
 
