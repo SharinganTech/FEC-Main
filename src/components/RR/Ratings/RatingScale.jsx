@@ -7,6 +7,8 @@ function RatingScale({ stars, numReviews, totalReviews }) {
         {stars}
         {' stars '}
         {numReviews}
+        {' '}
+        {totalReviews}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RatingScale({ factor, value }) {
+function FactorScale({ factor, value }) {
   return (
     <div>
       <div>
@@ -12,4 +12,4 @@ function RatingScale({ factor, value }) {
   );
 }
 
-export default RatingScale;
+export default FactorScale;

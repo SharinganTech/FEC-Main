@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { ProductContext } from '../../App';
 import Review from './Review';
 
-function ReviewList() {
-  // const prodID = useContext(ProductContext);
+function ReviewList({ prodID }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=40344&count=2', {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=2`, {
       headers: {
-        Authorization: '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',
+        Authorization: process.env.AUTH_TOKEN,
       },
     })
       .then((response) => {

@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RatingSummary from './RatingsSummary';
 import RatingBreakdown from './RatingBreakdown';
-import ProductBreakdown from './ProductBreakdown';
+import FactorBreakdown from './FactorBreakdown';
 
-function Ratings() {
+function Ratings({ prodID }) {
   const [reviewsMeta, setReviewsMeta] = useState({});
 
   useEffect(() => {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=40344', {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${prodID}`, {
       headers: {
-        Authorization: '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',
+        Authorization: process.env.AUTH_TOKEN,
       },
     })
       .then((response) => {
@@ -19,14 +19,14 @@ function Ratings() {
     // .catch((err) => console.log(err));
   }, []);
 
-  return (
+  return Object.keys(reviewsMeta).length ? (
     <div>
       <h3>RATINGS & REVIEWS</h3>
       <RatingSummary ratings={reviewsMeta.ratings} />
       <RatingBreakdown ratings={reviewsMeta.ratings} recommended={reviewsMeta.recommended} />
-      <ProductBreakdown characteristics={reviewsMeta.characteristics} />
+      <FactorBreakdown characteristics={reviewsMeta.characteristics} />
     </div>
-  );
+  ) : null;
 }
 
 export default Ratings;
