@@ -5,7 +5,7 @@ function Stars({ rating }) {
   // const { myReview } = review;
   return (
     <div className="stars-outer">
-      <div className="stars-inner"></div>
+      <div className="stars-inner" />
     </div>
   );
 }
