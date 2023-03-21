@@ -1,12 +1,12 @@
 import React from 'react';
 
-function RatingScale({ stars, numReviews, totalReviews }) {
+function RatingScale({ factor, value }) {
   return (
     <div>
       <div>
-        {stars}
-        {' stars '}
-        {numReviews}
+        {factor}
+        {' '}
+        {value}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RatingSummary from './RatingsSummary';
 import RatingBreakdown from './RatingBreakdown';
+import ProductBreakdown from './ProductBreakdown';
 
 function Ratings() {
   const [reviewsMeta, setReviewsMeta] = useState({});
@@ -23,6 +24,7 @@ function Ratings() {
       <h3>RATINGS & REVIEWS</h3>
       <RatingSummary ratings={reviewsMeta.ratings} />
       <RatingBreakdown ratings={reviewsMeta.ratings} recommended={reviewsMeta.recommended} />
+      <ProductBreakdown characteristics={reviewsMeta.characteristics} />
     </div>
   );
 }
