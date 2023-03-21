@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AListEntry({ eachA }) {
+function AListEntries({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
   // console.log(eachQ);
 
@@ -14,7 +14,7 @@ function AListEntry({ eachA }) {
       <div>
         <span>{eachA.answerer_name}</span>
         <span>{eachA.date}</span>
-        <input type="button" onClick={handleAHelpfulClick} value="Helpful? " />
+        <input className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful? " />
         <span>{`Yes (${aHelpful})`}</span>
       </div>
 
@@ -22,4 +22,4 @@ function AListEntry({ eachA }) {
   );
 }
 
-export default AListEntry;
+export default AListEntries;
