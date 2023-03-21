@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
 // import RatingsAndReviews from './RR';
-import QA from './QA';
+// import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
 import ProductContext from '../contexts/ProductContext';
 
@@ -32,7 +32,7 @@ function App() {
       });
   }, []);
 
-  if (!canRender) {
+  if (productId === 0) {
     return (
       <div>Loading Page</div>
     );

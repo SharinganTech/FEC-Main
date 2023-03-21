@@ -6,7 +6,7 @@ import Price from './Price';
 import StyleSelector from './StyleSelector';
 import AddToCart from './AddToCart';
 import Gallery from './Gallery';
-import { ProductContext } from '../App';
+import ProductContext from '../../contexts/ProductContext';
 
 export const CurrentProduct = createContext(null);
 
