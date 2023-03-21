@@ -31,10 +31,10 @@ function App() {
 
   return (
     <ProductContext.Provider value={productId}>
-      <Overview />
+      {/* <Overview /> */}
       <RelatedItemsAndComparison />
-      <QA />
-      <RatingsAndReviews />
+      {/* <QA /> */}
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
