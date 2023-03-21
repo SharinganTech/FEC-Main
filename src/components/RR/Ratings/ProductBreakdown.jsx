@@ -6,13 +6,13 @@ function ProductBreakdown({ characteristics }) {
 
   return (characteristics !== undefined) ? (
     <div>
-      {Object.keys(characteristics).map((key) => (
+      {/* {Object.keys(characteristics).map((key) => (
         <FactorScale
           key={characteristics.key.id}
           factor={key}
           // value={characteristics.key.value}
         />
-      ))}
+      ))} */}
     </div>
   ) : null;
 }
