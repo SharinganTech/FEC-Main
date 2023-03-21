@@ -10,7 +10,7 @@ function CardList({ prodId }) {
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}/related`, {
         headers: {
-          Authorization: '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',
+          Authorization: '',
         },
       })
       .then(({ data }) => {
@@ -18,7 +18,7 @@ function CardList({ prodId }) {
           axios
             .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedId}`, {
               headers: {
-                Authorization: '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',
+                Authorization: '',
               },
             })
             .then((results) => results.data)
