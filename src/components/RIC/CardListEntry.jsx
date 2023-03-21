@@ -18,7 +18,7 @@ function CardListEntry({ relatedItem }) {
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedItem.id}/styles`, {
         headers: {
-          Authorization: '',
+          Authorization: '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',
         },
       })
       .then(({ data }) => {
@@ -37,14 +37,14 @@ function CardListEntry({ relatedItem }) {
       .then(() => axios
         .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta', {
           headers: {
-            Authorization: '',
+            Authorization: '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',
           },
           params: {
             product_id: relatedItem.id,
           },
         }))
       .then((results) => {
-        console.log(results.data.ratings);
+        // console.log(results.data.ratings);
         const avgRating = generateAverage(results.data.ratings);
         setRating(avgRating);
       })
@@ -55,47 +55,51 @@ function CardListEntry({ relatedItem }) {
     <div>
       {thumbnail.length === 0 || rating.length === 0 ? <Loading />
         : (
-          <div>
-            <img src={thumbnail} alt="item default" />
-            <div>{relatedItem.category}</div>
-            <div>{relatedItem.name}</div>
-            {onSale === null
-              ? <div className="text-red-500 line-through">{relatedItem.default_price}</div>
-              : (
-                <div>
-                  <div className="text-red-500 line-through">{relatedItem.default_price}</div>
-                  <div>{onSale}</div>
-                </div>
-              )}
-            <div>{rating}</div>
+          <div className="relative grid-cols-3 grid-rows-3">
+            <div className="bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-indigo-500/40 h-96 w-48">
+              <img src={thumbnail} alt="item default" className="object-scale-down rounded-lg max-h-60 w-40 pt-8 justify-self-center" />
+              <div>{relatedItem.category}</div>
+              <div>{relatedItem.name}</div>
+              {onSale === null
+                ? <div>${relatedItem.default_price}</div>
+                : (
+                  <div>
+                    <div className="text-red-500 line-through">{relatedItem.default_price}</div>
+                    <div>{onSale}</div>
+                  </div>
+                )}
+              <div>{rating}</div>
+            </div>
             {!clicked
               ? (
-                <div
+                <button
+                  type="button"
                   onClick={() => {
                     setClick(!clicked);
                   }}
-                  role="button"
                   tabIndex={0}
                   onKeyPress={() => {
                     setClick(!clicked);
                   }}
                 >
-                  <FontAwesomeIcon icon={farStar} style={{color: "#000000",}} />
-                </div>
+                  <FontAwesomeIcon icon={faStar} style={{color: "#ffffff",}} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={farStar} style={{color: "#000000",}} className="absolute top-2 right-2" />
+                </button>
               )
               : (
-                <div
+                <button
+                  type="button"
                   onClick={() => {
                     setClick(!clicked);
                   }}
-                  role="button"
                   tabIndex={0}
                   onKeyPress={() => {
                     setClick(!clicked);
                   }}
                 >
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fff700",}} />
-                </div>
+                  <FontAwesomeIcon icon={faStar} style={{color: "#fff700",}} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={farStar} style={{color: "#000000",}} className="absolute top-2 right-2" />
+                </button>
               )}
             {/* <RatingStars stars={rating} /> */}
           </div>
@@ -105,3 +109,5 @@ function CardListEntry({ relatedItem }) {
 }
 
 export default CardListEntry;
+
+{/* <FontAwesomeIcon icon={faSquareRight} style={{"--fa-primary-color": "#926aa6", "--fa-secondary-color": "#efe1ce",}} /> */}
