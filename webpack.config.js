@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack'); //eslint-disable-line
+const DotEnv = require('dotenv-webpack'); //eslint-disable-line
 
 module.exports = {
   mode: 'development',
@@ -9,7 +11,9 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: { extensions: ['', '.js', '.jsx'] },
-  plugins: [],
+  plugins: [
+    new DotEnv(),
+  ],
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist'),
