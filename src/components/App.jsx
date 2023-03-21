@@ -20,13 +20,14 @@ function App() {
     axios
       .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
         headers: {
-          Authorization: '',
+          Authorization: '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',
         },
       })
       .then((result) => {
-        console.log('results data', result.data);
+        // console.log('results data', result.data);
         setProductId(result.data[0].id);
-      });
+      })
+      .catch((err) => console.error('Error in getting data', err));
   }, []);
 
   return (

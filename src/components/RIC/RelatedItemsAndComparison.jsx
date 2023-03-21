@@ -3,7 +3,7 @@ import { ProductContext } from '../App';
 
 function RelatedItemsAndComparison() {
   const prodId = useContext(ProductContext);
-  console.log(prodId);
+  // console.log(prodId);
 
   return (
     <div> </div>
