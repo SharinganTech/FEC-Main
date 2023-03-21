@@ -4,7 +4,6 @@ import { CurrentProduct } from './Overview';
 
 function ProductOverview() {
   const product = useContext(CurrentProduct);
-  console.log('in PO: ', product.features, Array.isArray(product.features));
   if (product) {
     return (
       <div>
