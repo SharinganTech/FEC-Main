@@ -4,7 +4,6 @@ import { CurrentProduct } from './Overview';
 
 function ProductInfo({ currentStyle }) {
   const product = useContext(CurrentProduct);
-  console.log(product);
   return (
     <div>
       <p>

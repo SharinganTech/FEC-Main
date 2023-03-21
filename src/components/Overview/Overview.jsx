@@ -16,8 +16,7 @@ function Overview() {
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
   const [styleID, setStyleID] = useState('');
-
-  console.log('in Overview: ', prodID);
+  const [styleName, setStyleName] = useState('');
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
@@ -40,15 +39,19 @@ function Overview() {
         setStyles(response.data.results);
         setStyleID(response.data.product_id);
         setCurrentStyle(response.data.results[0]);
+        setStyleName(response.data.results[0].name);
       })
       .catch((err) => {
         console.log('error getting prod styles: ', err);
       });
   }, []);
 
-  const changeStyle = (e) => {
-    e.preventDefault();
-    console.log(styleID);
+  const changeStyle = (elementID) => {
+    setStyleID(elementID);
+    console.log('elementID: ', typeof elementID);
+    const newStyleName = styles.filter((style) => style.style_id === Number(elementID));
+    console.log('new name: ', newStyleName);
+    setStyleName(newStyleName[0].name);
   };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
@@ -56,10 +59,10 @@ function Overview() {
   return (
     <div>
       <CurrentProduct.Provider value={prodDetails}>
-        <Gallery />
+        <Gallery styleID={styleID} styles={styles} />
         <div className="float-right">
           <ProductInfo currentStyle={currentStyle} />
-          <StyleSelector styles={styles} changeStyle={changeStyle} />
+          <StyleSelector styles={styles} styleName={styleName} changeStyle={changeStyle} />
         </div>
         <div className="relative float-bottom">
           <ProductOverview />
