@@ -1,3 +1,3 @@
-import QA from './QAHome';
+import QA from './QAApp';
 
 export default QA;
