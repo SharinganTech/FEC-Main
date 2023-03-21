@@ -3,7 +3,7 @@ import React from 'react';
 function Price({ currentStyle }) {
   if (!currentStyle.sale_price) {
     return (
-      <div className="text-red-600">
+      <div>
         ${currentStyle.original_price}
       </div>
     );

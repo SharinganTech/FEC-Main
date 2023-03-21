@@ -21,7 +21,7 @@ function App() {
     axios
       .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
         headers: {
-          Authorization: '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',
+          Authorization: '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',
         },
       })
       .then((result) => {
@@ -41,8 +41,8 @@ function App() {
   }
   return (
     <ProductContext.Provider value={productId}>
-      {/* <Overview /> */}
-      <RelatedItemsAndComparison />
+      <Overview />
+      {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
       {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>

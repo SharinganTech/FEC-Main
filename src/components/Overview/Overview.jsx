@@ -22,7 +22,7 @@ function Overview() {
   useEffect(() => {
     //get product details using the current product ID
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
-      headers: { Authorization: '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' },
+      headers: { Authorization: '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' },
     })
       .then((response) => {
         setDataRetrieved(true);
@@ -34,7 +34,7 @@ function Overview() {
       .then(() => (
         axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}/styles`, {
         //get the styles for the current product ID
-          headers: { Authorization: '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' },
+          headers: { Authorization: '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' },
         })
       ))
       .then((response) => {
@@ -54,7 +54,7 @@ function Overview() {
       Hello from Overview
       <ProductInfo />
       <Price currentStyle={currentStyle} />
-      <StyleSelector />
+      <StyleSelector styles={styles} />
       <ProductOverview />
     </CurrentProduct.Provider>
   );

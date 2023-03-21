@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Style from './Style';
 
-function StyleSelector() {
+function StyleSelector({ styles }) {
+  console.log('styles: ', styles);
   return (
     <div>
-      StyleSelector
+      {styles.map((style) => (
+        <Style style={style} />
+      ))}
     </div>
   );
 }

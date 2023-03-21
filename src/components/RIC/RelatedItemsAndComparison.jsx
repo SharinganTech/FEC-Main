@@ -5,11 +5,7 @@ import { ProductContext } from '../App';
 
 function RelatedItemsAndComparison() {
   const prodId = useContext(ProductContext);
-<<<<<<< HEAD
-  // console.log(prodId);
-=======
   const [outfit, setOutfit] = useState([]);
->>>>>>> main
 
   return (
     <div>
