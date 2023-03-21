@@ -24,17 +24,17 @@ function App() {
         },
       })
       .then((result) => {
-        console.log('results data', result.data);
+        // console.log('results data', result.data);
         setProductId(result.data[0].id);
       });
   }, []);
 
   return (
     <ProductContext.Provider value={productId}>
-      <Overview />
+      {/* <Overview /> */}
       <RelatedItemsAndComparison />
-      <QA />
-      <RatingsAndReviews />
+      {/* <QA /> */}
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
