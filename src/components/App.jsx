@@ -1,36 +1,37 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Overview from './Overview';
-import RatingsAndReviews from './RR';
-import QA from './QA';
+// import Overview from './Overview';
+// import RatingsAndReviews from './RR';
+// import QA from './QA';
 import RelatedItemsAndComparison from './RIC';
+import ProductContext from '../contexts/ProductContext';
 
-// const fs = require('fs');
-// const dotenv = require('dotenv');
+// const useFetchData = async (url, options) => {
+//   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options})
 
-// dotenv.config({ path: '.env' });
-// console.log(process.env.GITHUB_TOKEN);
-
-export const ProductContext = createContext(null);
+//   return res.json()
+// }
 
 function App() {
-  const [productId, setProductId] = useState(0);
-
+  const [product, setProduct] = useState({});
   useEffect(() => {
     axios
       .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
         headers: {
-          Authorization: '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',
+          Authorization: process.env.AUTH_TOKEN,
         },
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProductId(result.data[0].id);
+        setProduct(result.data[0]);
+      })
+      .catch((err) => {
+        throw new Error('Error in getting data', err);
       });
   }, []);
 
   return (
-    <ProductContext.Provider value={productId}>
+    <ProductContext.Provider value={product}>
       {/* <Overview /> */}
       <RelatedItemsAndComparison />
       {/* <QA /> */}

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CardListEntry from './CardListEntry';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-
+import CardListEntry from './CardListEntry';
 
 function CardList({ prodId }) {
   // set a state for the related items array
@@ -13,7 +12,7 @@ function CardList({ prodId }) {
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}/related`, {
         headers: {
-          Authorization: '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',
+          Authorization: process.env.AUTH_TOKEN,
         },
       })
       .then(({ data }) => {
@@ -21,7 +20,7 @@ function CardList({ prodId }) {
           axios
             .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedId}`, {
               headers: {
-                Authorization: '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',
+                Authorization: process.env.AUTH_TOKEN,
               },
             })
             .then((results) => results.data)

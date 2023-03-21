@@ -1,19 +1,22 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import CardList from './CardList';
 import Loading from './Loading';
-import { ProductContext } from '../App';
+import ProductContext from '../../contexts/ProductContext';
 
 function RelatedItemsAndComparison() {
-  const prodId = useContext(ProductContext);
-  const [outfit, setOutfit] = useState([]);
+  const product = useContext(ProductContext);
+  const prodDes = { product };
+  const prod = prodDes.product;
+  // console.log(prodId);
+  // const [outfit, setOutfit] = useState([]);
 
   return (
     <div>
-      {prodId === 0
+      {prod.id === undefined
         ? <Loading />
         : (
           <div>
-            <CardList prodId={prodId} />
+            <CardList prodId={prod.id} />
             {/* <CardList outfit={outfit} /> */}
           </div>
         )}

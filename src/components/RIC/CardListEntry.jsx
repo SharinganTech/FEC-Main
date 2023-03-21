@@ -2,23 +2,25 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../styles.css';
 // import RatingStars from './RatingStars';
-import Loading from './Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar as faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Loading from './Loading';
 import generateAverage from './HelperFunctions';
+import Modal from './Modal';
 
 function CardListEntry({ relatedItem }) {
   const [thumbnail, setThumbNail] = useState('');
   const [rating, setRating] = useState('');
   const [clicked, setClick] = useState(false);
   const [onSale, setSale] = useState(null);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedItem.id}/styles`, {
         headers: {
-          Authorization: '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',
+          Authorization: process.env.AUTH_TOKEN,
         },
       })
       .then(({ data }) => {
@@ -37,7 +39,7 @@ function CardListEntry({ relatedItem }) {
       .then(() => axios
         .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta', {
           headers: {
-            Authorization: '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',
+            Authorization: process.env.AUTH_TOKEN,
           },
           params: {
             product_id: relatedItem.id,
@@ -61,7 +63,7 @@ function CardListEntry({ relatedItem }) {
               <div>{relatedItem.category}</div>
               <div>{relatedItem.name}</div>
               {onSale === null
-                ? <div>${relatedItem.default_price}</div>
+                ? <div>{`$${relatedItem.default_price}`}</div>
                 : (
                   <div>
                     <div className="text-red-500 line-through">{relatedItem.default_price}</div>
@@ -69,6 +71,15 @@ function CardListEntry({ relatedItem }) {
                   </div>
                 )}
               <div>{rating}</div>
+              <button
+                className="absolute text-red-500 decoration-solid hover:cursor-pointer w-fit text-xs bottom-0 right-0"
+                type="button"
+                onClick={() => {
+                  setModal(!modal);
+                }}
+              >
+                Compare
+              </button>
             </div>
             {!clicked
               ? (
@@ -82,8 +93,8 @@ function CardListEntry({ relatedItem }) {
                     setClick(!clicked);
                   }}
                 >
-                  <FontAwesomeIcon icon={faStar} style={{color: "#ffffff",}} className="absolute top-2 right-2" />
-                  <FontAwesomeIcon icon={farStar} style={{color: "#000000",}} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={farStar} style={{ color: '#000000' }} className="absolute top-2 right-2" />
                 </button>
               )
               : (
@@ -97,17 +108,17 @@ function CardListEntry({ relatedItem }) {
                     setClick(!clicked);
                   }}
                 >
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fff700",}} className="absolute top-2 right-2" />
-                  <FontAwesomeIcon icon={farStar} style={{color: "#000000",}} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={faStar} style={{ color: '#fff700' }} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={farStar} style={{ color: '#000000' }} className="absolute top-2 right-2" />
                 </button>
               )}
-            {/* <RatingStars stars={rating} /> */}
           </div>
         )}
+      <div>
+        {modal && <Modal relatedItem={relatedItem} modal={modal} setModal={setModal} />}
+      </div>
     </div>
   );
 }
 
 export default CardListEntry;
-
-{/* <FontAwesomeIcon icon={faSquareRight} style={{"--fa-primary-color": "#926aa6", "--fa-secondary-color": "#efe1ce",}} /> */}
