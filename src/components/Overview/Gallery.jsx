@@ -1,14 +1,12 @@
 import React from 'react';
 import { CurrentProduct } from './Overview';
 
-function Gallery({ styleID, styles }) {
-  console.log('gallery', styleID, styles);
-
-  const mainImage = styles.filter((style) => style.style_id === styleID);
-  console.log(mainImage);
+function Gallery({ styleID, styles, mainImage }) {
+  console.log('gallery', typeof styleID, styleID, styles);
+  console.log('asdasdasd: ', mainImage);
   return (
-    <div>
-      {mainImage}
+    <div className="flex max-w-[800px] h-[600px] object-scale-down justify-center">
+      <img className="" src={mainImage} alt="" />
     </div>
   );
 }
