@@ -1,13 +1,18 @@
-import React from 'react';
-import { CurrentProduct } from './Overview';
+import React, { useState, useEffect } from 'react';
 
-function Gallery({ styleID, styles, mainImage }) {
-  console.log('gallery', typeof styleID, styleID, styles);
+function Gallery({ styleID, stylePhotos, mainImage }) {
+  console.log('gallery', styleID, stylePhotos);
   console.log('asdasdasd: ', mainImage);
   return (
-    <div className="flex max-w-[800px] h-[600px] object-scale-down justify-center">
-      <img className="" src={mainImage} alt="" />
+    <div>
+      <div className="flex flex-start items-center w-[800px] h-[800px]">
+        <img className="absolute object-contain h-[800px] w-[800px]" src={mainImage} alt="" />
+        <div className="flex flex-col flex-start">
+          {stylePhotos.map((style, index) => <img id={index} className="relative object-scale opacity-50 w-[80px] h-[80px] object-fit m-[10px]" src={style.thumbnail_url} alt="" onClick={selectPhoto} />)}
+        </div>
+      </div>
     </div>
+
   );
 }
 

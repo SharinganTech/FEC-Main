@@ -18,6 +18,7 @@ function Overview() {
   const [styleID, setStyleID] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
+  const [stylePhotos, setStylePhotos] = useState([]);
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
@@ -43,6 +44,7 @@ function Overview() {
         setCurrentStyle(response.data.results[0]);
         setStyleName(response.data.results[0].name);
         setMainImage(response.data.results[0].photos[0].url);
+        setStylePhotos(response.data.results[0].photos);
       })
       .catch((err) => {
         console.log('error getting prod styles: ', err);
@@ -61,9 +63,9 @@ function Overview() {
     return (<div>Retrieving data</div>);
   }
   return (
-    <div>
+    <div className="container">
       <CurrentProduct.Provider value={prodDetails}>
-        <Gallery styleID={styleID} styles={styles} mainImage={mainImage} />
+        <Gallery styleID={styleID} stylePhotos={stylePhotos} mainImage={mainImage} />
         <div className="float-right">
           <ProductInfo currentStyle={currentStyle} />
           <StyleSelector styles={styles} styleName={styleName} changeStyle={changeStyle} />

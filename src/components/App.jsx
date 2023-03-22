@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
-// import RatingsAndReviews from './RR';
+import RatingsAndReviews from './RR';
 // import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
 import ProductContext from '../contexts/ProductContext';
@@ -42,7 +42,7 @@ function App() {
       <Overview />
       {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
-      {/* <RatingsAndReviews /> */}
+      <RatingsAndReviews />
     </ProductContext.Provider>
   );
 }
