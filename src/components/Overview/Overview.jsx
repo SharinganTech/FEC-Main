@@ -22,11 +22,12 @@ function Overview() {
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
-      headers: { Authorization: process.env.AUTH_TOKEN, },
+      headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
         setDataRetrieved(true);
         setProdDetails(response.data);
+        console.log(response.data);
       })
       .catch((err) => {
         console.log('cant get prod details: ', err);

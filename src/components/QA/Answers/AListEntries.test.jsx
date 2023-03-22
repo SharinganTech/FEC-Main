@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import AListEntries from './AListEntries';
 
