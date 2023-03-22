@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 function StyleSelector({ styles, styleName, changeStyle }) {
   const changeName = (e) => {
     e.preventDefault();
-    console.log('target: ', e.target);
     changeStyle(e.target.id)
   }
   return (

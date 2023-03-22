@@ -60,6 +60,9 @@ function Overview() {
     setMainImage(newStyle[0].photos[0].url);
     setStylePhotos(newStyle[0].photos);
   };
+  const changeMain = (newMainURL) => {
+    setMainImage(newMainURL);
+  };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
   }
@@ -67,11 +70,22 @@ function Overview() {
     <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
       <CurrentProduct.Provider value={prodDetails}>
         <div className="col-start-2 col-end-5 row-start-0 row-end-3">
-          <Gallery styleID={styleID} stylePhotos={stylePhotos} mainImage={mainImage} />
+          <Gallery
+            styleID={styleID}
+            stylePhotos={stylePhotos}
+            mainImage={mainImage}
+            changeMain={changeMain}
+          />
         </div>
         <div className="col-start-5 col-end-7 row-start-2 row-end-4">
-          <ProductInfo currentStyle={currentStyle} />
-          <StyleSelector styles={styles} styleName={styleName} changeStyle={changeStyle} />
+          <ProductInfo
+            currentStyle={currentStyle}
+          />
+          <StyleSelector
+            styles={styles}
+            styleName={styleName}
+            changeStyle={changeStyle}
+          />
         </div>
         <div className="col-start-2 col-end-6 row-start-3 row-end-4">
           <ProductOverview />
