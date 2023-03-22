@@ -10,7 +10,7 @@ function Modal({
   // console.log('overview item', prodFeatures);
 
   return (
-    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-500/50">
+    <div className="transform-none flex fixed inset-0 z-50 justify-center items-center outline-none focus:outline-none bg-slate-500/50">
       {outfit === undefined
         ? (
           <div className="relative flex flex-col rounded-lg self-center bg-gradient-to-r from-violet-600/95 to-gray-400/95 shadow-2xl text-white h-80 w-[30rem]">
@@ -23,10 +23,10 @@ function Modal({
                 {prod.name}
               </div>
             </div>
-            <div className="grid grid-rows-4 h-5/6 overflow-y-auto">
+            <div className="grid grid-rows-4 h-5/6">
               {prodFeatures.map((obj) => (
                 <div key={obj.feature} className="grid grid-rows-1 grid-cols-3 content-center">
-                  <div className="grid col-start-1 col-span-1 row-start-1 text-center content-center">
+                  <div className="grid col-start-1 col-span-1 row-start-1 text-center content-center ">
                     {includesFeature(obj, relatedItem.features)}
                   </div>
                   <div className="grid col-start-2 col-span-1 row-start-1 text-center content-center">

@@ -10,7 +10,7 @@ import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
 import ProductContext from '../../contexts/ProductContext';
 
-function CardListEntry({ relatedItem, noModal, removeCard }) {
+function CardListEntry({ relatedItem, noModal, removeCard, activeIndex }) {
   const [thumbnail, setThumbNail] = useState('');
   const [rating, setRating] = useState('');
   const [clicked, setClick] = useState(false);
@@ -75,8 +75,8 @@ function CardListEntry({ relatedItem, noModal, removeCard }) {
     <div>
       {thumbnail.length === 0 || rating.length === 0 ? <Loading />
         : (
-          <div className="relative grid-cols-3 grid-rows-3">
-            <div className="bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-indigo-500/40 h-96 w-48">
+          <div className="relative grid-cols-3 grid-rows-3 transition-transform" style={{ transform: `translateX(-${activeIndex * 200}%)` }}>
+            <div className="shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-indigo-500/40 h-96 w-48">
               <div className="bg-white grid rounded-lg rounded-b-none h-60 w-48 content-center">
                 <img src={thumbnail} alt="item default" className="rounded-lg max-h-56 w-40 justify-self-center content-center shadow-lg object-cover" />
               </div>
