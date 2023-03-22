@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import CardListEntry from './CardListEntry';
+import Loading from './Loading';
 
 function CardList({ prodId }) {
   // set a state for the related items array
@@ -35,20 +36,24 @@ function CardList({ prodId }) {
   }, []);
 
   return (
-    <div className="flex">
+    <div className="flex overflow-hidden h-[28rem]">
       {/* map over the related items to create a card for each item */}
       {relatedItems.length === 0
-        ? <h1>Loading...</h1>
+        ? <Loading />
         : (
-          <div className="flex flex-row space-x-5 w-full h-64">
-            <FontAwesomeIcon icon={faArrowLeft} className="self-center ml-2" />
+          <div className="relative flex flex-row space-x-5 w-full h-64">
+            <div className="absolute left-0 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
+              <FontAwesomeIcon icon={faArrowLeft} className="absolute left-0 self-center ml-5" />
+            </div>
+            <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent">
+              <FontAwesomeIcon icon={faArrowRight} className="absolute right-0 self-center mr-5" />
+            </div>
             {relatedItems.map((relatedItem) => (
               <CardListEntry
                 key={relatedItem.id}
                 relatedItem={relatedItem}
               />
             ))}
-            <FontAwesomeIcon icon={faArrowRight} className="absolute right-0 self-center mr-2" />
           </div>
         )}
     </div>
