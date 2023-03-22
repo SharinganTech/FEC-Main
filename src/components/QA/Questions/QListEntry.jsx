@@ -4,7 +4,7 @@ import AModal from '../Modals/AModal';
 
 function QListEntry({ eachQ }) {
   const [qHelpful, setQHelpful] = useState(eachQ.question_helpfulness);
-  const [openModal, setOpenModal] = useState(false);
+  const [openAModal, setOpenAModal] = useState(false);
   // console.log(eachQ);
 
   function handleQHelpful() {
@@ -12,22 +12,24 @@ function QListEntry({ eachQ }) {
   }
 
   function handleAddAnswerClick() {
-    setOpenModal(true);
+    setOpenAModal(true);
   }
 
   return (
     <>
       <div className="flex-row">
-        <div className="flex justify-between items-center max-w-[800px]" style={{ border: '1px solid red' }}>
-          <main className="font-bold">{`Q: ${eachQ.question_body} `}</main>
-          <span className="text-xs">
+        <div className="flex justify-between items-center" style={{ border: '1px solid red' }}>
+          <div className="font-bold">
+            {`Q: ${eachQ.question_body} `}
+          </div>
+          <div className="text-xs">
             <input className="text-blue-600" type="button" onClick={handleQHelpful} value={`Helpful? Yes (${qHelpful})`} />
-            <button type="button" className="text-blue-600" onClick={handleAddAnswerClick}>Add Answer</button>
-          </span>
+            <button type="button" className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-1 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={handleAddAnswerClick}>ADD ANSWER</button>
+          </div>
         </div>
         <AList eachQ={eachQ} />
       </div>
-      {openModal ? <AModal question={eachQ.question_body} setOpenModal={setOpenModal} /> : null}
+      {openAModal ? <AModal question={eachQ.question_body} setOpenAModal={setOpenAModal} /> : null}
     </>
   );
 }
