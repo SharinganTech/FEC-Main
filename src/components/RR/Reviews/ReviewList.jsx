@@ -45,7 +45,7 @@ function ReviewList({ prodID, totalReviews }) {
 
   return reviews.length ? (
     <div id="reviews-list">
-      <div className="flex">
+      <div className="flex mb-4">
         <div className="mr-1">
           {totalReviews}
           {' reviews, sorted by'}
@@ -56,16 +56,17 @@ function ReviewList({ prodID, totalReviews }) {
         <Review
           key={review.review_id}
           review={review}
+          makeGetRequest={makeGetRequest}
         />
       ))}
-      <div>
+      <div className="flex flex-row">
         {totalReviews > 2 ? (
           <button
             onClick={() => {
               setCount(count + 2);
               makeGetRequest(count + 2);
             }}
-            className="text-black border-2 border-black font-bold py-2 px-4 rounded"
+            className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
             type="button"
           >
             MORE REVIEWS

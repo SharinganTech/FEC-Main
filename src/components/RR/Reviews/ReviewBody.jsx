@@ -4,9 +4,9 @@ function ReviewBody({
   reviewSummary, reviewBody, reviewPhotos, recommended,
 }) {
   const images = () => (
-    <div>
+    <div className="flex flex-row">
       {reviewPhotos.map((image) => (
-        <img key={image.id} src={image.url} alt="Review" />
+        <img className="w-40 h-40" key={image.id} src={image.url} alt="Review" />
       ))}
     </div>
   );
@@ -16,7 +16,7 @@ function ReviewBody({
       <div className="font-bold">{reviewSummary}</div>
       <div>{reviewBody}</div>
       <div>{images()}</div>
-      <div>{recommended ? <div>I recommend this product</div> : null}</div>
+      <div>{recommended ? <div>&#x2713; I recommend this product</div> : null}</div>
     </div>
   );
 }
