@@ -7,12 +7,14 @@ import HelpfulButtons from './HelpfulButtons';
 function Review({ review }) {
   const date = new Date(review.date);
   return (
-    <div>
-      <Stars rating={review.rating} />
+    <div className="flex flex-col">
       <div>
-        {review.reviewer_name}
-        {' '}
-        {date.toDateString()}
+        <Stars rating={review.rating} />
+        <div className="text-s float-right">
+          {review.reviewer_name}
+          {' '}
+          {date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+        </div>
       </div>
       <ReviewBody
         reviewSummary={review.summary}
@@ -20,7 +22,7 @@ function Review({ review }) {
         reviewPhotos={review.photos}
         recommended={review.recommend}
       />
-      <HelpfulButtons reviewId={review.review_id} helpfulness={review.helpfulness} />
+      <HelpfulButtons reviewID={review.review_id} helpfulness={review.helpfulness} />
       <br />
     </div>
   );

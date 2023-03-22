@@ -12,12 +12,11 @@ function ReviewBody({
   );
 
   return (
-    <div>
-      {reviewSummary}
-      {' '}
-      {reviewBody}
-      {images()}
-      {recommended ? <div>I recommend this product</div> : null}
+    <div className="flex flex-col">
+      <div className="font-bold">{reviewSummary}</div>
+      <div>{reviewBody}</div>
+      <div>{images()}</div>
+      <div>{recommended ? <div>I recommend this product</div> : null}</div>
     </div>
   );
 }

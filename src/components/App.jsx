@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
 // import Overview from './Overview';
-// import RatingsAndReviews from './RR';
-import QA from './QA';
-=======
-import Overview from './Overview';
 import RatingsAndReviews from './RR';
 // import QA from './QA';
->>>>>>> main
 // import RelatedItemsAndComparison from './RIC';
 import ProductContext from '../contexts/ProductContext';
 
@@ -46,16 +40,11 @@ function App() {
     );
   }
   return (
-<<<<<<< HEAD
     <ProductContext.Provider value={productId} className="relative">
       {/* <Overview /> */}
-=======
-    <ProductContext.Provider value={productId}>
-      <Overview />
->>>>>>> main
       {/* <RelatedItemsAndComparison /> */}
-      <QA />
-      {/* <RatingsAndReviews /> */}
+      {/* <QA /> */}
+      <RatingsAndReviews />
     </ProductContext.Provider>
   );
 }
