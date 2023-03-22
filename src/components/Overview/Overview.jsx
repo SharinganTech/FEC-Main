@@ -54,10 +54,11 @@ function Overview() {
   const changeStyle = (elementID) => {
     setStyleID(elementID);
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
-    console.log('newStyleee: ', newStyle[0].photos[0].url);
+    console.log('newStyleee: ', newStyle[0].photos);
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
+    setStylePhotos(newStyle[0].photos);
   };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
@@ -68,7 +69,7 @@ function Overview() {
         <div className="col-start-2 col-end-5 row-start-0 row-end-3">
           <Gallery styleID={styleID} stylePhotos={stylePhotos} mainImage={mainImage} />
         </div>
-        <div className="col-start-5 col-end-6 row-start-2 row-end-4">
+        <div className="col-start-5 col-end-7 row-start-2 row-end-4">
           <ProductInfo currentStyle={currentStyle} />
           <StyleSelector styles={styles} styleName={styleName} changeStyle={changeStyle} />
         </div>

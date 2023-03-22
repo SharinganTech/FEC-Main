@@ -10,8 +10,18 @@ function Price({ currentStyle }) {
   }
   return (
     <div>
-      <div class="line-through">${currentStyle.original_price}</div>
-      <div class="text-red-600">${currentStyle.sale_price}</div>
+      <p>
+        <div>
+          <span  className="line-through">
+            $
+            {currentStyle.original_price}
+          </span>
+          <span className="text-red-600">
+            $
+            {currentStyle.sale_price}
+          </span>
+        </div>
+      </p>
     </div>
   );
 }

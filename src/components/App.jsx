@@ -44,7 +44,7 @@ function App() {
       <Overview />
       {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
-      <RatingsAndReviews />
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
