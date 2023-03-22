@@ -5,7 +5,6 @@ import QListEntries from './QListEntries';
 function QList({ prodId }) {
   const [listOfQs, setListOfQs] = useState([]);
 
-  // console.log(prodId);
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', {
       headers: {
@@ -13,6 +12,7 @@ function QList({ prodId }) {
       },
       params: {
         product_id: prodId,
+        // product_id: 40344,
       },
     })
       .then((response) => {
@@ -23,10 +23,9 @@ function QList({ prodId }) {
         throw new Error('Error getting QA data', err);
       });
   }, []);
-  // console.log(listOfQs);
 
   return (
-    <div className="flex">
+    <div className="flex-col">
       {listOfQs.map((eachQ) => (
         <QListEntries key={eachQ.question_id} eachQ={eachQ} />
       ))}
@@ -35,25 +34,3 @@ function QList({ prodId }) {
 }
 
 export default QList;
-
-// import React from 'react';
-// import QAListEntry from './QAListEntry';
-
-// function QAList({ qList }) {
-//   // const [qList, setQList] = useState([]);
-//   // console.log(qList)
-
-//   function qListRender(list) {
-//     return list.map((eachQ) => (
-//       <QAListEntry key={eachQ.question_id} eachQ={eachQ} />
-//     ));
-//   }
-
-//   return (
-//     <div className="flex">
-//       {qListRender(qList)}
-//     </div>
-//   );
-// }
-
-// export default QAList;

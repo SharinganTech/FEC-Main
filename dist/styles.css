@@ -468,6 +468,8 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+<<<<<<< HEAD
+=======
 .container {
   width: 100%;
 }
@@ -501,12 +503,18 @@ video {
     max-width: 1536px;
   }
 }
+>>>>>>> main
 .absolute {
   position: absolute;
 }
 .relative {
   position: relative;
 }
+<<<<<<< HEAD
+.z-10 {
+  z-index: 10;
+}
+=======
 .z-auto {
   z-index: auto;
 }
@@ -522,12 +530,23 @@ video {
 .m-\[10px\] {
   margin: 10px;
 }
+>>>>>>> main
 .flex {
   display: flex;
 }
 .grid {
   display: grid;
 }
+<<<<<<< HEAD
+.h-full {
+  height: 100%;
+}
+.h-screen {
+  height: 100vh;
+}
+.max-h-\[250px\] {
+  max-height: 250px;
+=======
 .h-\[50px\] {
   height: 50px;
 }
@@ -557,10 +576,18 @@ video {
 }
 .max-h-\[800px\] {
   max-height: 800px;
+>>>>>>> main
 }
 .w-\[500px\] {
   width: 500px;
 }
+<<<<<<< HEAD
+.w-full {
+  width: 100%;
+}
+.w-screen {
+  width: 100vw;
+=======
 .w-\[50px\] {
   width: 50px;
 }
@@ -584,16 +611,20 @@ video {
 }
 .max-w-\[225px\] {
   max-width: 225px;
+>>>>>>> main
 }
 .max-w-\[800px\] {
   max-width: 800px;
 }
+<<<<<<< HEAD
+=======
 .max-w-\[50px\] {
   max-width: 50px;
 }
 .max-w-\[600px\] {
   max-width: 600px;
 }
+>>>>>>> main
 .grid-cols-\[1fr_3fr\] {
   grid-template-columns: 1fr 3fr;
 }
@@ -618,18 +649,29 @@ video {
 .gap-2 {
   gap: 0.5rem;
 }
+<<<<<<< HEAD
+.overflow-y-auto {
+  overflow-y: auto;
+}
+.break-all {
+  word-break: break-all;
+=======
 .gap-\[5px\] {
   gap: 5px;
 }
 .overflow-hidden {
   overflow: hidden;
+>>>>>>> main
 }
 .rounded {
   border-radius: 0.25rem;
 }
+<<<<<<< HEAD
+=======
 .rounded-full {
   border-radius: 9999px;
 }
+>>>>>>> main
 .border {
   border-width: 1px;
 }
@@ -640,6 +682,15 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+<<<<<<< HEAD
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+=======
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -659,6 +710,7 @@ video {
 .object-scale-down {
   -o-object-fit: scale-down;
      object-fit: scale-down;
+>>>>>>> main
 }
 .px-4 {
   padding-left: 1rem;
@@ -668,6 +720,17 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+<<<<<<< HEAD
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+=======
+>>>>>>> main
 .font-bold {
   font-weight: 700;
 }
