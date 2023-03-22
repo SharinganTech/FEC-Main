@@ -6,10 +6,12 @@ import AddReview from './AddReview';
 function ReviewList({ prodID }) {
   const [reviews, setReviews] = useState([]);
   const [count, setCount] = useState(2);
+  const [sort, setSort] = useState('Relevant');
 
-  const makeGetRequest = (newCount) => {
+  const makeGetRequest = (newCount, newSort) => {
     const countToSearch = newCount || count;
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=${countToSearch}`, {
+    const sortToSearch = newSort;
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=${countToSearch}&sort=${sortToSearch}`, {
       headers: {
         Authorization: process.env.AUTH_TOKEN,
       },
@@ -25,7 +27,13 @@ function ReviewList({ prodID }) {
   }, []);
 
   const dropdown = () => (
-    <select>
+    <select
+      value={sort}
+      onChange={(e) => {
+        setSort(e.target.value);
+        makeGetRequest(null, e.target.value);
+      }}
+    >
       <option value="relevant">Relevance</option>
       <option value="helpful">Helpfulness</option>
       <option value="newest">Newest</option>
