@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Review from './Review';
-import AddReview from './AddReview';
+import AddReview from './AddReviews/AddReview';
 
-function ReviewList({ prodID, totalReviews }) {
+function ReviewList({ prodID, reviewsMeta, totalReviews }) {
   const [reviews, setReviews] = useState([]);
   const [count, setCount] = useState(2);
   const [sort, setSort] = useState('Relevant');
@@ -72,10 +72,10 @@ function ReviewList({ prodID, totalReviews }) {
             MORE REVIEWS
           </button>
         ) : null}
-        <AddReview />
+        <AddReview reviewsMeta={reviewsMeta} />
       </div>
     </div>
-  ) : <AddReview />;
+  ) : <AddReview reviewsMeta={reviewsMeta} />;
 }
 
 export default ReviewList;

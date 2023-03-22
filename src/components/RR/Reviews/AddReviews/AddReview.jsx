@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import WriteReviewModal from './WriteReviewModal';
 
-function AddReview() {
-  const [showModal, setShowModal] = useState(false);
+function AddReview({ reviewsMeta }) {
+  const [showModal, setShowModal] = useState(true);
   return (
     <div>
       <button
@@ -14,7 +15,7 @@ function AddReview() {
         ADD A REVIEW +
       </button>
       {showModal ? (
-        <div>Modal will be here</div>
+        <WriteReviewModal setShowModal={setShowModal} reviewsMeta={reviewsMeta} />
       ) : null}
     </div>
   );

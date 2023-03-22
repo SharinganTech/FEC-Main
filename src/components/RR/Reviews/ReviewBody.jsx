@@ -6,15 +6,15 @@ function ReviewBody({
   const images = () => (
     <div className="flex flex-row">
       {reviewPhotos.map((image) => (
-        <img className="w-40 h-40" key={image.id} src={image.url} alt="Review" />
+        <img className="w-full h-40 object-contain" key={image.id} src={image.url} alt="Review" />
       ))}
     </div>
   );
 
   return (
     <div className="flex flex-col">
-      <div className="font-bold">{reviewSummary}</div>
-      <div>{reviewBody}</div>
+      <h5 className="text-xl font-bold">{reviewSummary}</h5>
+      <p className="py-3">{reviewBody}</p>
       <div>{images()}</div>
       <div>{recommended ? <div>&#x2713; I recommend this product</div> : null}</div>
     </div>

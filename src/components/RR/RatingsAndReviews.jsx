@@ -26,6 +26,7 @@ function RatingsAndReviews() {
       <Ratings reviewsMeta={reviewsMeta} />
       <ReviewList
         prodID={prodID}
+        reviewsMeta={reviewsMeta}
         totalReviews={Number(reviewsMeta.recommended.true) + Number(reviewsMeta.recommended.false)}
       />
     </div>
