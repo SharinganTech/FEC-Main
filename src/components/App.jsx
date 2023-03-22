@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 // import Overview from './Overview';
+// import RatingsAndReviews from './RR';
+import QA from './QA';
+=======
+import Overview from './Overview';
 import RatingsAndReviews from './RR';
 // import QA from './QA';
+>>>>>>> main
 // import RelatedItemsAndComparison from './RIC';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
-//   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options})
-
+//   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options});
 //   return res.json()
 // }
 
 function App() {
   const [productId, setProductId] = useState(0);
+  const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
     axios
@@ -21,22 +27,35 @@ function App() {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
         },
+        params: {
+          count: 10,
+        },
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProductId(result.data[0].id);
+        setProductId(result.data[2].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
   }, []);
 
+  if (productId === 0) {
+    return (
+      <div>Loading Page</div>
+    );
+  }
   return (
-    <ProductContext.Provider value={productId}>
+<<<<<<< HEAD
+    <ProductContext.Provider value={productId} className="relative">
       {/* <Overview /> */}
+=======
+    <ProductContext.Provider value={productId}>
+      <Overview />
+>>>>>>> main
       {/* <RelatedItemsAndComparison /> */}
-      {/* <QA /> */}
-      <RatingsAndReviews />
+      <QA />
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
