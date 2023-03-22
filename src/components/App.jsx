@@ -33,7 +33,7 @@ function App() {
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProductId(result.data[2].id);
+        setProductId(result.data[0].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -46,13 +46,8 @@ function App() {
     );
   }
   return (
-<<<<<<< HEAD
-    <ProductContext.Provider value={productId} className="relative">
-      {/* <Overview /> */}
-=======
     <ProductContext.Provider value={productId}>
       <Overview />
->>>>>>> main
       {/* <RelatedItemsAndComparison /> */}
       <QA />
       {/* <RatingsAndReviews /> */}
