@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Overview from './Overview';
+// import Overview from './Overview';
 // import RatingsAndReviews from './RR';
 import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
@@ -21,9 +21,12 @@ function App() {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
         },
+        params: {
+          count: 10,
+        },
       })
       .then((result) => {
-        // console.log('results data', result.data);
+        console.log('results data', result.data);
         setProductId(result.data[0].id);
       })
       .catch((err) => {
