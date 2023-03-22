@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 function AListEntries({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
@@ -11,16 +11,9 @@ function AListEntries({ eachA }) {
     setAHelpful((state) => state + 1);
   }
 
-  function formatDate(date) {
-    const slicedDate = date.slice(0, 10);
-    const dateObj = {
-      month: Number(slicedDate.slice(5, 7)),
-      day: Number(slicedDate.slice(8)),
-      year: Number(slicedDate.slice(0, 4)),
-    };
-    // console.log(dateObj);
-    return format(new Date(dateObj.year, dateObj.month - 1, dateObj.day), 'MMMM dd, yyyy');
-  }
+  // function formatDate(date) {
+  //   return format(parseISO(date), 'MMMM dd, yyyy');
+  // }
 
   function handleReportClick() {
     setIsReported(true);
@@ -28,15 +21,15 @@ function AListEntries({ eachA }) {
 
   return (
     <>
-      <div id="answers-body" className="flex break-all">
+      <div data-testid="answers-body" className="flex break-all">
         {`A: ${eachA.body} `}
       </div>
-      <div id="answer-buttons" className="flex justify-between items-center w-[500px] text-sm">
+      <div id="answer-buttons" className="flex justify-between items-center w-[500px] text-sm relative">
         <span>{`by ${eachA.answerer_name}`}</span>
         {eachA.answerer_name.includes('Seller') ? <span className="font-bold">Seller</span> : null}
-        <span>{formatDate(eachA.date)}</span>
-        <input className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful? " />
-        <span>{`Yes (${aHelpful})`}</span>
+        <span>{format(parseISO(eachA.date), 'MMMM dd, yyyy')}</span>
+        <input data-testid="increment-btn" className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful? " />
+        <span data-testid="helpful-span">{`Yes (${aHelpful})`}</span>
         <input className="text-red-600" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
       </div>
     </>

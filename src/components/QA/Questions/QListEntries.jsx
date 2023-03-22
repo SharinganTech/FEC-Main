@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AList from './Answers/AList';
+import AList from '../Answers/AList';
 
 function QListEntries({ eachQ }) {
   const [qHelpful, setQHelpful] = useState(eachQ.question_helpfulness);

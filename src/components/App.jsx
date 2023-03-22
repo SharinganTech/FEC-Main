@@ -7,8 +7,7 @@ import QA from './QA';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
-//   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options})
-
+//   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options});
 //   return res.json()
 // }
 
@@ -35,7 +34,7 @@ function App() {
   }, []);
 
   return (
-    <ProductContext.Provider value={productId}>
+    <ProductContext.Provider value={productId} className="relative">
       {/* <Overview /> */}
       {/* <RelatedItemsAndComparison /> */}
       <QA />
