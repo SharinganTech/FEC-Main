@@ -27,7 +27,6 @@ function Overview() {
       .then((response) => {
         setDataRetrieved(true);
         setProdDetails(response.data);
-        console.log(response.data);
       })
       .catch((err) => {
         console.log('cant get prod details: ', err);
@@ -64,14 +63,16 @@ function Overview() {
     return (<div>Retrieving data</div>);
   }
   return (
-    <div className="container">
+    <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
       <CurrentProduct.Provider value={prodDetails}>
-        <Gallery styleID={styleID} stylePhotos={stylePhotos} mainImage={mainImage} />
-        <div className="float-right">
+        <div className="col-start-2 col-end-5 row-start-0 row-end-3">
+          <Gallery styleID={styleID} stylePhotos={stylePhotos} mainImage={mainImage} />
+        </div>
+        <div className="col-start-5 col-end-6 row-start-2 row-end-4">
           <ProductInfo currentStyle={currentStyle} />
           <StyleSelector styles={styles} styleName={styleName} changeStyle={changeStyle} />
         </div>
-        <div className="relative float-bottom">
+        <div className="col-start-2 col-end-6 row-start-3 row-end-4">
           <ProductOverview />
         </div>
       </CurrentProduct.Provider>
