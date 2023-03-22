@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import QListEntries from './QListEntries';
+import QListEntry from './QListEntry';
+// import AModal from '../Modals/AModal';
 
 function QList({ prodId }) {
   const [listOfQs, setListOfQs] = useState([]);
 
   useEffect(() => {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${prodId}`, {
       headers: {
         Authorization: process.env.AUTH_TOKEN,
-      },
-      params: {
-        product_id: prodId,
-        // product_id: 40344,
       },
     })
       .then((response) => {
@@ -27,7 +24,7 @@ function QList({ prodId }) {
   return (
     <div className="flex-col">
       {listOfQs.map((eachQ) => (
-        <QListEntries key={eachQ.question_id} eachQ={eachQ} />
+        <QListEntry key={eachQ.question_id} eachQ={eachQ} />
       ))}
     </div>
   );

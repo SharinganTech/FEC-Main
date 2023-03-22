@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
 // import Overview from './Overview';
-// import RatingsAndReviews from './RR';
-import QA from './QA';
-=======
-import Overview from './Overview';
-import RatingsAndReviews from './RR';
-// import QA from './QA';
->>>>>>> main
 // import RelatedItemsAndComparison from './RIC';
+import QA from './QA';
+import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -23,16 +17,13 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products?count=${20}`, {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
         },
-        params: {
-          count: 10,
-        },
       })
       .then((result) => {
-        // console.log('results data', result.data);
+        console.log('results data', result.data);
         setProductId(result.data[2].id);
       })
       .catch((err) => {
@@ -46,16 +37,11 @@ function App() {
     );
   }
   return (
-<<<<<<< HEAD
     <ProductContext.Provider value={productId} className="relative">
       {/* <Overview /> */}
-=======
-    <ProductContext.Provider value={productId}>
-      <Overview />
->>>>>>> main
       {/* <RelatedItemsAndComparison /> */}
       <QA />
-      {/* <RatingsAndReviews /> */}
+      <RatingsAndReviews />
     </ProductContext.Provider>
   );
 }
