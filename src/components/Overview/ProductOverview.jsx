@@ -6,7 +6,7 @@ function ProductOverview() {
   const product = useContext(CurrentProduct);
   if (product) {
     return (
-      <div>
+      <div id="des-slogan">
         <p>{product.slogan}</p>
         <p>{product.description}</p>
       </div>

@@ -22,7 +22,7 @@ function Overview() {
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
-      headers: { Authorization: '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' },
+      headers: { Authorization: process.env.AUTH_TOKEN, },
     })
       .then((response) => {
         setDataRetrieved(true);
@@ -33,7 +33,7 @@ function Overview() {
       })
       .then(() => (
         axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}/styles`, {
-          headers: { Authorization: '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' },
+          headers: { Authorization: process.env.AUTH_TOKEN },
         })
       ))
       .then((response) => {
