@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import Overview from './Overview';
-import RatingsAndReviews from './RR';
-// import QA from './QA';
+// import RatingsAndReviews from './RR';
+import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
 import ProductContext from '../contexts/ProductContext';
 
@@ -26,7 +26,7 @@ function App() {
         },
       })
       .then((result) => {
-        console.log('results data', result.data);
+        // console.log('results data', result.data);
         setProductId(result.data[0].id);
       })
       .catch((err) => {
@@ -38,8 +38,8 @@ function App() {
     <ProductContext.Provider value={productId}>
       {/* <Overview /> */}
       {/* <RelatedItemsAndComparison /> */}
-      {/* <QA /> */}
-      <RatingsAndReviews />
+      <QA />
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }

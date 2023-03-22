@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 
 function AListEntries({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
+  const [isReported, setIsReported] = useState(false);
   // console.log(eachQ);
 
   function handleAHelpfulClick() {
@@ -17,7 +18,12 @@ function AListEntries({ eachA }) {
       day: Number(slicedDate.slice(8)),
       year: Number(slicedDate.slice(0, 4)),
     };
-    return format(new Date(dateObj.month, dateObj.day, dateObj.year), 'MMMM dd, yyyy');
+    // console.log(dateObj);
+    return format(new Date(dateObj.year, dateObj.month - 1, dateObj.day), 'MMMM dd, yyyy');
+  }
+
+  function handleReportClick() {
+    setIsReported(true);
   }
 
   return (
@@ -31,6 +37,7 @@ function AListEntries({ eachA }) {
         <span>{formatDate(eachA.date)}</span>
         <input className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful? " />
         <span>{`Yes (${aHelpful})`}</span>
+        <input className="text-red-600" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
       </div>
     </>
   );
