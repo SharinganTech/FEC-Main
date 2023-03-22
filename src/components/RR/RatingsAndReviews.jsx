@@ -7,7 +7,7 @@ function RatingsAndReviews() {
   const prodID = useContext(ProductContext);
 
   return prodID !== 0 ? (
-    <div className="grid grid-cols-[1fr_3fr] gap-2">
+    <div className="grid grid-cols-[1fr_3fr] gap-3 mx-10">
       <Ratings prodID={prodID} />
       <ReviewList prodID={prodID} />
     </div>

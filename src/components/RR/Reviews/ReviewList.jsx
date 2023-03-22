@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Review from './Review';
+import AddReview from './AddReview';
 
 function ReviewList({ prodID }) {
   const [reviews, setReviews] = useState([]);
+  const [count, setCount] = useState(2);
 
-  useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=5&page=11`, {
+  const makeGetRequest = (newCount) => {
+    const countToSearch = newCount || count;
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=${countToSearch}`, {
       headers: {
         Authorization: process.env.AUTH_TOKEN,
       },
@@ -15,6 +18,10 @@ function ReviewList({ prodID }) {
         setReviews(response.data.results);
       });
     // .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    makeGetRequest();
   }, []);
 
   const dropdown = () => (
@@ -26,9 +33,9 @@ function ReviewList({ prodID }) {
   );
 
   return reviews.length ? (
-    <div>
+    <div id="reviews-list">
       <div>
-        <div>total reviews, sorted by</div>
+        <div>1532 reviews, sorted by</div>
         {dropdown()}
       </div>
       {reviews.map((review) => (
@@ -37,8 +44,19 @@ function ReviewList({ prodID }) {
           review={review}
         />
       ))}
-      <button className="text-black border-2 border-black font-bold py-2 px-4 rounded" type="button">MORE REVIEWS</button>
-      <button className="text-black border-2 border-black font-bold py-2 px-4 rounded" type="button">ADD A REVIEW +</button>
+      <div>
+        <button
+          onClick={() => {
+            setCount(count + 2);
+            makeGetRequest(count + 2);
+          }}
+          className="text-black border-2 border-black font-bold py-2 px-4 rounded"
+          type="button"
+        >
+          MORE REVIEWS
+        </button>
+        <AddReview />
+      </div>
     </div>
   ) : null;
 }

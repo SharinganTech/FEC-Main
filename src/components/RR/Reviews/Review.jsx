@@ -1,6 +1,6 @@
 import React from 'react';
 // import { format } from 'date-fns';
-import Stars from './Stars';
+import Stars from '../Stars';
 import ReviewBody from './ReviewBody';
 import HelpfulButtons from './HelpfulButtons';
 
@@ -21,6 +21,7 @@ function Review({ review }) {
         recommended={review.recommend}
       />
       <HelpfulButtons reviewId={review.review_id} helpfulness={review.helpfulness} />
+      <br />
     </div>
   );
 }
