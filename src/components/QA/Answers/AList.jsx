@@ -36,12 +36,12 @@ function AList({ eachQ }) {
   }
 
   return (
-    <div className="flex-col overflow-y-auto max-h-[250px] relative" style={{ border: '1px solid red' }}>
+    <div className="flex-col overflow-y-auto max-h-[250px] relative">
       {listView.map((eachA) => (
         <AListEntry key={eachA.id} eachA={eachA} />
       ))}
-      <div>
-        {aData.length < 1 ? null : <button type="button" className="bg-pastelGray text-white font-bold uppercase text-sm px-1 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={handleMoreAnswersClick}>{moreAnswersText()}</button>}
+      <div className="pt-3">
+        {aData.length < 1 ? null : <button type="button" className="bg-pastelGray text-white font-bold uppercase text-sm px-2 py-1 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={handleMoreAnswersClick}>{moreAnswersText()}</button>}
       </div>
     </div>
   );

@@ -37,14 +37,15 @@ function QList({ prodId }) {
 
   return (
     <>
+      <div className="text-2xl uppercase py-3">Questions & Answers</div>
       <div className="flex-col">
         {listOfQs.map((eachQ) => (
           <QListEntry key={eachQ.question_id} eachQ={eachQ} prodName={prodName} />
         ))}
       </div>
       <div className="flex items-center justify-start space-x-10 p-6">
-        <button className="w-[275px] bg-pastelGray text-white font-bold uppercase text-sm px-3 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">More Answered Questions</button>
-        <button className="w-[250px] bg-pastelGray text-white font-bold uppercase text-sm px-3 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
+        <button className="bg-pastelGray text-white font-bold uppercase text-sm px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">More Answered Questions</button>
+        <button className="bg-pastelGray text-white font-bold uppercase text-sm px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
       </div>
       {openQModal ? <QModal prodName={prodName} setOpenQModal={setOpenQModal} /> : null}
     </>

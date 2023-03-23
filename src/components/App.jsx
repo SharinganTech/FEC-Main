@@ -24,7 +24,7 @@ function App() {
       })
       .then((result) => {
         console.log('results data', result.data);
-        setProductId(result.data[3].id);
+        setProductId(result.data[6].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
