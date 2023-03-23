@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import CardListEntry from './CardListEntry';
 
-function CardList({ prodId }) {
+function CardList({ prod, changeProdClick }) {
+  const prodId = prod.id;
   const [activeIndex, setActiveIndex] = useState(0);
   // set a state for the related items array
   const [relatedItems, setRelatedItems] = useState([]);
   // useEffect to make a get request for the relaed items
   useEffect(() => {
+    console.log('here');
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}/related`, {
         headers: {
@@ -29,53 +31,62 @@ function CardList({ prodId }) {
         ));
         Promise.all(listOfRelatedItems)
           .then((result) => {
-            console.log(result);
             setRelatedItems(result);
           });
       });
-  }, []);
+  }, [prodId]);
 
-  const updateIndex = (newIndex) => {
-    let index = newIndex;
-    if (index < 0) {
-      index = 0;
-    } else if (index >= (relatedItems.length / 4)) {
-      index = 0;
+  const handleNext = () => {
+    if (activeIndex === relatedItems.length - 1) {
+      setActiveIndex(0); // set index back to first element
+    } else {
+      setActiveIndex(activeIndex + 1); // increment index
     }
+  };
 
-    setActiveIndex(index);
+  const handlePrev = () => {
+    if (activeIndex === 0) {
+      setActiveIndex(relatedItems.length - 1); // set index to last element
+    } else {
+      setActiveIndex(activeIndex - 1); // decrement index
+    }
   };
 
   return (
     <div className="h-[28rem] relative flex flex-row space-x-5 w-full h-64">
       {/* map over the related items to create a card for each item */}
-      <div className="absolute left-0 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          className="absolute left-0 self-center ml-5"
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-        />
-      </div>
+      {activeIndex === 0
+        ? <div />
+        : (
+          <div className="absolute left-0 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className="absolute left-0 self-center ml-5"
+              onClick={() => {
+                handlePrev();
+              }}
+            />
+          </div>
+        )}
       <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent">
         <FontAwesomeIcon
           icon={faArrowRight}
           className="absolute right-0 self-center mr-5"
           onClick={() => {
-            updateIndex(activeIndex + 1);
+            handleNext();
           }}
         />
       </div>
       {relatedItems.length === 0
         ? <h1> Loading... </h1>
         : (
-          <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full">
+          <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full left-20">
             {relatedItems.map((relatedItem) => (
               <CardListEntry
                 key={relatedItem.id}
                 relatedItem={relatedItem}
                 activeIndex={activeIndex}
+                changeProdClick={changeProdClick}
               />
             ))}
           </div>

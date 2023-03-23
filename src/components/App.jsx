@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Overview from './Overview';
-import RatingsAndReviews from './RR';
+// import Overview from './Overview';
+// import RatingsAndReviews from './RR';
 import RelatedItemsAndComparison from './RIC';
-import QA from './QA';
+// import QA from './QA';
 import ProductContext from '../contexts/ProductContext';
+import Loading from './RIC/Loading';
 
 // const useFetchData = async (url, options) => {
 //   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options});
@@ -22,19 +23,41 @@ function App() {
         },
       })
       .then((result) => {
-        setProduct(result.data[3]);
+        setProduct(result.data[4]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
   }, []);
 
+  const changeProdClick = (prodId) => {
+    axios
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
+      })
+      .then((result) => {
+        setProduct(result.data);
+      })
+      .catch((err) => {
+        throw new Error('Error in changing product', err);
+      });
+  };
+
   return (
     <ProductContext.Provider value={product}>
-      <Overview />
-      <RelatedItemsAndComparison />
-      <QA />
-      <RatingsAndReviews />
+      {product.id === undefined
+        ? <Loading />
+        : (
+          <>
+            {/* <Overview /> */}
+            <RelatedItemsAndComparison changeProdClick={changeProdClick} />
+            {/* <QA />
+            <RatingsAndReviews /> */}
+          </>
+        )
+      }
     </ProductContext.Provider>
   );
 }
