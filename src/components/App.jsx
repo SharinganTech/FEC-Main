@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// <<<<<<< HEAD
-// import Overview from './Overview';
-// import RatingsAndReviews from './RR';
-import QA from './QA';
+import Overview from './Overview';
+import RatingsAndReviews from './RR';
+// import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
+import QA from './QA';
+// import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -15,19 +16,20 @@ import ProductContext from '../contexts/ProductContext';
 function App() {
   const [product, setProduct] = useState({});
   const [canRender, setCanRender] = useState(false);
+  const [productId, setProductId] = useState(0);
+  // const [canRender, setCanRender] = useState(false);
+
   useEffect(() => {
     axios
-      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products?count=${20}`, {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
-        },
-        params: {
-          count: 10,
         },
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProduct(result.data[4]);
+        setProduct(result.data[3]);
+        setProductId(result.data[3].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -42,7 +44,7 @@ function App() {
   return (
     <ProductContext.Provider value={product}>
       {/* <Overview /> */}
-      <RelatedItemsAndComparison />
+      {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
       {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>

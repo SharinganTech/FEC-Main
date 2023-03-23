@@ -1,9 +1,9 @@
 import React from 'react';
 import 'react-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import AListEntries from './AListEntries';
+import AListEntry from './AListEntry';
 
 const eachA = {
   answerer_name: 'haha',
@@ -14,13 +14,14 @@ const eachA = {
 };
 
 test('loads and displays AList', async () => {
-  render(<AListEntries eachA={eachA} />);
+  const renderedList = render(<AListEntry eachA={eachA} />);
   const body = await screen.getByTestId('answers-body');
+  screen.debug();
   expect(body).toHaveTextContent('hehe');
 });
 
 test('should increment helpful', async () => {
-  render(<AListEntries eachA={eachA} />);
+  render(<AListEntry eachA={eachA} />);
   // expect(body).toHaveTextContent('hehe');
   const span = await screen.getByTestId('helpful-span');
   const btn = await screen.getByTestId('increment-btn');
