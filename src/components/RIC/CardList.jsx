@@ -3,7 +3,6 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import CardListEntry from './CardListEntry';
-import Loading from './Loading';
 
 function CardList({ prodId }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,8 +39,8 @@ function CardList({ prodId }) {
     let index = newIndex;
     if (index < 0) {
       index = 0;
-    } else if (index >= relatedItems.length) {
-      index = relatedItems.length - 1;
+    } else if (index >= (relatedItems.length / 4)) {
+      index = 0;
     }
 
     setActiveIndex(index);
@@ -69,7 +68,7 @@ function CardList({ prodId }) {
         />
       </div>
       {relatedItems.length === 0
-        ? <Loading />
+        ? <h1> Loading... </h1>
         : (
           <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full">
             {relatedItems.map((relatedItem) => (
