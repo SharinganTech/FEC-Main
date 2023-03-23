@@ -24,9 +24,13 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex flex-col items-start justify-between p-4 border-b border-solid border-slate-200 rounded-t">
               <h3 className="text-xl font-bold">Write Your Review</h3>
-              {/* <button
+              <button
                 onClick={() => setShowModal(false)}
-                className="float-right text-2xl" type="button">x</button> */}
+                className="float-right text-2xl"
+                type="button"
+              >
+                x
+              </button>
               <h6 className="text-m">
                 About the
                 {' '}

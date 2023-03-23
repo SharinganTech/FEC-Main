@@ -3,7 +3,7 @@ import Stars from '../../Stars';
 import CharacterInput from './CharacterInput';
 
 function ReviewForm({ reviewsMeta }) {
-  const [stars, setStars] = useState(0);
+  // const [stars, setStars] = useState(0);
 
   return (
     <form>
@@ -19,13 +19,18 @@ function ReviewForm({ reviewsMeta }) {
           No
         </label>
       </div>
-      <div>characteristics section</div>
-      {Object.keys(reviewsMeta.characteristics).map((key) => (
-        <CharacterInput
-          key={reviewsMeta.characteristics[key].id}
-          characteristic={key}
-        />
-      ))}
+      <div className="grid grid-rows-6">
+        {Object.keys(reviewsMeta.characteristics).map((key) => (
+          <CharacterInput
+            key={reviewsMeta.characteristics[key].id}
+            characteristic={key}
+          />
+        ))}
+      </div>
+      <label htmlFor="summary">
+        Summary:
+        <input className="ml-1" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
+      </label>
     </form>
   );
 }
