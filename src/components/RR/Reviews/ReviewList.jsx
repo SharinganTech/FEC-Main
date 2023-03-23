@@ -75,7 +75,12 @@ function ReviewList({ prodID, reviewsMeta, totalReviews }) {
         <AddReview reviewsMeta={reviewsMeta} />
       </div>
     </div>
-  ) : <AddReview reviewsMeta={reviewsMeta} />;
+  ) : (
+    <div className="p-4">
+      <h3 className="font-bold my-4 text-xl">There are currently no reviews, use the button to add one!</h3>
+      <AddReview reviewsMeta={reviewsMeta} />
+    </div>
+  );
 }
 
 export default ReviewList;

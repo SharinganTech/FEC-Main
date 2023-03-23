@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Overview from './Overview';
+// import Overview from './Overview';
 import RatingsAndReviews from './RR';
 // import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
-import QA from './QA';
-// import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -16,7 +14,7 @@ import ProductContext from '../contexts/ProductContext';
 function App() {
   const [product, setProduct] = useState({});
   const [canRender, setCanRender] = useState(false);
-  const [productId, setProductId] = useState(0);
+  // const [productId, setProductId] = useState(0);
   // const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
@@ -28,8 +26,8 @@ function App() {
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProduct(result.data[3]);
-        setProductId(result.data[3].id);
+        setProduct(result.data[2]);
+        // setProductId(result.data[3].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -46,7 +44,7 @@ function App() {
       {/* <Overview /> */}
       {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
-      {/* <RatingsAndReviews /> */}
+      {product.id ? <RatingsAndReviews /> : null}
     </ProductContext.Provider>
   );
 }
