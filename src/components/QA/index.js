@@ -1,3 +1,3 @@
-import QA from './QAHome';
+import QA from './Home';
 
 export default QA;
