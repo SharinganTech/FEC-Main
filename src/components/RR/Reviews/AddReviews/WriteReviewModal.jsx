@@ -36,7 +36,7 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
     </div>
   );
 
-  return <Modal componentToRender={componentToRender} />;
+  return <Modal modalContent={componentToRender} />;
 }
 
 export default WriteReviewModal;

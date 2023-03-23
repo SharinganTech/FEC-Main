@@ -43,7 +43,7 @@ function ReviewForm({ reviewsMeta }) {
         <input className="ml-1" name="body" maxLength="1000" placeholder="Why did you like the product or not?" defaultValue="" />
       </label>
       <button onClick={() => setShowImageUpload(true)} className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="button">Upload Photo</button>
-      {showImageUpload ? <Modal componentToRender={imageUpload} /> : null}
+      {showImageUpload ? <Modal modalContent={imageUpload} /> : null}
       <label htmlFor="nickname">
         Nickname:
         <input className="ml-1" name="nickname" maxLength="60" placeholder="Example: jackson11!" defaultValue="" />
