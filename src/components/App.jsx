@@ -24,7 +24,7 @@ function App() {
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProduct(result.data[3]);
+        setProduct(result.data[0]);
         // setProductId(result.data[3].id);
       })
       .catch((err) => {

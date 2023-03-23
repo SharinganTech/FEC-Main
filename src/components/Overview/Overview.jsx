@@ -6,6 +6,7 @@ import StyleSelector from './StyleSelector';
 import AddToCart from './AddToCart';
 import Gallery from './Gallery';
 import ProductContext from '../../contexts/ProductContext';
+import Features from './Features';
 
 export const CurrentProduct = createContext(null);
 
@@ -13,6 +14,7 @@ function Overview() {
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
+  console.log('the prod: ', prod);
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
@@ -74,34 +76,33 @@ function Overview() {
   }
   return (
     <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <CurrentProduct.Provider value={prodDetails}>
-        <div className="col-start-2 col-end-5 row-start-0 row-end-3">
-          <Gallery
-            styleID={styleID}
-            stylePhotos={stylePhotos}
-            mainImage={mainImage}
-            changeMain={changeMain}
-          />
-        </div>
-        <div className="col-start-5 col-end-7 row-start-2 row-end-4">
-          <ProductInfo
-            currentStyle={currentStyle}
-            category={prod.category}
-            name={prod.name}
-          />
-          <StyleSelector
-            styles={styles}
-            styleName={styleName}
-            changeStyle={changeStyle}
-          />
-          <AddToCart
-            inventory={inventory}
-          />
-        </div>
-        <div className="col-start-2 col-end-6 row-start-3 row-end-4">
-          <ProductOverview slogan={prod.slogan} description={prod.description} />
-        </div>
-      </CurrentProduct.Provider>
+      <div className="col-start-2 col-end-5 row-start-0 row-end-3">
+        <Gallery
+          styleID={styleID}
+          stylePhotos={stylePhotos}
+          mainImage={mainImage}
+          changeMain={changeMain}
+        />
+      </div>
+      <div className="col-start-5 col-end-7 row-start-2 row-end-3">
+        <ProductInfo
+          currentStyle={currentStyle}
+          category={prod.category}
+          name={prod.name}
+        />
+        <StyleSelector
+          styles={styles}
+          styleName={styleName}
+          changeStyle={changeStyle}
+        />
+        <AddToCart
+          inventory={inventory}
+        />
+      </div>
+      <div className="col-start-2 col-end-6 row-start-3 row-end-4 text-center flex flex-row justify-between">
+        <ProductOverview slogan={prod.slogan} description={prod.description} />
+        <Features />
+      </div>
     </div>
   );
 }

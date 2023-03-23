@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Features({ feature }) {
+function Features({ features }) {
   return (
     <div>
-      <p>{feature.feature}: {feature.value}</p>
+      Featurejhfkjshgkjhdsfkgjhsdkjghkdjshs
     </div>
   );
 }

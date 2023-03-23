@@ -534,6 +534,9 @@ video {
 .col-end-7 {
   grid-column-end: 7;
 }
+.col-end-4 {
+  grid-column-end: 4;
+}
 .row-start-1 {
   grid-row-start: 1;
 }
@@ -554,6 +557,9 @@ video {
 }
 .m-\[10px\] {
   margin: 10px;
+}
+.m-\[15px\] {
+  margin: 15px;
 }
 .mx-1 {
   margin-left: 0.25rem;
@@ -621,6 +627,9 @@ video {
 .mb-\[15px\] {
   margin-bottom: 15px;
 }
+.mr-\[10px\] {
+  margin-right: 10px;
+}
 .block {
   display: block;
 }
@@ -687,6 +696,21 @@ video {
 .h-\[60px\] {
   height: 60px;
 }
+.h-\[100px\] {
+  height: 100px;
+}
+.h-\[200px\] {
+  height: 200px;
+}
+.h-\[500px\] {
+  height: 500px;
+}
+.h-\[300px\] {
+  height: 300px;
+}
+.h-\[150px\] {
+  height: 150px;
+}
 .max-h-56 {
   max-height: 14rem;
 }
@@ -695,6 +719,9 @@ video {
 }
 .max-h-\[250px\] {
   max-height: 250px;
+}
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 .w-24 {
   width: 6rem;
@@ -762,6 +789,15 @@ video {
 }
 .w-\[450px\] {
   width: 450px;
+}
+.w-\[250pxpx\] {
+  width: 250pxpx;
+}
+.w-\[800px\] {
+  width: 800px;
+}
+.w-\[700px\] {
+  width: 700px;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -846,6 +882,12 @@ video {
 .justify-between {
   justify-content: space-between;
 }
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
 .gap-3 {
   gap: 0.75rem;
 }
@@ -865,8 +907,14 @@ video {
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.self-start {
+  align-self: flex-start;
+}
 .self-center {
   align-self: center;
+}
+.justify-self-start {
+  justify-self: start;
 }
 .justify-self-center {
   justify-self: center;
@@ -923,6 +971,9 @@ video {
 }
 .border-b {
   border-bottom-width: 1px;
+}
+.border-r-4 {
+  border-right-width: 4px;
 }
 .border-solid {
   border-style: solid;
@@ -1054,6 +1105,9 @@ video {
 .pt-6 {
   padding-top: 1.5rem;
 }
+.pr-\[15px\] {
+  padding-right: 15px;
+}
 .text-center {
   text-align: center;
 }
@@ -1086,6 +1140,12 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-\[30px\] {
+  font-size: 30px;
+}
+.text-\[25px\] {
+  font-size: 25px;
 }
 .font-bold {
   font-weight: 700;
