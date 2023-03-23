@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { format, parseISO } from 'date-fns';
 
-function AListEntries({ eachA }) {
+function AListEntry({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
   const [isReported, setIsReported] = useState(false);
   // console.log(eachQ);
@@ -36,4 +36,4 @@ function AListEntries({ eachA }) {
   );
 }
 
-export default AListEntries;
+export default AListEntry;
