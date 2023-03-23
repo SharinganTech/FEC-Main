@@ -4,20 +4,19 @@ function ReviewBody({
   reviewSummary, reviewBody, reviewPhotos, recommended,
 }) {
   const images = () => (
-    <div>
+    <div className="flex flex-row">
       {reviewPhotos.map((image) => (
-        <img key={image.id} src={image.url} alt="Review" />
+        <img className="w-full h-40 object-contain" key={image.id} src={image.url} alt="Review" />
       ))}
     </div>
   );
 
   return (
-    <div>
-      {reviewSummary}
-      {' '}
-      {reviewBody}
-      {images()}
-      {recommended ? <div>I recommend this product</div> : null}
+    <div className="flex flex-col">
+      <h5 className="text-xl font-bold">{reviewSummary}</h5>
+      <p className="py-3">{reviewBody}</p>
+      <div>{images()}</div>
+      <div>{recommended ? <div>&#x2713; I recommend this product</div> : null}</div>
     </div>
   );
 }
