@@ -10,8 +10,9 @@ import ProductContext from '../../contexts/ProductContext';
 export const CurrentProduct = createContext(null);
 
 function Overview() {
-  const prod = useContext(ProductContext);
-  // const prodID = useContext(ProductContext);
+  const product = useContext(ProductContext);
+  const prodDes = { product };
+  const prod = prodDes.product;
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
@@ -21,9 +22,10 @@ function Overview() {
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
   const [stylePhotos, setStylePhotos] = useState([]);
+  // console.log('producti: ', prod);
 
   useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
@@ -34,7 +36,7 @@ function Overview() {
         console.log('cant get prod details: ', err);
       })
       .then(() => (
-        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}/styles`, {
+        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}/styles`, {
           headers: { Authorization: process.env.AUTH_TOKEN },
         })
       ))
@@ -56,7 +58,9 @@ function Overview() {
 
   const changeStyle = (elementID) => {
     setStyleID(elementID);
+    console.log('el ID: ', elementID);
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
+    console.log('newStyle: ', newStyle);
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
@@ -82,6 +86,8 @@ function Overview() {
         <div className="col-start-5 col-end-7 row-start-2 row-end-4">
           <ProductInfo
             currentStyle={currentStyle}
+            category={prod.category}
+            name={prod.name}
           />
           <StyleSelector
             styles={styles}
@@ -93,7 +99,7 @@ function Overview() {
           />
         </div>
         <div className="col-start-2 col-end-6 row-start-3 row-end-4">
-          <ProductOverview />
+          <ProductOverview slogan={prod.slogan} description={prod.description} />
         </div>
       </CurrentProduct.Provider>
     </div>
