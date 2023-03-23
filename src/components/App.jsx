@@ -52,12 +52,12 @@ function App() {
         : (
           <>
             {/* <Overview /> */}
+            <div className="h-[2rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
             {/* <QA />
             <RatingsAndReviews /> */}
           </>
-        )
-      }
+        )}
     </ProductContext.Provider>
   );
 }
