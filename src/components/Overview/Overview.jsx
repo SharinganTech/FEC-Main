@@ -15,6 +15,7 @@ function Overview() {
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
+  const [inventory, setInventory] = useState({});
   const [styleID, setStyleID] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
@@ -22,7 +23,7 @@ function Overview() {
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
-      headers: { Authorization: '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' },
+      headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
         setDataRetrieved(true);
@@ -33,15 +34,16 @@ function Overview() {
       })
       .then(() => (
         axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}/styles`, {
-          headers: { Authorization: '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' },
+          headers: { Authorization: process.env.AUTH_TOKEN },
         })
       ))
       .then((response) => {
-        console.log('styles get', response.data);
         setStyles(response.data.results);
         const IDnumber = Number(response.data.results[0].style_id);
         setStyleID(IDnumber);
         setCurrentStyle(response.data.results[0]);
+        console.log('current Style', response.data.results[0].skus);
+        setInventory(response.data.results[0].skus);
         setStyleName(response.data.results[0].name);
         setMainImage(response.data.results[0].photos[0].url);
         setStylePhotos(response.data.results[0].photos);
@@ -54,23 +56,42 @@ function Overview() {
   const changeStyle = (elementID) => {
     setStyleID(elementID);
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
-    console.log('newStyleee: ', newStyle[0].photos[0].url);
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
+    setStylePhotos(newStyle[0].photos);
+  };
+  const changeMain = (newMainURL) => {
+    setMainImage(newMainURL);
   };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
   }
   return (
-    <div className="container">
+    <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
       <CurrentProduct.Provider value={prodDetails}>
-        <Gallery styleID={styleID} stylePhotos={stylePhotos} mainImage={mainImage} />
-        <div className="float-right">
-          <ProductInfo currentStyle={currentStyle} />
-          <StyleSelector styles={styles} styleName={styleName} changeStyle={changeStyle} />
+        <div className="col-start-2 col-end-5 row-start-0 row-end-3">
+          <Gallery
+            styleID={styleID}
+            stylePhotos={stylePhotos}
+            mainImage={mainImage}
+            changeMain={changeMain}
+          />
         </div>
-        <div className="relative float-bottom">
+        <div className="col-start-5 col-end-7 row-start-2 row-end-4">
+          <ProductInfo
+            currentStyle={currentStyle}
+          />
+          <StyleSelector
+            styles={styles}
+            styleName={styleName}
+            changeStyle={changeStyle}
+          />
+          <AddToCart
+            inventory={inventory}
+          />
+        </div>
+        <div className="col-start-2 col-end-6 row-start-3 row-end-4">
           <ProductOverview />
         </div>
       </CurrentProduct.Provider>
