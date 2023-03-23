@@ -3,7 +3,7 @@ import axios from 'axios';
 // import Overview from './Overview';
 // import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
-import RatingsAndReviews from './RR';
+// import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -24,7 +24,7 @@ function App() {
       })
       .then((result) => {
         console.log('results data', result.data);
-        setProductId(result.data[2].id);
+        setProductId(result.data[3].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -41,7 +41,7 @@ function App() {
       {/* <Overview /> */}
       {/* <RelatedItemsAndComparison /> */}
       <QA />
-      <RatingsAndReviews />
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
