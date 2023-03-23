@@ -10,7 +10,8 @@ import ProductContext from '../../contexts/ProductContext';
 export const CurrentProduct = createContext(null);
 
 function Overview() {
-  const prodID = useContext(ProductContext);
+  const prod = useContext(ProductContext);
+  // const prodID = useContext(ProductContext);
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
