@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
+<<<<<<< HEAD
 // import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 import RatingsAndReviews from './RR';
+=======
+// import RatingsAndReviews from './RR';
+// import QA from './QA';
+// import RelatedItemsAndComparison from './RIC';
+>>>>>>> main
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -12,8 +18,12 @@ import ProductContext from '../contexts/ProductContext';
 // }
 
 function App() {
+  const [product, setProduct] = useState({});
   const [productId, setProductId] = useState(0);
+<<<<<<< HEAD
   // const [canRender, setCanRender] = useState(false);
+=======
+>>>>>>> main
 
   useEffect(() => {
     axios
@@ -23,7 +33,12 @@ function App() {
         },
       })
       .then((result) => {
+<<<<<<< HEAD
         console.log('results data', result.data);
+=======
+        // console.log('results data', result.data);
+        setProduct(result.data[3]);
+>>>>>>> main
         setProductId(result.data[3].id);
       })
       .catch((err) => {
@@ -31,13 +46,12 @@ function App() {
       });
   }, []);
 
-  if (productId === 0) {
-    return (
-      <div>Loading Page</div>
-    );
-  }
   return (
+<<<<<<< HEAD
     <ProductContext.Provider value={productId} className="relative">
+=======
+    <ProductContext.Provider value={product}>
+>>>>>>> main
       <Overview />
       {/* <RelatedItemsAndComparison /> */}
       <QA />

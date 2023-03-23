@@ -17,7 +17,7 @@ function RatingBreakdown({ ratings, recommended }) {
           totalReviews={Number(recommended.true) + Number(recommended.false)}
         />
       ))}
-      <div>
+      <div className="text-xs my-2">
         {recommendedPercentage()}
         % of reviews recommend this product
       </div>

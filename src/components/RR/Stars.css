@@ -2,6 +2,8 @@
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
+  font-size: x-small;
+  padding: 4px;
 }
 .stars-outer::before {
   content: "\f006 \f006 \f006 \f006 \f006";
@@ -13,6 +15,8 @@
   white-space: nowrap;
   overflow: hidden;
   width: 50%;
+  font-size: x-small;
+  padding: 4px;
 }
 .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
