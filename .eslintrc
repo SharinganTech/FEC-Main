@@ -5,8 +5,8 @@
     "node": true
   },
   "rules": {
-    "react/prop-types": "off"
-    // "import/no-extraneous-dependencies": "off",
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off"
     // "no-unused-vars": "off"
   }
 }

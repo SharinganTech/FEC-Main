@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 // import axios from 'axios';
 import ProductContext from '../../contexts/ProductContext';
-import QList from './QList';
+import QList from './Questions/QList';
 
 function Home() {
   const prodId = useContext(ProductContext);
