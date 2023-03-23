@@ -34,11 +34,11 @@ function App() {
       });
   }, []);
 
-  if (productId === 0) {
-    return (
-      <div>Loading Page</div>
-    );
-  }
+  // if (productId === 0) {
+  //   return (
+  //     <div>Loading Page</div>
+  //   );
+  // }
   return (
     <ProductContext.Provider value={product}>
       {/* <Overview /> */}
