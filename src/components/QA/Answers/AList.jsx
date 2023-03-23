@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AListEntries from './AListEntries';
+import AListEntry from './AListEntry';
 
 function AList({ eachQ }) {
   const [aData, setAData] = useState([]);
@@ -36,11 +36,13 @@ function AList({ eachQ }) {
   }
 
   return (
-    <div className="flex-col overflow-y-auto max-h-[250px] max-w-[800px] relative" style={{ border: '1px solid red' }}>
+    <div className="flex-col overflow-y-auto max-h-[250px] relative" style={{ border: '1px solid red' }}>
       {listView.map((eachA) => (
-        <AListEntries key={eachA.id} eachA={eachA} />
+        <AListEntry key={eachA.id} eachA={eachA} />
       ))}
-      <button type="button" className="flex text-blue-600" onClick={handleMoreAnswersClick}>{moreAnswersText()}</button>
+      <div>
+        {aData.length < 1 ? null : <button type="button" className="bg-pastelGray text-white font-bold uppercase text-sm px-1 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={handleMoreAnswersClick}>{moreAnswersText()}</button>}
+      </div>
     </div>
   );
 }
