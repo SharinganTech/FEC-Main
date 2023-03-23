@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import Stars from '../../Stars';
 import CharacterInput from './CharacterInput';
+import Modal from '../Modal';
 
 function ReviewForm({ reviewsMeta }) {
   // const [stars, setStars] = useState(0);
+  const [showImageUpload, setShowImageUpload] = useState(false);
+  const [reviewImages, setReviewImages] = useState([]);
+
+  const imageUpload = (
+    <button onClick={() => setShowImageUpload(false)} className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="button">Complete upload</button>
+  );
 
   return (
     <form className="flex flex-col">
@@ -35,7 +42,8 @@ function ReviewForm({ reviewsMeta }) {
         Review:
         <input className="ml-1" name="body" maxLength="1000" placeholder="Why did you like the product or not?" defaultValue="" />
       </label>
-      <button className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="button">Upload Photo</button>
+      <button onClick={() => setShowImageUpload(true)} className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="button">Upload Photo</button>
+      {showImageUpload ? <Modal componentToRender={imageUpload} /> : null}
       <label htmlFor="nickname">
         Nickname:
         <input className="ml-1" name="nickname" maxLength="60" placeholder="Example: jackson11!" defaultValue="" />
