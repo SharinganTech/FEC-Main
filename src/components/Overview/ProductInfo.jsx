@@ -10,9 +10,8 @@ function ProductInfo({ currentStyle }) {
         Star rating -
         <a href="https://www.google.com/">Read all [#] Reviews!</a>
       </p>
-      <h3>{product.category}</h3>
-      <h1>{product.name}</h1>
-      <h2>{product.title}</h2>
+      <div className="text-[1.30rem]">{product.category}</div>
+      <div className="text-[2.25rem] font-bold">{product.name}</div>
       <Price currentStyle={currentStyle} />
 
     </div>

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import Overview from './Overview';
+import Overview from './Overview';
 import RatingsAndReviews from './RR';
 // import QA from './QA';
 // import RelatedItemsAndComparison from './RIC';
+import QA from './QA';
+// import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -12,39 +14,39 @@ import ProductContext from '../contexts/ProductContext';
 // }
 
 function App() {
-  const [productId, setProductId] = useState(0);
+  const [product, setProduct] = useState({});
   const [canRender, setCanRender] = useState(false);
+  const [productId, setProductId] = useState(0);
+  // const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
     axios
-      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', {
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products?count=${20}`, {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
-        },
-        params: {
-          count: 10,
         },
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProductId(result.data[2].id);
+        setProduct(result.data[3]);
+        setProductId(result.data[3].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
   }, []);
 
-  if (productId === 0) {
-    return (
-      <div>Loading Page</div>
-    );
-  }
+  // if (productId === 0) {
+  //   return (
+  //     <div>Loading Page</div>
+  //   );
+  // }
   return (
-    <ProductContext.Provider value={productId} className="relative">
+    <ProductContext.Provider value={product}>
       {/* <Overview /> */}
       {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
-      <RatingsAndReviews />
+      {/* <RatingsAndReviews /> */}
     </ProductContext.Provider>
   );
 }
