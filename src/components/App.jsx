@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
 import Overview from './Overview';
-import RatingsAndReviews from './RR';
-// import QA from './QA';
-=======
-// import Overview from './Overview';
->>>>>>> main
 // import RelatedItemsAndComparison from './RIC';
-import QA from './QA';
+// import QA from './QA';
 // import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
@@ -19,10 +13,7 @@ import ProductContext from '../contexts/ProductContext';
 
 function App() {
   const [productId, setProductId] = useState(0);
-<<<<<<< HEAD
-=======
   // const [canRender, setCanRender] = useState(false);
->>>>>>> main
 
   useEffect(() => {
     axios
@@ -32,13 +23,8 @@ function App() {
         },
       })
       .then((result) => {
-<<<<<<< HEAD
-        // console.log('results data', result.data);
-        setProductId(result.data[0].id);
-=======
         console.log('results data', result.data);
         setProductId(result.data[3].id);
->>>>>>> main
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -51,13 +37,8 @@ function App() {
     );
   }
   return (
-<<<<<<< HEAD
-    <ProductContext.Provider value={productId}>
-      <Overview />
-=======
     <ProductContext.Provider value={productId} className="relative">
-      {/* <Overview /> */}
->>>>>>> main
+      <Overview />
       {/* <RelatedItemsAndComparison /> */}
       {/* <QA /> */}
       {/* <RatingsAndReviews /> */}
