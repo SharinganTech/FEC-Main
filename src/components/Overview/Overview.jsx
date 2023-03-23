@@ -3,14 +3,16 @@ import React, { useContext, createContext, useState, useEffect } from 'react';
 import ProductInfo from './ProductInfo';
 import ProductOverview from './ProductOverview';
 import StyleSelector from './StyleSelector';
-import AddToCart from './AddToCart';
+// import AddToCart from './AddToCart';
 import Gallery from './Gallery';
 import ProductContext from '../../contexts/ProductContext';
 
 export const CurrentProduct = createContext(null);
 
 function Overview() {
-  const prodID = useContext(ProductContext);
+  const product = useContext(ProductContext);
+  const productDes = { product };
+  const prodInfo = productDes.product;
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
@@ -22,7 +24,7 @@ function Overview() {
   const [stylePhotos, setStylePhotos] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`, {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodInfo.id}`, {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
@@ -33,7 +35,7 @@ function Overview() {
         console.log('cant get prod details: ', err);
       })
       .then(() => (
-        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}/styles`, {
+        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodInfo.id}/styles`, {
           headers: { Authorization: process.env.AUTH_TOKEN },
         })
       ))
@@ -68,33 +70,37 @@ function Overview() {
     return (<div>Retrieving data</div>);
   }
   return (
+
     <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <CurrentProduct.Provider value={prodDetails}>
-        <div className="col-start-2 col-end-5 row-start-0 row-end-3">
-          <Gallery
-            styleID={styleID}
-            stylePhotos={stylePhotos}
-            mainImage={mainImage}
-            changeMain={changeMain}
-          />
-        </div>
-        <div className="col-start-5 col-end-7 row-start-2 row-end-4">
-          <ProductInfo
-            currentStyle={currentStyle}
-          />
-          <StyleSelector
-            styles={styles}
-            styleName={styleName}
-            changeStyle={changeStyle}
-          />
-          <AddToCart
-            inventory={inventory}
-          />
-        </div>
-        <div className="col-start-2 col-end-6 row-start-3 row-end-4">
-          <ProductOverview />
-        </div>
-      </CurrentProduct.Provider>
+      {!prodInfo.id ? <div>Loading...</div>
+        : (
+          <CurrentProduct.Provider value={prodDetails}>
+            <div className="col-start-2 col-end-5 row-start-0 row-end-3">
+              <Gallery
+                styleID={styleID}
+                stylePhotos={stylePhotos}
+                mainImage={mainImage}
+                changeMain={changeMain}
+              />
+            </div>
+            <div className="col-start-5 col-end-7 row-start-2 row-end-4">
+              <ProductInfo
+                currentStyle={currentStyle}
+              />
+              <StyleSelector
+                styles={styles}
+                styleName={styleName}
+                changeStyle={changeStyle}
+              />
+              {/* <AddToCart
+                inventory={inventory}
+              /> */}
+            </div>
+            <div className="col-start-2 col-end-6 row-start-3 row-end-4">
+              <ProductOverview />
+            </div>
+          </CurrentProduct.Provider>
+        )}
     </div>
   );
 }

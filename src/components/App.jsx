@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Overview from './Overview';
-import RatingsAndReviews from './RR';
-// import QA from './QA';
+// import Overview from './Overview';
 // import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 // import RatingsAndReviews from './RR';
@@ -15,8 +13,7 @@ import ProductContext from '../contexts/ProductContext';
 
 function App() {
   const [product, setProduct] = useState({});
-  const [canRender, setCanRender] = useState(false);
-  const [productId, setProductId] = useState(0);
+  // const [productId, setProductId] = useState(0);
   // const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
@@ -28,8 +25,8 @@ function App() {
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProduct(result.data[3]);
-        setProductId(result.data[3].id);
+        setProduct(result.data[6]);
+        // setProductId(result.data[3].id);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -43,10 +40,16 @@ function App() {
   // }
   return (
     <ProductContext.Provider value={product}>
-      {/* <Overview /> */}
-      {/* <RelatedItemsAndComparison /> */}
-      {/* <QA /> */}
-      {/* <RatingsAndReviews /> */}
+      <h1 className="text-4xl">Welcome to Akatsuki Headquarters</h1>
+      {!product.id ? <div>Loading...</div>
+        : (
+          <div>
+            {/* <Overview /> */}
+            <QA />
+            {/* <RatingsAndReviews /> */}
+            {/* <RelatedItemsAndComparison /> */}
+          </div>
+        )}
     </ProductContext.Provider>
   );
 }

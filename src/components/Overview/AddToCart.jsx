@@ -3,7 +3,7 @@ import DropDownOptions from './DropDown';
 import { arrayOfQuantities } from './helpers';
 
 function AddToCart({ inventory }) {
-  console.log('addtocart; ', inventory);
+  // console.log('addtocart; ', inventory);
   const [currentSize, setCurrentSize] = useState('');
   const [currentQuantity, setCurrentQuantity] = useState(null);
   const sizeOptions = () => {
@@ -17,12 +17,12 @@ function AddToCart({ inventory }) {
       return <option value="pick a size">pick a size</option>;
     }
     const inven = Object.values(inventory);
-    console.log('the size: ', inven);
+    // console.log('the size: ', inven);
     const quant = inven.filter((size) => size.quantity === quantity);
-    console.log(quant[0].quantity);
+    // console.log(quant[0].quantity);
     const maxCount = quant[0].quantity;
     const arr = arrayOfQuantities(maxCount);
-    console.log('result: ', arr);
+    // console.log('result: ', arr);
     return arr.map((number) => (
       (number === 1)
         ? <option selected value={number}>{number}</option>

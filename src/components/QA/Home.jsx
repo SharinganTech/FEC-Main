@@ -4,11 +4,14 @@ import ProductContext from '../../contexts/ProductContext';
 import QList from './Questions/QList';
 
 function Home() {
-  const prodId = useContext(ProductContext);
+  const product = useContext(ProductContext);
+  const productDes = { product };
+  const prodInfo = productDes.product;
+  // const prodId = useContext(ProductContext);
 
   return (
     <div>
-      {prodId === 0 ? <div>Loading...</div> : <QList prodId={prodId} />}
+      {!prodInfo.id ? <div>Loading...</div> : <QList prodInfo={prodInfo} />}
     </div>
   );
 }

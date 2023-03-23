@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function QModal({ prodName, setOpenQModal }) {
+function QModal({ prodInfo, setOpenQModal }) {
   const [qMQuestion, setQMQuestion] = useState('');
   const [qMNickname, setQMNickname] = useState('');
   const [qMEmail, setQMEmail] = useState('');
@@ -17,7 +17,7 @@ function QModal({ prodName, setOpenQModal }) {
   return (
     <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
       <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full">
-        <div className="text-3xl font-semibold">{`About the ${prodName}`}</div>
+        <div className="text-3xl font-semibold">{`About the ${prodInfo.name}`}</div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer">
             <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer" maxLength="1000" onChange={(e) => setQMQuestion(e.target.value)} />

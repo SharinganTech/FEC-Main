@@ -36,7 +36,7 @@ function AList({ eachQ }) {
   }
 
   return (
-    <div className="flex-col overflow-y-auto max-h-[250px] relative">
+    <div className="flex-col overflow-y-auto max-h-[300px] relative border-solid border-2 border-red-600">
       {listView.map((eachA) => (
         <AListEntry key={eachA.id} eachA={eachA} />
       ))}

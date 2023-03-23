@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AList from '../Answers/AList';
 import AModal from '../Modals/AModal';
 
-function QListEntry({ prodName, eachQ }) {
+function QListEntry({ prodInfo, eachQ }) {
   const [qHelpful, setQHelpful] = useState(eachQ.question_helpfulness);
   const [openA, setOpenA] = useState(false);
   // console.log(eachQ);
@@ -31,7 +31,9 @@ function QListEntry({ prodName, eachQ }) {
         </div>
         <AList eachQ={eachQ} />
       </div>
-      {openA ? <AModal name={prodName} question={eachQ.question_body} setOpenA={setOpenA} /> : null}
+      {openA
+        ? <AModal prodInfo={prodInfo} question={eachQ.question_body} setOpenA={setOpenA} />
+        : null}
     </>
   );
 }

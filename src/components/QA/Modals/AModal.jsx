@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AModal({ name, question, setOpenA }) {
+function AModal({ prodInfo, question, setOpenA }) {
   const [aMAnswer, setAMAnswer] = useState('');
   const [aMNickname, setAMNickname] = useState('');
   const [aMEmail, setAMEmail] = useState('');
@@ -20,7 +20,7 @@ function AModal({ name, question, setOpenA }) {
       <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full">
         <div className="text-3xl font-semibold">Submit Your Answer</div>
         <div className="text-xl font-semibold">
-          {`Product: ${question} `}
+          {`Product: ${prodInfo.name} `}
         </div>
         <div className="text-xl font-semibold">
           {`Question: ${question} `}
