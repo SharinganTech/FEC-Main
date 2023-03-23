@@ -13,7 +13,6 @@ import ProductContext from '../contexts/ProductContext';
 
 function App() {
   const [productId, setProductId] = useState(0);
-  const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
     axios

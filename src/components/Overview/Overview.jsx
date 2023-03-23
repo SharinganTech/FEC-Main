@@ -15,6 +15,7 @@ function Overview() {
   const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
+  const [inventory, setInventory] = useState({});
   const [styleID, setStyleID] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
@@ -37,11 +38,12 @@ function Overview() {
         })
       ))
       .then((response) => {
-        console.log('styles get', response.data);
         setStyles(response.data.results);
         const IDnumber = Number(response.data.results[0].style_id);
         setStyleID(IDnumber);
         setCurrentStyle(response.data.results[0]);
+        console.log('current Style', response.data.results[0].skus);
+        setInventory(response.data.results[0].skus);
         setStyleName(response.data.results[0].name);
         setMainImage(response.data.results[0].photos[0].url);
         setStylePhotos(response.data.results[0].photos);
@@ -54,7 +56,6 @@ function Overview() {
   const changeStyle = (elementID) => {
     setStyleID(elementID);
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
-    console.log('newStyleee: ', newStyle[0].photos);
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
@@ -85,6 +86,9 @@ function Overview() {
             styles={styles}
             styleName={styleName}
             changeStyle={changeStyle}
+          />
+          <AddToCart
+            inventory={inventory}
           />
         </div>
         <div className="col-start-2 col-end-6 row-start-3 row-end-4">
