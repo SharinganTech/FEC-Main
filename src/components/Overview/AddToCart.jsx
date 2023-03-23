@@ -43,7 +43,7 @@ function AddToCart({ inventory }) {
         <option value="">-- Select --</option>
         {sizeOptions(null)}
       </select>
-      <select name="Quantity" id="Quantity" value={currentQuantity} onChange={quantityChange}>
+      <select name="Quantity" id="Quantity" value={currentQuantity}>
         {quantityOptions(currentQuantity)}
       </select>
     </div>

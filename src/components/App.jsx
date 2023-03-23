@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
 // import RelatedItemsAndComparison from './RIC';
-// import QA from './QA';
-// import RatingsAndReviews from './RR';
+import QA from './QA';
+import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 
 // const useFetchData = async (url, options) => {
@@ -40,8 +40,8 @@ function App() {
     <ProductContext.Provider value={productId} className="relative">
       <Overview />
       {/* <RelatedItemsAndComparison /> */}
-      {/* <QA /> */}
-      {/* <RatingsAndReviews /> */}
+      <QA />
+      <RatingsAndReviews />
     </ProductContext.Provider>
   );
 }
