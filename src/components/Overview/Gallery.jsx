@@ -9,10 +9,9 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
     changeMain(newURL[0].url);
   };
   return (
-    <div className="flex flex-row bg-white">
+    <div className="flex flex-row bg-white justify-evenly">
       <div className="flex flex-col justify-center">
         {stylePhotos.map((style, index) => {
-          console.log('thumbnailirl: ', style.thumbnail_url);
           return (
             <img
               key={index}
@@ -24,8 +23,8 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
           );
         })}
       </div>
-      <div className="flex content-center justify-center h-[42rem] w-[42rem]">
-        <img className="absoulte object-contain max-h-[100%] max-w-[100%]" src={mainImage} alt="" />
+      <div className="flex items-center justify-center h-[42rem] w-[42rem]">
+        <img className="absoulte object-contain max-h-[90%] max-w-[90%]" src={mainImage} alt="" />
       </div>
     </div>
 

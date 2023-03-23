@@ -14,17 +14,15 @@ function Overview() {
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
-  console.log('the prod: ', prod);
   const [dataRetrieved, setDataRetrieved] = useState(false);
-  const [prodDetails, setProdDetails] = useState({});
   const [styles, setStyles] = useState([]);
+  const [features, setFeatures] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
   const [inventory, setInventory] = useState({});
   const [styleID, setStyleID] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
   const [stylePhotos, setStylePhotos] = useState([]);
-  // console.log('producti: ', prod);
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
@@ -32,7 +30,7 @@ function Overview() {
     })
       .then((response) => {
         setDataRetrieved(true);
-        setProdDetails(response.data);
+        setFeatures(response.data.features);
       })
       .catch((err) => {
         console.log('cant get prod details: ', err);
@@ -75,8 +73,8 @@ function Overview() {
     return (<div>Retrieving data</div>);
   }
   return (
-    <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <div className="col-start-2 col-end-5 row-start-0 row-end-3">
+    <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
+      <div className="col-start-3 col-end-6 row-start-0 row-end-3">
         <Gallery
           styleID={styleID}
           stylePhotos={stylePhotos}
@@ -84,7 +82,7 @@ function Overview() {
           changeMain={changeMain}
         />
       </div>
-      <div className="col-start-5 col-end-7 row-start-2 row-end-3">
+      <div className="col-start-6 col-end-8 row-start-2 row-end-3">
         <ProductInfo
           currentStyle={currentStyle}
           category={prod.category}
@@ -99,9 +97,9 @@ function Overview() {
           inventory={inventory}
         />
       </div>
-      <div className="col-start-2 col-end-6 row-start-3 row-end-4 text-center flex flex-row justify-between">
+      <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
         <ProductOverview slogan={prod.slogan} description={prod.description} />
-        <Features />
+        <Features features={features} />
       </div>
     </div>
   );

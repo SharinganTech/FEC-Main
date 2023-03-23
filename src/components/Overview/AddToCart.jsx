@@ -36,18 +36,18 @@ function AddToCart({ inventory }) {
     setCurrentQuantity(quant[0].quantity);
   };
   return (
-    <div className="flex flex-wrap w-[450px]">
-      <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[250px] text-center" name={currentSize} id={currentSize} value={currentSize} onChange={handleChange}>
-        <option value="">-- Size --</option>
+    <div className="flex flex-wrap w-[425px]">
+      <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center" name={currentSize} id={currentSize} value={currentSize} onChange={handleChange}>
+        <option value="">Size</option>
         {sizeOptions(null)}
       </select>
-      <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[150px] text-center" name="Quantity" id="Quantity" value={currentQuantity}>
+      <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center" name="Quantity" id="Quantity" value={currentQuantity}>
         {(!currentQuantity)
-          ? <option value="">-- Quantity --</option>
+          ? <option value="">Quantity</option>
           : quantityOptions(currentQuantity)}
       </select>
-      <button className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[150px] text-center" type="button" value="">ADD TO BAG +</button>
-      <button className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[250px] text-center" type="button">ADD TO FAVORITE +</button>
+      <button className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center" type="button" value="">ADD TO BAG +</button>
+      <button className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center" type="button">ADD TO FAVORITE +</button>
     </div>
   );
 }
