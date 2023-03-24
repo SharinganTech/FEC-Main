@@ -9,8 +9,8 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
     changeMain(newURL[0].url);
   };
   return (
-    <div className="flex flex-row bg-white justify-evenly">
-      <div className="flex flex-col justify-center">
+    <div className="flex flex-row bg-white justify-evenly h-[600px] overflow-hidden">
+      <div className="flex flex-col justify-center overflow-auto">
         {stylePhotos.map((style, index) => {
           return (
             <img
