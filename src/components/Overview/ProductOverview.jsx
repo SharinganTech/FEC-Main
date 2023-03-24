@@ -1,5 +1,4 @@
 import React from 'react';
-import Features from './Features';
 
 function ProductOverview({ slogan, description }) {
   return (

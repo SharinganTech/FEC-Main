@@ -74,7 +74,7 @@ function Overview() {
   }
   return (
     <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <div className="col-start-3 col-end-6 row-start-0 row-end-3">
+      <div className="col-start-2 col-end-6 row-start-0 row-end-3">
         <Gallery
           styleID={styleID}
           stylePhotos={stylePhotos}
