@@ -15,20 +15,6 @@ function RatingsAndReviews() {
   const [sort, setSort] = useState('Relevant');
   const { filters } = useContext(FiltersContext);
 
-  useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${prod.id}`, {
-      headers: {
-        Authorization: process.env.AUTH_TOKEN,
-      },
-    })
-      .then((response) => {
-        setReviewsMeta(response.data);
-      })
-      .catch((err) => {
-        throw new Error('Error getting review meta data', err);
-      });
-  }, [prod.id]);
-
   const makeGetRequest = (newCount, newSort, newFilters) => {
     const filtersToDisplay = newFilters || filters;
     const countToDisplay = newCount || count;
@@ -53,6 +39,21 @@ function RatingsAndReviews() {
         throw new Error('Error getting review data', err);
       });
   };
+
+  useEffect(() => {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${prod.id}`, {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    })
+      .then((response) => {
+        setReviewsMeta(response.data);
+        // makeGetRequest();
+      })
+      .catch((err) => {
+        throw new Error('Error getting review meta data', err);
+      });
+  }, [prod.id]);
 
   return Object.keys(reviewsMeta).length ? (
     <div className="grid grid-cols-[1fr_3fr] gap-3 mx-10">
