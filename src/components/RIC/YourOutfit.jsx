@@ -57,7 +57,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
       >
         Add Current Item to Your Outfit
       </div>
-      <div className="relative flex flex-row space-x-5 w-full h-100 overflow-hidden">
+      <div className="relative flex flex-row space-x-5 w-[896px] h-100 overflow-hidden">
         <div className="absolute right-0 flex h-[28rem] w-24 z-10 bg-gradient-to-l from-[#EDF1FF] to-transparent">
           <FontAwesomeIcon
             icon={faArrowRight}
@@ -80,7 +80,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
               />
             </div>
           )}
-        <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full left-[50px] z-0 overflow-hidden">
+        <div className="relative flex flex-row whitespace-nowrap space-x-5 w-[full] h-full left-[50px] z-0 overflow-hidden">
           {yourOutfit.map((relatedItem) => (
             <CardListEntry
               key={relatedItem.id}

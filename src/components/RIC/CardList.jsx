@@ -53,12 +53,12 @@ function CardList({ prod, changeProdClick }) {
   };
 
   return (
-    <div className="h-[28rem] relative flex flex-row space-x-5 w-full h-64">
+    <div className="h-[28rem] relative flex flex-row space-x-5 w-[1100px] h-64 overflow-hidden">
       {/* map over the related items to create a card for each item */}
       {activeIndex === 0
         ? <div />
         : (
-          <div className="absolute left-0 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
+          <div className="absolute left-20 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
             <FontAwesomeIcon
               icon={faArrowLeft}
               className="absolute left-0 self-center ml-5"
