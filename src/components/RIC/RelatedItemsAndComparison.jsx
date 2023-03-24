@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import CardList from './CardList';
-import Loading from './Loading';
 import YourOutfit from './YourOutfit';
 import ProductContext from '../../contexts/ProductContext';
 
-function RelatedItemsAndComparison() {
+function RelatedItemsAndComparison({ changeProdClick }) {
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
@@ -22,21 +21,17 @@ function RelatedItemsAndComparison() {
   }, [yourOutfit]);
 
   return (
-    <div className="h-[28rem]">
-      {prod.id === undefined
-        ? <Loading />
-        : (
-          <div>
-            <div className="h-[28rem]">
-              <CardList prodId={prod.id} />
-              {/* <CardList outfit={outfit} /> */}
-            </div>
-            <div className="h-[28rem] z-0">
-              <YourOutfit prod={prod} yourOutfit={yourOutfit} setYourOutfit={setYourOutfit} />
-              {/* <CardList outfit={outfit} /> */}
-            </div>
-          </div>
-        )}
+    <div className="h-[28rem] select-none">
+      <div>
+        <h1 className="relative left-[103px] text-3xl text-pastelPurple font-bold overline decoration-pastelBlack decoration-wavy decoration-4">Related Items</h1>
+        <div className="h-[28rem]">
+          <CardList prod={prod} changeProdClick={changeProdClick} />
+        </div>
+        <h1 className="relative left-[30px] text-3xl text-pastelPurple font-bold overline decoration-pastelBlack decoration-wavy decoration-4">Your Outfit</h1>
+        <div className="h-[28rem] z-0">
+          <YourOutfit prod={prod} yourOutfit={yourOutfit} setYourOutfit={setYourOutfit} />
+        </div>
+      </div>
     </div>
   );
 }

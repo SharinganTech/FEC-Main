@@ -26,7 +26,8 @@ module.exports = {
       gray: colors.gray,
       red: colors.red,
       emerald: colors.emerald,
-      indigo: colors.indigo,
+      blue: colors.blue,
+      red: colors.red,
       green: colors.emerald,
       purple: colors.violet,
       yellow: colors.amber,
@@ -34,6 +35,7 @@ module.exports = {
       pastelPurple: '#926AA6',
       pastelBlack: '#363945',
       pastelGray: '#798EA4',
+      slate: colors.slate,
     },
   },
   variants: {
