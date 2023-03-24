@@ -11,14 +11,14 @@ function Stars({ rating, numReviews }) {
   const emptyStars = 5 - fullStars - halfStars;
 
   return (
-    <>
+    <div>
       {numReviews > 0 && (
         <div className="star-rating">
           {[...Array(fullStars)].map((_, index) => (
             <FontAwesomeIcon key={`full-${index}`} icon={faStar} style={{ color: '#000000' }} />
           ))}
           {[...Array(halfStars)].map((_, index) => (
-            <FontAwesomeIcon key={`full-${index}`} icon={faStarHalfStroke} style={{ color: '#000000' }}/>
+            <FontAwesomeIcon key={`half-${index}`} icon={faStarHalfStroke} style={{ color: '#000000' }} />
           ))}
           {[...Array(emptyStars)].map((_, index) => (
             <FontAwesomeIcon key={`empty-${index}`} icon={farStar} style={{ color: '#000000' }} />
@@ -26,7 +26,7 @@ function Stars({ rating, numReviews }) {
           <span className="num-reviews">{rating}</span>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

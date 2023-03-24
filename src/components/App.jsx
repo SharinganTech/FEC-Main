@@ -30,6 +30,7 @@ function App() {
       });
   }, []);
 
+<<<<<<< HEAD
   // const changeProdClick = (prodId) => {
   //   axios
   //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
@@ -44,6 +45,23 @@ function App() {
   //       throw new Error('Error in changing product', err);
   //     });
   // };
+=======
+  const changeProdClick = (prodId) => {
+    setProduct({});
+    axios
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
+      })
+      .then((result) => {
+        setProduct(result.data);
+      })
+      .catch((err) => {
+        throw new Error('Error in changing product', err);
+      });
+  };
+>>>>>>> main
 
   return (
     <ProductContext.Provider value={product}>
