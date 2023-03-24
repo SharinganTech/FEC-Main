@@ -12,13 +12,8 @@ export const CurrentProduct = createContext(null);
 
 function Overview() {
   const product = useContext(ProductContext);
-<<<<<<< HEAD
-  const productDes = { product };
-  const prodInfo = productDes.product;
-=======
   const prodDes = { product };
   const prod = prodDes.product;
->>>>>>> main
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [styles, setStyles] = useState([]);
   const [features, setFeatures] = useState([]);
@@ -30,11 +25,7 @@ function Overview() {
   const [stylePhotos, setStylePhotos] = useState([]);
 
   useEffect(() => {
-<<<<<<< HEAD
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodInfo.id}`, {
-=======
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
->>>>>>> main
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
@@ -45,11 +36,7 @@ function Overview() {
         console.log('cant get prod details: ', err);
       })
       .then(() => (
-<<<<<<< HEAD
-        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodInfo.id}/styles`, {
-=======
         axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}/styles`, {
->>>>>>> main
           headers: { Authorization: process.env.AUTH_TOKEN },
         })
       ))
@@ -85,39 +72,6 @@ function Overview() {
     return (<div>Retrieving data</div>);
   }
   return (
-<<<<<<< HEAD
-
-    <div className="grid grid-cols-6 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      {!prodInfo.id ? <div>Loading...</div>
-        : (
-          <CurrentProduct.Provider value={prodDetails}>
-            <div className="col-start-2 col-end-5 row-start-0 row-end-3">
-              <Gallery
-                styleID={styleID}
-                stylePhotos={stylePhotos}
-                mainImage={mainImage}
-                changeMain={changeMain}
-              />
-            </div>
-            <div className="col-start-5 col-end-7 row-start-2 row-end-4">
-              <ProductInfo
-                currentStyle={currentStyle}
-              />
-              <StyleSelector
-                styles={styles}
-                styleName={styleName}
-                changeStyle={changeStyle}
-              />
-              {/* <AddToCart
-                inventory={inventory}
-              /> */}
-            </div>
-            <div className="col-start-2 col-end-6 row-start-3 row-end-4">
-              <ProductOverview />
-            </div>
-          </CurrentProduct.Provider>
-        )}
-=======
     <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
       <div className="col-start-2 col-end-6 row-start-0 row-end-3">
         <Gallery
@@ -139,15 +93,14 @@ function Overview() {
           changeStyle={changeStyle}
           styleID={styleID}
         />
-        <AddToCart
+        {/* <AddToCart
           inventory={inventory}
-        />
+        /> */}
       </div>
       <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
         <ProductOverview slogan={prod.slogan} description={prod.description} />
         <Features features={features} />
       </div>
->>>>>>> main
     </div>
   );
 }
