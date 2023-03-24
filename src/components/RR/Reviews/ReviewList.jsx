@@ -1,27 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Review from './Review';
 import AddReview from './AddReviews/AddReview';
+// import { FiltersContext } from '../FiltersContext';
 
-function ReviewList({ prodID, reviewsMeta, totalReviews }) {
-  const [reviews, setReviews] = useState([]);
-  const [count, setCount] = useState(2);
-  const [sort, setSort] = useState('Relevant');
+function ReviewList({
+  reviews, reviewsMeta, count, setCount, sort, setSort, makeGetRequest,
+}) {
+  // const [reviews, setReviews] = useState([]);
+  // const [count, setCount] = useState(2);
+  // const [sort, setSort] = useState('Relevant');
+  const totalReviews = Number(reviewsMeta.recommended.true)
+  + Number(reviewsMeta.recommended.false);
 
-  const makeGetRequest = (newCount, newSort) => {
-    const countToDisplay = newCount || count;
-    const sortToSearch = newSort || sort;
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=${totalReviews}&sort=${sortToSearch}`, {
-      headers: {
-        Authorization: process.env.AUTH_TOKEN,
-      },
-    })
-      .then((response) => {
-        setReviews(response.data.results.slice(0, countToDisplay));
-      })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
-  };
+  // const makeGetRequest = (newCount, newSort) => {
+  //   const countToDisplay = newCount || count;
+  //   const sortToSearch = newSort || sort;
+  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=${totalReviews}&sort=${sortToSearch}`, {
+  //     headers: {
+  //       Authorization: process.env.AUTH_TOKEN,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (filters.length) {
+  //         const filteredData = response.data.results.filter(
+  //           (review) => filters.includes(review.rating),
+  //         );
+  //         setReviews(filteredData.slice(0, countToDisplay));
+  //       } else {
+  //         setReviews(response.data.results.slice(0, countToDisplay));
+  //       }
+  //     })
+  //     // eslint-disable-next-line no-console
+  //     .catch((err) => console.log(err));
+  // };
 
   useEffect(() => {
     makeGetRequest();
@@ -44,7 +56,7 @@ function ReviewList({ prodID, reviewsMeta, totalReviews }) {
   );
 
   return reviews.length ? (
-    <div id="reviews-list">
+    <div className="ml-4">
       <div className="flex mb-4">
         <div className="mr-1">
           {totalReviews}
@@ -75,7 +87,12 @@ function ReviewList({ prodID, reviewsMeta, totalReviews }) {
         <AddReview reviewsMeta={reviewsMeta} />
       </div>
     </div>
-  ) : <AddReview reviewsMeta={reviewsMeta} />;
+  ) : (
+    <div className="p-4">
+      <h3 className="font-bold my-4 text-xl">There are currently no reviews, use the button to add one!</h3>
+      <AddReview reviewsMeta={reviewsMeta} />
+    </div>
+  );
 }
 
 export default ReviewList;

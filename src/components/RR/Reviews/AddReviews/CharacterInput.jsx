@@ -16,7 +16,7 @@ function CharacterInput({ characteristic }) {
       {inputMeanings[characteristic].map((key, index) => (
         <label className="mx-1" htmlFor={index + 1} key={key}>
           {key}
-          <input type="radio" name={characteristic} value={index + 1} />
+          <input type="radio" name={characteristic.toLowerCase()} value={index + 1} />
         </label>
       ))}
     </div>
