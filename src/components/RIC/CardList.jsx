@@ -80,7 +80,7 @@ function CardList({ prod, changeProdClick }) {
       {relatedItems.length === 0
         ? <h1> Loading... </h1>
         : (
-          <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full left-20">
+          <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-20">
             {relatedItems.map((relatedItem) => (
               <CardListEntry
                 key={relatedItem.id}

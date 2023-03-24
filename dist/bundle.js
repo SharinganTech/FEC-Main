@@ -10838,7 +10838,7 @@ function CardList(_ref) {
     }), relatedItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
       children: " Loading... "
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "relative flex flex-row whitespace-nowrap space-x-5 w-full h-full left-20",
+      className: "relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-20",
       children: relatedItems.map(function (relatedItem) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CardListEntry__WEBPACK_IMPORTED_MODULE_2__["default"], {
           relatedItem: relatedItem,
