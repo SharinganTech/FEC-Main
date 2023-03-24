@@ -28,7 +28,7 @@ function QList({ prodInfo }) {
       .catch((err) => {
         throw new Error('Error getting QA data', err);
       });
-  }, []);
+  }, [prodInfo.id]);
 
   function handleMoreQsClick() {
     setQCap((state) => state + 2);

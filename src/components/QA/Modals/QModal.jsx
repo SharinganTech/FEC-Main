@@ -7,12 +7,12 @@ function QModal({ prodInfo, setOpenQModal }) {
 
   function handleQModalClick(e) {
     e.preventDefault();
-    setOpenQModal(false);
-    // if (qMQuestion && qMNickname && qMEmail) {
-    // } else {
-    //   // eslint-disable-next-line no-alert
-    //   alert('Please fill out the required fields');
-    // }
+    if (qMQuestion && qMNickname && qMEmail) {
+      setOpenQModal(false);
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Please fill out the required fields');
+    }
   }
 
   // const isValidForm = qMQuestion && qMNickname && qMEmail;

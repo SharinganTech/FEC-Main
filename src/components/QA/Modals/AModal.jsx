@@ -5,8 +5,15 @@ function AModal({ prodInfo, question, setOpenA }) {
   const [aMNickname, setAMNickname] = useState('');
   const [aMEmail, setAMEmail] = useState('');
   const [aMPhotos, setAMPhotos] = useState([]);
-  // const [uploadFiles, setUploadFiles] = useState([]);
-  // let i = 0;
+  // const [isDup, setIsDup] = useState(false);
+  // const [photoK, setPhotoK] = useState(0);
+
+  // useEffect(() => {
+  //   if (isDup) {
+  //     alert('Image already uploaded. Please choose a different image');
+  //     setIsDup(false);
+  //   }
+  // }, [isDup]);
 
   function handleAModalClick(e) {
     e.preventDefault();
@@ -20,15 +27,37 @@ function AModal({ prodInfo, question, setOpenA }) {
 
   console.log(aMPhotos);
   function handleUploadClick(e) {
-    const reader = new FileReader();
+    // console.log(e.target.files);
+    // const { files } = e.target;
+    // const filesArr = Object.values(files);
+    // photoI += 1;
     const file = e.target.files[0];
+    const currFiles = [...aMPhotos];
 
-    // files.forEach()
+    const reader = new FileReader();
     reader.onloadend = () => {
-      setAMPhotos((prev) => [...prev, { ...e.target.files[0], url: reader.result }]);
+      setAMPhotos((prev) => {
+        // const dups = prev.filter((p) => p.url === reader.result);
+        if (currFiles.findIndex((photo) => photo.name === reader.name) < 0) {
+          return [...prev, { ...file, url: reader.result }];
+        }
+        // setIsDup(true);
+        return [...prev];
+      });
     };
 
-    reader.readAsDataURL(file);
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+
+    // filesArr.forEach((file) => {
+    //   photoI += 1;
+    //   const reader = new FileReader();
+    //   reader.onloadend = () => {
+    //     setAMPhotos((prev) => [...prev, { ...file, key: photoI, url: reader.result }]);
+    //   };
+    //   reader.readAsDataURL(file);
+    // });
   }
 
   return (
@@ -76,7 +105,7 @@ function AModal({ prodInfo, question, setOpenA }) {
                 type="file"
                 name="answer-photos"
                 accept="image/*"
-                multiple
+                // multiple
                 onChange={handleUploadClick}
               />
             )}

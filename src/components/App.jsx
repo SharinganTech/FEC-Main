@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Overview from './Overview';
-import RatingsAndReviews from './RR';
-import RelatedItemsAndComparison from './RIC';
+// import Overview from './Overview';
+// import RatingsAndReviews from './RR';
+// import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 import ProductContext from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
@@ -23,27 +23,27 @@ function App() {
         },
       })
       .then((result) => {
-        setProduct(result.data[4]);
+        setProduct(result.data[2]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
   }, []);
 
-  const changeProdClick = (prodId) => {
-    axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
-        headers: {
-          Authorization: process.env.AUTH_TOKEN,
-        },
-      })
-      .then((result) => {
-        setProduct(result.data);
-      })
-      .catch((err) => {
-        throw new Error('Error in changing product', err);
-      });
-  };
+  // const changeProdClick = (prodId) => {
+  //   axios
+  //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
+  //       headers: {
+  //         Authorization: process.env.AUTH_TOKEN,
+  //       },
+  //     })
+  //     .then((result) => {
+  //       setProduct(result.data);
+  //     })
+  //     .catch((err) => {
+  //       throw new Error('Error in changing product', err);
+  //     });
+  // };
 
   return (
     <ProductContext.Provider value={product}>
@@ -51,13 +51,13 @@ function App() {
         ? <Loading />
         : (
           <>
-            <Overview />
+            {/* <Overview />
             <div className="h-[7rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
-            <div className="h-[40rem]" />
+            <div className="h-[40rem]" /> */}
             <QA />
-            <div className="h-[2rem]" />
-            <RatingsAndReviews />
+            {/* <div className="h-[2rem]" />
+            <RatingsAndReviews /> */}
           </>
         )}
     </ProductContext.Provider>

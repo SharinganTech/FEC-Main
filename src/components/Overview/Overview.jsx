@@ -3,7 +3,7 @@ import React, { useContext, createContext, useState, useEffect } from 'react';
 import ProductInfo from './ProductInfo';
 import ProductOverview from './ProductOverview';
 import StyleSelector from './StyleSelector';
-// import AddToCart from './AddToCart';
+import AddToCart from './AddToCart';
 import Gallery from './Gallery';
 import ProductContext from '../../contexts/ProductContext';
 import Features from './Features';
@@ -45,7 +45,7 @@ function Overview() {
         const IDnumber = response.data.results[0].style_id;
         setStyleID(IDnumber);
         setCurrentStyle(response.data.results[0]);
-        console.log('current Style', response.data.results[0].skus);
+        // console.log('current Style', response.data.results[0].skus);
         setInventory(response.data.results[0].skus);
         setStyleName(response.data.results[0].name);
         setMainImage(response.data.results[0].photos[0].url);
@@ -54,12 +54,12 @@ function Overview() {
       .catch((err) => {
         console.log('error getting prod styles: ', err);
       });
-  }, []);
+  }, [prod.id]);
 
   const changeStyle = (elementID) => {
     setStyleID(Number(elementID));
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
-    console.log('newStyle: ', newStyle);
+    // console.log('newStyle: ', newStyle);
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
@@ -93,9 +93,9 @@ function Overview() {
           changeStyle={changeStyle}
           styleID={styleID}
         />
-        {/* <AddToCart
+        <AddToCart
           inventory={inventory}
-        /> */}
+        />
       </div>
       <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
         <ProductOverview slogan={prod.slogan} description={prod.description} />
