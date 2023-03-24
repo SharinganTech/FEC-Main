@@ -22,17 +22,9 @@ function AddToCart({ inventory }) {
     // console.log(quant[0].quantity);
     const maxCount = quant[0].quantity;
     const arr = arrayOfQuantities(maxCount);
-<<<<<<< HEAD
-    // console.log('result: ', arr);
-    return arr.map((number) => (
-      (number === 1)
-        ? <option selected value={number}>{number}</option>
-        : <option value={number}>{number}</option>
-=======
     console.log('result: ', arr);
     return arr.map((number, index) => (
       <option key={index} value={number}>{number}</option>
->>>>>>> main
     ));
   };
   const handleChange = (e) => {
