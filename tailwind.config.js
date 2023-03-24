@@ -34,6 +34,7 @@ module.exports = {
       pastelPurple: '#926AA6',
       pastelBlack: '#363945',
       pastelGray: '#798EA4',
+      slate: colors.slate,
     },
   },
   variants: {
