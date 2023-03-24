@@ -23,13 +23,7 @@ function App() {
         },
       })
       .then((result) => {
-<<<<<<< HEAD
-        // console.log('results data', result.data);
         setProduct(result.data[4]);
-        // setProductId(result.data[3].id);
-=======
-        setProduct(result.data[4]);
->>>>>>> main
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -53,14 +47,6 @@ function App() {
 
   return (
     <ProductContext.Provider value={product}>
-<<<<<<< HEAD
-      <div>
-        {product.id ? <Overview /> : null }
-      </div>
-      {/* <RelatedItemsAndComparison /> */}
-      {/* <QA />
-      <RatingsAndReviews /> */}
-=======
       {product.id === undefined
         ? <Loading />
         : (
@@ -74,7 +60,6 @@ function App() {
             <RatingsAndReviews />
           </>
         )}
->>>>>>> main
     </ProductContext.Provider>
   );
 }
