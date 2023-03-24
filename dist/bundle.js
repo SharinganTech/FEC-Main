@@ -15893,6 +15893,10 @@ function doesItInclude(prod, yourOutfit) {
 //   );
 // }
 
+// export function getRatings() {
+
+// };
+
 /***/ }),
 
 /***/ "./src/components/RIC/Loading.jsx":
@@ -16152,7 +16156,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-
 function Stars(_ref) {
   var rating = _ref.rating,
     numReviews = _ref.numReviews;
@@ -16161,7 +16164,7 @@ function Stars(_ref) {
   // console.log('fullstars', fullStars);
   var halfStars = Math.ceil(rating - fullStars);
   var emptyStars = 5 - fullStars - halfStars;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     children: numReviews > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "star-rating",
       children: [_toConsumableArray(Array(fullStars)).map(function (_, index) {
@@ -16177,7 +16180,7 @@ function Stars(_ref) {
           style: {
             color: '#000000'
           }
-        }, "full-".concat(index));
+        }, "half-".concat(index));
       }), _toConsumableArray(Array(emptyStars)).map(function (_, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
           icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faStar,
