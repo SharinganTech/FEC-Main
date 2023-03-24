@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FiltersContext } from '../FiltersContext';
 
-function RatingScale({ stars, numReviews, totalReviews }) {
+function RatingScale({
+  stars, numReviews, totalReviews, makeGetRequest,
+}) {
+  const { filters, addFilter, removeFilter } = useContext(FiltersContext);
+
   const calculatePercentage = Math.round((numReviews / totalReviews) * 100).toString();
-  console.log(calculatePercentage);
+
+  const handleFilterClick = () => {
+    if (filters.includes(stars)) {
+      removeFilter(stars);
+    } else {
+      addFilter(stars);
+    }
+    console.log(filters);
+    makeGetRequest();
+  };
 
   return (
-    <div className="flex">
-      <div className="text-xs underline">
-        {stars}
-        {' stars '}
+    <div
+      role="button"
+      onClick={() => handleFilterClick()}
+      tabIndex={0}
+      onKeyPress={() => handleFilterClick()}
+      className="flex flex-row hover:bg-gray-300"
+    >
+      <div className="whitespace-nowrap text-xs underline">
+        {`${stars} stars`}
       </div>
-      <div className="w-full h-2 mx-2 mt-4 bg-gray-400 ">
-        <span className={`w-[${calculatePercentage}%] h-full bg-green-400 block relative`} />
+      <div className="w-full h-2 mx-2 my-2 bg-gray-400 ">
+        <span className="h-full bg-green-400 block relative" style={{ width: `${calculatePercentage}%` }} />
       </div>
       <div className="text-xs">
         {numReviews}

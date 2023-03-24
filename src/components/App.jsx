@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import Overview from './Overview';
-<<<<<<< HEAD
-// import RelatedItemsAndComparison from './RIC';
-import QA from './QA';
-=======
->>>>>>> main
-// import RatingsAndReviews from './RR';
+import Overview from './Overview';
+import RatingsAndReviews from './RR';
 import RelatedItemsAndComparison from './RIC';
-// import QA from './QA';
+import QA from './QA';
 import ProductContext from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
 
@@ -19,11 +14,6 @@ import Loading from './RIC/Loading';
 
 function App() {
   const [product, setProduct] = useState({});
-<<<<<<< HEAD
-  // const [productId, setProductId] = useState(0);
-  // const [canRender, setCanRender] = useState(false);
-=======
->>>>>>> main
 
   useEffect(() => {
     axios
@@ -33,13 +23,7 @@ function App() {
         },
       })
       .then((result) => {
-<<<<<<< HEAD
-        // console.log('results data', result.data);
-        setProduct(result.data[6]);
-        // setProductId(result.data[3].id);
-=======
         setProduct(result.data[4]);
->>>>>>> main
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -63,28 +47,18 @@ function App() {
 
   return (
     <ProductContext.Provider value={product}>
-<<<<<<< HEAD
-      <h1 className="text-4xl">Welcome to Akatsuki Headquarters</h1>
-      {!product.id ? <div>Loading...</div>
-        : (
-          <div>
-            {/* <Overview /> */}
-            <QA />
-            {/* <RatingsAndReviews /> */}
-            {/* <RelatedItemsAndComparison /> */}
-          </div>
-=======
       {product.id === undefined
         ? <Loading />
         : (
           <>
-            {/* <Overview /> */}
-            <div className="h-[2rem]" />
+            <Overview />
+            <div className="h-[7rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
-            {/* <QA />
-            <RatingsAndReviews /> */}
+            <div className="h-[40rem]" />
+            <QA />
+            <div className="h-[2rem]" />
+            <RatingsAndReviews />
           </>
->>>>>>> main
         )}
     </ProductContext.Provider>
   );
