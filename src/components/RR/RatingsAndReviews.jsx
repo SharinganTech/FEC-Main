@@ -26,9 +26,10 @@ function RatingsAndReviews() {
       })
       // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
-  }, []);
+  }, [prod.id]);
 
-  const makeGetRequest = (newCount, newSort) => {
+  const makeGetRequest = (newCount, newSort, newFilters) => {
+    const filtersToDisplay = newFilters || filters;
     const countToDisplay = newCount || count;
     const sortToSearch = newSort || sort;
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prod.id}&count=${Number(reviewsMeta.recommended.true)
@@ -38,17 +39,17 @@ function RatingsAndReviews() {
       },
     })
       .then((response) => {
-        if (filters.length) {
-          console.log(response.data.results)
+        if (filtersToDisplay.length) {
+          console.log('filters to be used in get ', filtersToDisplay);
           const filteredData = response.data.results.filter((review) => {
-            return filters.includes(review.rating.toString())
+            return filtersToDisplay.includes(review.rating.toString())
           });
-          console.log(filteredData);
+          console.log(response.data.results);
+          console.log('filtered data ', filteredData);
           setReviews(filteredData.slice(0, countToDisplay));
         } else {
           setReviews(response.data.results.slice(0, countToDisplay));
         }
-        // setReviews(response.data.results.slice(0, countToDisplay));
       })
       // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
