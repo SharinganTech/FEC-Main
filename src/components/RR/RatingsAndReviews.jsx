@@ -24,8 +24,9 @@ function RatingsAndReviews() {
       .then((response) => {
         setReviewsMeta(response.data);
       })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw new Error('Error getting review meta data', err);
+      });
   }, [prod.id]);
 
   const makeGetRequest = (newCount, newSort, newFilters) => {
@@ -48,14 +49,16 @@ function RatingsAndReviews() {
           setReviews(response.data.results.slice(0, countToDisplay));
         }
       })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw new Error('Error getting review data', err);
+      });
   };
 
   return Object.keys(reviewsMeta).length ? (
     <div className="grid grid-cols-[1fr_3fr] gap-3 mx-10">
       <Ratings reviewsMeta={reviewsMeta} makeGetRequest={makeGetRequest} />
       <ReviewList
+        prodID={prod.id}
         reviews={reviews}
         reviewsMeta={reviewsMeta}
         count={count}

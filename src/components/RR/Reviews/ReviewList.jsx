@@ -1,43 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import Review from './Review';
 import AddReview from './AddReviews/AddReview';
 // import { FiltersContext } from '../FiltersContext';
 
 function ReviewList({
-  reviews, reviewsMeta, count, setCount, sort, setSort, makeGetRequest,
+  prodID, reviews, reviewsMeta, count, setCount, sort, setSort, makeGetRequest,
 }) {
-  // const [reviews, setReviews] = useState([]);
-  // const [count, setCount] = useState(2);
-  // const [sort, setSort] = useState('Relevant');
   const totalReviews = Number(reviewsMeta.recommended.true)
   + Number(reviewsMeta.recommended.false);
 
-  // const makeGetRequest = (newCount, newSort) => {
-  //   const countToDisplay = newCount || count;
-  //   const sortToSearch = newSort || sort;
-  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prodID}&count=${totalReviews}&sort=${sortToSearch}`, {
-  //     headers: {
-  //       Authorization: process.env.AUTH_TOKEN,
-  //     },
-  //   })
-  //     .then((response) => {
-  //       if (filters.length) {
-  //         const filteredData = response.data.results.filter(
-  //           (review) => filters.includes(review.rating),
-  //         );
-  //         setReviews(filteredData.slice(0, countToDisplay));
-  //       } else {
-  //         setReviews(response.data.results.slice(0, countToDisplay));
-  //       }
-  //     })
-  //     // eslint-disable-next-line no-console
-  //     .catch((err) => console.log(err));
-  // };
-
   useEffect(() => {
     makeGetRequest();
-  }, []);
+  }, [prodID]);
 
   const dropdown = () => (
     <select
