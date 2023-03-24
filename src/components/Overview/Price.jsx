@@ -15,7 +15,7 @@ function Price({ currentStyle }) {
         $
         {currentStyle.original_price}
       </span>
-      <span className="text-red">
+      <span className="text-red-600">
         $
         {currentStyle.sale_price}
       </span>

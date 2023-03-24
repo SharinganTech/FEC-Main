@@ -14,6 +14,7 @@ function Overview() {
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
+  console.log('main product:', prod);
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [styles, setStyles] = useState([]);
   const [features, setFeatures] = useState([]);
@@ -54,7 +55,7 @@ function Overview() {
       .catch((err) => {
         console.log('error getting prod styles: ', err);
       });
-  }, []);
+  }, [prod.id]);
 
   const changeStyle = (elementID) => {
     setStyleID(Number(elementID));
