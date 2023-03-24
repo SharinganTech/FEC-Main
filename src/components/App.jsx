@@ -24,7 +24,7 @@ function App() {
       })
       .then((result) => {
         // console.log('results data', result.data);
-        setProduct(result.data[0]);
+        setProduct(result.data[4]);
         // setProductId(result.data[3].id);
       })
       .catch((err) => {
@@ -34,7 +34,9 @@ function App() {
 
   return (
     <ProductContext.Provider value={product}>
-      {product.id ? <Overview /> : null }
+      <div>
+        {product.id ? <Overview /> : null }
+      </div>
       {/* <RelatedItemsAndComparison /> */}
       {/* <QA />
       <RatingsAndReviews /> */}
