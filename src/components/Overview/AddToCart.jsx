@@ -6,13 +6,14 @@ function AddToCart({ inventory }) {
   const [currentSize, setCurrentSize] = useState('');
   const [maxQuantity, setMaxQuantity] = useState(null);
   const [currentQuantity, setCurrentQuantity] = useState(null);
+  const [styleDisabled, setStyleDisabled] = useState(false);
   const inven = Object.values(inventory);
 
   const sizeOptions = () => (
     inven.map((size, index) => (
       (size.quantity !== 0)
         ? <option key={index} value={size.size}>{size.size}</option>
-        : <option value="- Select -">- Select -</option>
+        : null
     ))
   );
 
@@ -48,12 +49,12 @@ function AddToCart({ inventory }) {
   return (
     <div className="flex flex-wrap w-[425px]">
       <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center" id={currentSize} value={currentSize} onChange={handleChange}>
-        <option value="">Size</option>
+        <option value="">{!styleDisabled ? <span>Select Size</span> : <span>OUT OF STOCK</span>}</option>
         {sizeOptions()}
       </select>
       <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
         {(!maxQuantity)
-          ? <option value="">Quantity</option>
+          ? <option value="">QUANTITY</option>
           : quantityOptions(maxQuantity)}
       </select>
       <button
