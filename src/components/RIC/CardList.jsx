@@ -37,7 +37,7 @@ function CardList({ prod, changeProdClick }) {
   }, [prodId]);
 
   const handleNext = () => {
-    if (activeIndex === relatedItems.length - 1) {
+    if (activeIndex === relatedItems.length - 4) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index
@@ -53,12 +53,12 @@ function CardList({ prod, changeProdClick }) {
   };
 
   return (
-    <div className="h-[28rem] relative flex flex-row space-x-5 w-full h-64">
+    <div className="h-[28rem] relative flex flex-row space-x-5 w-[1100px] h-64 overflow-hidden">
       {/* map over the related items to create a card for each item */}
       {activeIndex === 0
         ? <div />
         : (
-          <div className="absolute left-0 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
+          <div className="absolute left-20 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
             <FontAwesomeIcon
               icon={faArrowLeft}
               className="absolute left-0 self-center ml-5"
@@ -80,7 +80,7 @@ function CardList({ prod, changeProdClick }) {
       {relatedItems.length === 0
         ? <h1> Loading... </h1>
         : (
-          <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full left-20">
+          <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-20">
             {relatedItems.map((relatedItem) => (
               <CardListEntry
                 key={relatedItem.id}
