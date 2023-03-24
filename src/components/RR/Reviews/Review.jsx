@@ -9,7 +9,8 @@ function Review({ review, makeGetRequest }) {
   return (
     <div className="flex flex-col">
       <div>
-        <Stars rating={review.rating} />
+        {/* <Stars rating={review.rating} /> */}
+        <div>{review.rating}</div>
         <div className="text-s float-right">
           {review.reviewer_name}
           {', '}

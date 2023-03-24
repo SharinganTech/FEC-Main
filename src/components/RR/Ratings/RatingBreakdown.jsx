@@ -1,7 +1,7 @@
 import React from 'react';
 import RatingScale from './RatingScale';
 
-function RatingBreakdown({ ratings, recommended }) {
+function RatingBreakdown({ ratings, recommended, makeGetRequest }) {
   const recommendedPercentage = () => {
     const total = Number(recommended.true) + Number(recommended.false);
     return Math.round((Number(recommended.true) / total) * 100);
@@ -14,6 +14,7 @@ function RatingBreakdown({ ratings, recommended }) {
           key={key}
           stars={key}
           numReviews={ratings[key]}
+          makeGetRequest={makeGetRequest}
           totalReviews={Number(recommended.true) + Number(recommended.false)}
         />
       ))}

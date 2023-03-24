@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { FiltersContext } from '../FiltersContext';
 
-function RatingScale({ stars, numReviews, totalReviews }) {
+function RatingScale({
+  stars, numReviews, totalReviews, makeGetRequest,
+}) {
   const { filters, addFilter, removeFilter } = useContext(FiltersContext);
 
   const calculatePercentage = Math.round((numReviews / totalReviews) * 100).toString();
@@ -13,6 +15,7 @@ function RatingScale({ stars, numReviews, totalReviews }) {
       addFilter(stars);
     }
     console.log(filters);
+    makeGetRequest();
   };
 
   return (
