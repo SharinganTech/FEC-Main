@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import Overview from './Overview';
-<<<<<<< HEAD
-// import RelatedItemsAndComparison from './RIC';
-import QA from './QA';
-=======
->>>>>>> main
 // import RatingsAndReviews from './RR';
 import RelatedItemsAndComparison from './RIC';
 // import QA from './QA';
@@ -19,11 +14,6 @@ import Loading from './RIC/Loading';
 
 function App() {
   const [product, setProduct] = useState({});
-<<<<<<< HEAD
-  // const [productId, setProductId] = useState(0);
-  // const [canRender, setCanRender] = useState(false);
-=======
->>>>>>> main
 
   useEffect(() => {
     axios
@@ -33,13 +23,7 @@ function App() {
         },
       })
       .then((result) => {
-<<<<<<< HEAD
-        // console.log('results data', result.data);
-        setProduct(result.data[6]);
-        // setProductId(result.data[3].id);
-=======
         setProduct(result.data[4]);
->>>>>>> main
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -63,17 +47,6 @@ function App() {
 
   return (
     <ProductContext.Provider value={product}>
-<<<<<<< HEAD
-      <h1 className="text-4xl">Welcome to Akatsuki Headquarters</h1>
-      {!product.id ? <div>Loading...</div>
-        : (
-          <div>
-            {/* <Overview /> */}
-            <QA />
-            {/* <RatingsAndReviews /> */}
-            {/* <RelatedItemsAndComparison /> */}
-          </div>
-=======
       {product.id === undefined
         ? <Loading />
         : (
@@ -84,7 +57,6 @@ function App() {
             {/* <QA />
             <RatingsAndReviews /> */}
           </>
->>>>>>> main
         )}
     </ProductContext.Provider>
   );
