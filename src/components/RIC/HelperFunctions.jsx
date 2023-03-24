@@ -83,3 +83,7 @@ export function doesItInclude(prod, yourOutfit) {
 //     </div>
 //   );
 // }
+
+// export function getRatings() {
+
+// };
