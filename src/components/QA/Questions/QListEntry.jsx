@@ -5,10 +5,14 @@ import AModal from '../Modals/AModal';
 function QListEntry({ prodInfo, eachQ }) {
   const [qHelpful, setQHelpful] = useState(eachQ.question_helpfulness);
   const [openA, setOpenA] = useState(false);
+  const [helpfulClicked, setHelpfulClicked] = useState(false);
   // console.log(eachQ);
 
   function handleQHelpful() {
-    setQHelpful((state) => state + 1);
+    if (!helpfulClicked) {
+      setQHelpful((state) => state + 1);
+      setHelpfulClicked(true);
+    }
   }
 
   function handleAddAnswerClick() {

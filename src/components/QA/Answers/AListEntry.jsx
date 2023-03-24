@@ -5,10 +5,14 @@ import { format, parseISO } from 'date-fns';
 function AListEntry({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
   const [isReported, setIsReported] = useState(false);
+  const [helpfulClicked, setHelpfulClicked] = useState(false);
   // console.log(eachQ);
 
   function handleAHelpfulClick() {
-    setAHelpful((state) => state + 1);
+    if (!helpfulClicked) {
+      setAHelpful((state) => state + 1);
+      setHelpfulClicked(true);
+    }
   }
 
   // function formatDate(date) {

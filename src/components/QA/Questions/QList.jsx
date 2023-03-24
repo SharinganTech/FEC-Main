@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import QListEntry from './QListEntry';
 import QModal from '../Modals/QModal';
-// import SearchQuestion from '../Search/SearchQuestion';
+import SearchQuestion from '../Search/SearchQuestion';
 
 function QList({ prodInfo }) {
   // const [prodName, setProdName] = useState('');
@@ -12,7 +12,7 @@ function QList({ prodInfo }) {
   const [searchInput, setSearchInput] = useState('');
   const [searchOn, setSearchOn] = useState(false);
   const qLeng = listOfQs.length;
-  const filtered = listOfQs.filter((q) => q.question_body.includes(searchInput));
+  // const filtered = listOfQs.filter((q) => q.question_body.includes(searchInput));
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${prodInfo.id}`, {
@@ -21,7 +21,7 @@ function QList({ prodInfo }) {
       },
     })
       .then((response) => {
-        // console.log(response.data.results);
+        console.log(response.data.results);
         const sortedData = response.data.results.sort((a, b) => b.helpfulness - a.helpfulness);
         setListOfQs(sortedData);
       })
@@ -30,20 +30,19 @@ function QList({ prodInfo }) {
       });
   }, []);
 
-  useEffect(() => {
-    // console.log(searchInput);
-    if (searchInput.length > 2) {
-      setSearchOn(true);
-    } else {
-      setSearchOn(false);
-    }
-  }, [searchInput]);
-
   function handleMoreQsClick() {
     setQCap((state) => state + 2);
   }
 
+  // function renderFilterList(query) {
+  //   const filtered = listOfQs.filter((q) => q.question_body.includes(query));
+  //   return filtered.map((eachQ) => (
+  //     <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
+  //   ));
+  // }
+
   function renderQList() {
+    const filtered = listOfQs.filter((q) => q.question_body.includes(searchInput));
     if (searchOn) {
       return filtered.map((eachQ) => (
         <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
@@ -57,12 +56,12 @@ function QList({ prodInfo }) {
   return (
     <>
       <div className="text-2xl uppercase py-3">Questions & Answers</div>
-      {/* <SearchQuestion setSearchOn={setSearchOn} /> */}
-      <>
-        <input className="shadow appearance-none w-full border rounded py-1 px-2 text-black" type="text" placeholder="Have a question? Search for answers..." value={searchInput} onChange={(e) => { e.preventDefault(); setSearchInput(e.target.value); }} />
-        {/* <button type="button" onClick={handleSearchClick}>Search Questions</button> */}
-      </>
-      <div className="flex-col overflow-y-auto max-h-[600px] border-solid border-2 border-red-600">
+      <SearchQuestion
+        setSearchOn={setSearchOn}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+      />
+      <div className="flex-col overflow-y-auto max-h-[600px]">
         {renderQList()}
       </div>
       <div className="flex items-center justify-start space-x-10 p-6">
