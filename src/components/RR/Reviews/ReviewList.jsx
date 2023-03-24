@@ -44,7 +44,7 @@ function ReviewList({ prodID, reviewsMeta, totalReviews }) {
   );
 
   return reviews.length ? (
-    <div id="reviews-list">
+    <div className="ml-4">
       <div className="flex mb-4">
         <div className="mr-1">
           {totalReviews}

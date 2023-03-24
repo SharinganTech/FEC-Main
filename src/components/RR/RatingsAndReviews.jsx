@@ -3,6 +3,7 @@ import axios from 'axios';
 import Ratings from './Ratings/Ratings';
 import ReviewList from './Reviews/ReviewList';
 import ProductContext from '../../contexts/ProductContext';
+import { FiltersProvider } from './FiltersContext';
 
 function RatingsAndReviews() {
   const product = useContext(ProductContext);
@@ -24,14 +25,17 @@ function RatingsAndReviews() {
   }, []);
 
   return Object.keys(reviewsMeta).length ? (
-    <div className="grid grid-cols-[1fr_3fr] gap-3 mx-10">
-      <Ratings reviewsMeta={reviewsMeta} />
-      <ReviewList
-        prodID={prod.id}
-        reviewsMeta={reviewsMeta}
-        totalReviews={Number(reviewsMeta.recommended.true) + Number(reviewsMeta.recommended.false)}
-      />
-    </div>
+    <FiltersProvider>
+      <div className="grid grid-cols-[1fr_3fr] gap-3 mx-10">
+        <Ratings reviewsMeta={reviewsMeta} />
+        <ReviewList
+          prodID={prod.id}
+          reviewsMeta={reviewsMeta}
+          totalReviews={Number(reviewsMeta.recommended.true)
+            + Number(reviewsMeta.recommended.false)}
+        />
+      </div>
+    </FiltersProvider>
   ) : null;
 }
 
