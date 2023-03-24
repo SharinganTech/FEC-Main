@@ -9,12 +9,14 @@ import Loading from './Loading';
 import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
 import ProductContext from '../../contexts/ProductContext';
+import Stars from './Stars';
 
 function CardListEntry({
   relatedItem, noModal, removeCard, activeIndex, changeProdClick,
 }) {
   const [thumbnail, setThumbNail] = useState('');
-  const [rating, setRating] = useState('');
+  const [numOfRatings, setNumOfRatings] = useState(0);
+  const [rating, setRating] = useState(0);
   const [clicked, setClick] = useState(false);
   const [onSale, setSale] = useState(null);
   const [modal, setModal] = useState(false);
@@ -55,7 +57,8 @@ function CardListEntry({
       .then((results) => {
         // console.log(results.data.ratings);
         const avgRating = generateAverage(results.data.ratings);
-        setRating(avgRating);
+        setNumOfRatings(avgRating[1]);
+        setRating(avgRating[0]);
       })
       .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
   }, []);
@@ -107,7 +110,9 @@ function CardListEntry({
                       <div>{onSale}</div>
                     </div>
                   )}
-                <div className="text-[#798EA4] text-sm">{rating}</div>
+                <div className="text-[#798EA4] text-sm">
+                  <Stars rating={rating} numReviews={numOfRatings} />
+                </div>
               </div>
               {noModal === undefined && (
               <button

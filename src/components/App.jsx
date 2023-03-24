@@ -31,6 +31,7 @@ function App() {
   }, []);
 
   const changeProdClick = (prodId) => {
+    setProduct({});
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
         headers: {
