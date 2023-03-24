@@ -15469,7 +15469,7 @@ function CardList(_ref) {
     });
   }, [prodId]);
   var handleNext = function handleNext() {
-    if (activeIndex === relatedItems.length - 1) {
+    if (activeIndex === relatedItems.length - 4) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index
@@ -16251,7 +16251,7 @@ function YourOutfit(_ref) {
     setYourOutfit(removedList);
   };
   var handleNext = function handleNext() {
-    if (activeIndex === yourOutfit.length - 1) {
+    if (activeIndex === yourOutfit.length - 4) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index

@@ -37,7 +37,7 @@ function CardList({ prod, changeProdClick }) {
   }, [prodId]);
 
   const handleNext = () => {
-    if (activeIndex === relatedItems.length - 1) {
+    if (activeIndex === relatedItems.length - 4) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index

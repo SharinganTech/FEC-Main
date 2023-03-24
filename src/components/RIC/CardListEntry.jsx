@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as farStar, faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
-import { generateAverage, stars } from './HelperFunctions';
+import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
 import ProductContext from '../../contexts/ProductContext';
 import Stars from './Stars';
