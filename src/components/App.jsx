@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import Overview from './Overview';
-import RatingsAndReviews from './RR';
+// import RatingsAndReviews from './RR';
+import RelatedItemsAndComparison from './RIC';
 // import QA from './QA';
-// import RelatedItemsAndComparison from './RIC';
 import ProductContext from '../contexts/ProductContext';
+import Loading from './RIC/Loading';
 
 // const useFetchData = async (url, options) => {
 //   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options});
@@ -13,9 +14,6 @@ import ProductContext from '../contexts/ProductContext';
 
 function App() {
   const [product, setProduct] = useState({});
-  const [canRender, setCanRender] = useState(false);
-  // const [productId, setProductId] = useState(0);
-  // const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
     axios
@@ -25,26 +23,41 @@ function App() {
         },
       })
       .then((result) => {
-        // console.log('results data', result.data);
-        setProduct(result.data[2]);
-        // setProductId(result.data[3].id);
+        setProduct(result.data[4]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
   }, []);
 
-  // if (productId === 0) {
-  //   return (
-  //     <div>Loading Page</div>
-  //   );
-  // }
+  const changeProdClick = (prodId) => {
+    axios
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
+      })
+      .then((result) => {
+        setProduct(result.data);
+      })
+      .catch((err) => {
+        throw new Error('Error in changing product', err);
+      });
+  };
+
   return (
     <ProductContext.Provider value={product}>
-      {/* <Overview /> */}
-      {/* <RelatedItemsAndComparison /> */}
-      {/* <QA /> */}
-      {product.id ? <RatingsAndReviews /> : null}
+      {product.id === undefined
+        ? <Loading />
+        : (
+          <>
+            {/* <Overview /> */}
+            <div className="h-[2rem]" />
+            <RelatedItemsAndComparison changeProdClick={changeProdClick} />
+            {/* <QA />
+            <RatingsAndReviews /> */}
+          </>
+        )}
     </ProductContext.Provider>
   );
 }

@@ -15,68 +15,78 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
     setYourOutfit(removedList);
   };
 
-  const updateIndex = (newIndex) => {
-    let index = newIndex;
-    if (index < 0) {
-      index = 0;
-    } else if (index >= outfit.length) {
-      index = outfit.length - 1;
+  const handleNext = () => {
+    if (activeIndex === yourOutfit.length - 1) {
+      setActiveIndex(0); // set index back to first element
+    } else {
+      setActiveIndex(activeIndex + 1); // increment index
     }
+  };
 
-    setActiveIndex(index);
+  const handlePrev = () => {
+    if (activeIndex === 0) {
+      setActiveIndex(yourOutfit.length - 1); // set index to last element
+    } else {
+      setActiveIndex(activeIndex - 1); // decrement index
+    }
   };
 
   return (
-    <div className="flex overflow-hidden h-[28rem]">
+    <div className="relative flex h-[28rem] left-3">
       {/* map over the related items to create a card for each item */}
-      <div className="relative flex flex-row space-x-5 w-full h-64">
-        <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent z-0">
+      <div
+        role="button"
+        className="relative left-4 shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-lg hover:shadow-indigo-500/40 h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
+        onClick={() => {
+          if (!doesItInclude(prod, yourOutfit)) {
+            const newOutfit = [prod, ...yourOutfit];
+            setYourOutfit(newOutfit);
+          } else {
+            setOutfit(true);
+          }
+        }}
+        tabIndex={0}
+        onKeyPress={() => {
+          if (!doesItInclude(prod, yourOutfit)) {
+            const newOutfit = [prod, ...yourOutfit];
+            setYourOutfit(newOutfit);
+          } else {
+            setOutfit(true);
+          }
+        }}
+      >
+        Add Current Item to Your Outfit
+      </div>
+      <div className="relative flex flex-row space-x-5 w-full h-100 overflow-hidden">
+        <div className="absolute right-0 flex h-[28rem] w-24 z-10 bg-gradient-to-l from-[#EDF1FF] to-transparent">
           <FontAwesomeIcon
             icon={faArrowRight}
             className="absolute right-0 self-center mr-5"
             onClick={() => {
-              updateIndex(activeIndex + 1);
+              handleNext();
             }}
           />
         </div>
-        <div
-          role="button"
-          className="shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-indigo-500/40 h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
-          onClick={() => {
-            if (!doesItInclude(prod, yourOutfit)) {
-              const newOutfit = [prod, ...yourOutfit];
-              setYourOutfit(newOutfit);
-            } else {
-              setOutfit(true);
-            }
-          }}
-          tabIndex={0}
-          onKeyPress={() => {
-            if (!doesItInclude(prod, yourOutfit)) {
-              const newOutfit = [prod, ...yourOutfit];
-              setYourOutfit(newOutfit);
-            } else {
-              setOutfit(true);
-            }
-          }}
-        >
-          Add Current Item to Your Outfit
-        </div>
-        <div className="flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent z-0">
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className="self-center ml-5"
-            onClick={() => {
-              updateIndex(activeIndex - 1);
-            }}
-          />
-        </div>
-        <div className="relative flex flex-row space-x-5 w-full h-64 transition-transform" style={{ transform: `translateX(-${activeIndex * 50}%)` }}>
+        {activeIndex === 0
+          ? <div />
+          : (
+            <div className="absolute left-0 flex h-[28rem] w-24 z-10 bg-gradient-to-r from-[#EDF1FF] to-transparent">
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                className="absolute left-0 self-center ml-5"
+                onClick={() => {
+                  handlePrev();
+                }}
+              />
+            </div>
+          )}
+        <div className="relative flex flex-row whitespace-nowrap space-x-5 w-full h-full left-[50px] z-0 overflow-hidden">
           {yourOutfit.map((relatedItem) => (
             <CardListEntry
               key={relatedItem.id}
               relatedItem={relatedItem}
               removeCard={removeCard}
+              activeIndex={activeIndex}
               noModal={noModal}
             />
           ))}

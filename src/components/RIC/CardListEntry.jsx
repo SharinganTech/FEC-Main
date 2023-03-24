@@ -11,7 +11,7 @@ import Modal from './Modal';
 import ProductContext from '../../contexts/ProductContext';
 
 function CardListEntry({
-  relatedItem, noModal, removeCard, activeIndex,
+  relatedItem, noModal, removeCard, activeIndex, changeProdClick,
 }) {
   const [thumbnail, setThumbNail] = useState('');
   const [rating, setRating] = useState('');
@@ -84,12 +84,26 @@ function CardListEntry({
               </div>
               <div className="ml-2 mr-2">
                 <div className="text-[#798EA4] text-lg">{relatedItem.category}</div>
-                <div className="text-black text-2xl">{relatedItem.name}</div>
+                <div
+                  role="button"
+                  className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-words"
+                  onClick={() => {
+                    changeProdClick(relatedItem.id);
+                  }}
+                  tabIndex={0}
+                  onKeyPress={() => {
+                    changeProdClick(relatedItem.id);
+                  }}
+                >
+                  {relatedItem.name}
+                </div>
                 {onSale === null
                   ? <div className="text-[#798EA4] text-sm">{`$${relatedItem.default_price}`}</div>
                   : (
                     <div>
-                      <div className="text-red-500 line-through text-sm">{relatedItem.default_price}</div>
+                      <div className="text-red-500 line-through text-sm">
+                        {relatedItem.default_price}
+                      </div>
                       <div>{onSale}</div>
                     </div>
                   )}
@@ -154,7 +168,7 @@ function CardListEntry({
                     removeCard(relatedItem);
                   }}
                 >
-                  <FontAwesomeIcon icon={faCircleXmark} style={{ color: '#000000' }} className="absolute top-2 right-2" />
+                  <FontAwesomeIcon icon={faCircleXmark} style={{ color: '#000000' }} className="absolute bottom-7 right-2" />
                 </button>
               )}
           </div>

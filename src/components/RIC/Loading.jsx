@@ -4,8 +4,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 function Loading() {
   return (
-    <h1 className="animate-spin">
-      <FontAwesomeIcon icon={faSpinner} style={{ color: '#926AA6' }} />
+    <h1>
+      <FontAwesomeIcon icon={faSpinner} style={{ color: '#926AA6' }} className="animate-spin" />
     </h1>
   );
 }
