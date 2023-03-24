@@ -3,7 +3,7 @@ import React, { useContext, createContext, useState, useEffect } from 'react';
 import ProductInfo from './ProductInfo';
 import ProductOverview from './ProductOverview';
 import StyleSelector from './StyleSelector';
-// import AddToCart from './AddToCart';
+import AddToCart from './AddToCart';
 import Gallery from './Gallery';
 import ProductContext from '../../contexts/ProductContext';
 import Features from './Features';
@@ -14,6 +14,7 @@ function Overview() {
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
+  console.log('main product:', prod);
   const [dataRetrieved, setDataRetrieved] = useState(false);
   const [styles, setStyles] = useState([]);
   const [features, setFeatures] = useState([]);
@@ -54,7 +55,7 @@ function Overview() {
       .catch((err) => {
         console.log('error getting prod styles: ', err);
       });
-  }, []);
+  }, [prod.id]);
 
   const changeStyle = (elementID) => {
     setStyleID(Number(elementID));
@@ -93,9 +94,9 @@ function Overview() {
           changeStyle={changeStyle}
           styleID={styleID}
         />
-        {/* <AddToCart
+        <AddToCart
           inventory={inventory}
-        /> */}
+        />
       </div>
       <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
         <ProductOverview slogan={prod.slogan} description={prod.description} />

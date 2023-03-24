@@ -733,6 +733,9 @@ video {
 .h-\[4rem\] {
   height: 4rem;
 }
+.h-\[600px\] {
+  height: 600px;
+}
 .h-\[60px\] {
   height: 60px;
 }
@@ -988,6 +991,9 @@ video {
 }
 .justify-self-center {
   justify-self: center;
+}
+.overflow-auto {
+  overflow: auto;
 }
 .overflow-hidden {
   overflow: hidden;
