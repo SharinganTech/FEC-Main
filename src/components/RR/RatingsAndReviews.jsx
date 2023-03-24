@@ -40,12 +40,9 @@ function RatingsAndReviews() {
     })
       .then((response) => {
         if (filtersToDisplay.length) {
-          console.log('filters to be used in get ', filtersToDisplay);
-          const filteredData = response.data.results.filter((review) => {
-            return filtersToDisplay.includes(review.rating.toString())
-          });
-          console.log(response.data.results);
-          console.log('filtered data ', filteredData);
+          const filteredData = response.data.results.filter(
+            (review) => filtersToDisplay.includes(review.rating.toString()),
+          );
           setReviews(filteredData.slice(0, countToDisplay));
         } else {
           setReviews(response.data.results.slice(0, countToDisplay));

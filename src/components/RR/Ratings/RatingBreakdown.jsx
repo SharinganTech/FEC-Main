@@ -24,7 +24,7 @@ function RatingBreakdown({ ratings, recommended, makeGetRequest }) {
 
       <div className="text-xs my-2">
         {filters.length ? (
-          `Filters applied: ${filters.sort().toString()}`
+          `Filters applied: ${filters.sort().toString().split(',').join(', ')}`
         ) : 'No filters selected'}
       </div>
       <div>

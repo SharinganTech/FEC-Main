@@ -10954,7 +10954,7 @@ function RatingBreakdown(_ref) {
       }, key);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "text-xs my-2",
-      children: filters.length ? "Filters applied: ".concat(filters.sort().toString()) : 'No filters selected'
+      children: filters.length ? "Filters applied: ".concat(filters.sort().toString().split(',').join(', ')) : 'No filters selected'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         onClick: function onClick() {
@@ -11213,12 +11213,9 @@ function RatingsAndReviews() {
       }
     }).then(function (response) {
       if (filtersToDisplay.length) {
-        console.log('filters to be used in get ', filtersToDisplay);
         var filteredData = response.data.results.filter(function (review) {
           return filtersToDisplay.includes(review.rating.toString());
         });
-        console.log(response.data.results);
-        console.log('filtered data ', filteredData);
         setReviews(filteredData.slice(0, countToDisplay));
       } else {
         setReviews(response.data.results.slice(0, countToDisplay));
