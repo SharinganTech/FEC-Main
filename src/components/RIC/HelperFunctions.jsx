@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faXmarkSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faXmarkSquare, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as farStar} from '@fortawesome/free-regular-svg-icons';
+import '../RR/Stars.css';
 
 export function generateAverage(ratings) {
   let totalScore = 0;
@@ -9,7 +11,7 @@ export function generateAverage(ratings) {
     totalScore += (Number(key) * Number(ratings[key]));
     totalRatings += Number(ratings[key]);
   });
-  return (Math.round((totalScore / totalRatings) * 4) / 4).toFixed(2);
+  return [(Math.round((totalScore / totalRatings) * 4) / 4).toFixed(2), totalRatings];
 }
 
 export function includesFeature(overviewFeat, selectedItem) {
@@ -59,3 +61,29 @@ export function doesItInclude(prod, yourOutfit) {
   }
   return false;
 }
+
+// export function stars(rating) {
+//   if (Object.keys(rating).length > 0) {
+//     const avgRating = generateAverage(rating);
+//     const fill = (avgRating * 100) / 5;
+//     console.log(fill, '%');
+//     return (
+//       <div className="star-rating">
+//         {[...Array(5)].map(() => (
+//           <FontAwesomeIcon icon={farStar} style={{ color: '#000000' }} className="bg-white" />
+//         ))}
+//         {/* <div className={`stars-inner w-[0%]`} /> */}
+//         {/* {avgRating} */}
+//       </div>
+//     );
+//   }
+//   return (
+//     <div className="stars-outer">
+//       <div className="stars-inner w-[0%]" />
+//     </div>
+//   );
+// }
+
+// export function getRatings() {
+
+// };
