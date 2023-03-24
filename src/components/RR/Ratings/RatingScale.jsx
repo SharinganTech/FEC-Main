@@ -19,9 +19,13 @@ function RatingScale({
   };
 
   return (
-    // eslint-disable-next-line max-len
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <div onClick={() => handleFilterClick()} className="flex flex-row hover:bg-gray-300">
+    <div
+      role="button"
+      onClick={() => handleFilterClick()}
+      tabIndex={0}
+      onKeyPress={() => handleFilterClick()}
+      className="flex flex-row hover:bg-gray-300"
+    >
       <div className="whitespace-nowrap text-xs underline">
         {`${stars} stars`}
       </div>

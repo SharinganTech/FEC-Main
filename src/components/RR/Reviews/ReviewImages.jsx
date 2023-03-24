@@ -5,7 +5,7 @@ function ReviewImages({ reviewPhotos }) {
   const [fullImage, setFullImage] = useState(false);
 
   const fullImageContent = (source) => (
-    <div className="max-h-[80%]">
+    <div className="max-h-[500px]">
       <button
         onClick={() => setFullImage('')}
         className="text-4xl font-bold"
@@ -13,7 +13,7 @@ function ReviewImages({ reviewPhotos }) {
       >
         X
       </button>
-      <img className="t-30 w-full max-h-[70%] object-contain" src={source} alt="Review" />
+      <img className="max-h-100 w-full object-cover" src={source} alt="Review" />
     </div>
   );
 
