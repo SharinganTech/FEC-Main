@@ -4,7 +4,10 @@ import { faCheck as farCheck, faCircleXmark } from '@fortawesome/free-regular-sv
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 function StyleSelector({ styleID, styles, styleName, changeStyle }) {
+<<<<<<< HEAD
   // console.log(styleID)
+=======
+>>>>>>> main
   const changeName = (e) => {
     e.preventDefault();
     changeStyle(e.target.id);

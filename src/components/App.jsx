@@ -23,7 +23,11 @@ function App() {
         },
       })
       .then((result) => {
+<<<<<<< HEAD
         setProduct(result.data[2]);
+=======
+        setProduct(result.data[0]);
+>>>>>>> main
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);

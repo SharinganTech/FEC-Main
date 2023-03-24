@@ -1,3 +1,9 @@
 node_modules/
 .env
+<<<<<<< HEAD
 dist/*
+=======
+dist/bundle.js
+dist/bundle.js.map
+dist/style.css
+>>>>>>> main
