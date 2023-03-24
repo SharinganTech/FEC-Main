@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Features({ features }) {
-  console.log('my features: ', features);
   return (
     <div className="flex flex-col justify-evenly">
       {features.map((feature) => (

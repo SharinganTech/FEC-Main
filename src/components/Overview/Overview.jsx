@@ -42,7 +42,7 @@ function Overview() {
       ))
       .then((response) => {
         setStyles(response.data.results);
-        const IDnumber = Number(response.data.results[0].style_id);
+        const IDnumber = response.data.results[0].style_id;
         setStyleID(IDnumber);
         setCurrentStyle(response.data.results[0]);
         console.log('current Style', response.data.results[0].skus);
@@ -57,8 +57,7 @@ function Overview() {
   }, []);
 
   const changeStyle = (elementID) => {
-    setStyleID(elementID);
-    console.log('el ID: ', elementID);
+    setStyleID(Number(elementID));
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
     console.log('newStyle: ', newStyle);
     setStyleName(newStyle[0].name);
@@ -92,6 +91,7 @@ function Overview() {
           styles={styles}
           styleName={styleName}
           changeStyle={changeStyle}
+          styleID={styleID}
         />
         <AddToCart
           inventory={inventory}
