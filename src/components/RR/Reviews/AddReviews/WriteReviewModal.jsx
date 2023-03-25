@@ -28,7 +28,7 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
         </h6>
       </div>
       <div className="relative p-4 flex-auto">
-        <ReviewForm reviewsMeta={reviewsMeta} />
+        <ReviewForm reviewsMeta={reviewsMeta} setShowModal={setShowModal} />
       </div>
     </div>
   );

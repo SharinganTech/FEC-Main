@@ -56,8 +56,8 @@ function App() {
             <div className="h-[7rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
             <div className="h-[40rem]" />
-            <QA /> */}
-            <div className="h-[2rem]" />
+            <QA />
+            <div className="h-[2rem]" /> */}
             <RatingsAndReviews />
           </>
         )}

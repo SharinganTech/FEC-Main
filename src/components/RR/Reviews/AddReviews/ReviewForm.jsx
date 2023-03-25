@@ -3,7 +3,7 @@ import Stars from '../../../RIC/Stars';
 import CharacterInput from './CharacterInput';
 import Modal from '../Modal';
 
-function ReviewForm({ reviewsMeta }) {
+function ReviewForm({ reviewsMeta, setShowModal }) {
   const [stars, setStars] = useState(0);
   const [reviewImages, setReviewImages] = useState([]);
 
@@ -20,20 +20,20 @@ function ReviewForm({ reviewsMeta }) {
   }
 
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col" onSubmit={() => setShowModal(false)}>
       <div className="text-[#798EA4] text-2xl ml-3 my-2">
         <Stars rating={stars} numReviews={1} />
       </div>
       <div className="flex flex-row">
         <div>Do you recommend this product?</div>
-        <div className="flex items-center mb-4">
-          <label className="ml-2 text-sm font-medium text-gray-900" htmlFor="yes">
-            <input className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" type="radio" name="recommended" value="yes" defaultChecked />
+        <div className="flex items-center">
+          <label className="m-2 text-sm font-medium" htmlFor="yes">
+            <input className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" type="radio" name="recommended" value="yes" required />
             Yes
           </label>
         </div>
-        <label className="mx-2" htmlFor="no">
-          <input type="radio" name="recommended" value="no" />
+        <label className="m-2 text-sm font-medium" htmlFor="no">
+          <input className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" type="radio" name="recommended" value="no" required />
           No
         </label>
       </div>
@@ -57,11 +57,12 @@ function ReviewForm({ reviewsMeta }) {
         <div className="w-[85%] ml-[7.5%]">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="body">
             Review:
-            <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" defaultValue="" />
+            <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
           </label>
         </div>
 
-        <label className="block text-black text-sm font-bold mb-1" htmlFor="review-photos">
+        <label className="block text-sm font-bold mb-1" htmlFor="review-photos">
+          Upload your photos (max 5)
           {reviewImages.length < 5 && (
             <button type="button">
               <input
@@ -78,30 +79,30 @@ function ReviewForm({ reviewsMeta }) {
               />
             </button>
           )}
-          Upload your photos (max 5)
           <div className="flex gap-x-4">
             {reviewImages.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt="Review" key={`${i + 1}-${name}`} src={url} />)}
           </div>
         </label>
-        {/* <button onClick={() => setShowImageUpload(true)} className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="button">Upload Photo</button> */}
+        {/* <button className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
+        type="button">Upload Photo</button> */}
 
         <div className="w-[85%] ml-[7.5%]">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="nickname">
             Nickname:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" defaultValue="" />
+            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" required defaultValue="" />
           </label>
           <p className="text-xs italic">For privacy reasons, do not use your full name or email address</p>
         </div>
         <div className="w-[85%] ml-[7.5%]">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
             Email:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="email" maxLength="60" placeholder="Example: jackson11@email.com" defaultValue="" />
+            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" name="email" maxLength="60" placeholder="Example: jackson11@email.com" required defaultValue="" />
           </label>
           <p className="text-xs italic">For authentication reasons, you will not be emailed</p>
         </div>
       </div>
       <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-        <button onClick={() => setShowModal(false)} className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="button">Submit</button>
+        <button className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
       </div>
     </form>
   );
