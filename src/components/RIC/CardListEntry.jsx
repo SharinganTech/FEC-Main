@@ -40,7 +40,7 @@ function CardListEntry({
         }
         const photo = data.results[0].photos[0].thumbnail_url;
         if (photo === null) {
-          setThumbNail('/Users/aidan/Programming/HackReactor/FEC/FEC-Main/assets/Image_not_available.png');
+          setThumbNail('../assets/Image_not_available.png');
         } else {
           setThumbNail(photo);
         }

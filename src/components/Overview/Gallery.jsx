@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Gallery({ stylePhotos, mainImage, changeMain }) {
+function Gallery({ stylePhotos, mainImage, altImage, changeMain }) {
+  const [highlight, setHighlight] = useState(mainImage);
   const clickThumbnail = (e) => {
     e.preventDefault();
-    const newURL = stylePhotos.filter((style) => (
+    const newURLMain = stylePhotos.filter((style) => (
       style.thumbnail_url === e.target.src
     ));
-    changeMain(newURL[0].url);
+    changeMain(newURLMain[0].url, newURLMain[0].thumbnail_url);
+
+    console.log('new alt  image; ', newURLMain[0].thumbnail_url);
+    console.log('current alt image; ', altImage);
+    console.log('my main: ', e.target);
+    // const currentThumbnail = document.getElementById(e.target.src);
+    // console.log(currentThumbnail);
+    setHighlight(newURLMain[0].url);
   };
   return (
-    <div className="flex flex-row bg-white justify-evenly h-[600px] overflow-hidden">
-      <div className="flex flex-col justify-center overflow-auto">
-        {stylePhotos.map((style, index) => {
-          return (
+    <div className="flex flex-row bg-white justify-center h-[700px] w-[800px] overflow-hidden">
+      <div className="flex flex-col justify-center overflow-auto w-[80px]">
+        {stylePhotos.map((style, index) => (
+          <button key={index} type="button" onClick={clickThumbnail}>
             <img
+              id={style.thumbnail_url}
               key={index}
-              className="object-scale opacity-50 w-[75px] h-[75px] object-contain m-[10px]"
+              className={(style.url === mainImage)
+                ? 'opacity-50 object-scale w-[75px] h-[75px] object-contain m-[10px]'
+                : 'opacity-100 object-scale w-[75px] h-[75px] object-contain m-[10px]'}
               src={style.thumbnail_url}
               alt=""
-              onClick={clickThumbnail}
             />
-          );
-        })}
+          </button>
+        ))}
       </div>
       <div className="flex items-center justify-center h-[42rem] w-[42rem]">
-        <img className="absoulte object-contain max-h-[90%] max-w-[90%]" src={mainImage} alt="" />
+        <img className="absoulte object-contain max-h-[95%] max-w-[95%]" src={mainImage} alt="" />
       </div>
     </div>
 
