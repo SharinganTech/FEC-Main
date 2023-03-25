@@ -55,7 +55,6 @@ function Overview() {
         setInventory(response.data.results[0].skus);
         setStyleName(response.data.results[0].name);
         setMainImage(response.data.results[0].photos[0].url);
-        setAltImage(response.data.results[0].photos[0].thumbnail_url);
         setStylePhotos(response.data.results[0].photos);
       })
       .catch((err) => {
@@ -104,7 +103,6 @@ function Overview() {
           styleID={styleID}
           stylePhotos={stylePhotos}
           mainImage={mainImage}
-          altImage={altImage}
           changeMain={changeMain}
         />
       </div>
