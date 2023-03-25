@@ -30,9 +30,6 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
       <div className="relative p-4 flex-auto">
         <ReviewForm reviewsMeta={reviewsMeta} />
       </div>
-      <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-        <button onClick={() => setShowModal(false)} className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="button">Submit</button>
-      </div>
     </div>
   );
 
@@ -40,18 +37,3 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
 }
 
 export default WriteReviewModal;
-
-// const [productName, setProductName] = useState('');
-// useEffect(() => {
-//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod}`, {
-//     headers: {
-//       Authorization: process.env.AUTH_TOKEN,
-//     },
-//   })
-//     .then((response) => {
-//       setProductName(response.data.name);
-//     });
-// }, []);
-// return productName !== '' ? (
-//   <Modal componentToRender={componentToRender} />
-// ) : null;
