@@ -11,9 +11,7 @@ function StyleSelector({ styleID, styles, styleName, changeStyle }) {
   return (
     <div className="mb-[15px]">
       <p className="text-[20px] mb-[15px]">
-        <span className="font-bold">
-          Selected Style >&nbsp;
-        </span>
+        <span className="font-bold">{'Selected Style > '}</span>
         <span>
           {styleName}
         </span>

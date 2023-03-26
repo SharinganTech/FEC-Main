@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 
-function AModal({ prodInfo, question, setOpenA }) {
-  const [aMAnswer, setAMAnswer] = useState('');
-  const [aMNickname, setAMNickname] = useState('');
-  const [aMEmail, setAMEmail] = useState('');
-  const [aMPhotos, setAMPhotos] = useState([]);
-  // const [uploadFiles, setUploadFiles] = useState([]);
-  // let i = 0;
+function AModal({
+  axPostAnswer, prodInfo, question, setOpenA,
+}) {
+  const [body, setBody] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [photoUploads, setPhotoUploads] = useState([]);
 
   function handleAModalClick(e) {
     e.preventDefault();
-    if (aMAnswer && aMNickname && aMEmail) {
+
+    if (body && name && email) {
+      axPostAnswer({
+        body, name, email, photos: [''],
+      });
       setOpenA(false);
     } else {
       // eslint-disable-next-line no-alert
@@ -18,17 +22,24 @@ function AModal({ prodInfo, question, setOpenA }) {
     }
   }
 
-  console.log(aMPhotos);
+  console.log(photoUploads);
   function handleUploadClick(e) {
-    const reader = new FileReader();
     const file = e.target.files[0];
+    const currFiles = [...photoUploads];
 
-    // files.forEach()
+    const reader = new FileReader();
     reader.onloadend = () => {
-      setAMPhotos((prev) => [...prev, { ...e.target.files[0], url: reader.result }]);
+      setPhotoUploads((prev) => {
+        if (currFiles.findIndex((photo) => photo.url === reader.result) < 0) {
+          return [...prev, { ...file, url: reader.result }];
+        }
+        return [...prev];
+      });
     };
 
-    reader.readAsDataURL(file);
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   }
 
   return (
@@ -43,14 +54,14 @@ function AModal({ prodInfo, question, setOpenA }) {
         </div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer">
-            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer" maxLength="1000" required onChange={(e) => setAMAnswer(e.target.value)} />
+            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer" maxLength="1000" required onChange={(e) => setBody(e.target.value)} />
             Your Answer
             <span className="text-red-600" id="required">*</span>
           </label>
         </div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-nickname">
-            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-nickname" placeholder="Example: jack543!" maxLength="60" required onChange={(e) => setAMNickname(e.target.value)} />
+            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-nickname" placeholder="Example: jack543!" maxLength="60" required onChange={(e) => setName(e.target.value)} />
             What is your nickname
             <span className="text-red-600" id="required">*</span>
           </label>
@@ -58,7 +69,7 @@ function AModal({ prodInfo, question, setOpenA }) {
         </div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-email">
-            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-email" placeholder="Example: jack@email.com" maxLength="60" required onChange={(e) => setAMEmail(e.target.value)} />
+            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="email" name="answer-email" placeholder="Example: jack@email.com" maxLength="60" required onChange={(e) => setEmail(e.target.value)} />
             Your email
             <span className="text-red-600" id="required">*</span>
           </label>
@@ -66,9 +77,9 @@ function AModal({ prodInfo, question, setOpenA }) {
         </div>
         <div className="relative p-6 flex-auto" id="photo-upload">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-photos">
-            {aMPhotos.length < 5 && (
+            {photoUploads.length < 5 && (
               <input
-                className="block w-full text-sm text-slate-500
+                className="block w-full text-sm
                 file:mr-4 file:py-2 file:px-4
                 file:rounded-full file:border-0
                 file:text-sm file:font-semibold
@@ -76,18 +87,18 @@ function AModal({ prodInfo, question, setOpenA }) {
                 type="file"
                 name="answer-photos"
                 accept="image/*"
-                multiple
+                // multiple
                 onChange={handleUploadClick}
               />
             )}
             Upload your photos (max 5)
             <div className="flex gap-x-4">
-              {aMPhotos.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt={name} key={`${name}-${i}`} src={url} />)}
+              {photoUploads.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt={name} key={`${name}-${i}`} src={url} />)}
             </div>
           </label>
         </div>
         <div className="flex items-center justify-end p-6">
-          <button className="bg-pastelGray text-white font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">Submit Answer</button>
+          <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="submit">Submit Answer</button>
         </div>
       </form>
     </div>
