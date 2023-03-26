@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { format, parseISO } from 'date-fns';
+import axios from 'axios';
 
 function AListEntry({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
-  const [isReported, setIsReported] = useState(false);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
-  // console.log(eachA.photos);
+
+  function axPutA(data) {
+    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${eachA.id}/helpful`, data, {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    });
+  }
 
   function handleAHelpfulClick() {
     if (!helpfulClicked) {
+      axPutA({ helpfulness: aHelpful + 1 });
       setAHelpful((state) => state + 1);
       setHelpfulClicked(true);
     }
@@ -23,10 +31,6 @@ function AListEntry({ eachA }) {
       ));
     }
     return null;
-  }
-
-  function handleReportClick() {
-    setIsReported(true);
   }
 
   return (
@@ -44,14 +48,12 @@ function AListEntry({ eachA }) {
       </div>
       <div className="flex justify-between items-center">
         <div className="flex text-sm justify-start space-x-3">
-          <div>{`by ${eachA.answerer_name} `}</div>
-          {eachA.answerer_name.includes('Seller') ? <span className="font-bold">Seller</span> : null}
+          {eachA.answerer_name.includes('Seller') ? <div className="font-bold">Seller</div> : <div>{`by ${eachA.answerer_name} `}</div>}
           <div>{format(parseISO(eachA.date), 'MMMM dd, yyyy')}</div>
         </div>
         <div className="flex text-xs space-x-2">
           <input data-testid="increment-btn" className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful?" />
           <span className="underline" data-testid="helpful-span">{`Yes (${aHelpful})`}</span>
-          <input className="text-red-600 underline" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
         </div>
       </div>
     </div>

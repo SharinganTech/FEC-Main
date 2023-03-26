@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import AList from '../Answers/AList';
 import AModal from '../Modals/AModal';
@@ -8,8 +8,7 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
   const [qHelpful, setQHelpful] = useState(eachQ.question_helpfulness);
   const [openA, setOpenA] = useState(false);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
-  // const [qData, setQData] = useState({});
-  // console.log(qData);
+  const [isReported, setIsReported] = useState(false);
 
   function axPostAnswer(data) {
     console.log(data);
@@ -19,7 +18,6 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
       },
     })
       .then(() => {
-        // console.log(res.status);
         axGet();
       })
       .catch((err) => {
@@ -27,8 +25,17 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
       });
   }
 
+  function axPutQuestion(url, data) {
+    axios.put(url, data, {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    });
+  }
+
   function handleQHelpful() {
     if (!helpfulClicked) {
+      axPutQuestion(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${eachQ.question_id}/helpful`, { question_helpfulness: qHelpful + 1 });
       setQHelpful((state) => state + 1);
       setHelpfulClicked(true);
     }
@@ -37,7 +44,11 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
   function handleAddAnswerClick() {
     setOpenA(true);
   }
-  // style={{ border: '1px solid red' }}
+
+  function handleReportClick() {
+    axPutQuestion(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${eachQ.question_id}/report`, { reported: true });
+    setIsReported(true);
+  }
 
   return (
     <>
@@ -49,7 +60,9 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
           <div className="text-xs space-x-2">
             <input className="text-blue-600" type="button" onClick={handleQHelpful} value="Helpful?" />
             <span className="underline">{`Yes (${qHelpful})`}</span>
-            <button type="button" className="bg-pastelGray text-white font-bold uppercase px-2 py-1 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={handleAddAnswerClick}>ADD ANSWER</button>
+            <span>  |</span>
+            <input className="text-red-600 underline px-1" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
+            <button type="button" className="border-[1px] border-slate-600 font-semibold uppercase text-xs p-2 rounded-sm shadow-inner mr-1 mb-1" onClick={handleAddAnswerClick}>Add Answer</button>
           </div>
         </div>
         <AList eachQ={eachQ} />

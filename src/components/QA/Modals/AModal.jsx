@@ -7,19 +7,14 @@ function AModal({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [photoUploads, setPhotoUploads] = useState([]);
-  // const [isDup, setIsDup] = useState(false);
-  // const [photoK, setPhotoK] = useState(0);
 
   function handleAModalClick(e) {
     e.preventDefault();
 
     if (body && name && email) {
-      // const photos = photoUploads.map((p) => p.url)
       axPostAnswer({
         body, name, email, photos: [''],
       });
-      // setIsPosted(true);
-      // setModalData({ body, name, email });
       setOpenA(false);
     } else {
       // eslint-disable-next-line no-alert
@@ -29,23 +24,15 @@ function AModal({
 
   console.log(photoUploads);
   function handleUploadClick(e) {
-    // console.log(e.target.files);
-    // const { files } = e.target;
-    // const filesArr = Object.values(files);
-    // photoI += 1;
     const file = e.target.files[0];
     const currFiles = [...photoUploads];
 
-    console.log(URL.createObjectURL(e.target.files[0]));
     const reader = new FileReader();
     reader.onloadend = () => {
       setPhotoUploads((prev) => {
-        // console.log(reader.result)
-        // const dups = prev.filter((p) => p.url === reader.result);
         if (currFiles.findIndex((photo) => photo.url === reader.result) < 0) {
           return [...prev, { ...file, url: reader.result }];
         }
-        // setIsDup(true);
         return [...prev];
       });
     };
@@ -53,15 +40,6 @@ function AModal({
     if (file) {
       reader.readAsDataURL(file);
     }
-
-    //  const reader = new FileReader();
-    // filesArr.forEach((file) => {
-    //   photoI += 1;
-    //   reader.onloadend = () => {
-    //     setPhotoUploads((prev) => [...prev, { ...file, key: photoI, url: reader.result }]);
-    //   };
-    //   reader.readAsDataURL(file);
-    // });
   }
 
   return (
@@ -120,7 +98,7 @@ function AModal({
           </label>
         </div>
         <div className="flex items-center justify-end p-6">
-          <button className="bg-pastelGray text-white font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">Submit Answer</button>
+          <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="submit">Submit Answer</button>
         </div>
       </form>
     </div>
