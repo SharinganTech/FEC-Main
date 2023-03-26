@@ -17,12 +17,10 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
   const changeNext = (e) => {
     e.preventDefault();
     const nextImageIndex = Number(e.target.value) + 1;
-    console.log('next index', typeof nextImageIndex, nextImageIndex);
-    console.log('urls at that index', stylePhotos[nextImageIndex]);
-    if (nextImageIndex === stylePhotos.length) {
+    if (nextImageIndex === stylePhotos.length && nextImageIndex) {
       setActiveIndex(0);
       changeMain(stylePhotos[0].url);
-    } else {
+    } else if (nextImageIndex) {
       setActiveIndex(nextImageIndex);
       changeMain(stylePhotos[nextImageIndex].url);
     }
@@ -33,7 +31,7 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
     const nextImageIndex = Number(e.target.value) - 1;
     console.log('prev index', typeof nextImageIndex, nextImageIndex);
     console.log('prev urls', stylePhotos[nextImageIndex]);
-    if (nextImageIndex < 0) {
+    if (nextImageIndex < 0 && nextImageIndex) {
       setActiveIndex(stylePhotos.length - 1);
       changeMain(stylePhotos[stylePhotos.length - 1].url);
     } else {
@@ -42,24 +40,16 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
     }
   };
 
-  const shiftUp = (e) => {
-
-  };
-
-  const shiftDown = (e) => {
-
-  };
-
   return (
     <div className="flex flex-row bg-pastelGray justify-around h-[650px] w-[850px] overflow-hidden">
-      <div id="sideThumbnails">
-        <button type="button" value={activeIndex} className="h-[20px] w-[75px]" onClick={shiftUp}>
+      <div id="sideThumbnails" className="flex flex-col justify-center items-center">
+        <button type="button" value={activeIndex} className="h-[20px] w-[75px]" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
           />
         </button>
-        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-hidden w-[95px] h-[600px] hmt-[10px]">
+        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-hidden w-[95px] max-h-[560px] hmt-[10px] transition-transform" style={{ transform: `translateY(-${activeIndex * 10}%)` }}>
           {stylePhotos.map((style, index) => (
             <button className=" border-line border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
               <img
@@ -74,7 +64,7 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="h-[20px] w-[75px]" onClick={shiftDown}>
+        <button type="button" value={activeIndex} className="h-[20px] w-[75px]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
             className="self-center"
@@ -93,10 +83,10 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
         <img className="object-contain w-[98%] h-[98%]" src={mainImage} alt="" />
       </div>
       <div className="flex shrink-0 grow-0 justify-start h-[100%] w-16 z-50">
-        <button type="button" value={activeIndex} className="h-[100%] w-[100%]" onClick={changeNext}>
+        <button type="button" value={activeIndex} className="h-[100%] w-[100%] z-50" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowRight}
-            className="self-center"
+            className="self-center z-0"
           />
         </button>
       </div>
