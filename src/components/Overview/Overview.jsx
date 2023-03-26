@@ -108,7 +108,7 @@ function Overview() {
       </div>
       <div className="col-start-6 col-end-8 row-start-2 row-end-3">
         <Stars rating={rating} numReviews={numOfRatings} />
-        <a className="underline" href="https://www.google.com/">
+        <a className="underline scroll-auto" href="#RR">
           Read all {numOfRatings} Reviews!
         </a>
         <ProductInfo
