@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as farStar, faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+// import 'path';
 import Loading from './Loading';
 import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
@@ -40,6 +41,8 @@ function CardListEntry({
         }
         const photo = data.results[0].photos[0].thumbnail_url;
         if (photo === null) {
+          // console.log(__dirname);
+          // setThumbNail(path.join(__dirname, 'assets/Image_not_available.png'));
           setThumbNail('../assets/Image_not_available.png');
         } else {
           setThumbNail(photo);

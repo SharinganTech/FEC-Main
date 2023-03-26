@@ -55,7 +55,7 @@ function Overview() {
         const IDnumber = response.data.results[0].style_id;
         setStyleID(IDnumber);
         setCurrentStyle(response.data.results[0]);
-        console.log('current Style', response.data.results[0].skus);
+        // console.log('current Style', response.data.results[0].skus);
         setInventory(response.data.results[0].skus);
         setStyleName(response.data.results[0].name);
         setMainImage(response.data.results[0].photos[0].url);
