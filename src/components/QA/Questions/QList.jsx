@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import QListEntry from './QListEntry';
@@ -11,11 +12,13 @@ function QList({ prodInfo }) {
   const [qCap, setQCap] = useState(2);
   const [searchInput, setSearchInput] = useState('');
   const [searchOn, setSearchOn] = useState(false);
+  const [postData, setPostData] = useState({});
+  const listView = listOfQs.slice(0, qCap);
   const qLeng = listOfQs.length;
   // const filtered = listOfQs.filter((q) => q.question_body.includes(searchInput));
 
-  useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${prodInfo.id}`, {
+  function axGet() {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${prodInfo.id}&count=100`, {
       headers: {
         Authorization: process.env.AUTH_TOKEN,
       },
@@ -28,18 +31,29 @@ function QList({ prodInfo }) {
       .catch((err) => {
         throw new Error('Error getting QA data', err);
       });
-  }, [prodInfo.id]);
+  }
+
+  // console.log(listOfQs);
+  useEffect(() => {
+    axGet();
+  }, []);
+
+  function axPost(data) {
+    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', data, {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    })
+      .then((response) => {
+        console.log(response.status);
+        axGet();
+      });
+    // axGet();
+  }
 
   function handleMoreQsClick() {
     setQCap((state) => state + 2);
   }
-
-  // function renderFilterList(query) {
-  //   const filtered = listOfQs.filter((q) => q.question_body.includes(query));
-  //   return filtered.map((eachQ) => (
-  //     <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
-  //   ));
-  // }
 
   function renderQList() {
     const filtered = listOfQs.filter((q) => q.question_body.includes(searchInput));
@@ -48,7 +62,10 @@ function QList({ prodInfo }) {
         <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
       ));
     }
-    return listOfQs.map((eachQ) => (
+    // return listOfQs.map((eachQ) => (
+    //   <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
+    // ));
+    return listView.map((eachQ) => (
       <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
     ));
   }
@@ -71,7 +88,15 @@ function QList({ prodInfo }) {
           )}
         <button className="bg-pastelGray text-white font-bold uppercase text-sm px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
       </div>
-      {openQModal ? <QModal prodInfo={prodInfo} setOpenQModal={setOpenQModal} /> : null}
+      {openQModal
+        ? (
+          <QModal
+            prodInfo={prodInfo}
+            setOpenQModal={setOpenQModal}
+            setPostData={setPostData}
+            axPost={axPost}
+          />
+        ) : null}
     </>
   );
 }

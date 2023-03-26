@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import Overview from './Overview';
-// import RatingsAndReviews from './RR';
-// import RelatedItemsAndComparison from './RIC';
+import Overview from './Overview';
+import RatingsAndReviews from './RR';
+import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 import ProductContext from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
@@ -23,33 +23,14 @@ function App() {
         },
       })
       .then((result) => {
-<<<<<<< HEAD
-        setProduct(result.data[2]);
-=======
-        setProduct(result.data[0]);
->>>>>>> main
+        console.log(result.data[17]);
+        setProduct(result.data[17]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
   }, []);
 
-<<<<<<< HEAD
-  // const changeProdClick = (prodId) => {
-  //   axios
-  //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}`, {
-  //       headers: {
-  //         Authorization: process.env.AUTH_TOKEN,
-  //       },
-  //     })
-  //     .then((result) => {
-  //       setProduct(result.data);
-  //     })
-  //     .catch((err) => {
-  //       throw new Error('Error in changing product', err);
-  //     });
-  // };
-=======
   const changeProdClick = (prodId) => {
     setProduct({});
     axios
@@ -65,7 +46,6 @@ function App() {
         throw new Error('Error in changing product', err);
       });
   };
->>>>>>> main
 
   return (
     <ProductContext.Provider value={product}>
@@ -78,8 +58,8 @@ function App() {
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
             <div className="h-[40rem]" /> */}
             <QA />
-            {/* <div className="h-[2rem]" />
-            <RatingsAndReviews /> */}
+            <div className="h-[2rem]" />
+            {/* <RatingsAndReviews /> */}
           </>
         )}
     </ProductContext.Provider>

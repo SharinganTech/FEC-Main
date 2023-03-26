@@ -21,10 +21,6 @@ function AddToCart({ inventory }) {
     const quant = inven.filter((size) => size.quantity === quantity);
     const maxCount = quant[0].quantity;
     const arr = arrayOfQuantities(maxCount);
-<<<<<<< HEAD
-    console.log('result: ', arr);
-=======
->>>>>>> main
     return arr.map((number, index) => (
       <option key={index} value={number}>{number}</option>
     ));

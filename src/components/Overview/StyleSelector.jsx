@@ -4,10 +4,6 @@ import { faCheck as farCheck, faCircleXmark } from '@fortawesome/free-regular-sv
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 function StyleSelector({ styleID, styles, styleName, changeStyle }) {
-<<<<<<< HEAD
-  // console.log(styleID)
-=======
->>>>>>> main
   const changeName = (e) => {
     e.preventDefault();
     changeStyle(e.target.id);
@@ -15,9 +11,7 @@ function StyleSelector({ styleID, styles, styleName, changeStyle }) {
   return (
     <div className="mb-[15px]">
       <p className="text-[20px] mb-[15px]">
-        <span className="font-bold">
-          Selected Style >&nbsp;
-        </span>
+        <span className="font-bold">{'Selected Style > '}</span>
         <span>
           {styleName}
         </span>

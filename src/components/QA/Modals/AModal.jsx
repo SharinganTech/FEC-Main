@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 
-function AModal({ prodInfo, question, setOpenA }) {
-  const [aMAnswer, setAMAnswer] = useState('');
-  const [aMNickname, setAMNickname] = useState('');
-  const [aMEmail, setAMEmail] = useState('');
-  const [aMPhotos, setAMPhotos] = useState([]);
+function AModal({
+  axPostAnswer, prodInfo, question, setOpenA,
+}) {
+  const [body, setBody] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [photoUploads, setPhotoUploads] = useState([]);
   // const [isDup, setIsDup] = useState(false);
   // const [photoK, setPhotoK] = useState(0);
 
-  // useEffect(() => {
-  //   if (isDup) {
-  //     alert('Image already uploaded. Please choose a different image');
-  //     setIsDup(false);
-  //   }
-  // }, [isDup]);
-
   function handleAModalClick(e) {
     e.preventDefault();
-    if (aMAnswer && aMNickname && aMEmail) {
+
+    if (body && name && email) {
+      // const photos = photoUploads.map((p) => p.url)
+      axPostAnswer({
+        body, name, email, photos: [''],
+      });
+      // setIsPosted(true);
+      // setModalData({ body, name, email });
       setOpenA(false);
     } else {
       // eslint-disable-next-line no-alert
@@ -25,20 +27,22 @@ function AModal({ prodInfo, question, setOpenA }) {
     }
   }
 
-  console.log(aMPhotos);
+  console.log(photoUploads);
   function handleUploadClick(e) {
     // console.log(e.target.files);
     // const { files } = e.target;
     // const filesArr = Object.values(files);
     // photoI += 1;
     const file = e.target.files[0];
-    const currFiles = [...aMPhotos];
+    const currFiles = [...photoUploads];
 
+    console.log(URL.createObjectURL(e.target.files[0]));
     const reader = new FileReader();
     reader.onloadend = () => {
-      setAMPhotos((prev) => {
+      setPhotoUploads((prev) => {
+        // console.log(reader.result)
         // const dups = prev.filter((p) => p.url === reader.result);
-        if (currFiles.findIndex((photo) => photo.name === reader.name) < 0) {
+        if (currFiles.findIndex((photo) => photo.url === reader.result) < 0) {
           return [...prev, { ...file, url: reader.result }];
         }
         // setIsDup(true);
@@ -50,11 +54,11 @@ function AModal({ prodInfo, question, setOpenA }) {
       reader.readAsDataURL(file);
     }
 
+    //  const reader = new FileReader();
     // filesArr.forEach((file) => {
     //   photoI += 1;
-    //   const reader = new FileReader();
     //   reader.onloadend = () => {
-    //     setAMPhotos((prev) => [...prev, { ...file, key: photoI, url: reader.result }]);
+    //     setPhotoUploads((prev) => [...prev, { ...file, key: photoI, url: reader.result }]);
     //   };
     //   reader.readAsDataURL(file);
     // });
@@ -72,14 +76,14 @@ function AModal({ prodInfo, question, setOpenA }) {
         </div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer">
-            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer" maxLength="1000" required onChange={(e) => setAMAnswer(e.target.value)} />
+            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer" maxLength="1000" required onChange={(e) => setBody(e.target.value)} />
             Your Answer
             <span className="text-red-600" id="required">*</span>
           </label>
         </div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-nickname">
-            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-nickname" placeholder="Example: jack543!" maxLength="60" required onChange={(e) => setAMNickname(e.target.value)} />
+            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-nickname" placeholder="Example: jack543!" maxLength="60" required onChange={(e) => setName(e.target.value)} />
             What is your nickname
             <span className="text-red-600" id="required">*</span>
           </label>
@@ -87,7 +91,7 @@ function AModal({ prodInfo, question, setOpenA }) {
         </div>
         <div className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-email">
-            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-email" placeholder="Example: jack@email.com" maxLength="60" required onChange={(e) => setAMEmail(e.target.value)} />
+            <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="email" name="answer-email" placeholder="Example: jack@email.com" maxLength="60" required onChange={(e) => setEmail(e.target.value)} />
             Your email
             <span className="text-red-600" id="required">*</span>
           </label>
@@ -95,9 +99,9 @@ function AModal({ prodInfo, question, setOpenA }) {
         </div>
         <div className="relative p-6 flex-auto" id="photo-upload">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-photos">
-            {aMPhotos.length < 5 && (
+            {photoUploads.length < 5 && (
               <input
-                className="block w-full text-sm text-slate-500
+                className="block w-full text-sm
                 file:mr-4 file:py-2 file:px-4
                 file:rounded-full file:border-0
                 file:text-sm file:font-semibold
@@ -111,7 +115,7 @@ function AModal({ prodInfo, question, setOpenA }) {
             )}
             Upload your photos (max 5)
             <div className="flex gap-x-4">
-              {aMPhotos.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt={name} key={`${name}-${i}`} src={url} />)}
+              {photoUploads.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt={name} key={`${name}-${i}`} src={url} />)}
             </div>
           </label>
         </div>
