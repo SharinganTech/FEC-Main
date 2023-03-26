@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 function Gallery({ stylePhotos, mainImage, changeMain }) {
+  const [photos, setPhotos] = useState(stylePhotos);
   const [activeIndex, setActiveIndex] = useState('');
+  useEffect(() => {
+    setPhotos(stylePhotos);
+  }, [stylePhotos]);
   const clickThumbnail = (e) => {
     e.preventDefault();
     const newURLMain = stylePhotos.filter((style) => (
@@ -17,21 +21,20 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
   const changeNext = (e) => {
     e.preventDefault();
     const nextImageIndex = Number(e.target.value) + 1;
-    if (nextImageIndex === stylePhotos.length && nextImageIndex) {
+    if (nextImageIndex === stylePhotos.length) {
       setActiveIndex(0);
       changeMain(stylePhotos[0].url);
-    } else if (nextImageIndex) {
+    } else {
       setActiveIndex(nextImageIndex);
       changeMain(stylePhotos[nextImageIndex].url);
     }
   };
 
   const changePrev = (e) => {
+    console.log(e.target);
     e.preventDefault();
     const nextImageIndex = Number(e.target.value) - 1;
-    console.log('prev index', typeof nextImageIndex, nextImageIndex);
-    console.log('prev urls', stylePhotos[nextImageIndex]);
-    if (nextImageIndex < 0 && nextImageIndex) {
+    if (nextImageIndex < 0) {
       setActiveIndex(stylePhotos.length - 1);
       changeMain(stylePhotos[stylePhotos.length - 1].url);
     } else {
@@ -42,16 +45,16 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
 
   return (
     <div className="flex flex-row bg-pastelGray justify-around h-[650px] w-[850px] overflow-hidden">
-      <div id="sideThumbnails" className="flex flex-col justify-center items-center">
-        <button type="button" value={activeIndex} className="h-[20px] w-[75px]" onClick={changePrev}>
+      <div id="sideThumbnails" className="flex flex-col justify-between items-center">
+        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
           />
         </button>
-        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-hidden w-[95px] max-h-[560px] hmt-[10px] transition-transform" style={{ transform: `translateY(-${activeIndex * 10}%)` }}>
-          {stylePhotos.map((style, index) => (
-            <button className=" border-line border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
+        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-0 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
+          {photos.map((style, index) => (
+            <button className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
               <img
                 id={index}
                 key={index}
@@ -64,10 +67,10 @@ function Gallery({ stylePhotos, mainImage, changeMain }) {
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="h-[20px] w-[75px]" onClick={changeNext}>
+        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
-            className="self-center"
+            className="self-center z-40 bg-inherit"
           />
         </button>
       </div>
