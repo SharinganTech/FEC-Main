@@ -18,7 +18,7 @@ function ReviewImages({ reviewPhotos }) {
   );
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row gap-x-4">
       {reviewPhotos.map((image) => (
         <div key={image.id}>
           <button onClick={() => setFullImage(image.url)} type="button">

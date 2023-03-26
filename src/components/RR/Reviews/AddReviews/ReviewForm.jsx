@@ -1,28 +1,37 @@
 import React, { useState } from 'react';
-import Stars from '../../../RIC/Stars';
+import AddReviewStars from './AddReviewStars';
 import CharacterInput from './CharacterInput';
-import Modal from '../Modal';
 
 function ReviewForm({ reviewsMeta, setShowModal }) {
   const [stars, setStars] = useState(0);
   const [reviewImages, setReviewImages] = useState([]);
+  const [showWarning, setShowWarning] = useState(false);
 
   function handleUploadClick(e) {
     const reader = new FileReader();
     const file = e.target.files[0];
-    console.log('file', file);
-
     reader.onloadend = () => {
       setReviewImages((prev) => [...prev, { ...file, url: reader.result }]);
     };
-
     reader.readAsDataURL(file);
   }
 
+  function validateForm(e) {
+    e.preventDefault();
+    if (stars === 0) {
+      setShowWarning(true);
+    } else {
+      setShowModal(false);
+    }
+  }
+
   return (
-    <form className="flex flex-col" onSubmit={() => setShowModal(false)}>
-      <div className="text-[#798EA4] text-2xl ml-3 my-2">
-        <Stars rating={stars} numReviews={1} />
+    <form className="flex flex-col w-[85%] ml-[7.5%]" onSubmit={(e) => validateForm(e)}>
+      <div className="text-2xl my-2">
+        <AddReviewStars rating={stars} setStars={setStars} setShowWarning={setShowWarning} />
+        {showWarning ? (
+          <p className="text-red-500 text-xs italic">Please select a star rating.</p>
+        ) : null}
       </div>
       <div className="flex flex-row">
         <div>Do you recommend this product?</div>
@@ -45,55 +54,55 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
           />
         ))}
       </div>
-      <div className="flex flex-wrap -mx-3 mb-4">
-        <div className="w-[85%] ml-[7.5%]">
+      <div className="flex flex-col -mx-3 mb-4">
+        <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="summary">
             Summary:
             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
           </label>
-          {/* <p className="text-red-500 text-xs italic">
-          cond render:Please fill out this field.</p> */}
         </div>
-        <div className="w-[85%] ml-[7.5%]">
+        <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="body">
             Review:
             <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
           </label>
         </div>
 
-        <label className="block text-sm font-bold mb-1" htmlFor="review-photos">
-          Upload your photos (max 5)
-          {reviewImages.length < 5 && (
-            <button type="button">
-              <input
-                className="block w-full text-sm text-slate-500
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-full file:border-0
-                file:text-sm file:font-semibold
-                file:bg-pastelGray file:text-white"
-                type="file"
-                name="review-photos"
-                accept="image/*"
-                multiple
-                onChange={handleUploadClick}
-              />
-            </button>
-          )}
-          <div className="flex gap-x-4">
-            {reviewImages.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt="Review" key={`${i + 1}-${name}`} src={url} />)}
-          </div>
-        </label>
+        <div>
+          <label className="block text-sm font-bold mb-1 mr-2" htmlFor="review-photos">
+            Upload your photos (max 5)
+            {reviewImages.length < 5 && (
+              <button type="button">
+                <input
+                  className="ml-2 block w-full text-sm text-slate-500
+                  file:mr-4 file:py-2 file:px-4
+                  file:rounded-full file:border-0
+                  file:text-sm file:font-semibold
+                  file:bg-pastelGray file:text-white"
+                  type="file"
+                  name="review-photos"
+                  accept="image/*"
+                  multiple
+                  onChange={handleUploadClick}
+                />
+              </button>
+            )}
+            <div className="flex gap-x-4 my-4">
+              {reviewImages.map(({ name, url }, i) => <img className="w-[100px] h-[100px] aspect-auto" alt="Review" key={`${i + 1}-${name}`} src={url} />)}
+            </div>
+          </label>
+        </div>
         {/* <button className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
         type="button">Upload Photo</button> */}
 
-        <div className="w-[85%] ml-[7.5%]">
+        <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="nickname">
             Nickname:
             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" required defaultValue="" />
           </label>
           <p className="text-xs italic">For privacy reasons, do not use your full name or email address</p>
         </div>
-        <div className="w-[85%] ml-[7.5%]">
+        <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
             Email:
             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" name="email" maxLength="60" placeholder="Example: jackson11@email.com" required defaultValue="" />
@@ -102,6 +111,9 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         </div>
       </div>
       <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+        {showWarning ? (
+          <div className="text-red-500 text-s italic mr-6">Star rating required above</div>
+        ) : null}
         <button className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
       </div>
     </form>
@@ -110,7 +122,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
 
 export default ReviewForm;
 
-{/* <div className="w-[85%] ml-[7.5%]">
+{/* <div className="">
   <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="imageUrl">
     Image url:
     <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="imageUrl" maxLength="60" placeholder="Example: https://res.cloudinary.com/cloverhong/image/upload/v1649959865/vrxnynrz7wwvbmoybntc.jpg" defaultValue="" />
