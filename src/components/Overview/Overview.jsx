@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, { useContext, createContext, useState, useEffect } from 'react';
+import React, {
+  useContext, createContext, useState, useEffect,
+} from 'react';
 import ProductInfo from './ProductInfo';
 import ProductOverview from './ProductOverview';
 import StyleSelector from './StyleSelector';
@@ -9,6 +11,7 @@ import ProductContext from '../../contexts/ProductContext';
 import Features from './Features';
 import { generateAverage } from '../RIC/HelperFunctions';
 import Stars from '../RIC/Stars';
+import ExpandedView from './ExpandedView';
 
 export const CurrentProduct = createContext(null);
 
@@ -28,6 +31,7 @@ function Overview() {
   const [stylePhotos, setStylePhotos] = useState([]);
   const [rating, setRating] = useState(0);
   const [numOfRatings, setNumOfRatings] = useState(0);
+  const [normalView, setNormalView] = useState(true);
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
@@ -93,8 +97,33 @@ function Overview() {
     setMainImage(newMainURL);
     setAltImage(altURL);
   };
+  const changeView = () => {
+    setNormalView(!normalView);
+    console.log('the new view setting ', !normalView);
+  };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
+  }
+
+  if (!normalView) {
+    return (
+      <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
+        <div className="col-start-2 col-end-8 row-start-0 row-end-3">
+          <ExpandedView
+            styleID={styleID}
+            stylePhotos={stylePhotos}
+            mainImage={mainImage}
+            changeMain={changeMain}
+            changeView={changeView}
+          />
+        </div>
+
+        <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
+          <ProductOverview slogan={prod.slogan} description={prod.description} />
+          <Features features={features} />
+        </div>
+      </div>
+    );
   }
   return (
     <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
@@ -103,13 +132,19 @@ function Overview() {
           styleID={styleID}
           stylePhotos={stylePhotos}
           mainImage={mainImage}
+          normalView={normalView}
           changeMain={changeMain}
+          changeView={changeView}
         />
       </div>
       <div className="col-start-6 col-end-8 row-start-2 row-end-3">
         <Stars rating={rating} numReviews={numOfRatings} />
         <a className="underline scroll-auto" href="#RR">
-          Read all {numOfRatings} Reviews!
+          Read all
+          {' '}
+          {numOfRatings}
+          {' '}
+          Reviews!
         </a>
         <ProductInfo
           currentStyle={currentStyle}

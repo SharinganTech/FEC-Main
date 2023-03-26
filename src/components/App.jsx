@@ -54,7 +54,6 @@ function App() {
         : (
           <>
             <Navigation />
-            <div className="h-[2rem]" />
             <Overview />
             <div className="h-[7rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
