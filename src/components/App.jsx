@@ -6,6 +6,7 @@ import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 import ProductContext from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
+import Navigation from './Navigation';
 
 // const useFetchData = async (url, options) => {
 //   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options});
@@ -53,10 +54,11 @@ function App() {
         ? <Loading />
         : (
           <>
-            {/* <Overview />
+            <Navigation />
+            <Overview />
             <div className="h-[7rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
-            <div className="h-[40rem]" /> */}
+            <div className="h-[40rem]" />
             <QA />
             <div className="h-[2rem]" />
             {/* <RatingsAndReviews /> */}
