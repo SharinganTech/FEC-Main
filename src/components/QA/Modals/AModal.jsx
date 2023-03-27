@@ -22,7 +22,7 @@ function AModal({
     }
   }
 
-  console.log(photoUploads);
+  // console.log(photoUploads);
   function handleUploadClick(e) {
     const file = e.target.files[0];
     const currFiles = [...photoUploads];
@@ -97,7 +97,8 @@ function AModal({
             </div>
           </label>
         </div>
-        <div className="flex items-center justify-end p-6">
+        <div className="flex items-center justify-around pt-6">
+          <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm py-4 px-6 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={() => setOpenA(false)}>Cancel</button>
           <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="submit">Submit Answer</button>
         </div>
       </form>

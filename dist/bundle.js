@@ -2065,220 +2065,6 @@ function addMilliseconds(dirtyDate, dirtyAmount) {
 
 /***/ }),
 
-/***/ "./node_modules/date-fns/esm/constants/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/date-fns/esm/constants/index.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "daysInWeek": () => (/* binding */ daysInWeek),
-/* harmony export */   "daysInYear": () => (/* binding */ daysInYear),
-/* harmony export */   "maxTime": () => (/* binding */ maxTime),
-/* harmony export */   "millisecondsInHour": () => (/* binding */ millisecondsInHour),
-/* harmony export */   "millisecondsInMinute": () => (/* binding */ millisecondsInMinute),
-/* harmony export */   "millisecondsInSecond": () => (/* binding */ millisecondsInSecond),
-/* harmony export */   "minTime": () => (/* binding */ minTime),
-/* harmony export */   "minutesInHour": () => (/* binding */ minutesInHour),
-/* harmony export */   "monthsInQuarter": () => (/* binding */ monthsInQuarter),
-/* harmony export */   "monthsInYear": () => (/* binding */ monthsInYear),
-/* harmony export */   "quartersInYear": () => (/* binding */ quartersInYear),
-/* harmony export */   "secondsInDay": () => (/* binding */ secondsInDay),
-/* harmony export */   "secondsInHour": () => (/* binding */ secondsInHour),
-/* harmony export */   "secondsInMinute": () => (/* binding */ secondsInMinute),
-/* harmony export */   "secondsInMonth": () => (/* binding */ secondsInMonth),
-/* harmony export */   "secondsInQuarter": () => (/* binding */ secondsInQuarter),
-/* harmony export */   "secondsInWeek": () => (/* binding */ secondsInWeek),
-/* harmony export */   "secondsInYear": () => (/* binding */ secondsInYear)
-/* harmony export */ });
-/**
- * Days in 1 week.
- *
- * @name daysInWeek
- * @constant
- * @type {number}
- * @default
- */
-var daysInWeek = 7;
-/**
- * Days in 1 year
- * One years equals 365.2425 days according to the formula:
- *
- * > Leap year occures every 4 years, except for years that are divisable by 100 and not divisable by 400.
- * > 1 mean year = (365+1/4-1/100+1/400) days = 365.2425 days
- *
- * @name daysInYear
- * @constant
- * @type {number}
- * @default
- */
-
-var daysInYear = 365.2425;
-/**
- * Maximum allowed time.
- *
- * @name maxTime
- * @constant
- * @type {number}
- * @default
- */
-
-var maxTime = Math.pow(10, 8) * 24 * 60 * 60 * 1000;
-/**
- * Milliseconds in 1 minute
- *
- * @name millisecondsInMinute
- * @constant
- * @type {number}
- * @default
- */
-
-var millisecondsInMinute = 60000;
-/**
- * Milliseconds in 1 hour
- *
- * @name millisecondsInHour
- * @constant
- * @type {number}
- * @default
- */
-
-var millisecondsInHour = 3600000;
-/**
- * Milliseconds in 1 second
- *
- * @name millisecondsInSecond
- * @constant
- * @type {number}
- * @default
- */
-
-var millisecondsInSecond = 1000;
-/**
- * Minimum allowed time.
- *
- * @name minTime
- * @constant
- * @type {number}
- * @default
- */
-
-var minTime = -maxTime;
-/**
- * Minutes in 1 hour
- *
- * @name minutesInHour
- * @constant
- * @type {number}
- * @default
- */
-
-var minutesInHour = 60;
-/**
- * Months in 1 quarter
- *
- * @name monthsInQuarter
- * @constant
- * @type {number}
- * @default
- */
-
-var monthsInQuarter = 3;
-/**
- * Months in 1 year
- *
- * @name monthsInYear
- * @constant
- * @type {number}
- * @default
- */
-
-var monthsInYear = 12;
-/**
- * Quarters in 1 year
- *
- * @name quartersInYear
- * @constant
- * @type {number}
- * @default
- */
-
-var quartersInYear = 4;
-/**
- * Seconds in 1 hour
- *
- * @name secondsInHour
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInHour = 3600;
-/**
- * Seconds in 1 minute
- *
- * @name secondsInMinute
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInMinute = 60;
-/**
- * Seconds in 1 day
- *
- * @name secondsInDay
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInDay = secondsInHour * 24;
-/**
- * Seconds in 1 week
- *
- * @name secondsInWeek
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInWeek = secondsInDay * 7;
-/**
- * Seconds in 1 year
- *
- * @name secondsInYear
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInYear = secondsInDay * daysInYear;
-/**
- * Seconds in 1 month
- *
- * @name secondsInMonth
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInMonth = secondsInYear / 12;
-/**
- * Seconds in 1 quarter
- *
- * @name secondsInQuarter
- * @constant
- * @type {number}
- * @default
- */
-
-var secondsInQuarter = secondsInMonth * 3;
-
-/***/ }),
-
 /***/ "./node_modules/date-fns/esm/format/index.js":
 /*!***************************************************!*\
   !*** ./node_modules/date-fns/esm/format/index.js ***!
@@ -3458,248 +3244,6 @@ var locale = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (locale);
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/esm/parseISO/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/date-fns/esm/parseISO/index.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ parseISO)
-/* harmony export */ });
-/* harmony import */ var _constants_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants/index.js */ "./node_modules/date-fns/esm/constants/index.js");
-/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
-/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/date-fns/esm/_lib/toInteger/index.js");
-
-
-
-/**
- * @name parseISO
- * @category Common Helpers
- * @summary Parse ISO string
- *
- * @description
- * Parse the given string in ISO 8601 format and return an instance of Date.
- *
- * Function accepts complete ISO 8601 formats as well as partial implementations.
- * ISO 8601: http://en.wikipedia.org/wiki/ISO_8601
- *
- * If the argument isn't a string, the function cannot parse the string or
- * the values are invalid, it returns Invalid Date.
- *
- * @param {String} argument - the value to convert
- * @param {Object} [options] - an object with options.
- * @param {0|1|2} [options.additionalDigits=2] - the additional number of digits in the extended year format
- * @returns {Date} the parsed date in the local time zone
- * @throws {TypeError} 1 argument required
- * @throws {RangeError} `options.additionalDigits` must be 0, 1 or 2
- *
- * @example
- * // Convert string '2014-02-11T11:30:30' to date:
- * const result = parseISO('2014-02-11T11:30:30')
- * //=> Tue Feb 11 2014 11:30:30
- *
- * @example
- * // Convert string '+02014101' to date,
- * // if the additional number of digits in the extended year format is 1:
- * const result = parseISO('+02014101', { additionalDigits: 1 })
- * //=> Fri Apr 11 2014 00:00:00
- */
-
-function parseISO(argument, options) {
-  var _options$additionalDi;
-  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var additionalDigits = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])((_options$additionalDi = options === null || options === void 0 ? void 0 : options.additionalDigits) !== null && _options$additionalDi !== void 0 ? _options$additionalDi : 2);
-  if (additionalDigits !== 2 && additionalDigits !== 1 && additionalDigits !== 0) {
-    throw new RangeError('additionalDigits must be 0, 1 or 2');
-  }
-  if (!(typeof argument === 'string' || Object.prototype.toString.call(argument) === '[object String]')) {
-    return new Date(NaN);
-  }
-  var dateStrings = splitDateString(argument);
-  var date;
-  if (dateStrings.date) {
-    var parseYearResult = parseYear(dateStrings.date, additionalDigits);
-    date = parseDate(parseYearResult.restDateString, parseYearResult.year);
-  }
-  if (!date || isNaN(date.getTime())) {
-    return new Date(NaN);
-  }
-  var timestamp = date.getTime();
-  var time = 0;
-  var offset;
-  if (dateStrings.time) {
-    time = parseTime(dateStrings.time);
-    if (isNaN(time)) {
-      return new Date(NaN);
-    }
-  }
-  if (dateStrings.timezone) {
-    offset = parseTimezone(dateStrings.timezone);
-    if (isNaN(offset)) {
-      return new Date(NaN);
-    }
-  } else {
-    var dirtyDate = new Date(timestamp + time); // js parsed string assuming it's in UTC timezone
-    // but we need it to be parsed in our timezone
-    // so we use utc values to build date in our timezone.
-    // Year values from 0 to 99 map to the years 1900 to 1999
-    // so set year explicitly with setFullYear.
-
-    var result = new Date(0);
-    result.setFullYear(dirtyDate.getUTCFullYear(), dirtyDate.getUTCMonth(), dirtyDate.getUTCDate());
-    result.setHours(dirtyDate.getUTCHours(), dirtyDate.getUTCMinutes(), dirtyDate.getUTCSeconds(), dirtyDate.getUTCMilliseconds());
-    return result;
-  }
-  return new Date(timestamp + time + offset);
-}
-var patterns = {
-  dateTimeDelimiter: /[T ]/,
-  timeZoneDelimiter: /[Z ]/i,
-  timezone: /([Z+-].*)$/
-};
-var dateRegex = /^-?(?:(\d{3})|(\d{2})(?:-?(\d{2}))?|W(\d{2})(?:-?(\d{1}))?|)$/;
-var timeRegex = /^(\d{2}(?:[.,]\d*)?)(?::?(\d{2}(?:[.,]\d*)?))?(?::?(\d{2}(?:[.,]\d*)?))?$/;
-var timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/;
-function splitDateString(dateString) {
-  var dateStrings = {};
-  var array = dateString.split(patterns.dateTimeDelimiter);
-  var timeString; // The regex match should only return at maximum two array elements.
-  // [date], [time], or [date, time].
-
-  if (array.length > 2) {
-    return dateStrings;
-  }
-  if (/:/.test(array[0])) {
-    timeString = array[0];
-  } else {
-    dateStrings.date = array[0];
-    timeString = array[1];
-    if (patterns.timeZoneDelimiter.test(dateStrings.date)) {
-      dateStrings.date = dateString.split(patterns.timeZoneDelimiter)[0];
-      timeString = dateString.substr(dateStrings.date.length, dateString.length);
-    }
-  }
-  if (timeString) {
-    var token = patterns.timezone.exec(timeString);
-    if (token) {
-      dateStrings.time = timeString.replace(token[1], '');
-      dateStrings.timezone = token[1];
-    } else {
-      dateStrings.time = timeString;
-    }
-  }
-  return dateStrings;
-}
-function parseYear(dateString, additionalDigits) {
-  var regex = new RegExp('^(?:(\\d{4}|[+-]\\d{' + (4 + additionalDigits) + '})|(\\d{2}|[+-]\\d{' + (2 + additionalDigits) + '})$)');
-  var captures = dateString.match(regex); // Invalid ISO-formatted year
-
-  if (!captures) return {
-    year: NaN,
-    restDateString: ''
-  };
-  var year = captures[1] ? parseInt(captures[1]) : null;
-  var century = captures[2] ? parseInt(captures[2]) : null; // either year or century is null, not both
-
-  return {
-    year: century === null ? year : century * 100,
-    restDateString: dateString.slice((captures[1] || captures[2]).length)
-  };
-}
-function parseDate(dateString, year) {
-  // Invalid ISO-formatted year
-  if (year === null) return new Date(NaN);
-  var captures = dateString.match(dateRegex); // Invalid ISO-formatted string
-
-  if (!captures) return new Date(NaN);
-  var isWeekDate = !!captures[4];
-  var dayOfYear = parseDateUnit(captures[1]);
-  var month = parseDateUnit(captures[2]) - 1;
-  var day = parseDateUnit(captures[3]);
-  var week = parseDateUnit(captures[4]);
-  var dayOfWeek = parseDateUnit(captures[5]) - 1;
-  if (isWeekDate) {
-    if (!validateWeekDate(year, week, dayOfWeek)) {
-      return new Date(NaN);
-    }
-    return dayOfISOWeekYear(year, week, dayOfWeek);
-  } else {
-    var date = new Date(0);
-    if (!validateDate(year, month, day) || !validateDayOfYearDate(year, dayOfYear)) {
-      return new Date(NaN);
-    }
-    date.setUTCFullYear(year, month, Math.max(dayOfYear, day));
-    return date;
-  }
-}
-function parseDateUnit(value) {
-  return value ? parseInt(value) : 1;
-}
-function parseTime(timeString) {
-  var captures = timeString.match(timeRegex);
-  if (!captures) return NaN; // Invalid ISO-formatted time
-
-  var hours = parseTimeUnit(captures[1]);
-  var minutes = parseTimeUnit(captures[2]);
-  var seconds = parseTimeUnit(captures[3]);
-  if (!validateTime(hours, minutes, seconds)) {
-    return NaN;
-  }
-  return hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_2__.millisecondsInHour + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_2__.millisecondsInMinute + seconds * 1000;
-}
-function parseTimeUnit(value) {
-  return value && parseFloat(value.replace(',', '.')) || 0;
-}
-function parseTimezone(timezoneString) {
-  if (timezoneString === 'Z') return 0;
-  var captures = timezoneString.match(timezoneRegex);
-  if (!captures) return 0;
-  var sign = captures[1] === '+' ? -1 : 1;
-  var hours = parseInt(captures[2]);
-  var minutes = captures[3] && parseInt(captures[3]) || 0;
-  if (!validateTimezone(hours, minutes)) {
-    return NaN;
-  }
-  return sign * (hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_2__.millisecondsInHour + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_2__.millisecondsInMinute);
-}
-function dayOfISOWeekYear(isoWeekYear, week, day) {
-  var date = new Date(0);
-  date.setUTCFullYear(isoWeekYear, 0, 4);
-  var fourthOfJanuaryDay = date.getUTCDay() || 7;
-  var diff = (week - 1) * 7 + day + 1 - fourthOfJanuaryDay;
-  date.setUTCDate(date.getUTCDate() + diff);
-  return date;
-} // Validation functions
-// February is null to handle the leap year (using ||)
-
-var daysInMonths = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-function isLeapYearIndex(year) {
-  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
-}
-function validateDate(year, month, date) {
-  return month >= 0 && month <= 11 && date >= 1 && date <= (daysInMonths[month] || (isLeapYearIndex(year) ? 29 : 28));
-}
-function validateDayOfYearDate(year, dayOfYear) {
-  return dayOfYear >= 1 && dayOfYear <= (isLeapYearIndex(year) ? 366 : 365);
-}
-function validateWeekDate(_year, week, day) {
-  return week >= 1 && week <= 53 && day >= 0 && day <= 6;
-}
-function validateTime(hours, minutes, seconds) {
-  if (hours === 24) {
-    return minutes === 0 && seconds === 0;
-  }
-  return seconds >= 0 && seconds < 60 && minutes >= 0 && minutes < 60 && hours >= 0 && hours < 25;
-}
-function validateTimezone(_hours, minutes) {
-  return minutes >= 0 && minutes <= 59;
-}
 
 /***/ }),
 
@@ -15142,7 +14686,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -15165,8 +14708,19 @@ function AListEntry(_ref) {
     setAHelpful = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    helpfulClicked = _useState4[0],
-    setHelpfulClicked = _useState4[1];
+    isReported = _useState4[0],
+    setIsReported = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    helpfulClicked = _useState6[0],
+    setHelpfulClicked = _useState6[1];
+
+  // console.log({
+  //     'preDate': eachA.date.slice(0, 10).replace(/-/g, '/'),
+  //     'parseISO': parseISO(eachA.date),
+  //     'postDate': format(new Date(eachA.date.slice(0, 10).replace(/-/g, '/')), 'MMMM dd, yyyy'),
+  //   });
+
   function axPutA(data) {
     axios__WEBPACK_IMPORTED_MODULE_2__["default"].put("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/".concat(eachA.id, "/helpful"), data, {
       headers: {
@@ -15198,14 +14752,32 @@ function AListEntry(_ref) {
     }
     return null;
   }
+  function renderSeller() {
+    var aSeller = eachA.answerer_name;
+    if (aSeller.toLowerCase().includes('seller')) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        children: ['by ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "font-bold",
+          children: aSeller
+        })]
+      });
+    }
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: "by ".concat(aSeller, " ")
+    });
+  }
+  function handleReportClick() {
+    setIsReported(true);
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "px-1 py-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-        "data-testid": "answers-body",
+        "data-testid": "answers-title",
         className: "text-xl",
         children: 'A: '
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        "data-testid": "answers-body",
         className: "break-all text-lg",
         children: "".concat(eachA.body)
       })]
@@ -15215,14 +14787,11 @@ function AListEntry(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex justify-between items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        "data-testid": "answerers-name",
         className: "flex text-sm justify-start space-x-3",
-        children: [eachA.answerer_name.includes('Seller') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "font-bold",
-          children: "Seller"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "by ".concat(eachA.answerer_name, " ")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(eachA.date), 'MMMM dd, yyyy')
+        children: [renderSeller(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          "data-testid": "answers-date",
+          children: (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(eachA.date.slice(0, 10).replace(/-/g, '/')), 'MMMM dd, yyyy')
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "flex text-xs space-x-2",
@@ -15233,9 +14802,14 @@ function AListEntry(_ref) {
           onClick: handleAHelpfulClick,
           value: "Helpful?"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          className: "underline",
           "data-testid": "helpful-span",
+          className: "underline",
           children: "Yes (".concat(aHelpful, ")")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          className: "text-red-600 underline",
+          type: "button",
+          onClick: handleReportClick,
+          value: isReported ? 'Reported' : 'Report'
         })]
       })]
     })]
@@ -15355,7 +14929,8 @@ function AModal(_ref) {
       alert('Please fill out the required fields');
     }
   }
-  console.log(photoUploads);
+
+  // console.log(photoUploads);
   function handleUploadClick(e) {
     var file = e.target.files[0];
     var currFiles = _toConsumableArray(photoUploads);
@@ -15485,13 +15060,20 @@ function AModal(_ref) {
             })
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "flex items-center justify-end p-6",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "flex items-center justify-around pt-6",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          className: "border-[1px] border-slate-600 font-semibold uppercase text-sm py-4 px-6 rounded-sm shadow-inner mr-1 mb-1",
+          type: "button",
+          onClick: function onClick() {
+            return setOpenA(false);
+          },
+          children: "Cancel"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           className: "border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1",
           type: "submit",
           children: "Submit Answer"
-        })
+        })]
       })]
     })
   });
@@ -15625,13 +15207,20 @@ function QModal(_ref) {
           className: "text-xs",
           children: "For authentication reasons, you will not be emailed"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "flex items-center justify-end p-6",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "flex items-center justify-around pt-6",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          className: "border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1",
+          type: "button",
+          onClick: function onClick() {
+            return setOpenQModal(false);
+          },
+          children: "Cancel"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           className: "border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1",
           type: "submit",
           children: "Submit Question"
-        })
+        })]
       })]
     })
   });
@@ -15713,8 +15302,6 @@ function QList(_ref) {
       throw new Error('Error getting QA data', err);
     });
   }
-
-  // console.log(listOfQs);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axGet();
   }, []);
@@ -15727,9 +15314,7 @@ function QList(_ref) {
       console.log(response.status);
       axGet();
     });
-    // axGet();
   }
-
   function handleMoreQsClick() {
     setQCap(function (state) {
       return state + 2;
@@ -15743,7 +15328,8 @@ function QList(_ref) {
       return filtered.map(function (eachQ) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_QListEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
           eachQ: eachQ,
-          prodInfo: prodInfo
+          prodInfo: prodInfo,
+          axGet: axGet
         }, eachQ.question_id);
       });
     }
@@ -15753,7 +15339,8 @@ function QList(_ref) {
     return listView.map(function (eachQ) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_QListEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
         eachQ: eachQ,
-        prodInfo: prodInfo
+        prodInfo: prodInfo,
+        axGet: axGet
       }, eachQ.question_id);
     });
   }
@@ -15886,7 +15473,7 @@ function QListEntry(_ref) {
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "flex-row border-solid border-pastelGray border-2 my-2",
+      className: "flex-row my-2",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "flex justify-between items-center px-1 py-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -16393,123 +15980,9 @@ function CardListEntry(_ref) {
 /*!************************************************!*\
   !*** ./src/components/RIC/HelperFunctions.jsx ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "doesItInclude": () => (/* binding */ doesItInclude),
-/* harmony export */   "featureValue": () => (/* binding */ featureValue),
-/* harmony export */   "generateAverage": () => (/* binding */ generateAverage),
-/* harmony export */   "generatePartialStar": () => (/* binding */ generatePartialStar),
-/* harmony export */   "includesFeature": () => (/* binding */ includesFeature),
-/* harmony export */   "overviewContains": () => (/* binding */ overviewContains)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.mjs");
-/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.mjs");
-/* harmony import */ var _RR_Stars_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../RR/Stars.css */ "./src/components/RR/Stars.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-function generateAverage(ratings) {
-  var totalScore = 0;
-  var totalRatings = 0;
-  Object.keys(ratings).forEach(function (key) {
-    totalScore += Number(key) * Number(ratings[key]);
-    totalRatings += Number(ratings[key]);
-  });
-  return [(Math.round(totalScore / totalRatings * 4) / 4).toFixed(2), totalRatings];
-}
-function includesFeature(overviewFeat, selectedItem) {
-  // overviewFeat is an object {feature: , value: };
-  // selectedItem is an array of feature objects [{}, {}]
-  // loop through the selectedItem
-  for (var i = 0; i < selectedItem.length; i += 1) {
-    // if the current object feature value equals the overviewFeat feature value return the value
-    if (selectedItem[i].feature === overviewFeat.feature) {
-      return selectedItem[i].value;
-    }
-  }
-  return 'N/A';
-}
-function overviewContains(selectedItemFeat, overviewFeats) {
-  for (var i = 0; i < overviewFeats.length; i += 1) {
-    if (overviewFeats[i].feature === selectedItemFeat.feature) {
-      return true;
-    }
-  }
-  return false;
-}
-function featureValue(value) {
-  if (!value) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faXmarkSquare
-    });
-  }
-  if (value === true) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faCheck
-    });
-  }
-  return value;
-}
-function doesItInclude(prod, yourOutfit) {
-  if (yourOutfit.length > 0) {
-    // loop through the yourOutfit array
-    for (var i = 0; i < yourOutfit.length; i += 1) {
-      // check if the id matches the product id
-      if (yourOutfit[i].id === prod.id) {
-        // return true if there's a match
-        return true;
-      }
-    }
-    // return false after the loop
-    return false;
-  }
-  return false;
-}
-function generatePartialStar(fullStars, rating, color) {
-  var partialStar = rating - fullStars;
-  var fill;
-  if (partialStar < 0.5) {
-    fill = 50;
-  } else if (partialStar < 0.75) {
-    fill = 35;
-  } else if (partialStar <= 0.99) {
-    fill = 25;
-  }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "relative flex flex-row w-[16px]",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faStar,
-      style: {
-        color: '#000000'
-      },
-      className: "star-fill absolute content-center z-10 right-0"
-    }, "full-".concat(fill)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "bg-[#".concat(color, "] w-[").concat(fill, "%] absolute content-center z-10 right-0.5"),
-      children: "\xA0"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-      icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faStar,
-      style: {
-        color: '#000000'
-      },
-      className: "star-outline absolute content-center z-20 right-0"
-    }, "empty-".concat(fill))]
-  });
-}
-
-// export function getRatings() {
-
-// };
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/aidan/Programming/HackReactor/FEC/FEC-Main/src/components/RIC/HelperFunctions.jsx: Unexpected token (3:1)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'react'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mFontAwesomeIcon\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@fortawesome/react-fontawesome'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { faCheck\u001b[33m,\u001b[39m faXmarkSquare\u001b[33m,\u001b[39m faStar } \u001b[36mfrom\u001b[39m \u001b[32m'@fortawesome/free-solid-svg-icons'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mimport\u001b[39m { faStar \u001b[36mas\u001b[39m farStar } \u001b[36mfrom\u001b[39m \u001b[32m'@fortawesome/free-regular-svg-icons'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n    at instantiate (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:947:12)\n    at JSXParserMixin.raise (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:3261:19)\n    at JSXParserMixin.unexpected (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:3291:16)\n    at JSXParserMixin.jsxParseIdentifier (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6791:12)\n    at JSXParserMixin.jsxParseNamespacedName (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6798:23)\n    at JSXParserMixin.jsxParseElementName (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6807:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6887:22)\n    at JSXParserMixin.jsxParseElementAt (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6912:33)\n    at JSXParserMixin.jsxParseElement (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6981:17)\n    at JSXParserMixin.parseExprAtom (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6993:19)\n    at JSXParserMixin.parseExprSubscripts (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10870:23)\n    at JSXParserMixin.parseUpdate (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10853:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10829:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10667:61)\n    at JSXParserMixin.parseExprOps (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10672:23)\n    at JSXParserMixin.parseMaybeConditional (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10649:23)\n    at JSXParserMixin.parseMaybeAssign (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10610:21)\n    at JSXParserMixin.parseExpressionBase (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10564:23)\n    at /Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10560:39\n    at JSXParserMixin.allowInAnd (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12250:16)\n    at JSXParserMixin.parseExpression (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10560:17)\n    at JSXParserMixin.parseStatementContent (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12678:23)\n    at JSXParserMixin.parseStatementLike (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12544:17)\n    at JSXParserMixin.parseModuleItem (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12521:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:13116:36)\n    at JSXParserMixin.parseBlockBody (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:13109:10)\n    at JSXParserMixin.parseProgram (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12435:10)\n    at JSXParserMixin.parseTopLevel (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12425:25)\n    at JSXParserMixin.parse (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:14245:10)\n    at parse (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:14286:38)\n    at parser (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/transformation/normalize-file.js:64:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/gensync/index.js:261:32)\n    at /Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/gensync/index.js:223:11)");
 
 /***/ }),
 
