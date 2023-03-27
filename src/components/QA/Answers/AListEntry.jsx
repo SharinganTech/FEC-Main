@@ -8,6 +8,12 @@ function AListEntry({ eachA }) {
   const [isReported, setIsReported] = useState(false);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
 
+  // console.log({
+  //     'preDate': eachA.date.slice(0, 10).replace(/-/g, '/'),
+  //     'parseISO': parseISO(eachA.date),
+  //     'postDate': format(new Date(eachA.date.slice(0, 10).replace(/-/g, '/')), 'MMMM dd, yyyy'),
+  //   });
+
   function axPutA(data) {
     axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${eachA.id}/helpful`, data, {
       headers: {
@@ -34,6 +40,19 @@ function AListEntry({ eachA }) {
     return null;
   }
 
+  function renderSeller() {
+    const aSeller = eachA.answerer_name;
+    if (aSeller.toLowerCase().includes('seller')) {
+      return (
+        <span>
+          {'by '}
+          <span className="font-bold">{aSeller}</span>
+        </span>
+      );
+    }
+    return <div>{`by ${aSeller} `}</div>;
+  }
+
   function handleReportClick() {
     setIsReported(true);
   }
@@ -41,10 +60,10 @@ function AListEntry({ eachA }) {
   return (
     <div className="px-1 py-3">
       <div>
-        <b data-testid="answers-body" className="text-xl">
+        <b data-testid="answers-title" className="text-xl">
           {'A: '}
         </b>
-        <span className="break-all text-lg">
+        <span data-testid="answers-body" className="break-all text-lg">
           {`${eachA.body}`}
         </span>
       </div>
@@ -52,13 +71,13 @@ function AListEntry({ eachA }) {
         {renderImages()}
       </div>
       <div className="flex justify-between items-center">
-        <div className="flex text-sm justify-start space-x-3">
-          {eachA.answerer_name.includes('Seller') ? <div className="font-bold">Seller</div> : <div>{`by ${eachA.answerer_name} `}</div>}
-          <div>{format(parseISO(eachA.date), 'MMMM dd, yyyy')}</div>
+        <div data-testid="answerers-name" className="flex text-sm justify-start space-x-3">
+          {renderSeller()}
+          <div data-testid="answers-date">{format(new Date(eachA.date.slice(0, 10).replace(/-/g, '/')), 'MMMM dd, yyyy')}</div>
         </div>
         <div className="flex text-xs space-x-2">
           <input data-testid="increment-btn" className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful?" />
-          <span className="underline" data-testid="helpful-span">{`Yes (${aHelpful})`}</span>
+          <span data-testid="helpful-span" className="underline">{`Yes (${aHelpful})`}</span>
           <input className="text-red-600 underline" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
         </div>
       </div>
