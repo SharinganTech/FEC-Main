@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowRight, faArrowLeft, faArrowUp, faArrowDown, faExpand,
 } from '@fortawesome/free-solid-svg-icons';
+import ZoomedImage from './ZoomedImage';
 
 function ExpandedView({
   stylePhotos, mainImage, changeMain, changeView,
@@ -19,7 +20,6 @@ function ExpandedView({
       style.thumbnail_url === e.target.src
     ));
     changeMain(newURLMain[0].url);
-    console.log(typeof e.target.id);
     setActiveIndex(e.target.id);
   };
 
@@ -50,6 +50,11 @@ function ExpandedView({
   const zoomImage = () => {
     setImageScaled(!imageScaled);
   };
+  if (imageScaled) {
+    return (
+      <ZoomedImage mainImage={mainImage} zoomImage={zoomImage}/>
+    );
+  }
   return (
     <div className="flex flex-row bg-pastelGray justify-around h-[800px] w-[100%] overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
@@ -88,9 +93,7 @@ function ExpandedView({
             className="self-center"
           />
         </button>
-        <button type="button" onClick={zoomImage} className="items-center justify-self-center h-[750px] w-[1000px] ">
-          <img className="object-contain h-[750px] w-[1000px]" src={mainImage} alt="" />
-        </button>
+        <img className="object-fit max-h-[100%]" src={mainImage} onClick={zoomImage} alt="" />
         <button type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowRight}
