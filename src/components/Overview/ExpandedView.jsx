@@ -4,11 +4,12 @@ import {
   faArrowRight, faArrowLeft, faArrowUp, faArrowDown, faExpand,
 } from '@fortawesome/free-solid-svg-icons';
 
-function Gallery({
+function ExpandedView({
   stylePhotos, mainImage, changeMain, changeView,
 }) {
   const [photos, setPhotos] = useState(stylePhotos);
   const [activeIndex, setActiveIndex] = useState('');
+  const [imageScaled, setImageScaled] = useState(false);
   useEffect(() => {
     setPhotos(stylePhotos);
   }, [stylePhotos]);
@@ -46,8 +47,11 @@ function Gallery({
       changeMain(stylePhotos[nextImageIndex].url);
     }
   };
+  const zoomImage = () => {
+    setImageScaled(!imageScaled);
+  };
   return (
-    <div className="flex flex-row bg-pastelGray justify-around h-[650px] w-[850px] overflow-hidden" >
+    <div className="flex flex-row bg-pastelGray justify-around h-[800px] w-[100%] overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
         <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changePrev}>
           <FontAwesomeIcon
@@ -77,17 +81,17 @@ function Gallery({
           />
         </button>
       </div>
-      <div id="mainImage" className="flex items-center justify-center grow-0 w-[1370px] h-[650px]">
-        <button type="button" value={activeIndex} className="h-[100%] w-[68px] mr-[15px] z-10" onClick={changePrev}>
+      <div id="mainImage" className="flex items-center justify-evenly grow-0 w-[1370px] h-[98%]">
+        <button type="button" value={activeIndex} className="h-[100%] w-[68px] z-10" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowLeft}
             className="self-center"
           />
         </button>
-        <button type="button" onClick={changeView}>
-          <img className="object-contain w-[600px] h-[600px] z-0" src={mainImage} alt="" />
+        <button type="button" onClick={zoomImage} className="items-center justify-self-center h-[750px] w-[1000px] ">
+          <img className="object-contain h-[750px] w-[1000px]" src={mainImage} alt="" />
         </button>
-        <button type="button" value={activeIndex} className="h-[100%] z-10 w-[68px] ml-[15px]" onClick={changeNext}>
+        <button type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowRight}
             className="self-center z-0"
@@ -104,4 +108,4 @@ function Gallery({
   );
 }
 
-export default Gallery;
+export default ExpandedView;

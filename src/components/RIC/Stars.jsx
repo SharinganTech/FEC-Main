@@ -23,7 +23,6 @@ function Stars({ rating, numReviews }) {
           {[...Array(emptyStars)].map((_, index) => (
             <FontAwesomeIcon key={`empty-${index}`} icon={farStar} style={{ color: '#000000' }} />
           ))}
-          <span className="num-reviews">{rating}</span>
         </div>
       )}
     </div>

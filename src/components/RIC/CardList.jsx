@@ -11,7 +11,7 @@ function CardList({ prod, changeProdClick }) {
   const [relatedItems, setRelatedItems] = useState([]);
   // useEffect to make a get request for the relaed items
   useEffect(() => {
-    console.log('here');
+    // console.log('here');
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}/related`, {
         headers: {
@@ -53,7 +53,7 @@ function CardList({ prod, changeProdClick }) {
   };
 
   return (
-    <div className="h-[28rem] relative flex flex-row space-x-5 w-[1100px] h-64 overflow-hidden">
+    <div className="h-[28rem] relative flex flex-row space-x-5  h-64 overflow-hidden">
       {/* map over the related items to create a card for each item */}
       {activeIndex === 0
         ? <div />
