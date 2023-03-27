@@ -15858,9 +15858,11 @@ function CardListEntry(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "ml-2 mr-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            "data-testid": "card-category",
             className: "text-[#798EA4] text-lg",
             children: relatedItem.category
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            "data-testid": "card-name",
             role: "button",
             className: "text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-words",
             onClick: function onClick() {
@@ -15872,6 +15874,7 @@ function CardListEntry(_ref) {
             },
             children: relatedItem.name
           }), onSale === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            "data-testid": "card-price",
             className: "text-[#798EA4] text-sm",
             children: "$".concat(relatedItem.default_price)
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {

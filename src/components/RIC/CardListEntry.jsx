@@ -89,8 +89,9 @@ function CardListEntry({
                 <img src={thumbnail} alt="item default" className="rounded-lg max-h-56 w-40 justify-self-center content-center shadow-lg object-cover" />
               </div>
               <div className="ml-2 mr-2">
-                <div className="text-[#798EA4] text-lg">{relatedItem.category}</div>
+                <div data-testid="card-category" className="text-[#798EA4] text-lg">{relatedItem.category}</div>
                 <div
+                  data-testid="card-name"
                   role="button"
                   className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-words"
                   onClick={() => {
@@ -104,7 +105,7 @@ function CardListEntry({
                   {relatedItem.name}
                 </div>
                 {onSale === null
-                  ? <div className="text-[#798EA4] text-sm">{`$${relatedItem.default_price}`}</div>
+                  ? <div data-testid="card-price" className="text-[#798EA4] text-sm">{`$${relatedItem.default_price}`}</div>
                   : (
                     <div>
                       <div className="text-red-500 line-through text-sm">
