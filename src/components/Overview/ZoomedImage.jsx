@@ -14,21 +14,21 @@ function ZoomedImage({ mainImage, zoomImage }) {
     console.log('e: ', e);
 
 
-    setLeft(`${x}px`);
-    setTop(`${y}px`);
+    setLeft(`-${(e.pageX)}px`);
+    setTop(`-${x}px`);
   };
 
   return (
-    <div>
+    <div className="flex">
       <img
         id="img"
-        className="relative"
+        className="absolute"
         src={mainImage}
         alt=""
-        style={{ top: topPosition, left: leftPosition }}
+        style={{ top: 0, left: leftPosition }}
       />
       <div
-        className="col-start-3 col-end-6 w-[600px] h-[600px] border-line border-[4px] border-black z-50"
+        className="col-start-3 col-end-6 w-[600px] h-[600px] border-line border-[4px] border-black inset-x-[500px] z-50"
         onMouseMove={trackMouse}
       />
     </div>

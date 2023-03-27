@@ -18,7 +18,6 @@ function Gallery({
       style.thumbnail_url === e.target.src
     ));
     changeMain(newURLMain[0].url);
-    console.log(typeof e.target.id);
     setActiveIndex(e.target.id);
   };
 
@@ -35,7 +34,6 @@ function Gallery({
   };
 
   const changePrev = (e) => {
-    console.log(e.target);
     e.preventDefault();
     const nextImageIndex = Number(e.target.value) - 1;
     if (nextImageIndex < 0) {
@@ -47,7 +45,7 @@ function Gallery({
     }
   };
   return (
-    <div className="flex flex-row bg-pastelGray justify-around h-[650px] w-[850px] overflow-hidden" >
+    <div className="flex flex-row bg-pastelGray justify-around h-[650px] w-[850px] overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
         <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changePrev}>
           <FontAwesomeIcon
