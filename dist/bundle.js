@@ -15980,9 +15980,123 @@ function CardListEntry(_ref) {
 /*!************************************************!*\
   !*** ./src/components/RIC/HelperFunctions.jsx ***!
   \************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/aidan/Programming/HackReactor/FEC/FEC-Main/src/components/RIC/HelperFunctions.jsx: Unexpected token (3:1)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'react'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mFontAwesomeIcon\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@fortawesome/react-fontawesome'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { faCheck\u001b[33m,\u001b[39m faXmarkSquare\u001b[33m,\u001b[39m faStar } \u001b[36mfrom\u001b[39m \u001b[32m'@fortawesome/free-solid-svg-icons'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mimport\u001b[39m { faStar \u001b[36mas\u001b[39m farStar } \u001b[36mfrom\u001b[39m \u001b[32m'@fortawesome/free-regular-svg-icons'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n    at instantiate (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:947:12)\n    at JSXParserMixin.raise (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:3261:19)\n    at JSXParserMixin.unexpected (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:3291:16)\n    at JSXParserMixin.jsxParseIdentifier (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6791:12)\n    at JSXParserMixin.jsxParseNamespacedName (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6798:23)\n    at JSXParserMixin.jsxParseElementName (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6807:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6887:22)\n    at JSXParserMixin.jsxParseElementAt (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6912:33)\n    at JSXParserMixin.jsxParseElement (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6981:17)\n    at JSXParserMixin.parseExprAtom (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:6993:19)\n    at JSXParserMixin.parseExprSubscripts (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10870:23)\n    at JSXParserMixin.parseUpdate (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10853:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10829:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10667:61)\n    at JSXParserMixin.parseExprOps (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10672:23)\n    at JSXParserMixin.parseMaybeConditional (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10649:23)\n    at JSXParserMixin.parseMaybeAssign (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10610:21)\n    at JSXParserMixin.parseExpressionBase (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10564:23)\n    at /Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10560:39\n    at JSXParserMixin.allowInAnd (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12250:16)\n    at JSXParserMixin.parseExpression (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:10560:17)\n    at JSXParserMixin.parseStatementContent (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12678:23)\n    at JSXParserMixin.parseStatementLike (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12544:17)\n    at JSXParserMixin.parseModuleItem (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12521:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:13116:36)\n    at JSXParserMixin.parseBlockBody (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:13109:10)\n    at JSXParserMixin.parseProgram (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12435:10)\n    at JSXParserMixin.parseTopLevel (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:12425:25)\n    at JSXParserMixin.parse (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:14245:10)\n    at parse (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/parser/lib/index.js:14286:38)\n    at parser (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/transformation/normalize-file.js:64:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/@babel/core/lib/transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/gensync/index.js:261:32)\n    at /Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/Users/aidan/Programming/HackReactor/FEC/FEC-Main/node_modules/gensync/index.js:223:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "doesItInclude": () => (/* binding */ doesItInclude),
+/* harmony export */   "featureValue": () => (/* binding */ featureValue),
+/* harmony export */   "generateAverage": () => (/* binding */ generateAverage),
+/* harmony export */   "generatePartialStar": () => (/* binding */ generatePartialStar),
+/* harmony export */   "includesFeature": () => (/* binding */ includesFeature),
+/* harmony export */   "overviewContains": () => (/* binding */ overviewContains)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.mjs");
+/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.mjs");
+/* harmony import */ var _RR_Stars_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../RR/Stars.css */ "./src/components/RR/Stars.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function generateAverage(ratings) {
+  var totalScore = 0;
+  var totalRatings = 0;
+  Object.keys(ratings).forEach(function (key) {
+    totalScore += Number(key) * Number(ratings[key]);
+    totalRatings += Number(ratings[key]);
+  });
+  return [(Math.round(totalScore / totalRatings * 4) / 4).toFixed(2), totalRatings];
+}
+function includesFeature(overviewFeat, selectedItem) {
+  // overviewFeat is an object {feature: , value: };
+  // selectedItem is an array of feature objects [{}, {}]
+  // loop through the selectedItem
+  for (var i = 0; i < selectedItem.length; i += 1) {
+    // if the current object feature value equals the overviewFeat feature value return the value
+    if (selectedItem[i].feature === overviewFeat.feature) {
+      return selectedItem[i].value;
+    }
+  }
+  return 'N/A';
+}
+function overviewContains(selectedItemFeat, overviewFeats) {
+  for (var i = 0; i < overviewFeats.length; i += 1) {
+    if (overviewFeats[i].feature === selectedItemFeat.feature) {
+      return true;
+    }
+  }
+  return false;
+}
+function featureValue(value) {
+  if (!value) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faXmarkSquare
+    });
+  }
+  if (value === true) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faCheck
+    });
+  }
+  return value;
+}
+function doesItInclude(prod, yourOutfit) {
+  if (yourOutfit.length > 0) {
+    // loop through the yourOutfit array
+    for (var i = 0; i < yourOutfit.length; i += 1) {
+      // check if the id matches the product id
+      if (yourOutfit[i].id === prod.id) {
+        // return true if there's a match
+        return true;
+      }
+    }
+    // return false after the loop
+    return false;
+  }
+  return false;
+}
+function generatePartialStar(fullStars, rating, color) {
+  var partialStar = rating - fullStars;
+  var fill;
+  if (partialStar < 0.5) {
+    fill = 50;
+  } else if (partialStar < 0.75) {
+    fill = 35;
+  } else if (partialStar <= 0.99) {
+    fill = 25;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "relative flex flex-row w-[16px]",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faStar,
+      style: {
+        color: '#000000'
+      },
+      className: "star-fill absolute content-center z-10 right-0"
+    }, "full-".concat(fill)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "bg-[#".concat(color, "] w-[").concat(fill, "%] absolute content-center z-10 right-0.5"),
+      children: "\xA0"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+      icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faStar,
+      style: {
+        color: '#000000'
+      },
+      className: "star-outline absolute content-center z-20 right-0"
+    }, "empty-".concat(fill))]
+  });
+}
+
+// export function getRatings() {
+
+// };
 
 /***/ }),
 
