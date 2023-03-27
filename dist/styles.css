@@ -1588,6 +1588,16 @@ html {
   text-decoration-line: underline;
 }
 
+.hover\:shadow-\[pastelPurple\]:hover {
+  --tw-shadow-color: pastelPurple;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:shadow-\[\#926AA6\]:hover {
+  --tw-shadow-color: #926AA6;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
