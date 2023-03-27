@@ -58,7 +58,7 @@ function CardList({ prod, changeProdClick }) {
       {activeIndex === 0
         ? <div />
         : (
-          <div className="absolute left-20 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
+          <div className="absolute left-3 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent">
             <FontAwesomeIcon
               icon={faArrowLeft}
               className="absolute left-0 self-center ml-5"
@@ -80,7 +80,7 @@ function CardList({ prod, changeProdClick }) {
       {relatedItems.length === 0
         ? <h1> Loading... </h1>
         : (
-          <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-20">
+          <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-3">
             {relatedItems.map((relatedItem) => (
               <CardListEntry
                 key={relatedItem.id}
