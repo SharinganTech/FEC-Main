@@ -114,7 +114,8 @@ function CardListEntry({
                     </div>
                   )}
                 <div className="text-[#798EA4] text-sm">
-                  <Stars rating={rating} numReviews={numOfRatings} />
+                  <Stars rating={rating} numReviews={numOfRatings} color="EFE1CE" />
+                  {rating}
                 </div>
               </div>
               {noModal === undefined && (
