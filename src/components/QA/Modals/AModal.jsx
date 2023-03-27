@@ -22,7 +22,7 @@ function AModal({
     }
   }
 
-  console.log(photoUploads);
+  // console.log(photoUploads);
   function handleUploadClick(e) {
     const file = e.target.files[0];
     const currFiles = [...photoUploads];

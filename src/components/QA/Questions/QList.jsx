@@ -55,14 +55,14 @@ function QList({ prodInfo }) {
     const filtered = listOfQs.filter((q) => q.question_body.includes(searchInput));
     if (searchOn) {
       return filtered.map((eachQ) => (
-        <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
+        <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
       ));
     }
     // return listOfQs.map((eachQ) => (
     //   <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
     // ));
     return listView.map((eachQ) => (
-      <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} />
+      <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
     ));
   }
 
