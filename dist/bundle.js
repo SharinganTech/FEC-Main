@@ -11302,7 +11302,7 @@ function RatingsAndReviews() {
   }, [prod.id]);
   return Object.keys(reviewsMeta).length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     id: "RR",
-    className: "grid grid-cols-[1fr_3fr] gap-3 mx-10 h-[80vw]",
+    className: "grid grid-cols-[1fr_3fr] gap-3 mx-10 h-[80vh]",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Ratings_Ratings__WEBPACK_IMPORTED_MODULE_1__["default"], {
       reviewsMeta: reviewsMeta,
       makeGetRequest: makeGetRequest
