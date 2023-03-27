@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmarkSquare, faStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar} from '@fortawesome/free-regular-svg-icons';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import '../RR/Stars.css';
 
 export function generateAverage(ratings) {
@@ -62,27 +62,24 @@ export function doesItInclude(prod, yourOutfit) {
   return false;
 }
 
-// export function stars(rating) {
-//   if (Object.keys(rating).length > 0) {
-//     const avgRating = generateAverage(rating);
-//     const fill = (avgRating * 100) / 5;
-//     console.log(fill, '%');
-//     return (
-//       <div className="star-rating">
-//         {[...Array(5)].map(() => (
-//           <FontAwesomeIcon icon={farStar} style={{ color: '#000000' }} className="bg-white" />
-//         ))}
-//         {/* <div className={`stars-inner w-[0%]`} /> */}
-//         {/* {avgRating} */}
-//       </div>
-//     );
-//   }
-//   return (
-//     <div className="stars-outer">
-//       <div className="stars-inner w-[0%]" />
-//     </div>
-//   );
-// }
+export function generatePartialStar(fullStars, rating, color) {
+  const partialStar = rating - fullStars;
+  let fill;
+  if (partialStar < 0.5) {
+    fill = 50;
+  } else if (partialStar < 0.75) {
+    fill = 35;
+  } else if (partialStar <= 0.99) {
+    fill = 25;
+  }
+  return (
+    <div className="relative flex flex-row w-[16px]">
+      <FontAwesomeIcon key={`full-${fill}`} icon={faStar} style={{ color: '#000000' }} className="star-fill absolute content-center z-10 right-0" />
+      <div className={`bg-[#${color}] w-[${fill}%] absolute content-center z-10 right-0.5`}>&nbsp;</div>
+      <FontAwesomeIcon key={`empty-${fill}`} icon={farStar} style={{ color: '#000000' }} className="star-outline absolute content-center z-20 right-0" />
+    </div>
+  );
+}
 
 // export function getRatings() {
 

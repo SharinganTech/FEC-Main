@@ -16,7 +16,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
   };
 
   const handleNext = () => {
-    if (activeIndex === yourOutfit.length - 4) {
+    if (activeIndex === yourOutfit.length - 1) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index
@@ -59,6 +59,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
       </div>
       <div className="relative flex flex-row space-x-5 w-[896px] h-100 overflow-hidden">
         <div className="absolute right-0 flex h-[28rem] w-24 z-10 bg-gradient-to-l from-[#EDF1FF] to-transparent">
+          {/* if there are less than 4 cards, don't show the right arrow */}
           <FontAwesomeIcon
             icon={faArrowRight}
             className="absolute right-0 self-center mr-5"

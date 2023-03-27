@@ -11,7 +11,9 @@ function StyleSelector({ styleID, styles, styleName, changeStyle }) {
   return (
     <div className="mb-[15px]">
       <p className="text-[20px] mb-[15px]">
-        <span className="font-bold">{'Selected Style > '}</span>
+        <span className="font-bold">
+          {'Selected Style > '}
+        </span>
         <span>
           {styleName}
         </span>
@@ -20,9 +22,9 @@ function StyleSelector({ styleID, styles, styleName, changeStyle }) {
         {styles.map((style, index) => {
           const imgUrl = `${style.photos[0].thumbnail_url}`;
           return (
-            <div id={style.style_id}>
-              <button className="relative" onClick={changeName}>
-              {(styleID === style.style_id) ? <FontAwesomeIcon className="absolute text-[20px] top-0 right-0" icon={faCircleCheck} style={{color: "white",}} /> : null}
+            <div key={index} id={style.style_id}>
+              <button key={index} type="button" className="relative" onClick={changeName}>
+                {(styleID === style.style_id) ? <FontAwesomeIcon key="checkmark" className="absolute text-[20px] top-0 right-0" icon={faCircleCheck} style={{ color: 'white' }} /> : null}
                 <img
                   id={style.style_id}
                   className="border-line border-[1px] border-black w-[4rem] h-[4rem] object-none rounded-full overflow-hidden m-5px"
@@ -33,7 +35,7 @@ function StyleSelector({ styleID, styles, styleName, changeStyle }) {
               </button>
 
             </div>
-          )
+          );
         })}
       </div>
     </div>

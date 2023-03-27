@@ -46,7 +46,8 @@ function QModal({ axPost, prodInfo, setOpenQModal }) {
           </label>
           <p className="text-xs">For authentication reasons, you will not be emailed</p>
         </div>
-        <div className="flex items-center justify-end p-6">
+        <div className="flex items-center justify-around pt-6">
+          <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={() => setOpenQModal(false)}>Cancel</button>
           <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="submit">Submit Question</button>
         </div>
       </form>
