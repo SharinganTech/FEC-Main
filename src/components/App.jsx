@@ -6,6 +6,7 @@ import axios from 'axios';
 import RatingsAndReviews from './RR';
 import ProductContext from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
+import Navigation from './Navigation';
 
 // const useFetchData = async (url, options) => {
 //   const res = await axios.get(url, { headers: { Authorization: 'key'}, ...options});

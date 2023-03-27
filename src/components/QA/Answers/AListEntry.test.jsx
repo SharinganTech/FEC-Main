@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import 'react-dom';
 import { render, screen, waitFor } from '@testing-library/react';
@@ -6,18 +7,25 @@ import '@testing-library/jest-dom';
 import AListEntry from './AListEntry';
 
 const eachA = {
-  answerer_name: 'haha',
-  body: 'hehe',
-  date: '2023-02-08T00:00:00.000Z',
-  helpfulness: 9,
-  id: 5990599,
+  answerer_name: 'Seller',
+  body: 'What\'s good',
+  date: '2023-03-24T00:00:00.000Z',
+  helpfulness: 0,
+  id: 5991144,
+  photos: [],
 };
 
 test('loads and displays AList', async () => {
-  const renderedList = render(<AListEntry eachA={eachA} />);
+  render(<AListEntry eachA={eachA} />);
+  const title = await screen.getByTestId('answers-title');
   const body = await screen.getByTestId('answers-body');
-  screen.debug();
-  expect(body).toHaveTextContent('hehe');
+  const answerer = await screen.getByTestId('answerers-name');
+  const date = await screen.getByTestId('answers-date');
+
+  expect(title).toHaveTextContent('A:');
+  expect(body).toHaveTextContent('What\'s good');
+  expect(answerer).toHaveTextContent('Seller');
+  expect(date).toHaveTextContent('March 24, 2023');
 });
 
 test('should increment helpful', async () => {

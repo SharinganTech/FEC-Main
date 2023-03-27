@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as farStar, faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+// import 'path';
 import Loading from './Loading';
 import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
@@ -40,7 +41,9 @@ function CardListEntry({
         }
         const photo = data.results[0].photos[0].thumbnail_url;
         if (photo === null) {
-          setThumbNail('/Users/aidan/Programming/HackReactor/FEC/FEC-Main/assets/Image_not_available.png');
+          // console.log(__dirname);
+          // setThumbNail(path.join(__dirname, 'assets/Image_not_available.png'));
+          setThumbNail('../assets/Image_not_available.png');
         } else {
           setThumbNail(photo);
         }
@@ -111,7 +114,8 @@ function CardListEntry({
                     </div>
                   )}
                 <div className="text-[#798EA4] text-sm">
-                  <Stars rating={rating} numReviews={numOfRatings} />
+                  <Stars rating={rating} numReviews={numOfRatings} color="EFE1CE" />
+                  {rating}
                 </div>
               </div>
               {noModal === undefined && (

@@ -1,27 +1,33 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as farStar, faStarHalfStroke } from '@fortawesome/free-regular-svg-icons';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { generatePartialStar } from './HelperFunctions';
 
-function Stars({ rating, numReviews }) {
+function Stars({ rating, numReviews, color }) {
   // console.log('rating', rating);
   const fullStars = Math.floor(rating);
   // console.log('fullstars', fullStars);
-  const halfStars = Math.ceil(rating - fullStars);
+  let halfStars;
+  // if the rating minus the fullStars is less then 0.25, there should be no partial stars
+  if (rating - fullStars < 0.25) {
+    halfStars = 0;
+  } else {
+    halfStars = 1;
+  }
   const emptyStars = 5 - fullStars - halfStars;
 
+  // use conditional rendering to render a quarter, half, and three quarter stars
   return (
     <div>
       {numReviews > 0 && (
-        <div className="star-rating">
+        <div className="relative flex flex-row">
           {[...Array(fullStars)].map((_, index) => (
             <FontAwesomeIcon key={`full-${index + 1}`} icon={faStar} style={{ color: '#000000' }} />
           ))}
-          {[...Array(halfStars)].map((_, index) => (
-            <FontAwesomeIcon key={`half-${index + 1}`} icon={faStarHalfStroke} style={{ color: '#000000' }} />
-          ))}
+          {halfStars === 1 && generatePartialStar(fullStars, rating, color)}
           {[...Array(emptyStars)].map((_, index) => (
-            <FontAwesomeIcon key={`empty-${index + 1}`} icon={farStar} style={{ color: '#000000' }} />
+            <FontAwesomeIcon key={`empty-${index + 1}`} icon={farStar} style={{ color: '#000000' }}/>
           ))}
         </div>
       )}
