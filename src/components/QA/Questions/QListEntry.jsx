@@ -52,7 +52,7 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
 
   return (
     <>
-      <div className="flex-row border-solid border-pastelGray border-2 my-2">
+      <div className="flex-row my-2">
         <div className="flex justify-between items-center px-1 py-3">
           <div className="font-bold text-xl break-all">
             {`Q: ${eachQ.question_body} `}
