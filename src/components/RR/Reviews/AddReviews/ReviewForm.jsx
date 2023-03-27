@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
 import AddReviewStars from './AddReviewStars';
 import CharacterInput from './CharacterInput';
+import ProductContext from '../../../../contexts/ProductContext';
 
 function ReviewForm({ reviewsMeta, setShowModal }) {
+  const product = useContext(ProductContext);
+  const prodDes = { product };
+  const prod = prodDes.product;
   const [stars, setStars] = useState(0);
   const [reviewImages, setReviewImages] = useState([]);
-  const [showWarning, setShowWarning] = useState(false);
+  const [showStarWarning, setShowStarWarning] = useState(false);
+  const [bodyCharacters, setBodyCharacters] = useState(0);
 
   function handleUploadClick(e) {
     const reader = new FileReader();
@@ -19,8 +25,40 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
   function validateForm(e) {
     e.preventDefault();
     if (stars === 0) {
-      setShowWarning(true);
+      setShowStarWarning(true);
     } else {
+      const form = e.target;
+      // const formData = new FormData(form);
+      const recommend = form.recommended.value === 'yes';
+      const characteristics = {};
+      Object.keys(reviewsMeta.characteristics).forEach((factor) => {
+        const charID = reviewsMeta.characteristics[factor].id;
+        const char = factor.toLowerCase();
+        characteristics[charID] = Number(form[char].value);
+      });
+      console.log(reviewsMeta.product_id, prod.id);
+      console.log(characteristics);
+      axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/', {
+        product_id: prod.id,
+        rating: stars,
+        summary: form.summary.value,
+        body: form.body.value,
+        recommend,
+        name: form.nickname.value,
+        email: form.email.value,
+        photos: [],
+        characteristics,
+      }, {
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
+      })
+        .then((res) => {
+          console.log('success:', res);
+        })
+        .catch((err) => {
+          throw new Error('Error getting review data', err);
+        });
       setShowModal(false);
     }
   }
@@ -28,8 +66,12 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
   return (
     <form className="flex flex-col w-[85%] ml-[7.5%]" onSubmit={(e) => validateForm(e)}>
       <div className="text-2xl my-2">
-        <AddReviewStars rating={stars} setStars={setStars} setShowWarning={setShowWarning} />
-        {showWarning ? (
+        <AddReviewStars
+          rating={stars}
+          setStars={setStars}
+          setShowStarWarning={setShowStarWarning}
+        />
+        {showStarWarning ? (
           <p className="text-red-500 text-xs italic">Please select a star rating.</p>
         ) : null}
       </div>
@@ -61,11 +103,18 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
           </label>
         </div>
-        <div>
+        <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="body">
             Review:
-            <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
+            <textarea onChange={(e) => setBodyCharacters(e.target.value.length)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
           </label>
+          {bodyCharacters <= 50 ? (
+            <p className="text-xs italic">
+              Minimum required characters left:
+              {' '}
+              {50 - bodyCharacters}
+            </p>
+          ) : null}
         </div>
 
         <div>
@@ -111,7 +160,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         </div>
       </div>
       <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-        {showWarning ? (
+        {showStarWarning ? (
           <div className="text-red-500 text-s italic mr-6">Star rating required above</div>
         ) : null}
         <button className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
@@ -122,10 +171,11 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
 
 export default ReviewForm;
 
-{/* <div className="">
-  <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="imageUrl">
+/* <div className="">
+  <label className="block uppercase tracking-wide text-gray-700
+  text-xs font-bold mb-2" htmlFor="imageUrl">
     Image url:
     <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="imageUrl" maxLength="60" placeholder="Example: https://res.cloudinary.com/cloverhong/image/upload/v1649959865/vrxnynrz7wwvbmoybntc.jpg" defaultValue="" />
   </label>
   <p className="text-xs italic">Nothing here rn</p>
-</div> */}
+</div> */

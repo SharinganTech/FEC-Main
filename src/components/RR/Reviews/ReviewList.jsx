@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import Review from './Review';
 import AddReview from './AddReviews/AddReview';
 // import { FiltersContext } from '../FiltersContext';
