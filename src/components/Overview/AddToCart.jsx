@@ -4,8 +4,8 @@ import { arrayOfQuantities } from './helpers';
 function AddToCart({ inventory }) {
   // console.log('addtocart; ', inventory);
   const [currentSize, setCurrentSize] = useState('');
-  const [maxQuantity, setMaxQuantity] = useState(null);
-  const [currentQuantity, setCurrentQuantity] = useState(null);
+  const [maxQuantity, setMaxQuantity] = useState(0);
+  const [currentQuantity, setCurrentQuantity] = useState(0);
   const [styleDisabled, setStyleDisabled] = useState(false);
   const inven = Object.values(inventory);
 
@@ -49,18 +49,18 @@ function AddToCart({ inventory }) {
   return (
     <div className="flex flex-wrap w-[425px]">
       <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center" id={currentSize} value={currentSize} onChange={handleChange}>
-        <option value="">{!styleDisabled ? <span>Select Size</span> : <span>OUT OF STOCK</span>}</option>
+        <option value="canPick">{!styleDisabled ? 'SELECT SIZE' : 'OUT OF STOCK'}</option>
         {sizeOptions()}
       </select>
       <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
         {(!maxQuantity)
-          ? <option value="">QUANTITY</option>
+          ? <option value="Quantity">QUANTITY</option>
           : quantityOptions(maxQuantity)}
       </select>
       <button
         className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center"
         type="button"
-        value=""
+        value="addToBag"
         onClick={handleAddToCart}
       >
         ADD TO BAG +
