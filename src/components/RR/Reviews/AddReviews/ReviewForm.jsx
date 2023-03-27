@@ -12,6 +12,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
   const [reviewImages, setReviewImages] = useState([]);
   const [showStarWarning, setShowStarWarning] = useState(false);
   const [bodyCharacters, setBodyCharacters] = useState(0);
+  const [showBodyWarning, setShowBodyWarning] = useState(false);
 
   function handleUploadClick(e) {
     const reader = new FileReader();
@@ -24,8 +25,13 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
 
   function validateForm(e) {
     e.preventDefault();
-    if (stars === 0) {
+    if (stars === 0 && bodyCharacters < 50) {
       setShowStarWarning(true);
+      setShowBodyWarning(true);
+    } else if (stars === 0) {
+      setShowBodyWarning(true);
+    } else if (bodyCharacters < 50) {
+      setShowBodyWarning(true);
     } else {
       const form = e.target;
       // const formData = new FormData(form);
@@ -36,8 +42,6 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         const char = factor.toLowerCase();
         characteristics[charID] = Number(form[char].value);
       });
-      console.log(reviewsMeta.product_id, prod.id);
-      console.log(characteristics);
       axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/', {
         product_id: prod.id,
         rating: stars,
@@ -109,7 +113,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
             <textarea onChange={(e) => setBodyCharacters(e.target.value.length)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
           </label>
           {bodyCharacters <= 50 ? (
-            <p className="text-xs italic">
+            <p className={`text-xs italic ${showBodyWarning ? 'text-red-500' : null}`}>
               Minimum required characters left:
               {' '}
               {50 - bodyCharacters}
@@ -162,6 +166,9 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
       <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
         {showStarWarning ? (
           <div className="text-red-500 text-s italic mr-6">Star rating required above</div>
+        ) : null}
+        {showBodyWarning && bodyCharacters < 50 ? (
+          <div className="text-red-500 text-s italic mr-6">Review body must contain at least 50 characters</div>
         ) : null}
         <button className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
       </div>

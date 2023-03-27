@@ -31,21 +31,23 @@ function ReviewList({
 
   return reviews.length ? (
     <div className="ml-4">
-      <div className="flex mb-4">
+      <div className="flex my-4 absolute top-0">
         <div className="mr-1">
           {totalReviews}
           {' reviews, sorted by'}
         </div>
         {dropdown()}
       </div>
-      {reviews.map((review) => (
-        <Review
-          key={review.review_id}
-          review={review}
-          makeGetRequest={makeGetRequest}
-        />
-      ))}
-      <div className="flex flex-row">
+      <div className="mt-12 pb-12 h-screen overflow-scroll">
+        {reviews.map((review) => (
+          <Review
+            key={review.review_id}
+            review={review}
+            makeGetRequest={makeGetRequest}
+          />
+        ))}
+      </div>
+      <div className="flex flex-row absolute bottom-0 mb-4">
         {totalReviews > 2 ? (
           <button
             onClick={() => {
@@ -70,3 +72,7 @@ function ReviewList({
 }
 
 export default ReviewList;
+
+// .MovieList::-webkit-scrollbar {
+//   display: none;
+// }

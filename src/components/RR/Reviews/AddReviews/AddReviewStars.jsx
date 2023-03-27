@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-function Stars({ rating, setStars, setShowWarning }) {
+function Stars({ rating, setStars, setShowStarWarning }) {
   const fullStars = rating;
   const emptyStars = 5 - fullStars;
 
@@ -21,7 +21,7 @@ function Stars({ rating, setStars, setShowWarning }) {
           <FontAwesomeIcon
             onClick={() => {
               setStars(index + 1);
-              setShowWarning(false);
+              setShowStarWarning(false);
             }}
             key={`full-${index + 1}`}
             icon={faStar}
@@ -32,7 +32,7 @@ function Stars({ rating, setStars, setShowWarning }) {
           <FontAwesomeIcon
             onClick={() => {
               setStars(index + 1 + rating);
-              setShowWarning(false);
+              setShowStarWarning(false);
             }}
             key={`empty-${index + 1}`}
             icon={farStar}
