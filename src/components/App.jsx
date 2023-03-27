@@ -24,8 +24,8 @@ function App() {
         },
       })
       .then((result) => {
-        console.log(result.data[3]);
-        setProduct(result.data[3]);
+        console.log(result.data[18]);
+        setProduct(result.data[18]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);

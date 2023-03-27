@@ -74,7 +74,7 @@ function QList({ prodInfo }) {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
-      <div className="flex-col overflow-y-auto max-h-[600px]">
+      <div className="flex-col scrollbar-none overflow-y-auto max-h-[600px]">
         {renderQList()}
       </div>
       <div className="flex items-center justify-start space-x-10 p-6">

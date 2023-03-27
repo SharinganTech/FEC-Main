@@ -1,5 +1,5 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  collectCoverageFrom: ['./src/components/**'],
+  collectCoverageFrom: ['./src/components/QA/**'],
   coverageReporters: ['json', 'text', 'text-summary'],
 };
