@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Review from './Review';
 import AddReview from './AddReviews/AddReview';
-// import { FiltersContext } from '../FiltersContext';
+import '../RR.css';
 
 function ReviewList({
   prodID, reviews, reviewsMeta, count, setCount, sort, setSort, makeGetRequest,
@@ -15,7 +15,7 @@ function ReviewList({
 
   const dropdown = () => (
     <select
-      className="underline"
+      className="underline bg-[#EDF1FF]"
       value={sort}
       onChange={(e) => {
         setSort(e.target.value);
@@ -31,14 +31,14 @@ function ReviewList({
 
   return reviews.length ? (
     <div className="ml-4">
-      <div className="flex my-4 absolute top-0">
+      <div className="flex mb-6 absolute top-0">
         <div className="mr-1">
           {totalReviews}
           {' reviews, sorted by'}
         </div>
         {dropdown()}
       </div>
-      <div className="mt-12 pb-12 h-screen overflow-scroll">
+      <div className="mt-12 pb-12 h-[85vh] overflow-scroll scrollbar-hide">
         {reviews.map((review) => (
           <Review
             key={review.review_id}
@@ -47,7 +47,7 @@ function ReviewList({
           />
         ))}
       </div>
-      <div className="flex flex-row absolute bottom-0 mb-4">
+      <div className="flex flex-row relative bottom-4 my-6">
         {totalReviews > 2 ? (
           <button
             onClick={() => {
@@ -72,7 +72,3 @@ function ReviewList({
 }
 
 export default ReviewList;
-
-// .MovieList::-webkit-scrollbar {
-//   display: none;
-// }

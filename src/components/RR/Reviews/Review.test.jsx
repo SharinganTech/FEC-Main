@@ -38,6 +38,13 @@ const reviewsMeta = {
   },
 };
 
+test('loads and displays AList', async () => {
+  const renderedList = render(<ReviewList prodID={40344} reviewsMeta={reviewsMeta} />);
+  const body = await screen.getByTestId('answers-body');
+  screen.debug();
+  expect(body).toHaveTextContent('hehe');
+});
+
 test('loads and displays reviews section', async () => {
   // const { queryByText } =
   render(<ReviewList prodID={40344} reviewsMeta={reviewsMeta} />);
