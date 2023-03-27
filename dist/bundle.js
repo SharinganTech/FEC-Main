@@ -14015,7 +14015,7 @@ function App() {
         Authorization: "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"
       }
     }).then(function (result) {
-      setProduct(result.data[0]);
+      setProduct(result.data[4]);
     })["catch"](function (err) {
       throw new Error('Error in getting data', err);
     });
@@ -15637,7 +15637,7 @@ function CardList(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "h-[28rem] relative flex flex-row space-x-5 w-[1100px] h-64 overflow-hidden",
+    className: "h-[28rem] relative flex flex-row space-x-5  h-64 overflow-hidden",
     children: [activeIndex === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "absolute left-20 flex h-[28rem] w-24 z-50 bg-gradient-to-r from-[#EDF1FF] to-transparent",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
@@ -16408,7 +16408,7 @@ function YourOutfit(_ref) {
     setYourOutfit(removedList);
   };
   var handleNext = function handleNext() {
-    if (activeIndex === yourOutfit.length - 4) {
+    if (activeIndex === yourOutfit.length - 1) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index

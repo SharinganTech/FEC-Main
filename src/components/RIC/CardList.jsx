@@ -53,7 +53,7 @@ function CardList({ prod, changeProdClick }) {
   };
 
   return (
-    <div className="h-[28rem] relative flex flex-row space-x-5 w-[1100px] h-64 overflow-hidden">
+    <div className="h-[28rem] relative flex flex-row space-x-5  h-64 overflow-hidden">
       {/* map over the related items to create a card for each item */}
       {activeIndex === 0
         ? <div />
