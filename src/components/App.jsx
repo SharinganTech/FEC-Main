@@ -24,8 +24,7 @@ function App() {
         },
       })
       .then((result) => {
-        console.log(result.data[17]);
-        setProduct(result.data[0]);
+        setProduct(result.data[4]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -61,7 +60,7 @@ function App() {
             <div className="h-[40rem]" />
             <QA />
             <div className="h-[2rem]" />
-            {/* <RatingsAndReviews /> */}
+            <RatingsAndReviews />
           </>
         )}
     </ProductContext.Provider>
