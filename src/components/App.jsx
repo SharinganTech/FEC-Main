@@ -24,8 +24,8 @@ function App() {
         },
       })
       .then((result) => {
-        console.log(result.data[17]);
-        setProduct(result.data[17]);
+        console.log(result.data[3]);
+        setProduct(result.data[3]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -54,11 +54,11 @@ function App() {
         ? <Loading />
         : (
           <>
-            <Navigation />
+            {/* <Navigation />
             <Overview />
             <div className="h-[7rem]" />
             <RelatedItemsAndComparison changeProdClick={changeProdClick} />
-            <div className="h-[40rem]" />
+            <div className="h-[40rem]" /> */}
             <QA />
             <div className="h-[2rem]" />
             {/* <RatingsAndReviews /> */}

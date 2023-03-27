@@ -31,7 +31,6 @@ function QList({ prodInfo }) {
       });
   }
 
-  // console.log(listOfQs);
   useEffect(() => {
     axGet();
   }, []);
@@ -46,7 +45,6 @@ function QList({ prodInfo }) {
         console.log(response.status);
         axGet();
       });
-    // axGet();
   }
 
   function handleMoreQsClick() {

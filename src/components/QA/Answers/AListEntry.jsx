@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function AListEntry({ eachA }) {
   const [aHelpful, setAHelpful] = useState(eachA.helpfulness);
+  const [isReported, setIsReported] = useState(false);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
 
   function axPutA(data) {
@@ -33,6 +34,10 @@ function AListEntry({ eachA }) {
     return null;
   }
 
+  function handleReportClick() {
+    setIsReported(true);
+  }
+
   return (
     <div className="px-1 py-3">
       <div>
@@ -54,6 +59,7 @@ function AListEntry({ eachA }) {
         <div className="flex text-xs space-x-2">
           <input data-testid="increment-btn" className="text-blue-600" type="button" onClick={handleAHelpfulClick} value="Helpful?" />
           <span className="underline" data-testid="helpful-span">{`Yes (${aHelpful})`}</span>
+          <input className="text-red-600 underline" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
         </div>
       </div>
     </div>
