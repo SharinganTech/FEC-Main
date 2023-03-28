@@ -2,7 +2,6 @@
 import React from 'react';
 import 'react-dom';
 import { render } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Review from '../Reviews/Review';
 
