@@ -36,7 +36,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
       {/* map over the related items to create a card for each item */}
       <div
         role="button"
-        className="relative left-4 shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-lg hover:shadow-indigo-500/40 h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
+        className="relative left-4 shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-lg hover:shadow-[#926AA6] h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
         onClick={() => {
           if (!doesItInclude(prod, yourOutfit)) {
             const newOutfit = [prod, ...yourOutfit];

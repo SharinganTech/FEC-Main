@@ -25,28 +25,44 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/36</span>
+=======
+                <span class='fraction'>0/28</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/18</span>
+=======
+                <span class='fraction'>0/12</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/7</span>
+=======
+                <span class='fraction'>0/6</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/33</span>
+=======
+                <span class='fraction'>0/25</span>
+>>>>>>> main
             </div>
         
             
@@ -149,7 +165,14 @@
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
 <a name='L86'></a><a href='#L86'>86</a>
+<<<<<<< HEAD
 <a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,6 +237,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -224,6 +248,21 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+=======
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -238,8 +277,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmarkSquare, faStar } from '@fortawesome/free-solid-svg-icons';
+<<<<<<< HEAD
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 // import '../RR/Stars.css';
+=======
+import { faStar as farStar} from '@fortawesome/free-regular-svg-icons';
+<<<<<<< HEAD
+import '../RR/Stars.css';
+=======
+// import '../RR/Stars.css';
+>>>>>>> b8feceb72d708cbc00ab959517fbea9dc285ce15
+>>>>>>> main
 &nbsp;
 export function <span class="fstat-no" title="function not covered" >generateAverage(</span>ratings) {
   let totalScore = <span class="cstat-no" title="statement not covered" >0;</span>
@@ -299,6 +347,7 @@ export function <span class="fstat-no" title="function not covered" >doesItInclu
 <span class="cstat-no" title="statement not covered" >  return false;</span>
 }
 &nbsp;
+<<<<<<< HEAD
 export function <span class="fstat-no" title="function not covered" >generatePartialStar(</span>fullStars, rating, color) {
   const partialStar = <span class="cstat-no" title="statement not covered" >rating - fullStars;</span>
   let fill;
@@ -317,6 +366,29 @@ export function <span class="fstat-no" title="function not covered" >generatePar
     &lt;/div&gt;
   );
 }
+=======
+// export function stars(rating) {
+//   if (Object.keys(rating).length &gt; 0) {
+//     const avgRating = generateAverage(rating);
+//     const fill = (avgRating * 100) / 5;
+//     console.log(fill, '%');
+//     return (
+//       &lt;div className="star-rating"&gt;
+//         {[...Array(5)].map(() =&gt; (
+//           &lt;FontAwesomeIcon icon={farStar} style={{ color: '#000000' }} className="bg-white" /&gt;
+//         ))}
+//         {/* &lt;div className={`stars-inner w-[0%]`} /&gt; */}
+//         {/* {avgRating} */}
+//       &lt;/div&gt;
+//     );
+//   }
+//   return (
+//     &lt;div className="stars-outer"&gt;
+//       &lt;div className="stars-inner w-[0%]" /&gt;
+//     &lt;/div&gt;
+//   );
+// }
+>>>>>>> main
 &nbsp;
 // export function getRatings() {
 &nbsp;
@@ -328,7 +400,15 @@ export function <span class="fstat-no" title="function not covered" >generatePar
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-03-28T16:47:47.721Z
+=======
+<<<<<<< HEAD
+                at 2023-03-27T23:31:00.138Z
+=======
+                at 2023-03-27T22:44:42.844Z
+>>>>>>> b8feceb72d708cbc00ab959517fbea9dc285ce15
+>>>>>>> main
             </div>
         <script src="../../prettify.js"></script>
         <script>

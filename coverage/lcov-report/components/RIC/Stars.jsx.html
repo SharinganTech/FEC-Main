@@ -25,28 +25,44 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/8</span>
+=======
+                <span class='fraction'>0/7</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/6</span>
+=======
+                <span class='fraction'>0/2</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/3</span>
+=======
+                <span class='fraction'>0/4</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
+<<<<<<< HEAD
                 <span class='fraction'>0/8</span>
+=======
+                <span class='fraction'>0/7</span>
+>>>>>>> main
             </div>
         
             
@@ -95,6 +111,7 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
+<<<<<<< HEAD
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
@@ -103,6 +120,9 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,24 +131,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> main
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+=======
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,6 +172,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+<<<<<<< HEAD
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { generatePartialStar } from './HelperFunctions';
@@ -169,12 +201,40 @@ function <span class="fstat-no" title="function not covered" >Stars(</span>{ rat
           {halfStars === 1 &amp;&amp; generatePartialStar(fullStars, rating, color)}
           {[...Array(emptyStars)].map(<span class="fstat-no" title="function not covered" >(_</span>, index) =&gt; (
 <span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon key={`empty-${index + 1}`} icon={farStar} style={{ color: '#000000' }}/&gt;</span>
+=======
+import { faStar as farStar, faStarHalfStroke } from '@fortawesome/free-regular-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+&nbsp;
+function <span class="fstat-no" title="function not covered" >Stars(</span>{ rating, numReviews }) {
+  // console.log('rating', rating);
+  const fullStars = <span class="cstat-no" title="statement not covered" >Math.floor(rating);</span>
+  // console.log('fullstars', fullStars);
+  const halfStars = <span class="cstat-no" title="statement not covered" >Math.ceil(rating - fullStars);</span>
+  const emptyStars = <span class="cstat-no" title="statement not covered" >5 - fullStars - halfStars;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div&gt;
+      {numReviews &gt; 0 &amp;&amp; (
+        &lt;div className="star-rating"&gt;
+          {[...Array(fullStars)].map(<span class="fstat-no" title="function not covered" >(_</span>, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon key={`full-${index}`} icon={faStar} style={{ color: '#000000' }} /&gt;</span>
+          ))}
+          {[...Array(halfStars)].map(<span class="fstat-no" title="function not covered" >(_</span>, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon key={`half-${index}`} icon={faStarHalfStroke} style={{ color: '#000000' }} /&gt;</span>
+          ))}
+          {[...Array(emptyStars)].map(<span class="fstat-no" title="function not covered" >(_</span>, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon key={`empty-${index}`} icon={farStar} style={{ color: '#000000' }} /&gt;</span>
+>>>>>>> main
           ))}
         &lt;/div&gt;
       )}
     &lt;/div&gt;
   );
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> main
 &nbsp;
 export default Stars;
 &nbsp;</pre></td></tr></table></pre>
@@ -184,7 +244,15 @@ export default Stars;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-03-28T16:47:47.721Z
+=======
+<<<<<<< HEAD
+                at 2023-03-27T23:31:00.138Z
+=======
+                at 2023-03-27T22:44:42.844Z
+>>>>>>> b8feceb72d708cbc00ab959517fbea9dc285ce15
+>>>>>>> main
             </div>
         <script src="../../prettify.js"></script>
         <script>
