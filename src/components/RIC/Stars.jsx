@@ -33,6 +33,6 @@ function Stars({ rating, numReviews, color }) {
       )}
     </div>
   );
-};
+}
 
 export default Stars;

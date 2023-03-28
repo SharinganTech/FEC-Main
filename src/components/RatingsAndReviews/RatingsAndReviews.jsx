@@ -73,3 +73,5 @@ function RatingsAndReviews() {
 }
 
 export default RatingsAndReviews;
+
+// npm test -- --coverage --collectCoverageFrom="./src/**"

@@ -31,7 +31,7 @@ function ReviewList({
 
   return reviews.length ? (
     <div className="ml-4">
-      <div className="flex mb-6 absolute top-0">
+      <div className="flex mb-6 relative top-0">
         <div className="mr-1">
           {totalReviews}
           {' reviews, sorted by'}
