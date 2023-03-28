@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { arrayOfQuantities } from './helpers';
 
 function AddToCart({ inventory }) {
-  // console.log('addtocart; ', inventory);
+  console.log('addtocart; ', inventory);
   const [currentSize, setCurrentSize] = useState('');
   const [maxQuantity, setMaxQuantity] = useState(0);
   const [currentQuantity, setCurrentQuantity] = useState(0);
@@ -47,7 +47,7 @@ function AddToCart({ inventory }) {
     }
   };
   return (
-    <div className="flex flex-wrap w-[425px]">
+    <div data-testid="quantityDropDown" className="flex flex-wrap w-[425px]">
       <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center" id={currentSize} value={currentSize} onChange={handleChange}>
         <option value="canPick">{!styleDisabled ? 'SELECT SIZE' : 'OUT OF STOCK'}</option>
         {sizeOptions()}
@@ -58,6 +58,7 @@ function AddToCart({ inventory }) {
           : quantityOptions(maxQuantity)}
       </select>
       <button
+        data-testid="addToBag"
         className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center"
         type="button"
         value="addToBag"
@@ -66,6 +67,7 @@ function AddToCart({ inventory }) {
         ADD TO BAG +
       </button>
       <button
+        data-testid="favorite"
         className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center"
         type="button"
       >

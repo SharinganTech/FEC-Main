@@ -1240,10 +1240,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(54 57 69 / var(--tw-bg-opacity));
 }
-.bg-pastelGray {
-  --tw-bg-opacity: 1;
-  background-color: rgb(121 142 164 / var(--tw-bg-opacity));
-}
 .bg-pastelPurple {
   --tw-bg-opacity: 1;
   background-color: rgb(146 106 166 / var(--tw-bg-opacity));
