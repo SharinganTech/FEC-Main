@@ -27,7 +27,6 @@ function Overview() {
   const [styleID, setStyleID] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
-  const [altImage, setAltImage] = useState('');
   const [stylePhotos, setStylePhotos] = useState([]);
   const [rating, setRating] = useState(0);
   const [numOfRatings, setNumOfRatings] = useState(0);
@@ -93,13 +92,11 @@ function Overview() {
     setMainImage(newStyle[0].photos[0].url);
     setStylePhotos(newStyle[0].photos);
   };
-  const changeMain = (newMainURL, altURL) => {
+  const changeMain = (newMainURL) => {
     setMainImage(newMainURL);
-    setAltImage(altURL);
   };
   const changeView = () => {
     setNormalView(!normalView);
-    console.log('the new view setting ', !normalView);
   };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
@@ -127,7 +124,7 @@ function Overview() {
   }
   return (
     <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <div className="col-start-2 col-end-6 row-start-0 row-end-3 flex justify-end">
+      <div className="relative col-start-2 col-end-6 row-start-0 row-end-3 flex justify-end">
         <Gallery
           styleID={styleID}
           stylePhotos={stylePhotos}
