@@ -23,7 +23,7 @@ function RelatedItemsAndComparison({ changeProdClick }) {
   return (
     <div className="h-[28rem] select-none">
       <div>
-        <h1 className="relative left-[103px] text-3xl text-pastelPurple font-bold overline decoration-pastelBlack decoration-wavy decoration-4">Related Items</h1>
+        <h1 className="relative left-[30px] text-3xl text-pastelPurple font-bold overline decoration-pastelBlack decoration-wavy decoration-4">Related Items</h1>
         <div className="h-[28rem]">
           <CardList prod={prod} changeProdClick={changeProdClick} />
         </div>
