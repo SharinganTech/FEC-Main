@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import 'react-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 // import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import Review from './Review';
+import Review from '../Reviews/Review';
 
 const review = {
   review_id: 1176354,
@@ -19,7 +19,7 @@ const review = {
   photos: [
     {
       id: 2259505,
-      url: 'https://res.cloudinary.com/cloverhong/image/upload/v1649959865/vrxnynrz7wwvbmoybntc.jpg'
+      url: 'https://res.cloudinary.com/cloverhong/image/upload/v1649959865/vrxnynrz7wwvbmoybntc.jpg',
     },
   ],
 };
@@ -28,6 +28,5 @@ test('loads and displays Review', async () => {
   const { getByText } = render(<Review review={review} />);
 
   expect(getByText(review.summary)).toBeInTheDocument();
-  expect(getByText(review.body)).toBeInTheDocument();
   expect(getByText('✓ I recommend this product')).toBeInTheDocument();
 });

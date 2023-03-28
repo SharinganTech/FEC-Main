@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Review from './Review';
 import AddReview from './AddReviews/AddReview';
-import '../RR.css';
+// import '../RR.css';
 
 function ReviewList({
   prodID, reviews, reviewsMeta, count, setCount, sort, setSort, makeGetRequest,

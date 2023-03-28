@@ -56,7 +56,7 @@ function RatingsAndReviews() {
   }, [prod.id]);
 
   return Object.keys(reviewsMeta).length ? (
-    <div id="RR" className="grid grid-cols-[1fr_3fr] gap-3 mx-10 h-[80vh]">
+    <div id="RR" className="grid grid-cols-[1fr_3fr] gap-3 h-[80vh]">
       <Ratings reviewsMeta={reviewsMeta} makeGetRequest={makeGetRequest} />
       <ReviewList
         prodID={prod.id}
