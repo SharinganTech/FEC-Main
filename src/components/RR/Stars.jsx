@@ -1,5 +1,5 @@
 import React from 'react';
-import './Stars.css';
+// import './Stars.css';
 
 function Stars({ rating }) {
   // const { myReview } = review;

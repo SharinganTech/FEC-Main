@@ -17,6 +17,7 @@ export const CurrentProduct = createContext(null);
 
 function Overview() {
   const product = useContext(ProductContext);
+  console.log('global context: ', product);
   const prodDes = { product };
   const prod = prodDes.product;
   const [dataRetrieved, setDataRetrieved] = useState(false);
@@ -37,6 +38,7 @@ function Overview() {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
+        console.log('get request 1', response.data);
         setDataRetrieved(true);
         setFeatures(response.data.features);
       })
@@ -50,6 +52,7 @@ function Overview() {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
+        console.log('get request 2', response.data);
         setStyles(response.data.results);
         const IDnumber = response.data.results[0].style_id;
         setStyleID(IDnumber);
@@ -75,6 +78,7 @@ function Overview() {
       },
     })
       .then((results) => {
+        console.log('get request 3', results.data);
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
@@ -86,14 +90,12 @@ function Overview() {
 
   const changeStyle = (elementID) => {
     setStyleID(Number(elementID));
-    console.log(elementID);
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
     setStylePhotos(newStyle[0].photos);
     setInventory(newStyle[0].skus);
-    console.log('new style: ', newStyle[0]);
   };
   const changeMain = (newMainURL) => {
     setMainImage(newMainURL);

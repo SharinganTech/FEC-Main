@@ -6,13 +6,13 @@ function AddToCart({ inventory }) {
   const [currentSize, setCurrentSize] = useState('');
   const [maxQuantity, setMaxQuantity] = useState(0);
   const [currentQuantity, setCurrentQuantity] = useState(0);
-  const [styleDisabled, setStyleDisabled] = useState(false);
   const inven = Object.values(inventory);
+  const [cartCount, setCartCount] = useState(0);
 
   const sizeOptions = () => (
     inven.map((size, index) => (
       (size.quantity !== 0)
-        ? <option key={index} value={size.size}>{size.size}</option>
+        ? <option data-testid={`${size.size}`} key={index} value={size.size}>{size.size}</option>
         : null
     ))
   );
@@ -45,11 +45,12 @@ function AddToCart({ inventory }) {
       const cart = { size: currentSize, quantity: currentQuantity };
       console.log('my cart: ', cart);
     }
+    setCartCount(cartCount + 1);
   };
   return (
     <div data-testid="quantityDropDown" className="flex flex-wrap w-[100%]">
-      <select className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
-        <option value="canPick">{!styleDisabled ? 'SELECT SIZE' : 'OUT OF STOCK'}</option>
+      <select data-testid="sizeDropdown" className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
+        <option value="canPick">SELECT SIZE</option>
         {sizeOptions()}
       </select>
       <select className="text-black border-2 border-black font-bold py-4 px-4 mr-1 rounded" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
@@ -58,13 +59,14 @@ function AddToCart({ inventory }) {
           : quantityOptions(maxQuantity)}
       </select>
       <button
-        data-testid="addToBag"
+        data-testid="addToCart"
         className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
         type="button"
         value="addToBag"
         onClick={handleAddToCart}
       >
-        ADD TO CART +
+        ADD TO CART:
+        {cartCount}
       </button>
       <button
         data-testid="favorite"
