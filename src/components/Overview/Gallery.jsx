@@ -45,7 +45,7 @@ function Gallery({
     }
   };
   return (
-    <div className="grid grid-cols-[7rem_7rem_10rem_10rem_10rem_5rem] grid-rows-[3.5rem_11.5rem_11.5rem_11.5rem_5rem] bg-pastelGray">
+    <div className="grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-pastelGray">
       <div id="sideThumbnails" className="row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-center items-center overflow-hidden">
         <button type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-pastelGray" onClick={changePrev}>
           <FontAwesomeIcon
@@ -53,15 +53,15 @@ function Gallery({
             className="self-center"
           />
         </button>
-        <div className="row-start-2 flex flex-col grow-0 max-h-[85%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
+        <div className="row-start-2 flex flex-col max-h-[600px] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
           {photos.map((style, index) => (
-            <button className="justfy-self-center rounded-md items-center border-line z-0 overflow-show border-2 border-black w-[5em] h-[5em] mt-[0.40em]" key={index} id={index} type="button" onClick={clickThumbnail}>
+            <button className="justfy-self-center rounded-md items-center border-line z-0 border-2 border-black w-[50px] h-[50px] mt-[10px]" key={index} id={index} type="button" onClick={clickThumbnail}>
               <img
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover rounded-md w-[5em] h-[5em]'
-                  : 'opacity-40 object-cover rounded-md w-[5em] h-[5em]'}
+                  ? 'opacity-100 object-cover rounded-md w-[50px] h-[50px]'
+                  : 'opacity-40 object-cover rounded-md w-[50px] h-[50px]'}
                 src={style.thumbnail_url}
                 alt=""
               />
@@ -81,8 +81,8 @@ function Gallery({
           className="self-center"
         />
       </button>
-      <button className="place-self-center z-0 row-start-2 row-end-5 col-start-2 col-end-6 h-[30em]" type="button" onClick={changeView}>
-        <img className="place-self-center z-0 row-start-2 row-end-5 col-start-2 col-end-6 h-[30em] object-contain" src={mainImage} alt="" />
+      <button className="z-0 row-start-2 p-top-[25px] row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%]" type="button" onClick={changeView}>
+        <img className="z-0 row-start-2 row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%] object-contain" src={mainImage} alt="" />
       </button>
       <button type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" onClick={changeNext}>
         <FontAwesomeIcon

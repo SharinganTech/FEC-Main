@@ -22,7 +22,7 @@ function AddToCart({ inventory }) {
     const maxCount = quant[0].quantity;
     const arr = arrayOfQuantities(maxCount);
     return arr.map((number, index) => (
-      <option key={index} value={number}>{number}</option>
+      <option className="text-black bg-red-600 border-2 border-black font-bold py-4 px-4 mr-2 rounded" key={index} value={number}>{number}</option>
     ));
   };
 
@@ -47,31 +47,31 @@ function AddToCart({ inventory }) {
     }
   };
   return (
-    <div data-testid="quantityDropDown" className="flex flex-wrap w-[425px]">
-      <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center" id={currentSize} value={currentSize} onChange={handleChange}>
+    <div data-testid="quantityDropDown" className="flex flex-wrap w-[100%]">
+      <select className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
         <option value="canPick">{!styleDisabled ? 'SELECT SIZE' : 'OUT OF STOCK'}</option>
         {sizeOptions()}
       </select>
-      <select className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
+      <select className="text-black border-2 border-black font-bold py-4 px-4 mr-1 rounded" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
         {(!maxQuantity)
           ? <option value="Quantity">QUANTITY</option>
           : quantityOptions(maxQuantity)}
       </select>
       <button
         data-testid="addToBag"
-        className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[125px] text-center"
+        className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
         type="button"
         value="addToBag"
         onClick={handleAddToCart}
       >
-        ADD TO BAG +
+        ADD TO CART +
       </button>
       <button
         data-testid="favorite"
-        className="boarder-solid border-black border-4 bg-white m-[10px] h-[60px] w-[200px] text-center"
+        className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
         type="button"
       >
-        ADD TO FAVORITE +
+        FAVORITE
       </button>
     </div>
   );

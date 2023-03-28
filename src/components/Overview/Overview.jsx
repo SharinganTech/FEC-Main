@@ -127,8 +127,8 @@ function Overview() {
   }
   return (
     <div>
-      <div className="flex">
-        <div className="max-w-[70%]">
+      <div className="flex flex-wrap">
+        <div className="w-[70%]">
           <Gallery
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -138,7 +138,7 @@ function Overview() {
             changeView={changeView}
           />
         </div>
-        <div className="ml-[10px]">
+        <div className="ml-[10px] max-w-[25%]">
           <Stars rating={rating} numReviews={numOfRatings} />
           <a className="underline scroll-auto" href="#RR">
             Read all
