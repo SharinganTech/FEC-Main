@@ -23,16 +23,16 @@ function Stars({ rating, numReviews, color }) {
       {numReviews > 0 && (
         <div className="relative flex flex-row">
           {[...Array(fullStars)].map((_, index) => (
-            <FontAwesomeIcon key={`full-${index}`} icon={faStar} style={{ color: '#000000' }} />
+            <FontAwesomeIcon key={`full-${index + 1}`} icon={faStar} style={{ color: '#000000' }} />
           ))}
           {halfStars === 1 && generatePartialStar(fullStars, rating, color)}
           {[...Array(emptyStars)].map((_, index) => (
-            <FontAwesomeIcon key={`empty-${index}`} icon={farStar} style={{ color: '#000000' }}/>
+            <FontAwesomeIcon key={`empty-${index + 1}`} icon={farStar} style={{ color: '#000000' }}/>
           ))}
         </div>
       )}
     </div>
   );
-};
+}
 
 export default Stars;
