@@ -45,54 +45,52 @@ function Gallery({
     }
   };
   return (
-    <div className="flex flex-row bg-pastelGray justify-around h-[650px] w-[850px] overflow-hidden">
-      <div id="sideThumbnails" className="flex flex-col justify-between items-center">
-        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changePrev}>
+    <div className="grid grid-cols-[7rem_7rem_10rem_10rem_10rem_5rem] grid-rows-[3.5rem_11.5rem_11.5rem_11.5rem_5rem] bg-pastelGray">
+      <div id="sideThumbnails" className="row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-center items-center overflow-hidden">
+        <button type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-pastelGray" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
           />
         </button>
-        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-10 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
+        <div className="row-start-2 flex flex-col grow-0 max-h-[85%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
           {photos.map((style, index) => (
-            <button className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
+            <button className="justfy-self-center rounded-md items-center border-line z-0 overflow-show border-2 border-black w-[5em] h-[5em] mt-[0.40em]" key={index} id={index} type="button" onClick={clickThumbnail}>
               <img
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover w-[73px] h-[73px]'
-                  : 'opacity-40 object-cover w-[73px] h-[73px]'}
+                  ? 'opacity-100 object-cover rounded-md w-[5em] h-[5em]'
+                  : 'opacity-40 object-cover rounded-md w-[5em] h-[5em]'}
                 src={style.thumbnail_url}
                 alt=""
               />
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changeNext}>
+        <button type="button" value={activeIndex} className="row-start-5 row-end-6 h-[5em] w-[5em] justify-self-center items-center z-30 bg-pastelGray" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
-            className="self-center z-40 bg-inherit"
-          />
-        </button>
-      </div>
-      <div id="mainImage" className="flex items-center justify-center grow-0 w-[1370px] h-[650px]">
-        <button type="button" value={activeIndex} className="h-[100%] w-[68px] mr-[15px] z-10" onClick={changePrev}>
-          <FontAwesomeIcon
-            icon={faArrowLeft}
             className="self-center"
           />
         </button>
-        <button type="button" onClick={changeView}>
-          <img className="object-contain w-[600px] h-[600px] z-0" src={mainImage} alt="" />
-        </button>
-        <button type="button" value={activeIndex} className="h-[100%] z-10 w-[68px] ml-[15px]" onClick={changeNext}>
-          <FontAwesomeIcon
-            icon={faArrowRight}
-            className="self-center z-0"
-          />
-        </button>
       </div>
-      <button type="button" className="self-start justify-self-end z-10" onClick={changeView}>
+      <button type="button" value={activeIndex} className="row-star-5 row-end-6 col-start-3 col-end-4" onClick={changePrev}>
+        <FontAwesomeIcon
+          icon={faArrowLeft}
+          className="self-center"
+        />
+      </button>
+      <button className="place-self-center z-0 row-start-2 row-end-5 col-start-2 col-end-6 h-[30em]" type="button" onClick={changeView}>
+        <img className="place-self-center z-0 row-start-2 row-end-5 col-start-2 col-end-6 h-[30em] object-contain" src={mainImage} alt="" />
+      </button>
+      <button type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" onClick={changeNext}>
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          className="self-center z-0"
+        />
+      </button>
+      <button type="button" className="place-self-center row-start-1 row-end-2 col-start-6 col-end-7" onClick={changeView}>
         <FontAwesomeIcon
           icon={faExpand}
           className="h-[25px] w-[25px] mt-[10px]"

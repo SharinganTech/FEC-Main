@@ -52,7 +52,7 @@ function App() {
       {product.id === undefined
         ? <Loading />
         : (
-          <>
+          <div className="w-[75%] mx-auto">
             <Navigation />
             <Overview />
             <div className="h-[7rem]" />
@@ -61,7 +61,7 @@ function App() {
             <QA />
             <div className="h-[2rem]" />
             <RatingsAndReviews />
-          </>
+          </div>
         )}
     </ProductContext.Provider>
   );

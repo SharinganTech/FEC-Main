@@ -86,11 +86,14 @@ function Overview() {
 
   const changeStyle = (elementID) => {
     setStyleID(Number(elementID));
+    console.log(elementID);
     const newStyle = styles.filter((style) => style.style_id === Number(elementID));
     setStyleName(newStyle[0].name);
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
     setStylePhotos(newStyle[0].photos);
+    setInventory(newStyle[0].skus);
+    console.log('new style: ', newStyle[0]);
   };
   const changeMain = (newMainURL) => {
     setMainImage(newMainURL);
@@ -104,8 +107,8 @@ function Overview() {
 
   if (!normalView) {
     return (
-      <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-        <div className="col-start-2 col-end-8 row-start-0 row-end-3">
+      <div className="">
+        <div className="">
           <ExpandedView
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -115,7 +118,7 @@ function Overview() {
           />
         </div>
 
-        <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
+        <div className="">
           <ProductOverview slogan={prod.slogan} description={prod.description} />
           <Features features={features} />
         </div>
@@ -123,42 +126,44 @@ function Overview() {
     );
   }
   return (
-    <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <div className="relative col-start-2 col-end-6 row-start-0 row-end-3 flex justify-end">
-        <Gallery
-          styleID={styleID}
-          stylePhotos={stylePhotos}
-          mainImage={mainImage}
-          normalView={normalView}
-          changeMain={changeMain}
-          changeView={changeView}
-        />
+    <div>
+      <div className="flex">
+        <div className="max-w-[70%]">
+          <Gallery
+            styleID={styleID}
+            stylePhotos={stylePhotos}
+            mainImage={mainImage}
+            normalView={normalView}
+            changeMain={changeMain}
+            changeView={changeView}
+          />
+        </div>
+        <div className="ml-[10px]">
+          <Stars rating={rating} numReviews={numOfRatings} />
+          <a className="underline scroll-auto" href="#RR">
+            Read all
+            {' '}
+            {numOfRatings}
+            {' '}
+            Reviews!
+          </a>
+          <ProductInfo
+            currentStyle={currentStyle}
+            category={prod.category}
+            name={prod.name}
+          />
+          <StyleSelector
+            styles={styles}
+            styleName={styleName}
+            changeStyle={changeStyle}
+            styleID={styleID}
+          />
+          <AddToCart
+            inventory={inventory}
+          />
+        </div>
       </div>
-      <div className="col-start-6 col-end-8 row-start-2 row-end-3">
-        <Stars rating={rating} numReviews={numOfRatings} />
-        <a className="underline scroll-auto" href="#RR">
-          Read all
-          {' '}
-          {numOfRatings}
-          {' '}
-          Reviews!
-        </a>
-        <ProductInfo
-          currentStyle={currentStyle}
-          category={prod.category}
-          name={prod.name}
-        />
-        <StyleSelector
-          styles={styles}
-          styleName={styleName}
-          changeStyle={changeStyle}
-          styleID={styleID}
-        />
-        <AddToCart
-          inventory={inventory}
-        />
-      </div>
-      <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
+      <div className="flex w-[100%]">
         <ProductOverview slogan={prod.slogan} description={prod.description} />
         <Features features={features} />
       </div>
