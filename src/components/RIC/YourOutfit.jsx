@@ -16,7 +16,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
   };
 
   const handleNext = () => {
-    if (activeIndex === yourOutfit.length - 4) {
+    if (activeIndex === yourOutfit.length - 1) {
       setActiveIndex(0); // set index back to first element
     } else {
       setActiveIndex(activeIndex + 1); // increment index
@@ -36,7 +36,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
       {/* map over the related items to create a card for each item */}
       <div
         role="button"
-        className="relative left-4 shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-lg hover:shadow-indigo-500/40 h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
+        className="relative left-4 shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-lg hover:shadow-[#926AA6] h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
         onClick={() => {
           if (!doesItInclude(prod, yourOutfit)) {
             const newOutfit = [prod, ...yourOutfit];
@@ -59,6 +59,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
       </div>
       <div className="relative flex flex-row space-x-5 w-[896px] h-100 overflow-hidden">
         <div className="absolute right-0 flex h-[28rem] w-24 z-10 bg-gradient-to-l from-[#EDF1FF] to-transparent">
+          {/* if there are less than 4 cards, don't show the right arrow */}
           <FontAwesomeIcon
             icon={faArrowRight}
             className="absolute right-0 self-center mr-5"
