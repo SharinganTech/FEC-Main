@@ -141,14 +141,20 @@ function Overview() {
           />
         </div>
         <div className="max-w-[30%]">
-          <Stars rating={rating} numReviews={numOfRatings} />
-          <a className="underline scroll-auto" href="#RR">
-            Read all
-            {' '}
-            {numOfRatings}
-            {' '}
-            Reviews!
-          </a>
+          {numOfRatings
+            ? (
+              <div>
+                <Stars rating={rating} numReviews={numOfRatings} />
+                <a className="underline scroll-auto" href="#RR">
+                  Read all
+                  {' '}
+                  {numOfRatings}
+                  {' '}
+                  Reviews!
+                </a>
+              </div>
+            )
+            : null}
           <ProductInfo
             currentStyle={currentStyle}
             category={prod.category}
