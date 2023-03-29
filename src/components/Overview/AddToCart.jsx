@@ -48,7 +48,7 @@ function AddToCart({ inventory }) {
     setCartCount(cartCount + 1);
   };
   return (
-    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[100%]">
+    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[80%]">
       <div className="flex flex-row mb-2">
         <select data-testid="sizeDropdown" className="w-[45%] text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
           <option value="canPick">SELECT SIZE</option>
@@ -68,8 +68,7 @@ function AddToCart({ inventory }) {
           value="addToBag"
           onClick={handleAddToCart}
         >
-          ADD TO CART:
-          {cartCount}
+          ADD TO CART
         </button>
         <button
           data-testid="favorite"
