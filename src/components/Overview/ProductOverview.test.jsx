@@ -21,15 +21,3 @@ test('loads and displays AList', async () => {
 
   // expect(body).toHaveTextContent('example slogan');
 });
-
-// test('should increment helpful', async () => {
-//   render(<AListEntries eachA={eachA} />);
-//   // expect(body).toHaveTextContent('hehe');
-//   const span = await screen.getByTestId('helpful-span');
-//   const btn = await screen.getByTestId('increment-btn');
-//   userEvent.click(btn);
-
-//   await waitFor(() => {
-//     expect(span).toHaveTextContent(`Yes (${eachA.helpfulness + 1})`);
-//   });
-// });

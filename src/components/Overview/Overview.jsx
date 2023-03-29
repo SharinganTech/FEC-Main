@@ -17,6 +17,7 @@ export const CurrentProduct = createContext(null);
 
 function Overview() {
   const product = useContext(ProductContext);
+  console.log('global context: ', product);
   const prodDes = { product };
   const prod = prodDes.product;
   const [dataRetrieved, setDataRetrieved] = useState(false);
@@ -27,7 +28,6 @@ function Overview() {
   const [styleID, setStyleID] = useState(0);
   const [styleName, setStyleName] = useState('');
   const [mainImage, setMainImage] = useState('');
-  const [altImage, setAltImage] = useState('');
   const [stylePhotos, setStylePhotos] = useState([]);
   const [rating, setRating] = useState(0);
   const [numOfRatings, setNumOfRatings] = useState(0);
@@ -38,6 +38,7 @@ function Overview() {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
+        console.log('get request 1', response.data);
         setDataRetrieved(true);
         setFeatures(response.data.features);
       })
@@ -51,6 +52,7 @@ function Overview() {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
+        console.log('get request 2', response.data);
         setStyles(response.data.results);
         const IDnumber = response.data.results[0].style_id;
         setStyleID(IDnumber);
@@ -76,6 +78,7 @@ function Overview() {
       },
     })
       .then((results) => {
+        console.log('get request 3', results.data);
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
@@ -92,14 +95,13 @@ function Overview() {
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
     setStylePhotos(newStyle[0].photos);
+    setInventory(newStyle[0].skus);
   };
-  const changeMain = (newMainURL, altURL) => {
+  const changeMain = (newMainURL) => {
     setMainImage(newMainURL);
-    setAltImage(altURL);
   };
   const changeView = () => {
     setNormalView(!normalView);
-    console.log('the new view setting ', !normalView);
   };
   if (!dataRetrieved) {
     return (<div>Retrieving data</div>);
@@ -107,8 +109,8 @@ function Overview() {
 
   if (!normalView) {
     return (
-      <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-        <div className="col-start-2 col-end-8 row-start-0 row-end-3">
+      <div className="">
+        <div className="">
           <ExpandedView
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -118,7 +120,7 @@ function Overview() {
           />
         </div>
 
-        <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
+        <div className="">
           <ProductOverview slogan={prod.slogan} description={prod.description} />
           <Features features={features} />
         </div>
@@ -126,42 +128,44 @@ function Overview() {
     );
   }
   return (
-    <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-      <div className="col-start-2 col-end-6 row-start-0 row-end-3 flex justify-end">
-        <Gallery
-          styleID={styleID}
-          stylePhotos={stylePhotos}
-          mainImage={mainImage}
-          normalView={normalView}
-          changeMain={changeMain}
-          changeView={changeView}
-        />
+    <div>
+      <div className="flex flex-wrap">
+        <div className="w-[70%]">
+          <Gallery
+            styleID={styleID}
+            stylePhotos={stylePhotos}
+            mainImage={mainImage}
+            normalView={normalView}
+            changeMain={changeMain}
+            changeView={changeView}
+          />
+        </div>
+        <div className="ml-[10px] max-w-[25%]">
+          <Stars rating={rating} numReviews={numOfRatings} />
+          <a className="underline scroll-auto" href="#RR">
+            Read all
+            {' '}
+            {numOfRatings}
+            {' '}
+            Reviews!
+          </a>
+          <ProductInfo
+            currentStyle={currentStyle}
+            category={prod.category}
+            name={prod.name}
+          />
+          <StyleSelector
+            styles={styles}
+            styleName={styleName}
+            changeStyle={changeStyle}
+            styleID={styleID}
+          />
+          <AddToCart
+            inventory={inventory}
+          />
+        </div>
       </div>
-      <div className="col-start-6 col-end-8 row-start-2 row-end-3">
-        <Stars rating={rating} numReviews={numOfRatings} />
-        <a className="underline scroll-auto" href="#RR">
-          Read all
-          {' '}
-          {numOfRatings}
-          {' '}
-          Reviews!
-        </a>
-        <ProductInfo
-          currentStyle={currentStyle}
-          category={prod.category}
-          name={prod.name}
-        />
-        <StyleSelector
-          styles={styles}
-          styleName={styleName}
-          changeStyle={changeStyle}
-          styleID={styleID}
-        />
-        <AddToCart
-          inventory={inventory}
-        />
-      </div>
-      <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
+      <div className="flex w-[100%]">
         <ProductOverview slogan={prod.slogan} description={prod.description} />
         <Features features={features} />
       </div>
