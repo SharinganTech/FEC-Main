@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import AListEntry from './AListEntry';
 
 function AList({ eachQ }) {
@@ -31,7 +30,7 @@ function AList({ eachQ }) {
         <AListEntry key={eachA.id} eachA={eachA} />
       ))} */}
       <div className="py-3">
-        {(leng > 2) ? <button data-testid="more-answer-btn" type="button" className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner m-4" onClick={handleMoreAnswersClick}>{cap < leng ? 'See more answers' : 'Collapse Answers'}</button> : null}
+        {(leng > 2) ? <button data-testid="more-answers-btn" type="button" className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner m-4" onClick={handleMoreAnswersClick}>{cap < leng ? 'See more answers' : 'Collapse Answers'}</button> : null}
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 
 function AModal({
-  axPostAnswer, prodInfo, question, setOpenA,
+  prodInfo, question, setOpenA, axPostAnswer,
 }) {
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -16,9 +17,6 @@ function AModal({
         body, name, email, photos: [''],
       });
       setOpenA(false);
-    } else {
-      // eslint-disable-next-line no-alert
-      alert('Please fill out the required fields');
     }
   }
 
@@ -44,22 +42,22 @@ function AModal({
 
   return (
     <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-      <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full" onSubmit={handleAModalClick}>
-        <div className="text-3xl font-semibold">Submit Your Answer</div>
-        <div className="text-xl font-semibold">
+      <form data-testid="amod-form" className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full" onSubmit={handleAModalClick}>
+        <div data-testid="amod-main-title" className="text-3xl font-semibold">Submit Your Answer</div>
+        <div data-testid="amod-p-title" className="text-xl font-semibold">
           {`Product: ${prodInfo.name} `}
         </div>
-        <div className="text-xl font-semibold">
+        <div data-testid="amod-q-title" className="text-xl font-semibold">
           {`Question: ${question} `}
         </div>
-        <div className="relative p-6 flex-auto">
-          <label className="block text-black text-sm font-bold mb-1" htmlFor="answer">
+        <div data-testid="amod-answer" className="relative p-6 flex-auto">
+          <label id="amod-answer" className="block text-black text-sm font-bold mb-1" htmlFor="answer">
             <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer" maxLength="1000" required onChange={(e) => setBody(e.target.value)} />
             Your Answer
             <span className="text-red-600" id="required">*</span>
           </label>
         </div>
-        <div className="relative p-6 flex-auto">
+        <div data-testid="amod-name" className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-nickname">
             <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="text" name="answer-nickname" placeholder="Example: jack543!" maxLength="60" required onChange={(e) => setName(e.target.value)} />
             What is your nickname
@@ -67,7 +65,7 @@ function AModal({
           </label>
           <p className="text-xs">For privacy reasons, do not use your full name or email address</p>
         </div>
-        <div className="relative p-6 flex-auto">
+        <div data-testid="amod-email" className="relative p-6 flex-auto">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-email">
             <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" type="email" name="answer-email" placeholder="Example: jack@email.com" maxLength="60" required onChange={(e) => setEmail(e.target.value)} />
             Your email
@@ -75,7 +73,7 @@ function AModal({
           </label>
           <p className="text-xs">For authentication reasons, you will not be emailed</p>
         </div>
-        <div className="relative p-6 flex-auto" id="photo-upload">
+        <div data-testid="amod-photos" className="relative p-6 flex-auto" id="photo-upload">
           <label className="block text-black text-sm font-bold mb-1" htmlFor="answer-photos">
             {photoUploads.length < 5 && (
               <input
@@ -98,8 +96,8 @@ function AModal({
           </label>
         </div>
         <div className="flex items-center justify-around pt-6">
-          <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm py-4 px-6 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={() => setOpenA(false)}>Cancel</button>
-          <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="submit">Submit Answer</button>
+          <button data-testid="amod-cancel-btn" className="border-[1px] border-slate-600 font-semibold uppercase text-sm py-4 px-6 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={() => setOpenA(false)}>Cancel</button>
+          <button data-testid="amod-submit-btn" className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="submit">Submit Answer</button>
         </div>
       </form>
     </div>
