@@ -52,8 +52,18 @@ function App() {
       {product.id === undefined
         ? <Loading />
         : (
-          <>
+          <div className="w-[75%] mx-auto">
             <Navigation />
+<<<<<<< HEAD
+            <Overview />
+            <div className="h-[7rem]" />
+            <RelatedItemsAndComparison changeProdClick={changeProdClick} />
+            <div className="h-[40rem]" />
+            <QA />
+            <div className="h-[2rem]" />
+            <RatingsAndReviews />
+          </div>
+=======
             <div className="max-w-[75%] mx-auto">
               <Overview />
               <div className="h-[7rem]" />
@@ -64,6 +74,7 @@ function App() {
               <RatingsAndReviews />
             </div>
           </>
+>>>>>>> main
         )}
     </ProductContext.Provider>
   );
