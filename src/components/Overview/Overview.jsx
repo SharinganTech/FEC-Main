@@ -128,7 +128,7 @@ function Overview() {
     );
   }
   return (
-    <div>
+    <div className="mx-auto">
       <div className="self-center flex flex-row flex-wrap max-w-[90%] h-[650px] justify-center">
         <div className="w-[55%] max-h-[100%] mr-[10px]">
           <Gallery

@@ -50,11 +50,11 @@ function AddToCart({ inventory }) {
   return (
     <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[80%]">
       <div className="flex flex-row mb-2">
-        <select data-testid="sizeDropdown" className="w-[45%] text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
+        <select data-testid="sizeDropdown" className="w-[45%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
           <option value="canPick">SELECT SIZE</option>
           {sizeOptions()}
         </select>
-        <select className="w-[45%] text-black border-2 border-black font-bold py-4 px-4 mr-1 rounded" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
+        <select className="w-[45%] text-black border-2 bg-transparent border-black font-bold py-4 px-4 mr-1 rounded" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
           {(!maxQuantity)
             ? <option value="Quantity">QUANTITY</option>
             : quantityOptions(maxQuantity)}
