@@ -19,7 +19,7 @@ function Stars({ rating, numReviews, color }) {
 
   // use conditional rendering to render a quarter, half, and three quarter stars
   return (
-    <div>
+    <div data-testid="stars">
       {numReviews > 0 && (
         <div className="relative flex flex-row">
           {[...Array(fullStars)].map((_, index) => (

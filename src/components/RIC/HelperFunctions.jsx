@@ -74,7 +74,7 @@ export function generatePartialStar(fullStars, rating, color) {
   return (
     <div className="relative flex flex-row w-[16px]">
       <FontAwesomeIcon key={`full-${fill}`} icon={faStar} style={{ color: '#000000' }} className="star-fill absolute content-center z-10 right-0" />
-      <div className={`bg-[#${color}] w-[${fill}%] absolute content-center z-10 right-0.5`}>&nbsp;</div>
+      <div className={`bg-[#${color}] absolute content-center z-10 right-0.5`} style={{ width: `${fill}%` }}>&nbsp;</div>
       <FontAwesomeIcon key={`empty-${fill}`} icon={farStar} style={{ color: '#000000' }} className="star-outline absolute content-center z-20 right-0" />
     </div>
   );

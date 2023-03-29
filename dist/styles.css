@@ -468,6 +468,42 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+<<<<<<< HEAD
+=======
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
+>>>>>>> main
 .fixed {
   position: fixed;
 }
@@ -489,18 +525,24 @@ video {
 .left-0 {
   left: 0px;
 }
+<<<<<<< HEAD
 .left-20 {
   left: 5rem;
 }
+=======
+>>>>>>> main
 .left-3 {
   left: 0.75rem;
 }
 .left-4 {
   left: 1rem;
 }
+<<<<<<< HEAD
 .left-\[103px\] {
   left: 103px;
 }
+=======
+>>>>>>> main
 .left-\[30px\] {
   left: 30px;
 }
@@ -510,6 +552,12 @@ video {
 .right-0 {
   right: 0px;
 }
+<<<<<<< HEAD
+=======
+.right-0\.5 {
+  right: 0.125rem;
+}
+>>>>>>> main
 .right-2 {
   right: 0.5rem;
 }
@@ -519,6 +567,7 @@ video {
 .top-2 {
   top: 0.5rem;
 }
+<<<<<<< HEAD
 .-right-1 {
   right: -0.25rem;
 }
@@ -534,12 +583,20 @@ video {
 .right-0\.5 {
   right: 0.125rem;
 }
+=======
+>>>>>>> main
 .z-0 {
   z-index: 0;
 }
 .z-10 {
   z-index: 10;
 }
+<<<<<<< HEAD
+=======
+.z-20 {
+  z-index: 20;
+}
+>>>>>>> main
 .z-30 {
   z-index: 30;
 }
@@ -549,9 +606,12 @@ video {
 .z-50 {
   z-index: 50;
 }
+<<<<<<< HEAD
 .z-20 {
   z-index: 20;
 }
+=======
+>>>>>>> main
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -832,9 +892,12 @@ video {
 .w-48 {
   width: 12rem;
 }
+<<<<<<< HEAD
 .w-\[0\%\] {
   width: 0%;
 }
+=======
+>>>>>>> main
 .w-\[100\%\] {
   width: 100%;
 }
@@ -850,6 +913,12 @@ video {
 .w-\[1370px\] {
   width: 1370px;
 }
+<<<<<<< HEAD
+=======
+.w-\[16px\] {
+  width: 16px;
+}
+>>>>>>> main
 .w-\[200px\] {
   width: 200px;
 }
@@ -896,6 +965,7 @@ video {
 .w-full {
   width: 100%;
 }
+<<<<<<< HEAD
 .w-\[16px\] {
   width: 16px;
 }
@@ -941,6 +1011,8 @@ video {
 .w-\[35\%\] {
   width: 35%;
 }
+=======
+>>>>>>> main
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -964,6 +1036,7 @@ video {
   --tw-translate-y: 2rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+<<<<<<< HEAD
 .rotate-180 {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -972,6 +1045,8 @@ video {
   --tw-scale-x: -1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+=======
+>>>>>>> main
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -1240,6 +1315,13 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(54 57 69 / var(--tw-bg-opacity));
 }
+<<<<<<< HEAD
+=======
+.bg-pastelGray {
+  --tw-bg-opacity: 1;
+  background-color: rgb(121 142 164 / var(--tw-bg-opacity));
+}
+>>>>>>> main
 .bg-pastelPurple {
   --tw-bg-opacity: 1;
   background-color: rgb(146 106 166 / var(--tw-bg-opacity));
@@ -1251,9 +1333,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+<<<<<<< HEAD
 .bg-\[\#color\] {
   background-color: #color;
 }
+=======
+>>>>>>> main
 .bg-gradient-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
@@ -1271,12 +1356,15 @@ video {
 .to-transparent {
   --tw-gradient-to: transparent;
 }
+<<<<<<< HEAD
 .bg-right {
   background-position: right;
 }
 .bg-left {
   background-position: left;
 }
+=======
+>>>>>>> main
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1313,6 +1401,13 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+<<<<<<< HEAD
+=======
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+>>>>>>> main
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -1333,10 +1428,13 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+<<<<<<< HEAD
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+=======
+>>>>>>> main
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -1584,11 +1682,14 @@ html {
   text-decoration-line: underline;
 }
 
+<<<<<<< HEAD
 .hover\:shadow-\[pastelPurple\]:hover {
   --tw-shadow-color: pastelPurple;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+=======
+>>>>>>> main
 .hover\:shadow-\[\#926AA6\]:hover {
   --tw-shadow-color: #926AA6;
   --tw-shadow: var(--tw-shadow-colored);
