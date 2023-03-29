@@ -55,9 +55,9 @@ function ExpandedView({
   //   );
   // }
   return (
-    <div className="flex flex-row bg-pastelGray justify-around h-[800px] w-[100%] overflow-hidden">
+    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[600px] w-[100%] overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
-        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changePrev}>
+        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
@@ -65,23 +65,30 @@ function ExpandedView({
         </button>
         <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-10 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
           {photos.map((style, index) => (
-            <button data-testid={`${index}thumbnail`} className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
+            <button
+              data-testid={`${index}thumbnail`}
+              className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px] rounded-md"
+              key={index}
+              id={index}
+              type="button"
+              onClick={clickThumbnail}
+            >
               <img
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover w-[73px] h-[73px]'
-                  : 'opacity-40 object-cover w-[73px] h-[73px]'}
+                  ? 'opacity-100 object-cover w-[73px] h-[71px] rounded-sm'
+                  : 'opacity-40 object-cover w-[73px] h-[71px] rounded-sm'}
                 src={style.thumbnail_url}
                 alt=""
               />
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-pastelGray" onClick={changeNext}>
+        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
-            className="self-center z-40 bg-inherit"
+            className="self-center z-40 bg-[#EFE1CE]"
           />
         </button>
       </div>
@@ -92,7 +99,7 @@ function ExpandedView({
             className="self-center"
           />
         </button>
-        <img data-testid="mainImage" className="object-fit max-h-[100%]" src={mainImage} alt="" />
+        <img data-testid="mainImage" className="object-contain w-[80%] h-[90%]" src={mainImage} alt="" />
         <button data-testid="arrowRight" type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowRight}

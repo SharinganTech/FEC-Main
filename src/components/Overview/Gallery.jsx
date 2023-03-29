@@ -45,7 +45,7 @@ function Gallery({
     }
   };
   return (
-    <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE]">
+    <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] border-line border-[1px] border-black rounded-md bg-[#EFE1CE] shadow-xl">
       <div id="sideThumbnails" className="max-h-[100%] row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-start items-center overflow-hidden">
         <button data-testid="arrowUp" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
@@ -55,13 +55,20 @@ function Gallery({
         </button>
         <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
           {photos.map((style, index) => (
-            <button data-testid={`${index}thumbnail`} className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[50px] h-[50px] mt-[10px]" key={index} id={index} type="button" onClick={clickThumbnail}>
+            <button
+              data-testid={`${index}thumbnail`}
+              className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[50px] h-[50px] mt-[10px]"
+              key={index}
+              id={index}
+              type="button"
+              onClick={clickThumbnail}
+            >
               <img
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover rounded-md w-[50px] h-[50px]'
-                  : 'opacity-40 object-cover rounded-md w-[50px] h-[50px]'}
+                  ? 'opacity-100 object-cover rounded-sm w-[50px] h-[47px]'
+                  : 'opacity-40 object-cover rounded-sm w-[50px] h-[47px]'}
                 src={style.thumbnail_url}
                 alt=""
               />
@@ -82,7 +89,12 @@ function Gallery({
         />
       </button>
       <button className="z-0 row-start-2 p-top-[25px] row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%]" type="button" onClick={changeView}>
-        <img data-testid="mainImage" className="z-0 row-start-2 row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%] object-contain" src={mainImage} alt="" />
+        <img
+          data-testid="mainImage"
+          className="z-0 row-start-2 row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%] object-contain"
+          src={mainImage}
+          alt=""
+        />
       </button>
       <button data-testid="arrowRight" type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" onClick={changeNext}>
         <FontAwesomeIcon
