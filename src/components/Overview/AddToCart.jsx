@@ -48,33 +48,37 @@ function AddToCart({ inventory }) {
     setCartCount(cartCount + 1);
   };
   return (
-    <div data-testid="quantityDropDown" className="flex flex-wrap w-[100%]">
-      <select data-testid="sizeDropdown" className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
-        <option value="canPick">SELECT SIZE</option>
-        {sizeOptions()}
-      </select>
-      <select className="text-black border-2 border-black font-bold py-4 px-4 mr-1 rounded" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
-        {(!maxQuantity)
-          ? <option value="Quantity">QUANTITY</option>
-          : quantityOptions(maxQuantity)}
-      </select>
-      <button
-        data-testid="addToCart"
-        className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
-        type="button"
-        value="addToBag"
-        onClick={handleAddToCart}
-      >
-        ADD TO CART:
-        {cartCount}
-      </button>
-      <button
-        data-testid="favorite"
-        className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
-        type="button"
-      >
-        FAVORITE
-      </button>
+    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[100%]">
+      <div className="flex flex-row mb-2">
+        <select data-testid="sizeDropdown" className="w-[45%] text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
+          <option value="canPick">SELECT SIZE</option>
+          {sizeOptions()}
+        </select>
+        <select className="w-[45%] text-black border-2 border-black font-bold py-4 px-4 mr-1 rounded" id={maxQuantity} value={currentQuantity} onChange={handleQuantityChange}>
+          {(!maxQuantity)
+            ? <option value="Quantity">QUANTITY</option>
+            : quantityOptions(maxQuantity)}
+        </select>
+      </div>
+      <div className="flex flex-row">
+        <button
+          data-testid="addToCart"
+          className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[60%]"
+          type="button"
+          value="addToBag"
+          onClick={handleAddToCart}
+        >
+          ADD TO CART:
+          {cartCount}
+        </button>
+        <button
+          data-testid="favorite"
+          className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[40%]"
+          type="button"
+        >
+          FAVORITE
+        </button>
+      </div>
     </div>
   );
 }

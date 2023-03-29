@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck as farCheck, faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-function StyleSelector({ styleID, styles, styleName, changeStyle }) {
+function StyleSelector({
+  styleID, styles, styleName, changeStyle,
+}) {
   const changeName = (e) => {
     e.preventDefault();
     changeStyle(e.target.id);
@@ -18,16 +19,16 @@ function StyleSelector({ styleID, styles, styleName, changeStyle }) {
           {styleName}
         </span>
       </p>
-      <div className="flex flex-row flex-wrap flex-start max-w-[325px] gap-[15px] ">
+      <div className="flex flex-row flex-wrap flex-center min-w-[100%] gap-[15px] ">
         {styles.map((style, index) => {
           const imgUrl = `${style.photos[0].thumbnail_url}`;
           return (
             <div key={index} id={style.style_id}>
-              <button key={index} type="button" className="relative" onClick={changeName}>
+              <button key={index} type="button" className="relative w-[4rem] h-[4rem]" onClick={changeName}>
                 {(styleID === style.style_id) ? <FontAwesomeIcon key="checkmark" className="absolute text-[20px] top-0 right-0" icon={faCircleCheck} style={{ color: 'white' }} /> : null}
                 <img
                   id={style.style_id}
-                  className="border-line border-[1px] border-black w-[4rem] h-[4rem] object-none rounded-full overflow-hidden m-5px"
+                  className="border-line border-[1px] border-black w-[4rem] h-[4rem] object-cover rounded-full overflow-hidden"
                   src={imgUrl}
                   alt=""
                   key={index}

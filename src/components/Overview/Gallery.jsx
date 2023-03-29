@@ -45,7 +45,7 @@ function Gallery({
     }
   };
   return (
-    <div className="grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-pastelGray">
+    <div className="h-[100%] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-pastelGray">
       <div id="sideThumbnails" className="row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-center items-center overflow-hidden">
         <button data-testid="arrowUp" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-pastelGray" onClick={changePrev}>
           <FontAwesomeIcon

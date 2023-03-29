@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'react-dom';
-import {
-  render, screen, fireEvent, act,
-} from '@testing-library/react';
-import { expect, test } from '@jest/globals';
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import { expect, jest, test } from '@jest/globals';
 import '@testing-library/jest-dom';
-import Gallery from './Gallery';
+import ExpandedView from './ExpandedView';
 
 const stylePhotos = [
   {
@@ -30,7 +28,7 @@ function changeView() {
 
 test('Renders a button with Favorite text', async () => {
   render(
-    <Gallery
+    <ExpandedView
       stylePhotos={stylePhotos}
       mainImage={mainImage}
       changeMain={changeMain}
@@ -46,7 +44,7 @@ test('Renders a button with Favorite text', async () => {
 test('Right arrow privides a URL', async () => {
   await act(async () => {
     render(
-      <Gallery
+      <ExpandedView
         stylePhotos={stylePhotos}
         mainImage={mainImage}
         changeMain={changeMain}
@@ -70,7 +68,7 @@ test('Right arrow privides a URL', async () => {
 test('Left arrow provides a URL', async () => {
   await act(async () => {
     render(
-      <Gallery
+      <ExpandedView
         stylePhotos={stylePhotos}
         mainImage={mainImage}
         changeMain={changeMain}
@@ -94,7 +92,7 @@ test('Left arrow provides a URL', async () => {
 test('Up arrow provides a URL', async () => {
   await act(async () => {
     render(
-      <Gallery
+      <ExpandedView
         stylePhotos={stylePhotos}
         mainImage={mainImage}
         changeMain={changeMain}

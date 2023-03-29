@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowRight, faArrowLeft, faArrowUp, faArrowDown, faExpand,
 } from '@fortawesome/free-solid-svg-icons';
-import ZoomedImage from './ZoomedImage';
 
 function ExpandedView({
   stylePhotos, mainImage, changeMain, changeView,
@@ -66,7 +65,7 @@ function ExpandedView({
         </button>
         <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-10 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
           {photos.map((style, index) => (
-            <button className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
+            <button data-testid={`${index}thumbnail`} className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px]" key={index} id={index} type="button" onClick={clickThumbnail}>
               <img
                 id={index}
                 key={index}
@@ -86,15 +85,15 @@ function ExpandedView({
           />
         </button>
       </div>
-      <div id="mainImage" className="flex items-center justify-evenly grow-0 w-[1370px] h-[98%]">
+      <div data-testid="arrowLeft" id="mainImage" className="flex items-center justify-evenly grow-0 w-[1370px] h-[98%]">
         <button type="button" value={activeIndex} className="h-[100%] w-[68px] z-10" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowLeft}
             className="self-center"
           />
         </button>
-        <img className="object-fit max-h-[100%]" src={mainImage} onClick={zoomImage} alt="" />
-        <button type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
+        <img data-testid="mainImage" className="object-fit max-h-[100%]" src={mainImage} alt="" />
+        <button data-testid="arrowRight" type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowRight}
             className="self-center z-0"
