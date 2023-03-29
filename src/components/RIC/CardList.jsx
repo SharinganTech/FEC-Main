@@ -19,6 +19,7 @@ function CardList({ prod, changeProdClick }) {
         },
       })
       .then(({ data }) => {
+        // console.log('related items id', data);
         const listOfRelatedItems = data.map((relatedId) => (
           axios
             .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedId}`, {
@@ -31,6 +32,7 @@ function CardList({ prod, changeProdClick }) {
         ));
         Promise.all(listOfRelatedItems)
           .then((result) => {
+            // console.log('list of related items', result);
             setRelatedItems(result);
           });
       });
@@ -53,7 +55,7 @@ function CardList({ prod, changeProdClick }) {
   };
 
   return (
-    <div className="h-[28rem] relative flex flex-row space-x-5  h-64 overflow-hidden">
+    <div className="h-[28rem] relative flex flex-row space-x-5  h-64 overflow-hidden" data-testid="clContainer">
       {/* map over the related items to create a card for each item */}
       {activeIndex === 0
         ? <div />
@@ -68,8 +70,9 @@ function CardList({ prod, changeProdClick }) {
             />
           </div>
         )}
-      <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent">
+      <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent" data-testid="clRAContainer">
         <FontAwesomeIcon
+          data-testid="clRightArrow"
           icon={faArrowRight}
           className="absolute right-0 self-center mr-5"
           onClick={() => {
@@ -78,9 +81,9 @@ function CardList({ prod, changeProdClick }) {
         />
       </div>
       {relatedItems.length === 0
-        ? <h1> Loading... </h1>
+        ? <h1 data-testid="riLoading"> Loading... </h1>
         : (
-          <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-3">
+          <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-3" data-testid="cardList">
             {relatedItems.map((relatedItem) => (
               <CardListEntry
                 key={relatedItem.id}

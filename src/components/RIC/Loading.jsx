@@ -4,7 +4,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 function Loading() {
   return (
-    <h1>
+    <h1 data-testid="spinner">
       <FontAwesomeIcon icon={faSpinner} style={{ color: '#926AA6' }} className="animate-spin" />
     </h1>
   );
