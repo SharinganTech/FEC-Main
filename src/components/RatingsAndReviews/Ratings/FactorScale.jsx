@@ -16,7 +16,12 @@ function FactorScale({ factor, value }) {
     <div className="flex flex-col relative mb-6">
       <div className="text-s">{factor}</div>
       <div className="w-full h-2 mx-2 mt-2 bg-gray-400 relative">
-        <span className="h-full block absolute transform -translate-y-2" style={{ left: `${factorPercentage}%` }}>&#9660;</span>
+        <span
+          className="h-full block absolute transform -translate-y-2"
+          style={{ left: `${factorPercentage}%` }}
+        >
+          &#9660;
+        </span>
       </div>
       <div className="absolute inset-0 flex items-center justify-between text-xs transform translate-y-8">
         <span>{factorVariables[factor][0]}</span>

@@ -21,14 +21,26 @@ function HelpfulButtons({ reviewID, helpfulness, makeGetRequest }) {
   return (
     <div className="flex flex-row text-s my-2">
       <div className="mr-1">Helpful?</div>
-      <button className="underline mx-1" onClick={() => handleClick('helpful')} type="button">Yes</button>
+      <button
+        className="underline mx-1"
+        onClick={() => handleClick('helpful')}
+        type="button"
+      >
+        Yes
+      </button>
       <div className="mr-3">
         (
         {helpfulness}
         )
       </div>
       <div>|</div>
-      <button className="underline ml-3" onClick={() => handleClick('report')} type="button">Report</button>
+      <button
+        className="underline ml-3"
+        onClick={() => handleClick('report')}
+        type="button"
+      >
+        Report
+      </button>
     </div>
   );
 }
