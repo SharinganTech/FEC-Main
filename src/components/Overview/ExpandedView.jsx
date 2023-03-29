@@ -50,11 +50,11 @@ function ExpandedView({
   const zoomImage = () => {
     setImageScaled(!imageScaled);
   };
-  if (imageScaled) {
-    return (
-      <ZoomedImage mainImage={mainImage} zoomImage={zoomImage}/>
-    );
-  }
+  // if (imageScaled) {
+  //   return (
+  //     <ZoomedImage mainImage={mainImage} zoomImage={zoomImage}/>
+  //   );
+  // }
   return (
     <div className="flex flex-row bg-pastelGray justify-around h-[800px] w-[100%] overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">

@@ -35,6 +35,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
     <div className="relative flex h-[28rem] left-3">
       {/* map over the related items to create a card for each item */}
       <div
+        data-testid="yourOutfitCard"
         role="button"
         className="relative left-4 shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-lg hover:shadow-[#926AA6] h-96 w-48 content-center text-center text-3xl text-[#798EA4] border border-[#798EA4] border-dashed"
         onClick={() => {
@@ -61,6 +62,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
         <div className="absolute right-0 flex h-[28rem] w-24 z-10 bg-gradient-to-l from-[#EDF1FF] to-transparent">
           {/* if there are less than 4 cards, don't show the right arrow */}
           <FontAwesomeIcon
+            data-testid="yo-right-arrow"
             icon={faArrowRight}
             className="absolute right-0 self-center mr-5"
             onClick={() => {
@@ -81,7 +83,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
               />
             </div>
           )}
-        <div className="relative flex flex-row whitespace-nowrap space-x-5 w-[full] h-full left-[50px] z-0 overflow-hidden">
+        <div className="relative flex flex-row whitespace-nowrap space-x-5 w-[full] h-full left-[50px] z-0 overflow-hidden" data-testid="yourOutfitList">
           {yourOutfit.map((relatedItem) => (
             <CardListEntry
               key={relatedItem.id}
