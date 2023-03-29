@@ -3,3 +3,8 @@ node_modules/
 dist/bundle.js
 dist/bundle.js.map
 dist/styles.css
+<<<<<<< HEAD
+coverage/
+=======
+coverage/
+>>>>>>> main

@@ -15,20 +15,8 @@ function RatingsAndReviews() {
   const [sort, setSort] = useState('Relevant');
   const { filters } = useContext(FiltersContext);
 
-  useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${prod.id}`, {
-      headers: {
-        Authorization: process.env.AUTH_TOKEN,
-      },
-    })
-      .then((response) => {
-        setReviewsMeta(response.data);
-      })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
-  }, []);
-
-  const makeGetRequest = (newCount, newSort) => {
+  const makeGetRequest = (newCount, newSort, newFilters) => {
+    const filtersToDisplay = newFilters || filters;
     const countToDisplay = newCount || count;
     const sortToSearch = newSort || sort;
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${prod.id}&count=${Number(reviewsMeta.recommended.true)
@@ -38,26 +26,40 @@ function RatingsAndReviews() {
       },
     })
       .then((response) => {
-        if (filters.length) {
-          console.log(response.data.results)
-          const filteredData = response.data.results.filter((review) => {
-            return filters.includes(review.rating.toString())
-          });
-          console.log(filteredData);
+        if (filtersToDisplay.length) {
+          const filteredData = response.data.results.filter(
+            (review) => filtersToDisplay.includes(review.rating.toString()),
+          );
           setReviews(filteredData.slice(0, countToDisplay));
         } else {
           setReviews(response.data.results.slice(0, countToDisplay));
         }
-        // setReviews(response.data.results.slice(0, countToDisplay));
       })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw new Error('Error getting review data', err);
+      });
   };
 
+  useEffect(() => {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${prod.id}`, {
+      headers: {
+        Authorization: process.env.AUTH_TOKEN,
+      },
+    })
+      .then((response) => {
+        setReviewsMeta(response.data);
+        // makeGetRequest();
+      })
+      .catch((err) => {
+        throw new Error('Error getting review meta data', err);
+      });
+  }, [prod.id]);
+
   return Object.keys(reviewsMeta).length ? (
-    <div id="RR" className="grid grid-cols-[1fr_3fr] gap-3 mx-10">
+    <div id="RR" className="grid grid-cols-[1fr_3fr] gap-3 h-[80vh]">
       <Ratings reviewsMeta={reviewsMeta} makeGetRequest={makeGetRequest} />
       <ReviewList
+        prodID={prod.id}
         reviews={reviews}
         reviewsMeta={reviewsMeta}
         count={count}
@@ -71,3 +73,5 @@ function RatingsAndReviews() {
 }
 
 export default RatingsAndReviews;
+
+// npm test -- --coverage --collectCoverageFrom="./src/**"

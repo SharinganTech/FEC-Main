@@ -84,7 +84,7 @@ function CardListEntry({
       {thumbnail.length === 0 || rating.length === 0 ? <Loading />
         : (
           <div className="relative grid-cols-3 grid-rows-3 transition-transform" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-            <div className="shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-indigo-500/40 h-96 w-48">
+            <div className="shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-[#926AA6] h-96 w-48">
               <div className="bg-white grid rounded-lg rounded-b-none h-60 w-48 content-center">
                 <img src={thumbnail} alt="item default" className="rounded-lg max-h-56 w-40 justify-self-center content-center shadow-lg object-cover" />
               </div>
@@ -115,7 +115,6 @@ function CardListEntry({
                   )}
                 <div className="text-[#798EA4] text-sm">
                   <Stars rating={rating} numReviews={numOfRatings} color="EFE1CE" />
-                  {rating}
                 </div>
               </div>
               {noModal === undefined && (
