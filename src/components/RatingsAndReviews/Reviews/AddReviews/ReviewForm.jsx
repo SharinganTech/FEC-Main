@@ -120,7 +120,6 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
             </p>
           ) : null}
         </div>
-
         <div>
           <label className="block text-sm font-bold mb-1 mr-2" htmlFor="review-photos">
             Upload your photos (max 5)
@@ -145,9 +144,6 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
             </div>
           </label>
         </div>
-        {/* <button className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
-        type="button">Upload Photo</button> */}
-
         <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="nickname">
             Nickname:
@@ -177,12 +173,3 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
 }
 
 export default ReviewForm;
-
-/* <div className="">
-  <label className="block uppercase tracking-wide text-gray-700
-  text-xs font-bold mb-2" htmlFor="imageUrl">
-    Image url:
-    <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="imageUrl" maxLength="60" placeholder="Example: https://res.cloudinary.com/cloverhong/image/upload/v1649959865/vrxnynrz7wwvbmoybntc.jpg" defaultValue="" />
-  </label>
-  <p className="text-xs italic">Nothing here rn</p>
-</div> */
