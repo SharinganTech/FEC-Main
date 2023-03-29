@@ -1,12 +1,14 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import 'react-dom';
-import { render, fireEvent } from '@testing-library/react';
+import {
+  render, fireEvent,
+} from '@testing-library/react';
+import { test, expect } from '@jest/globals';
 // import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import AddReview from '../Reviews/AddReviews/AddReview';
 import ProductContext from '../../../contexts/ProductContext';
-import { reviewsMeta } from '../proxyData';
+import { reviewsMeta } from './proxyData';
 
 const product = 40346;
 

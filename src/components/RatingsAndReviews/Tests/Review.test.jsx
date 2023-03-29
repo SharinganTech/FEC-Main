@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import 'react-dom';
 import { render } from '@testing-library/react';
+import { test, expect } from '@jest/globals';
 import '@testing-library/jest-dom';
 import Review from '../Reviews/Review';
 
