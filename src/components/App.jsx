@@ -54,7 +54,7 @@ function App() {
         : (
           <div className="w-[75%] mx-auto">
             <Navigation />
-            <div className="max-w-[75%] mx-auto">
+            <div className="max-w-[90%] mx-auto">
               <Overview />
               <div className="h-[7rem]" />
               <RelatedItemsAndComparison changeProdClick={changeProdClick} />
