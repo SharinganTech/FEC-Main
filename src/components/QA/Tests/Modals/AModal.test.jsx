@@ -49,7 +49,7 @@ test('renders AModal component', async () => {
   expect(answerInput).toBeRequired();
 
   // Photo input
-  // const photosInput = await screen.getByTestId('amod-photos').querySelector('input');
+  const photosInput = await screen.getByTestId('amod-photos').querySelector('input');
 
   // Simulates form submission with empty fields
   fireEvent.submit(screen.getByTestId('amod-form'));
@@ -60,6 +60,7 @@ test('renders AModal component', async () => {
   fireEvent.change(nameInput, { target: { value: 'John Doe' } });
   fireEvent.change(emailInput, { target: { value: 'john.doe@example.com' } });
   fireEvent.change(answerInput, { target: { value: 'This is my answer' } });
+  fireEvent.change(photosInput, { target: { value: [''] } });
   // fireEvent.change(photosInput, {
   //   target: {
   //     value: ['https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=962&q=80',
