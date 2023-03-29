@@ -468,6 +468,39 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .fixed {
   position: fixed;
 }
@@ -877,18 +910,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[30\%\] {
-  width: 30%;
-}
-.w-\[50\%\] {
-  width: 50%;
-}
-.w-\[35\%\] {
-  width: 35%;
-}
-.w-\[25\%\] {
-  width: 25%;
 }
 .max-w-3xl {
   max-width: 48rem;
