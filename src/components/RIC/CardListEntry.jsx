@@ -27,6 +27,7 @@ function CardListEntry({
   const [prodFeatures, setProdFeatures] = useState([]);
 
   useEffect(() => {
+    // console.log('related item id', relatedItem.id, 'prodId', product);
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedItem.id}/styles`, {
         headers: {
@@ -34,6 +35,7 @@ function CardListEntry({
         },
       })
       .then(({ data }) => {
+        // console.log('price and photo data', data);
         // console.log(data.results);
         const sale = data.results[0].sale_price;
         if (sale !== null) {
@@ -58,39 +60,52 @@ function CardListEntry({
           },
         }))
       .then((results) => {
+        // console.log('ratings data', results);
         // console.log(results.data.ratings);
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
       })
+      .then(() => axios
+        .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
+          headers: {
+            Authorization: process.env.AUTH_TOKEN,
+          },
+        }))
+      .then((result) => {
+        console.log('features data', result.data);
+        // console.log(result.data.features);
+        setProdFeatures(result.data.features);
+      })
       .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
-        headers: {
-          Authorization: process.env.AUTH_TOKEN,
-        },
-      })
-      .then((result) => {
-        // console.log(result.data.features);
-        setProdFeatures(result.data.features);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
+  //       headers: {
+  //         Authorization: process.env.AUTH_TOKEN,
+  //       },
+  //     })
+  //     .then((result) => {
+  //       // console.log(result.data.features);
+  //       setProdFeatures(result.data.features);
+  //     });
+  // }, []);
 
   return (
     <div>
       {thumbnail.length === 0 || rating.length === 0 ? <Loading />
         : (
-          <div className="relative grid-cols-3 grid-rows-3 transition-transform" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+          <div data-testid="cardListEntry" className="relative grid-cols-3 grid-rows-3 transition-transform" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
             <div className="shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-[#926AA6] h-96 w-48">
               <div className="bg-white grid rounded-lg rounded-b-none h-60 w-48 content-center">
                 <img src={thumbnail} alt="item default" className="rounded-lg max-h-56 w-40 justify-self-center content-center shadow-lg object-cover" />
               </div>
               <div className="ml-2 mr-2">
-                <div className="text-[#798EA4] text-lg">{relatedItem.category}</div>
+                <div data-testid="card-category" className="text-[#798EA4] text-lg">{relatedItem.category}</div>
                 <div
+                  data-testid="card-name"
                   role="button"
                   className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-words"
                   onClick={() => {
@@ -104,9 +119,9 @@ function CardListEntry({
                   {relatedItem.name}
                 </div>
                 {onSale === null
-                  ? <div className="text-[#798EA4] text-sm">{`$${relatedItem.default_price}`}</div>
+                  ? <div data-testid="card-price" className="text-[#798EA4] text-sm">{`$${relatedItem.default_price}`}</div>
                   : (
-                    <div>
+                    <div data-testid="card-price">
                       <div className="text-red-500 line-through text-sm">
                         {relatedItem.default_price}
                       </div>
@@ -115,10 +130,12 @@ function CardListEntry({
                   )}
                 <div className="text-[#798EA4] text-sm">
                   <Stars rating={rating} numReviews={numOfRatings} color="EFE1CE" />
+                  {rating}
                 </div>
               </div>
               {noModal === undefined && (
               <button
+                data-testid="compare-button"
                 className="absolute text-black hover:text-[#926AA6] hover:underline hover:cursor-pointer w-fit text-xs bottom-7 right-2"
                 type="button"
                 onClick={() => {
@@ -184,6 +201,7 @@ function CardListEntry({
       <div className="">
         {noModal === undefined && modal && (
         <Modal
+          data-testid="modal"
           relatedItem={relatedItem}
           modal={modal}
           setModal={setModal}

@@ -1,12 +1,12 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import 'react-dom';
 import { render } from '@testing-library/react';
+import { test, expect } from '@jest/globals';
 // import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Ratings from '../Ratings/Ratings';
 import { FiltersProvider } from '../FiltersContext';
-import { reviewsMeta } from '../proxyData';
+import { reviewsMeta } from './proxyData';
 
 test('loads and displays Ratings', async () => {
   const { getByText } = render(

@@ -10,23 +10,23 @@ function Modal({
   // console.log('overview item', prodFeatures);
 
   return (
-    <div className="transform-none flex fixed inset-0 z-50 justify-center items-center outline-none focus:outline-none bg-slate-500/50">
+    <div data-testid="modal" className="transform-none flex fixed inset-0 z-50 justify-center items-center outline-none focus:outline-none bg-slate-500/50">
       {outfit === undefined
         ? (
           <div className="relative flex flex-col rounded-lg self-center bg-gradient-to-r from-violet-600/95 to-gray-400/95 shadow-2xl text-white h-80 w-fit">
             <div className="h-1/6 grid grid-rows-1 grid-cols-3 border-b border-black bg-pastelPurple rounded-t-lg">
-              <div className="grid col-start-1 col-span-1 row-start-1 text-center content-center">
+              <div data-testid="related-name" className="grid col-start-1 col-span-1 row-start-1 text-center content-center">
                 {relatedItem.name}
               </div>
               <h1 className="grid col-start-2 col-span-1 row-start-1 text-center content-center">Feature</h1>
-              <div className="grid col-start-3 col-span-1 row-start-1 text-center content-center">
+              <div data-testid="prod-name" className="grid col-start-3 col-span-1 row-start-1 text-center content-center">
                 {prod.name}
               </div>
             </div>
-            <div className="grid h-5/6 overflow-x-auto bg-pastelBlack">
+            <div data-testid="comparison" className="grid h-5/6 overflow-x-auto bg-pastelBlack">
               {prodFeatures.map((obj) => (
                 <div key={obj.feature} className="grid grid-rows-1 grid-cols-3 content-center h-12 border-b">
-                  <div className="grid col-start-1 col-span-1 row-start-1 text-center content-center">
+                  <div data-testid="product-feature" className="grid col-start-1 col-span-1 row-start-1 text-center content-center">
                     {includesFeature(obj, relatedItem.features)}
                   </div>
                   <div className="grid col-start-2 col-span-1 row-start-1 text-center content-center">
@@ -55,6 +55,7 @@ function Modal({
               ))}
             </div>
             <button
+              data-testId="close-button"
               className="bg-pastelBlack rounded-b-lg"
               type="button"
               onClick={() => {
