@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
-import RatingsAndReviews from './RR';
 import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
+import RatingsAndReviews from './RatingsAndReviews';
 import ProductContext from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
 import Navigation from './Navigation';
@@ -59,13 +59,15 @@ function App() {
         : (
           <>
             <Navigation />
-            <Overview />
-            <div className="h-[7rem]" />
-            <RelatedItemsAndComparison changeProdClick={changeProdClick} />
-            <div className="h-[40rem]" />
-            <QA />
-            <div className="h-[2rem]" />
-            <RatingsAndReviews />
+            <div className="max-w-[75%] mx-auto">
+              <Overview />
+              <div className="h-[7rem]" />
+              <RelatedItemsAndComparison changeProdClick={changeProdClick} />
+              <div className="h-[40rem]" />
+              <QA />
+              <div className="h-[2rem]" />
+              <RatingsAndReviews />
+            </div>
           </>
         )}
     </ProductContext.Provider>

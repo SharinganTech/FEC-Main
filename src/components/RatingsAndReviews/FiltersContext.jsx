@@ -13,7 +13,13 @@ export function FiltersProvider({ children }) {
     setFilters(filters.filter((filterNum) => filterNum !== number));
   };
 
-  const value = useMemo(() => ({ filters, addFilter, removeFilter }), [filters]);
+  const removeAllFilters = () => {
+    setFilters([]);
+  };
+
+  const value = useMemo(() => ({
+    filters, addFilter, removeFilter, removeAllFilters,
+  }), [filters]);
 
   return (
     <FiltersContext.Provider value={value}>

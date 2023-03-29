@@ -11,11 +11,11 @@ function RatingScale({
   const handleFilterClick = () => {
     if (filters.includes(stars)) {
       removeFilter(stars);
+      makeGetRequest(null, null, filters.filter((filterNum) => filterNum !== stars));
     } else {
       addFilter(stars);
+      makeGetRequest(null, null, [...filters, stars]);
     }
-    console.log(filters);
-    makeGetRequest();
   };
 
   return (

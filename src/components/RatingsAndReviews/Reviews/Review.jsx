@@ -1,6 +1,5 @@
 import React from 'react';
-// import { format } from 'date-fns';
-import Stars from '../Stars';
+import Stars from '../../RIC/Stars';
 import ReviewBody from './ReviewBody';
 import HelpfulButtons from './HelpfulButtons';
 
@@ -9,8 +8,9 @@ function Review({ review, makeGetRequest }) {
   return (
     <div className="flex flex-col">
       <div>
-        {/* <Stars rating={review.rating} /> */}
-        <div>{review.rating}</div>
+        <div className="text-[#798EA4] text-sm">
+          <Stars rating={review.rating} numReviews={1} />
+        </div>
         <div className="text-s float-right">
           {review.reviewer_name}
           {', '}
