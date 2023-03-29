@@ -68,7 +68,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
   }
 
   return (
-    <form className="flex flex-col w-[85%] ml-[7.5%]" onSubmit={(e) => validateForm(e)}>
+    <form className="flex flex-col w-[90%] ml-[5%]" onSubmit={(e) => validateForm(e)}>
       <div className="text-2xl my-2">
         <AddReviewStars
           rating={stars}
@@ -92,7 +92,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
           No
         </label>
       </div>
-      <div className={`grid grid-rows-${reviewsMeta.characteristics.length}`}>
+      <div className={`mb-2 grid grid-rows-${reviewsMeta.characteristics.length}`}>
         {Object.keys(reviewsMeta.characteristics).map((key) => (
           <CharacterInput
             key={reviewsMeta.characteristics[key].id}
@@ -100,7 +100,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
           />
         ))}
       </div>
-      <div className="flex flex-col -mx-3 mb-4">
+      <div className="flex flex-col mb-4">
         <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="summary">
             Summary:

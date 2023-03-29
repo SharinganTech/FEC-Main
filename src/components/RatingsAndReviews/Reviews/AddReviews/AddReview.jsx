@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import WriteReviewModal from './WriteReviewModal';
 
 function AddReview({ reviewsMeta }) {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   return (
     <div>
       <button
