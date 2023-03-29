@@ -25,10 +25,10 @@ function StyleSelector({
           return (
             <div key={index} id={style.style_id}>
               <button key={index} type="button" className="relative w-[4rem] h-[4rem]" onClick={changeName}>
-                {(styleID === style.style_id) ? <FontAwesomeIcon key="checkmark" className="absolute text-[20px] top-0 right-0" icon={faCircleCheck} style={{ color: 'white' }} /> : null}
+                {(styleID === style.style_id) ? <FontAwesomeIcon key="checkmark" className="absolute text-[20px] top-0 right-0 bg-white rounded-full" icon={faCircleCheck} style={{ color: '#926AA6' }} /> : null}
                 <img
                   id={style.style_id}
-                  className="border-line border-[1px] border-black w-[4rem] h-[4rem] object-cover rounded-full overflow-hidden"
+                  className="border-line border-2 border-black w-[3.8rem] h-[3.8rem] object-cover rounded-full overflow-hidden"
                   src={imgUrl}
                   alt=""
                   key={index}
