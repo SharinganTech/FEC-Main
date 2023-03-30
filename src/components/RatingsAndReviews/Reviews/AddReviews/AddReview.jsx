@@ -9,7 +9,7 @@ function AddReview({ reviewsMeta }) {
         onClick={() => {
           setShowModal(!showModal);
         }}
-        className="text-black border-2 border-black font-bold py-4 px-4 rounded"
+        className="text-black border-2 border-black uppercase font-bold py-4 px-4 rounded"
         type="button"
       >
         ADD A REVIEW +

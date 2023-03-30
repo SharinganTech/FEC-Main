@@ -50,15 +50,17 @@ function CardListEntry({
           setThumbNail(photo);
         }
       })
-      .then(() => axios
-        .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta', {
-          headers: {
-            Authorization: process.env.AUTH_TOKEN,
-          },
-          params: {
-            product_id: relatedItem.id,
-          },
-        }))
+      .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
+
+    axios
+      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta', {
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
+        params: {
+          product_id: relatedItem.id,
+        },
+      })
       .then((results) => {
         // console.log('ratings data', results);
         // console.log(results.data.ratings);
@@ -66,12 +68,14 @@ function CardListEntry({
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
       })
-      .then(() => axios
-        .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
-          headers: {
-            Authorization: process.env.AUTH_TOKEN,
-          },
-        }))
+      .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
+
+    axios
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
+      })
       .then((result) => {
         // console.log('features data', result.data);
         // console.log(result.data.features);
@@ -79,19 +83,6 @@ function CardListEntry({
       })
       .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
   }, []);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
-  //       headers: {
-  //         Authorization: process.env.AUTH_TOKEN,
-  //       },
-  //     })
-  //     .then((result) => {
-  //       // console.log(result.data.features);
-  //       setProdFeatures(result.data.features);
-  //     });
-  // }, []);
 
   return (
     <div>
@@ -107,7 +98,7 @@ function CardListEntry({
                 <div
                   data-testid="card-name"
                   role="button"
-                  className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-words"
+                  className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-all"
                   onClick={() => {
                     changeProdClick(relatedItem.id);
                   }}

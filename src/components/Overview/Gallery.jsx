@@ -78,7 +78,7 @@ function Gallery({
         <button type="button" value={activeIndex} className="row-start-5 row-end-6 h-[5em] w-[5em] justify-self-center items-center z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
-            className="self-center"
+            className="self-center z-40 bg-inherit"
           />
         </button>
       </div>
