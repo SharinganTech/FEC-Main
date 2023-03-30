@@ -11,3 +11,4 @@ app.use(express.static(path.join(__dirname, '/dist')));
 // other configuration...
 
 app.listen(3000);
+console.log('listening on port');

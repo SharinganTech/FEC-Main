@@ -10,7 +10,7 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
 
   const componentToRender = (
     <div>
-      <div className="flex flex-col justify-between p-4 border-b border-solid border-slate-200 rounded-t">
+      <div className="flex flex-col justify-between p-4 border-b border-solid border-slate-200 text-white bg-pastelBlack rounded-t">
         <div className="flex flex-row">
           <h3 className="text-xl font-bold">Write Your Review</h3>
           <button
@@ -27,7 +27,7 @@ function WriteReviewModal({ setShowModal, reviewsMeta }) {
           {prodName}
         </h6>
       </div>
-      <div className="relative p-4 flex-auto">
+      <div className="relative p-4 flex-auto bg-[#EDF1FF]">
         <ReviewForm reviewsMeta={reviewsMeta} setShowModal={setShowModal} />
       </div>
     </div>
