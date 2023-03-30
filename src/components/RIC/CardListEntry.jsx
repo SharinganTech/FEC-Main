@@ -98,7 +98,7 @@ function CardListEntry({
                 <div
                   data-testid="card-name"
                   role="button"
-                  className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-all"
+                  className="text-pastelBlack text-2xl hover:cursor-pointer flow-text whitespace-normal break-words"
                   onClick={() => {
                     changeProdClick(relatedItem.id);
                   }}

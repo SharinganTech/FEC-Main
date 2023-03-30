@@ -55,7 +55,7 @@ function ExpandedView({
     );
   }
   return (
-    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[750px] w-[100%] rounded-md overflow-hidden">
+    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[750px] w-[100%] rounded-lg overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
         <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon

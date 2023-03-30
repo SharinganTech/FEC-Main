@@ -19,8 +19,9 @@ function CardList({ prod, changeProdClick }) {
         },
       })
       .then(({ data }) => {
+        const uniqueId = [...new Set(data)];
         // console.log('related items id', data);
-        const listOfRelatedItems = data.map((relatedId) => (
+        const listOfRelatedItems = uniqueId.map((relatedId) => (
           axios
             .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedId}`, {
               headers: {
