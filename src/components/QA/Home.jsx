@@ -11,7 +11,7 @@ function Home() {
 
   return (
     <div>
-      {!prodInfo.id ? <div>Loading...</div> : <QList prodInfo={prodInfo} />}
+      {!prodInfo.id ? <div data-testid="q-loading">Loading...</div> : <QList prodInfo={prodInfo} />}
     </div>
   );
 }
