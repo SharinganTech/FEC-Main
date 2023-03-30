@@ -73,7 +73,7 @@ function CardListEntry({
           },
         }))
       .then((result) => {
-        console.log('features data', result.data);
+        // console.log('features data', result.data);
         // console.log(result.data.features);
         setProdFeatures(result.data.features);
       })
@@ -100,7 +100,7 @@ function CardListEntry({
           <div data-testid="cardListEntry" className="relative grid-cols-3 grid-rows-3 transition-transform" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
             <div className="shrink-0 bg-[#EFE1CE] grid rounded-lg shadow-xl hover:shadow-[#926AA6] h-96 w-48">
               <div className="bg-white grid rounded-lg rounded-b-none h-60 w-48 content-center">
-                <img src={thumbnail} alt="item default" className="rounded-lg max-h-56 w-40 justify-self-center content-center shadow-lg object-cover" />
+                <img src={thumbnail} alt="item thumbnail" className="rounded-lg max-h-56 w-40 justify-self-center content-center shadow-lg object-cover" />
               </div>
               <div className="ml-2 mr-2">
                 <div data-testid="card-category" className="text-[#798EA4] text-lg">{relatedItem.category}</div>
@@ -130,7 +130,6 @@ function CardListEntry({
                   )}
                 <div className="text-[#798EA4] text-sm">
                   <Stars rating={rating} numReviews={numOfRatings} color="EFE1CE" />
-                  {rating}
                 </div>
               </div>
               {noModal === undefined && (
