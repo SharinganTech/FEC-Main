@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { arrayOfQuantities } from './helpers';
 
 function AddToCart({ inventory }) {
@@ -6,13 +6,13 @@ function AddToCart({ inventory }) {
   const [currentSize, setCurrentSize] = useState('');
   const [maxQuantity, setMaxQuantity] = useState(0);
   const [currentQuantity, setCurrentQuantity] = useState(0);
+  const [styleDisabled, setStyleDisabled] = useState(false);
   const inven = Object.values(inventory);
-  const [cartCount, setCartCount] = useState(0);
 
   const sizeOptions = () => (
     inven.map((size, index) => (
       (size.quantity !== 0)
-        ? <option data-testid={`${size.size}`} key={index} value={size.size}>{size.size}</option>
+        ? <option key={index} value={size.size}>{size.size}</option>
         : null
     ))
   );
@@ -22,7 +22,7 @@ function AddToCart({ inventory }) {
     const maxCount = quant[0].quantity;
     const arr = arrayOfQuantities(maxCount);
     return arr.map((number, index) => (
-      <option className="text-black bg-red-600 border-2 border-black font-bold py-4 px-4 mr-2 rounded" key={index} value={number}>{number}</option>
+      <option key={index} value={number}>{number}</option>
     ));
   };
 
@@ -45,12 +45,11 @@ function AddToCart({ inventory }) {
       const cart = { size: currentSize, quantity: currentQuantity };
       console.log('my cart: ', cart);
     }
-    setCartCount(cartCount + 1);
   };
   return (
-    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[80%]">
+    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[320px]">
       <div className="flex flex-row mb-2">
-        <select data-testid="sizeDropdown" className="w-[45%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
+        <select data-testid="sizeDropdown" className="w-[50%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
           <option value="canPick">SELECT SIZE</option>
           {sizeOptions()}
         </select>

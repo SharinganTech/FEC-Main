@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import AListEntry from './AListEntry';
+import '../../RatingsAndReviews/RR.css';
 
 function AList({ eachQ }) {
   const [aData, setAData] = useState([]);
@@ -23,7 +23,7 @@ function AList({ eachQ }) {
   }
 
   return (
-    <div className="flex-col overflow-y-auto max-h-[300px] relative">
+    <div data-testid="answers-list" className="flex-col overflow-y-auto scrollbar-hide max-h-[400px] relative">
       {listView.map((eachA) => (
         <AListEntry key={eachA.id} eachA={eachA} />
       ))}
@@ -31,7 +31,7 @@ function AList({ eachQ }) {
         <AListEntry key={eachA.id} eachA={eachA} />
       ))} */}
       <div className="py-3">
-        {(leng > 2) ? <button type="button" className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner m-4" onClick={handleMoreAnswersClick}>{cap < leng ? 'See more answers' : 'Collapse Answers'}</button> : null}
+        {(leng > 2) ? <button data-testid="more-answers-btn" type="button" className="uppercase text-black border-2 border-black font-bold py-2 px-4 mr-2 rounded" onClick={handleMoreAnswersClick}>{cap < leng ? 'See more answers' : 'Collapse Answers'}</button> : null}
       </div>
     </div>
   );

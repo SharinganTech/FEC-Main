@@ -54,15 +54,15 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
     <>
       <div className="flex-row my-2">
         <div className="flex justify-between items-center px-1 py-3">
-          <div className="font-bold text-xl break-all">
+          <div className="font-bold text-xl break-words">
             {`Q: ${eachQ.question_body} `}
           </div>
           <div className="text-xs space-x-2">
-            <input className="text-blue-600" type="button" onClick={handleQHelpful} value="Helpful?" />
-            <span className="underline">{`Yes (${qHelpful})`}</span>
+            <input data-testid="qhelp-btn" className="text-blue-600" type="button" onClick={handleQHelpful} value="Helpful?" />
+            <span data-testid="qyes-count" className="underline">{`Yes (${qHelpful})`}</span>
             <span>  |</span>
-            <input className="text-red-600 underline px-1" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
-            <button type="button" className="border-[1px] border-slate-600 font-semibold uppercase text-xs p-2 rounded-sm shadow-inner mr-1 mb-1" onClick={handleAddAnswerClick}>Add Answer</button>
+            <input data-testid="qreport-btn" className="text-red-600 underline px-1" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
+            <button type="button" className="text-black border-2 border-black uppercase font-bold py-2 px-4 mr-2 rounded" onClick={handleAddAnswerClick}>Add Answer</button>
           </div>
         </div>
         <AList eachQ={eachQ} />

@@ -17,7 +17,6 @@ export const CurrentProduct = createContext(null);
 
 function Overview() {
   const product = useContext(ProductContext);
-  console.log('global context: ', product);
   const prodDes = { product };
   const prod = prodDes.product;
   const [dataRetrieved, setDataRetrieved] = useState(false);
@@ -38,7 +37,6 @@ function Overview() {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
-        console.log('get request 1', response.data);
         setDataRetrieved(true);
         setFeatures(response.data.features);
       })
@@ -52,7 +50,6 @@ function Overview() {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
-        console.log('get request 2', response.data);
         setStyles(response.data.results);
         const IDnumber = response.data.results[0].style_id;
         setStyleID(IDnumber);
@@ -78,7 +75,6 @@ function Overview() {
       },
     })
       .then((results) => {
-        console.log('get request 3', results.data);
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
@@ -95,7 +91,6 @@ function Overview() {
     setCurrentStyle(newStyle[0]);
     setMainImage(newStyle[0].photos[0].url);
     setStylePhotos(newStyle[0].photos);
-    setInventory(newStyle[0].skus);
   };
   const changeMain = (newMainURL) => {
     setMainImage(newMainURL);
@@ -109,8 +104,13 @@ function Overview() {
 
   if (!normalView) {
     return (
+<<<<<<< HEAD
+      <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
+        <div className="col-start-2 col-end-8 row-start-0 row-end-3">
+=======
       <div className="">
-        <div className="">
+        <div className="w-[100%] max-h-[100%] rounded-md">
+>>>>>>> main
           <ExpandedView
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -120,7 +120,11 @@ function Overview() {
           />
         </div>
 
-        <div className="">
+<<<<<<< HEAD
+        <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
+=======
+        <div className="flex flex-row w-[100%] justify-center mt-[10px]">
+>>>>>>> main
           <ProductOverview slogan={prod.slogan} description={prod.description} />
           <Features features={features} />
         </div>
@@ -128,9 +132,9 @@ function Overview() {
     );
   }
   return (
-    <div className="mx-auto">
-      <div className="self-center flex flex-row flex-wrap max-w-[90%] h-[650px] justify-center">
-        <div className="w-[55%] max-h-[100%] mr-[10px]">
+    <div className="justify-center content-center">
+      <div className="mx-auto place-self-center flex flex-row justify-end flex-wrap max-w-[90%] h-[650px]">
+        <div className="w-[55%] max-h-[100%] mr-[10px] rounded-md">
           <Gallery
             styleID={styleID}
             stylePhotos={stylePhotos}

@@ -54,7 +54,7 @@ function ReviewList({
               setCount(count + 2);
               makeGetRequest(count + 2);
             }}
-            className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded"
+            className="text-black border-2 border-black uppercase font-bold py-4 px-4 mr-2 rounded"
             type="button"
           >
             MORE REVIEWS

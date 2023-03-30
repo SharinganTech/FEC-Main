@@ -1,6 +1,7 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { format, parseISO } from 'date-fns';
+import { format } from 'date-fns';
 import axios from 'axios';
 
 function AListEntry({ eachA }) {
@@ -32,7 +33,7 @@ function AListEntry({ eachA }) {
 
   function renderImages() {
     const photoURLs = eachA.photos;
-    if (photoURLs.length) {
+    if (photoURLs) {
       return photoURLs.map((p, i) => (
         <img key={i} className="w-[100px] h-[100px] apsect-auto" alt="" src={p} />
       ));
@@ -63,7 +64,7 @@ function AListEntry({ eachA }) {
         <b data-testid="answers-title" className="text-xl">
           {'A: '}
         </b>
-        <span data-testid="answers-body" className="break-all text-lg">
+        <span data-testid="answers-body" className="overflow-auto break-words text-lg">
           {`${eachA.body}`}
         </span>
       </div>
