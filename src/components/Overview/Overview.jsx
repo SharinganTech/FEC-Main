@@ -104,13 +104,8 @@ function Overview() {
 
   if (!normalView) {
     return (
-<<<<<<< HEAD
-      <div className="grid grid-cols-8 gap-4 grid-rows-[repeat(8, minmax(0, 1fr))] gap-4">
-        <div className="col-start-2 col-end-8 row-start-0 row-end-3">
-=======
       <div className="">
         <div className="w-[100%] max-h-[100%] rounded-md">
->>>>>>> main
           <ExpandedView
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -120,11 +115,7 @@ function Overview() {
           />
         </div>
 
-<<<<<<< HEAD
-        <div className="col-start-3 col-end-7 row-start-3 row-end-4 text-center flex flex-row justify-start">
-=======
         <div className="flex flex-row w-[100%] justify-center mt-[10px]">
->>>>>>> main
           <ProductOverview slogan={prod.slogan} description={prod.description} />
           <Features features={features} />
         </div>
