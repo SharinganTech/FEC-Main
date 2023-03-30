@@ -128,9 +128,9 @@ function Overview() {
     );
   }
   return (
-    <div>
-      <div className="flex flex-wrap">
-        <div className="w-[70%]">
+    <div className="mx-auto">
+      <div className="self-center flex flex-row flex-wrap max-w-[90%] h-[650px] justify-center">
+        <div className="w-[55%] max-h-[100%] mr-[10px]">
           <Gallery
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -140,15 +140,21 @@ function Overview() {
             changeView={changeView}
           />
         </div>
-        <div className="ml-[10px] max-w-[25%]">
-          <Stars rating={rating} numReviews={numOfRatings} />
-          <a className="underline scroll-auto" href="#RR">
-            Read all
-            {' '}
-            {numOfRatings}
-            {' '}
-            Reviews!
-          </a>
+        <div className="flex flex-col w-[40%] mt-[10px]">
+          {numOfRatings
+            ? (
+              <div>
+                <Stars rating={rating} numReviews={numOfRatings} />
+                <a className="underline scroll-auto" href="#RR">
+                  Read all
+                  {' '}
+                  {numOfRatings}
+                  {' '}
+                  Reviews!
+                </a>
+              </div>
+            )
+            : null}
           <ProductInfo
             currentStyle={currentStyle}
             category={prod.category}
@@ -165,7 +171,7 @@ function Overview() {
           />
         </div>
       </div>
-      <div className="flex w-[100%]">
+      <div className="flex flex-row w-[100%] justify-center mt-[10px]">
         <ProductOverview slogan={prod.slogan} description={prod.description} />
         <Features features={features} />
       </div>

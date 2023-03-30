@@ -1,6 +1,8 @@
 import React from 'react';
 import 'react-dom';
-import { render, screen, waitFor, act } from '@testing-library/react';
+import {
+  render, screen, waitFor, act,
+} from '@testing-library/react';
 import { test } from '@jest/globals';
 import '@testing-library/jest-dom';
 import axios from 'axios';
