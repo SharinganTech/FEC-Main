@@ -37,7 +37,7 @@ export function overviewContains(selectedItemFeat, overviewFeats) {
 
 export function featureValue(value) {
   if (!value) {
-    return (<FontAwesomeIcon icon={faXmarkSquare} />);
+    return (<FontAwesomeIcon icon={faXmarkSquare} className="self-center justify-center" />);
   }
   if (value === true) {
     return (<FontAwesomeIcon icon={faCheck} />);
