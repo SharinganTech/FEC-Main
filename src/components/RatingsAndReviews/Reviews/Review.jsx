@@ -7,7 +7,7 @@ function Review({ review, makeGetRequest }) {
   const date = new Date(review.date);
   return (
     <div className="flex flex-col">
-      <div className="hover:bg-[#dcdfe6]">
+      <div className="hover:shadow-inner">
         <div>
           <div className="text-[#798EA4] text-sm">
             <Stars rating={review.rating} numReviews={1} />

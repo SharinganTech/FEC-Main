@@ -105,13 +105,13 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="summary">
             Summary:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
+            <input className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="text" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
           </label>
         </div>
         <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="body">
             Review:
-            <textarea onChange={(e) => setBodyCharacters(e.target.value.length)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
+            <textarea onChange={(e) => setBodyCharacters(e.target.value.length)} className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
           </label>
           {bodyCharacters <= 50 ? (
             <p className={`text-xs italic ${showBodyWarning ? 'text-red-500' : null}`}>
@@ -148,14 +148,14 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="nickname">
             Nickname:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" required defaultValue="" />
+            <input className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" required defaultValue="" />
           </label>
           <p className="text-xs italic">For privacy reasons, do not use your full name or email address</p>
         </div>
         <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
             Email:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" name="email" maxLength="60" placeholder="Example: jackson11@email.com" required defaultValue="" />
+            <input className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="email" name="email" maxLength="60" placeholder="Example: jackson11@email.com" required defaultValue="" />
           </label>
           <p className="text-xs italic">For authentication reasons, you will not be emailed</p>
         </div>
@@ -167,7 +167,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         {showBodyWarning && bodyCharacters < 50 ? (
           <div className="text-red-500 text-s italic mr-6">Review body must contain at least 50 characters</div>
         ) : null}
-        <button className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+        <button className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="submit">Submit</button>
       </div>
     </form>
   );

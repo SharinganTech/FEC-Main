@@ -8,7 +8,7 @@ function ReviewImages({ reviewPhotos }) {
     <div className="max-h-[80vh]">
       <button
         onClick={() => setFullImage('')}
-        className="text-4xl font-bold"
+        className="text-4xl font-bold m-2 float-right"
         type="button"
       >
         X
