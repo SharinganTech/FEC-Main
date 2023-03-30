@@ -58,6 +58,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         },
       })
         .then((res) => {
+          // eslint-disable-next-line no-console
           console.log('success:', res);
         })
         .catch((err) => {
@@ -68,7 +69,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
   }
 
   return (
-    <form className="flex flex-col w-[85%] ml-[7.5%]" onSubmit={(e) => validateForm(e)}>
+    <form className="flex flex-col w-[90%] ml-[5%]" onSubmit={(e) => validateForm(e)}>
       <div className="text-2xl my-2">
         <AddReviewStars
           rating={stars}
@@ -80,7 +81,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         ) : null}
       </div>
       <div className="flex flex-row">
-        <div>Do you recommend this product?</div>
+        <div className="flex items-center">Do you recommend this product?</div>
         <div className="flex items-center">
           <label className="m-2 text-sm font-medium" htmlFor="yes">
             <input className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" type="radio" name="recommended" value="yes" required />
@@ -92,7 +93,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
           No
         </label>
       </div>
-      <div className={`grid grid-rows-${reviewsMeta.characteristics.length}`}>
+      <div className={`mb-2 grid grid-rows-${reviewsMeta.characteristics.length}`}>
         {Object.keys(reviewsMeta.characteristics).map((key) => (
           <CharacterInput
             key={reviewsMeta.characteristics[key].id}
@@ -100,17 +101,17 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
           />
         ))}
       </div>
-      <div className="flex flex-col -mx-3 mb-4">
+      <div className="flex flex-col mb-4">
         <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="summary">
             Summary:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
+            <input className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="text" name="summary" maxLength="60" placeholder="Example: Best Purchase ever!" defaultValue="" />
           </label>
         </div>
         <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="body">
             Review:
-            <textarea onChange={(e) => setBodyCharacters(e.target.value.length)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
+            <textarea onChange={(e) => setBodyCharacters(e.target.value.length)} className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="text" name="body" maxLength="1000" rows="5" placeholder="Why did you like the product or not?" required defaultValue="" />
           </label>
           {bodyCharacters <= 50 ? (
             <p className={`text-xs italic ${showBodyWarning ? 'text-red-500' : null}`}>
@@ -147,14 +148,14 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         <div className="mb-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="nickname">
             Nickname:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" required defaultValue="" />
+            <input className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="text" name="nickname" maxLength="60" placeholder="Example: jackson11!" required defaultValue="" />
           </label>
           <p className="text-xs italic">For privacy reasons, do not use your full name or email address</p>
         </div>
         <div>
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
             Email:
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" name="email" maxLength="60" placeholder="Example: jackson11@email.com" required defaultValue="" />
+            <input className="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" type="email" name="email" maxLength="60" placeholder="Example: jackson11@email.com" required defaultValue="" />
           </label>
           <p className="text-xs italic">For authentication reasons, you will not be emailed</p>
         </div>
@@ -166,7 +167,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         {showBodyWarning && bodyCharacters < 50 ? (
           <div className="text-red-500 text-s italic mr-6">Review body must contain at least 50 characters</div>
         ) : null}
-        <button className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+        <button className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" type="submit">Submit</button>
       </div>
     </form>
   );
