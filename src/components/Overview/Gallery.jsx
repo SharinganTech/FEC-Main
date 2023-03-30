@@ -45,7 +45,7 @@ function Gallery({
     }
   };
   return (
-    <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl">
+    <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl rounded-lg">
       <div id="sideThumbnails" className="max-h-[100%] row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-start items-center overflow-hidden">
         <button data-testid="arrowUp" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
@@ -53,11 +53,11 @@ function Gallery({
             className="self-center"
           />
         </button>
-        <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
+        <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 13.80}%)` }}>
           {photos.map((style, index) => (
             <button
               data-testid={`${index}thumbnail`}
-              className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[50px] h-[50px] mt-[10px]"
+              className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[60px] h-[60px] mt-[10px]"
               key={index}
               id={index}
               type="button"
@@ -67,8 +67,8 @@ function Gallery({
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover rounded-sm w-[50px] h-[47px]'
-                  : 'opacity-40 object-cover rounded-sm w-[50px] h-[47px]'}
+                  ? 'opacity-100 object-cover rounded-sm w-[60px] h-[57px]'
+                  : 'opacity-40 object-cover rounded-sm w-[60px] h-[57px]'}
                 src={style.thumbnail_url}
                 alt=""
               />

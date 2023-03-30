@@ -110,7 +110,7 @@ function Overview() {
   if (!normalView) {
     return (
       <div className="">
-        <div className="">
+        <div className="w-[100%] max-h-[100%] rounded-md">
           <ExpandedView
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -120,7 +120,7 @@ function Overview() {
           />
         </div>
 
-        <div className="">
+        <div className="flex flex-row w-[100%] justify-center mt-[10px]">
           <ProductOverview slogan={prod.slogan} description={prod.description} />
           <Features features={features} />
         </div>
@@ -128,9 +128,9 @@ function Overview() {
     );
   }
   return (
-    <div className="mx-auto">
-      <div className="self-center flex flex-row flex-wrap max-w-[90%] h-[650px] justify-center">
-        <div className="w-[55%] max-h-[100%] mr-[10px]">
+    <div className="justify-center content-center">
+      <div className="mx-auto place-self-center flex flex-row justify-end flex-wrap max-w-[90%] h-[650px]">
+        <div className="w-[55%] max-h-[100%] mr-[10px] rounded-md">
           <Gallery
             styleID={styleID}
             stylePhotos={stylePhotos}
