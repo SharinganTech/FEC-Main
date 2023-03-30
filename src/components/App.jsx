@@ -55,9 +55,7 @@ function App() {
           <div className="w-[100%] mx-auto">
             <Navigation />
             <div className="max-w-[90%] mx-auto mt-[10px]">
-              <div className="flex flex-center">
-                <Overview />
-              </div>
+              <Overview />
               <div className="h-[7rem]" />
               <RelatedItemsAndComparison changeProdClick={changeProdClick} />
               <div className="h-[40rem]" />
