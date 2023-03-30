@@ -53,11 +53,11 @@ function Gallery({
             className="self-center"
           />
         </button>
-        <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
+        <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 13.5}%)` }}>
           {photos.map((style, index) => (
             <button
               data-testid={`${index}thumbnail`}
-              className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[50px] h-[50px] mt-[10px]"
+              className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[60px] h-[60px] mt-[10px]"
               key={index}
               id={index}
               type="button"
@@ -67,8 +67,8 @@ function Gallery({
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover rounded-sm w-[50px] h-[47px]'
-                  : 'opacity-40 object-cover rounded-sm w-[50px] h-[47px]'}
+                  ? 'opacity-100 object-cover rounded-sm w-[60px] h-[57px]'
+                  : 'opacity-40 object-cover rounded-sm w-[60px] h-[57px]'}
                 src={style.thumbnail_url}
                 alt=""
               />
