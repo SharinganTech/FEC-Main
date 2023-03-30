@@ -58,6 +58,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         },
       })
         .then((res) => {
+          // eslint-disable-next-line no-console
           console.log('success:', res);
         })
         .catch((err) => {
@@ -80,7 +81,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         ) : null}
       </div>
       <div className="flex flex-row">
-        <div>Do you recommend this product?</div>
+        <div className="flex items-center">Do you recommend this product?</div>
         <div className="flex items-center">
           <label className="m-2 text-sm font-medium" htmlFor="yes">
             <input className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" type="radio" name="recommended" value="yes" required />
