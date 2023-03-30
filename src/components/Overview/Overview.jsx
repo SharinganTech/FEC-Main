@@ -144,7 +144,7 @@ function Overview() {
           {numOfRatings
             ? (
               <div>
-                <Stars rating={rating} numReviews={numOfRatings} />
+                <Stars rating={rating} numReviews={numOfRatings} color="EDF1FF" />
                 <a className="underline scroll-auto" href="#RR">
                   Read all
                   {' '}

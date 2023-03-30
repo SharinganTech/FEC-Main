@@ -27,7 +27,7 @@ function Stars({ rating, numReviews, color }) {
           ))}
           {halfStars === 1 && generatePartialStar(fullStars, rating, color)}
           {[...Array(emptyStars)].map((_, index) => (
-            <FontAwesomeIcon key={`empty-${index + 1}`} icon={farStar} style={{ color: '#000000' }}/>
+            <FontAwesomeIcon key={`empty-${index + 1}`} icon={farStar} style={{ color: '#000000' }} />
           ))}
         </div>
       )}
