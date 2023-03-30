@@ -1,10 +1,9 @@
 import React from 'react';
-import { expect, jest, test } from '@jest/globals';
+import { expect, test } from '@jest/globals';
 import 'react-dom';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Features from './Features';
-import { CurrentProduct } from './Overview';
 
 const features = [
   { feature: 'test', value: 'test' },
