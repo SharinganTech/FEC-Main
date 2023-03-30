@@ -4,8 +4,8 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function Navigation() {
   return (
-    <div className="flex flex-row justify-end h-[60px] bg-pastelBlack">
-      <img src="./assets/logo.png" alt="" className="h-[60px] absolute left-0" />
+    <div className="flex flex-row justify-end h-[80px] bg-pastelBlack">
+      <img src="./assets/logo.png" alt="" className="h-[80px] absolute left-0" />
       <input type="text" placeholder="Search..." className="justify-end bg-pastelBlack underline text-white right-0" />
       <FontAwesomeIcon icon={faCartShopping} className="h-[30px] mt-[15px] mr-[25px]" style={{ color: '#ffffff' }} />
     </div>
