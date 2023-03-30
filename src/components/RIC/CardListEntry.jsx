@@ -45,7 +45,7 @@ function CardListEntry({
         if (photo === null) {
           // console.log(__dirname);
           // setThumbNail(path.join(__dirname, 'assets/Image_not_available.png'));
-          setThumbNail('../assets/Image_not_available.png');
+          setThumbNail('./assets/Image_not_available.png');
         } else {
           setThumbNail(photo);
         }

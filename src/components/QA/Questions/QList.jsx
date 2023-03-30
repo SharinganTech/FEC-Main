@@ -5,6 +5,7 @@ import axios from 'axios';
 import QListEntry from './QListEntry';
 import QModal from '../Modals/QModal';
 import SearchQuestion from '../Search/SearchQuestion';
+import './Questions.css';
 // import axiosGet from '../HelperFunctions/axiosGet';
 
 function QList({ prodInfo }) {
@@ -62,7 +63,7 @@ function QList({ prodInfo }) {
     //   <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
     // ));
     return listView.map((eachQ, i) => (
-      <div data-testid="qlist-entry" key={i}>
+      <div data-testid="qlist-entry" className="scrollbar-hide" key={i}>
         <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
       </div>
     ));
@@ -76,15 +77,15 @@ function QList({ prodInfo }) {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
-      <div className="flex-col scrollbar-none overflow-y-auto max-h-[600px]">
+      <div className="flex-col scrollbar-hide overflow-y-auto max-h-[600px]">
         {renderQList()}
       </div>
       <div data-testid="more-questions-btn" className="flex items-center justify-start space-x-10 p-6">
         {qLeng < qCap ? null
           : (
-            <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={handleMoreQsClick}>More Answered Questions</button>
+            <button className="text-black border-2 border-black uppercase font-bold py-4 px-4 mr-2 rounded" type="button" onClick={handleMoreQsClick}>More Answered Questions</button>
           )}
-        <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
+        <button className="text-black border-2 border-black uppercase font-bold py-4 px-4 mr-2 rounded" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
       </div>
       {openQModal
         ? (

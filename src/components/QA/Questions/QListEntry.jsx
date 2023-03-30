@@ -62,7 +62,7 @@ function QListEntry({ prodInfo, eachQ, axGet }) {
             <span data-testid="qyes-count" className="underline">{`Yes (${qHelpful})`}</span>
             <span>  |</span>
             <input data-testid="qreport-btn" className="text-red-600 underline px-1" type="button" onClick={handleReportClick} value={isReported ? 'Reported' : 'Report'} />
-            <button type="button" className="border-[1px] border-slate-600 font-semibold uppercase text-xs p-2 rounded-sm shadow-inner mr-1 mb-1" onClick={handleAddAnswerClick}>Add Answer</button>
+            <button type="button" className="text-black border-2 border-black uppercase font-bold py-2 px-4 mr-2 rounded" onClick={handleAddAnswerClick}>Add Answer</button>
           </div>
         </div>
         <AList eachQ={eachQ} />
