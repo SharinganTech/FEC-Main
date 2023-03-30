@@ -84,9 +84,9 @@ function CardList({ prod, changeProdClick }) {
         ? <h1 data-testid="riLoading"> Loading... </h1>
         : (
           <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-3" data-testid="cardList">
-            {relatedItems.map((relatedItem) => (
+            {relatedItems.map((relatedItem, i) => (
               <CardListEntry
-                key={relatedItem.id}
+                key={i}
                 relatedItem={relatedItem}
                 activeIndex={activeIndex}
                 changeProdClick={changeProdClick}
