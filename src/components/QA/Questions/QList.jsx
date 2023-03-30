@@ -1,9 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import QListEntry from './QListEntry';
 import QModal from '../Modals/QModal';
 import SearchQuestion from '../Search/SearchQuestion';
+// import './Questions.css';
 // import axiosGet from '../HelperFunctions/axiosGet';
 
 function QList({ prodInfo }) {
@@ -22,7 +24,7 @@ function QList({ prodInfo }) {
       },
     })
       .then((response) => {
-        console.log(response.data.results);
+        // console.log(response.data.results);
         const sortedData = response.data.results.sort((a, b) => b.helpfulness - a.helpfulness);
         setListOfQs(sortedData);
       })
@@ -41,8 +43,7 @@ function QList({ prodInfo }) {
         Authorization: process.env.AUTH_TOKEN,
       },
     })
-      .then((response) => {
-        console.log(response.status);
+      .then(() => {
         axGet();
       });
   }
@@ -61,14 +62,16 @@ function QList({ prodInfo }) {
     // return listOfQs.map((eachQ) => (
     //   <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
     // ));
-    return listView.map((eachQ) => (
-      <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
+    return listView.map((eachQ, i) => (
+      <div data-testid="qlist-entry" key={i}>
+        <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
+      </div>
     ));
   }
 
   return (
     <>
-      <div className="text-2xl uppercase py-3">Questions & Answers</div>
+      <div data-testid="q-list" className="text-2xl uppercase py-3">Questions & Answers</div>
       <SearchQuestion
         setSearchOn={setSearchOn}
         searchInput={searchInput}
@@ -77,12 +80,12 @@ function QList({ prodInfo }) {
       <div className="flex-col overflow-y-auto max-h-[600px]">
         {renderQList()}
       </div>
-      <div className="flex items-center justify-start space-x-10 p-6">
+      <div data-testid="more-questions-btn" className="flex items-center justify-start space-x-10 p-6">
         {qLeng < qCap ? null
           : (
-            <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={handleMoreQsClick}>More Answered Questions</button>
+            <button className="text-black border-2 border-black uppercase font-bold py-4 px-4 mr-2 rounded" type="button" onClick={handleMoreQsClick}>More Answered Questions</button>
           )}
-        <button className="border-[1px] border-slate-600 font-semibold uppercase text-sm p-4 rounded-sm shadow-inner mr-1 mb-1" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
+        <button className="text-black border-2 border-black uppercase font-bold py-4 px-4 mr-2 rounded" type="button" onClick={() => setOpenQModal(true)}>Add A Question</button>
       </div>
       {openQModal
         ? (

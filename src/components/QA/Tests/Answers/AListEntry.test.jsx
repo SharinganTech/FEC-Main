@@ -1,10 +1,9 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import 'react-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import AListEntry from './AListEntry';
+import AListEntry from '../../Answers/AListEntry';
 
 const eachA = {
   answerer_name: 'Seller',
