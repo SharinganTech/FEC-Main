@@ -19,7 +19,7 @@ function StyleSelector({
           {styleName}
         </span>
       </p>
-      <div className="flex flex-row flex-wrap flex-center max-w-[80%] gap-[15px] ">
+      <div className="flex flex-row flex-wrap flex-center w-[320px] gap-[15px] ">
         {styles.map((style, index) => {
           const imgUrl = `${style.photos[0].thumbnail_url}`;
           return (

@@ -55,19 +55,19 @@ function ExpandedView({
     );
   }
   return (
-    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[600px] w-[100%] overflow-hidden">
+    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[750px] w-[100%] rounded-md overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
-        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
+        <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
           />
         </button>
-        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-10 transition-transform" style={{ transform: `translateY(-${activeIndex * 6.5}%)` }}>
+        <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-10 transition-transform" style={{ transform: `translateY(-${activeIndex * 16.25}%)` }}>
           {photos.map((style, index) => (
             <button
               data-testid={`${index}thumbnail`}
-              className=" border-line z-0 border-2 border-black w-[75px] h-[75px] mt-[2.5px] mb-[2.5px] rounded-md"
+              className=" border-line z-0 border-2 border-black w-[85px] h-[85px] mt-[2.5px] mb-[2.5px] rounded-md"
               key={index}
               id={index}
               type="button"
@@ -77,15 +77,15 @@ function ExpandedView({
                 id={index}
                 key={index}
                 className={(style.url === mainImage)
-                  ? 'opacity-100 object-cover w-[73px] h-[71px] rounded-sm'
-                  : 'opacity-40 object-cover w-[73px] h-[71px] rounded-sm'}
+                  ? 'opacity-100 object-cover w-[83px] h-[81px] rounded-sm'
+                  : 'opacity-40 object-cover w-[83px] h-[81px] rounded-sm'}
                 src={style.thumbnail_url}
                 alt=""
               />
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="h-[50px] w-[75px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
+        <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
             className="self-center z-40 bg-[#EFE1CE]"

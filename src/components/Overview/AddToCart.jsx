@@ -47,9 +47,9 @@ function AddToCart({ inventory }) {
     }
   };
   return (
-    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[80%]">
+    <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[320px]">
       <div className="flex flex-row mb-2">
-        <select data-testid="sizeDropdown" className="w-[45%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
+        <select data-testid="sizeDropdown" className="w-[50%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
           <option value="canPick">SELECT SIZE</option>
           {sizeOptions()}
         </select>
