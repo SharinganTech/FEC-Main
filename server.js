@@ -1,7 +1,10 @@
 const path = require('path');
 const express = require('express'); // npm installed
+const compression = require('compression');
 
 const app = express();
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, '/dist')));
 
