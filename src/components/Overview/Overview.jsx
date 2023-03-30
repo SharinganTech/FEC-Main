@@ -110,7 +110,7 @@ function Overview() {
   if (!normalView) {
     return (
       <div className="">
-        <div className="w-[100%] max-h-[100%]">
+        <div className="w-[100%] max-h-[100%] rounded-md">
           <ExpandedView
             styleID={styleID}
             stylePhotos={stylePhotos}
