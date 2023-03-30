@@ -24,7 +24,7 @@ function App() {
         },
       })
       .then((result) => {
-        setProduct(result.data[2]);
+        setProduct(result.data[4]);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -52,20 +52,20 @@ function App() {
       {product.id === undefined
         ? <Loading />
         : (
-          <>
+          <div className="font-display">
             <div className="max-w-[100%]">
               <Navigation />
             </div>
             <div className="max-w-[90%] mx-auto">
-              {/* <Overview />
+              <Overview />
               <div className="h-[7rem]" />
-              <RelatedItemsAndComparison changeProdClick={changeProdClick} /> */}
-              {/* <div className="h-[40rem]" /> */}
+              <RelatedItemsAndComparison changeProdClick={changeProdClick} />
+              <div className="h-[40rem]" />
               <QA />
               <div className="h-[2rem]" />
               <RatingsAndReviews />
             </div>
-          </>
+          </div>
         )}
     </ProductContext.Provider>
   );

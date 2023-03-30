@@ -64,7 +64,7 @@ function AListEntry({ eachA }) {
         <b data-testid="answers-title" className="text-xl">
           {'A: '}
         </b>
-        <span data-testid="answers-body" className="break-all text-lg">
+        <span data-testid="answers-body" className="overflow-auto break-words text-lg">
           {`${eachA.body}`}
         </span>
       </div>

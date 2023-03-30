@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AListEntry from './AListEntry';
+import '../../RatingsAndReviews/RR.css';
 
 function AList({ eachQ }) {
   const [aData, setAData] = useState([]);
@@ -22,7 +23,7 @@ function AList({ eachQ }) {
   }
 
   return (
-    <div data-testid="answers-list" className="flex-col overflow-y-auto scrollbar-none max-h-[300px] relative">
+    <div data-testid="answers-list" className="flex-col overflow-y-auto scrollbar-hide max-h-[400px] relative">
       {listView.map((eachA) => (
         <AListEntry key={eachA.id} eachA={eachA} />
       ))}

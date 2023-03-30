@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function SearchQuestion({ setSearchOn, searchInput, setSearchInput }) {
   // const [searchInput, setSearchInput] = useState('');
@@ -15,10 +17,10 @@ function SearchQuestion({ setSearchOn, searchInput, setSearchInput }) {
   // renderFilterList(searchInput);
 
   return (
-    <>
-      <input className="shadow appearance-none w-full border rounded py-1 px-2 text-black" type="text" placeholder="Have a question? Search for answers..." value={searchInput} onChange={(e) => { e.preventDefault(); setSearchInput(e.target.value); }} />
-      {/* <button type="button" onClick={handleSearchClick}>Search Questions</button> */}
-    </>
+    <div className="flex items-center">
+      <FontAwesomeIcon icon={faMagnifyingGlass} className="absolute px-3 text-gray-400" />
+      <input className="shadow appearance-none w-full border rounded py-1 px-10 text-black" type="text" placeholder="Have a question? Search for answers..." value={searchInput} onChange={(e) => { e.preventDefault(); setSearchInput(e.target.value); }} />
+    </div>
   );
 }
 

@@ -5,7 +5,7 @@ import axios from 'axios';
 import QListEntry from './QListEntry';
 import QModal from '../Modals/QModal';
 import SearchQuestion from '../Search/SearchQuestion';
-import './Questions.css';
+// import './Questions.css';
 // import axiosGet from '../HelperFunctions/axiosGet';
 
 function QList({ prodInfo }) {
@@ -63,7 +63,7 @@ function QList({ prodInfo }) {
     //   <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
     // ));
     return listView.map((eachQ, i) => (
-      <div data-testid="qlist-entry" className="scrollbar-hide" key={i}>
+      <div data-testid="qlist-entry" key={i}>
         <QListEntry key={eachQ.question_id} eachQ={eachQ} prodInfo={prodInfo} axGet={axGet} />
       </div>
     ));
@@ -77,7 +77,7 @@ function QList({ prodInfo }) {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
-      <div className="flex-col scrollbar-hide overflow-y-auto max-h-[600px]">
+      <div className="flex-col overflow-y-auto max-h-[600px]">
         {renderQList()}
       </div>
       <div data-testid="more-questions-btn" className="flex items-center justify-start space-x-10 p-6">
