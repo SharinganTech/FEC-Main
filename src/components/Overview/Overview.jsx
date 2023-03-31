@@ -15,11 +15,9 @@ import ExpandedView from './ExpandedView';
 
 export const CurrentProduct = createContext(null);
 
-function Overview() {
+function Overview({ incrementCart }) {
   const { setReviewsMeta, product } = useContext(ProductContext);
-  const [dataRetrieved, setDataRetrieved] = useState(true);
   const [styles, setStyles] = useState([]);
-  const [features, setFeatures] = useState(product.features);
   const [currentStyle, setCurrentStyle] = useState({});
   const [inventory, setInventory] = useState({});
   const [styleID, setStyleID] = useState(0);
@@ -29,19 +27,6 @@ function Overview() {
   const [rating, setRating] = useState(0);
   const [numOfRatings, setNumOfRatings] = useState(0);
   const [normalView, setNormalView] = useState(true);
-
-  // useEffect(() => {
-  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product.id}`, {
-  //     headers: { Authorization: process.env.AUTH_TOKEN },
-  //   })
-  //     .then((response) => {
-  //       setDataRetrieved(true);
-  //       setFeatures(response.data.features);
-  //     })
-  //     .catch((err) => {
-  //       console.log('cant get prod details: ', err);
-  //     });
-  // }, [product.id]);
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product.id}/styles`, {
@@ -97,9 +82,6 @@ function Overview() {
   const changeView = () => {
     setNormalView(!normalView);
   };
-  if (!dataRetrieved) {
-    return (<div>Retrieving data</div>);
-  }
 
   if (!normalView) {
     return (
@@ -116,7 +98,7 @@ function Overview() {
 
         <div className="flex flex-row w-[100%] justify-center mt-[10px]">
           <ProductOverview slogan={product.slogan} description={product.description} />
-          <Features features={features} />
+          <Features features={product.features} />
         </div>
       </div>
     );
@@ -162,12 +144,13 @@ function Overview() {
           />
           <AddToCart
             inventory={inventory}
+            incrementCart={incrementCart}
           />
         </div>
       </div>
       <div className="flex flex-row w-[100%] justify-center mt-[10px]">
         <ProductOverview slogan={product.slogan} description={product.description} />
-        <Features features={features} />
+        <Features features={product.features} />
       </div>
     </div>
   );

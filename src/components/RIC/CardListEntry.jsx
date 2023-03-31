@@ -22,7 +22,6 @@ function CardListEntry({
   const [onSale, setSale] = useState(null);
   const [modal, setModal] = useState(false);
   const { product } = useContext(ProductContext);
-  const [prodFeatures, setProdFeatures] = useState([]);
 
   useEffect(() => {
     // console.log('related item id', relatedItem.id, 'prodId', product);
@@ -65,19 +64,6 @@ function CardListEntry({
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
-      })
-      .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
-
-    axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product.id}`, {
-        headers: {
-          Authorization: process.env.AUTH_TOKEN,
-        },
-      })
-      .then((result) => {
-        // console.log('features data', result.data);
-        // console.log(result.data.features);
-        setProdFeatures(result.data.features);
       })
       .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
   }, []);
@@ -193,7 +179,7 @@ function CardListEntry({
           relatedItem={relatedItem}
           modal={modal}
           setModal={setModal}
-          prodFeatures={prodFeatures}
+          prodFeatures={product.features}
           prod={product}
         />
         )}

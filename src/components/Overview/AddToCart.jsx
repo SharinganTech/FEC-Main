@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { arrayOfQuantities } from './helpers';
 
-function AddToCart({ inventory }) {
-  console.log('addtocart; ', inventory);
+function AddToCart({ inventory, incrementCart }) {
   const [currentSize, setCurrentSize] = useState('');
   const [maxQuantity, setMaxQuantity] = useState(0);
   const [currentQuantity, setCurrentQuantity] = useState(0);
-  const [styleDisabled, setStyleDisabled] = useState(false);
+  const [liked, setLiked] = useState(false);
   const inven = Object.values(inventory);
 
   const sizeOptions = () => (
@@ -22,7 +21,9 @@ function AddToCart({ inventory }) {
     const maxCount = quant[0].quantity;
     const arr = arrayOfQuantities(maxCount);
     return arr.map((number, index) => (
-      <option key={index} value={number}>{number}</option>
+      (index <= 14)
+        ? <option key={index} value={number}>{number}</option>
+        : null
     ));
   };
 
@@ -39,13 +40,11 @@ function AddToCart({ inventory }) {
     setCurrentQuantity(e.target.value);
   };
 
-  const handleAddToCart = (e) => {
+  const likeItem = (e) => {
     e.preventDefault();
-    if (currentQuantity && currentSize) {
-      const cart = { size: currentSize, quantity: currentQuantity };
-      console.log('my cart: ', cart);
-    }
+    setLiked(!liked);
   };
+
   return (
     <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[320px]">
       <div className="flex flex-row mb-2">
@@ -65,14 +64,17 @@ function AddToCart({ inventory }) {
           className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[60%]"
           type="button"
           value="addToBag"
-          onClick={handleAddToCart}
+          onClick={incrementCart}
         >
           ADD TO CART
         </button>
         <button
           data-testid="favorite"
-          className="text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[40%]"
+          className={liked
+            ? 'bg-[#926AA6] text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[40%]'
+            : 'text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[40%]'}
           type="button"
+          onClick={likeItem}
         >
           FAVORITE
         </button>
