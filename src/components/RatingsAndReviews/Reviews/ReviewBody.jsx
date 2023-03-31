@@ -7,7 +7,7 @@ function ReviewBody({
   return (
     <div className="flex flex-col">
       <h5 className="text-xl font-bold">{reviewSummary}</h5>
-      <p className="w-full py-3 break-all">{reviewBody}</p>
+      <p className="w-full py-3 break-words">{reviewBody}</p>
       <div><ReviewImages reviewPhotos={reviewPhotos} /></div>
       <div>{recommended ? <div>&#x2713; I recommend this product</div> : null}</div>
     </div>
