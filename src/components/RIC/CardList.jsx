@@ -82,7 +82,7 @@ function CardList({ prod, changeProdClick }) {
         />
       </div>
       {relatedItems.length === 0
-        ? <h1 data-testid="riLoading"> Loading... </h1>
+        ? <h1 data-testid="riLoading" className="relative text-pastelBlack left-3"> No Related Items </h1>
         : (
           <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-3" data-testid="cardList">
             {relatedItems.map((relatedItem, i) => (

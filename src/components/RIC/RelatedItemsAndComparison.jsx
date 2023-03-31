@@ -30,7 +30,7 @@ function RelatedItemsAndComparison({ changeProdClick }) {
         <div className="h-[1rem]" />
         <h1 className="relative left-[30px] text-3xl text-pastelPurple font-bold mb-2">Your Outfit</h1>
         <div className="h-[28rem] z-0">
-          <YourOutfit prod={prod} yourOutfit={yourOutfit} setYourOutfit={setYourOutfit} />
+          <YourOutfit prod={prod} yourOutfit={yourOutfit} setYourOutfit={setYourOutfit} changeProdClick={changeProdClick}/>
         </div>
       </div>
     </div>

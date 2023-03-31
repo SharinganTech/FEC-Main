@@ -607,29 +607,17 @@ video {
 .col-end-7 {
   grid-column-end: 7;
 }
-.col-end-8 {
-  grid-column-end: 8;
-}
 .row-start-1 {
   grid-row-start: 1;
 }
 .row-start-2 {
   grid-row-start: 2;
 }
-.row-start-3 {
-  grid-row-start: 3;
-}
 .row-start-5 {
   grid-row-start: 5;
 }
 .row-end-2 {
   grid-row-end: 2;
-}
-.row-end-3 {
-  grid-row-end: 3;
-}
-.row-end-4 {
-  grid-row-end: 4;
 }
 .row-end-5 {
   grid-row-end: 5;
@@ -770,6 +758,9 @@ video {
 }
 .mt-\[2\.5px\] {
   margin-top: 2.5px;
+}
+.mb-\[10px\] {
+  margin-bottom: 10px;
 }
 .block {
   display: block;
@@ -1093,9 +1084,6 @@ video {
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
-.grid-cols-8 {
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
 .grid-cols-\[14\.2\%_14\.2\%_20\%_20\%_20\%_10\%\] {
   grid-template-columns: 14.2% 14.2% 20% 20% 20% 10%;
 }
@@ -1143,9 +1131,6 @@ video {
 }
 .justify-evenly {
   justify-content: space-evenly;
-}
-.gap-4 {
-  gap: 1rem;
 }
 .gap-\[15px\] {
   gap: 15px;
