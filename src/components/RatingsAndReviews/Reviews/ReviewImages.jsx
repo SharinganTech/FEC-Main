@@ -13,7 +13,7 @@ function ReviewImages({ reviewPhotos }) {
       >
         X
       </button>
-      <img className="w-full object-cover" src={source} alt="Review" />
+      <img className="w-full object-cover rounded-b" src={source} alt="Review" />
     </div>
   );
 

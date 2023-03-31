@@ -50,7 +50,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         recommend,
         name: form.nickname.value,
         email: form.email.value,
-        photos: [],
+        photos: ['https://i.ibb.co/vzHHFQ3/IDream-Of-Do.jpg'],
         characteristics,
       }, {
         headers: {
