@@ -5,7 +5,7 @@ import CardListEntry from './CardListEntry';
 import Modal from './Modal';
 import { doesItInclude } from './HelperFunctions';
 
-function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
+function YourOutfit({ prod, yourOutfit, setYourOutfit, changeProdClick }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [outfit, setOutfit] = useState(false);
   const noModal = true;
@@ -91,6 +91,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit }) {
               removeCard={removeCard}
               activeIndex={activeIndex}
               noModal={noModal}
+              changeProdClick={changeProdClick}
             />
           ))}
         </div>

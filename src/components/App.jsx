@@ -18,13 +18,13 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products?count=${20}`, {
+      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${40348}`, {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
         },
       })
       .then((result) => {
-        setProduct(result.data[4]);
+        setProduct(result.data);
       })
       .catch((err) => {
         throw new Error('Error in getting data', err);
@@ -53,7 +53,7 @@ function App() {
         ? <Loading />
         : (
           <div className="font-display">
-            <div className="max-w-[100%]">
+            <div className="max-w-[100%] mb-[10px]">
               <Navigation />
             </div>
             <div className="max-w-[90%] mx-auto">
