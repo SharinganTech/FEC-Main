@@ -15,7 +15,7 @@ import ExpandedView from './ExpandedView';
 
 export const CurrentProduct = createContext(null);
 
-function Overview() {
+function Overview({ incrementCart }) {
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
@@ -163,6 +163,7 @@ function Overview() {
           />
           <AddToCart
             inventory={inventory}
+            incrementCart={incrementCart}
           />
         </div>
       </div>
