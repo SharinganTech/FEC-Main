@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
 import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 import RatingsAndReviews from './RatingsAndReviews';
-import ProductContext from '../contexts/ProductContext';
+import { ProductContext } from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
 import Navigation from './Navigation';
 
@@ -14,18 +14,42 @@ import Navigation from './Navigation';
 // }
 
 function App() {
-  const [product, setProduct] = useState({});
+  // const [product, setProduct] = useState({});
+  const {
+    setReviewsMeta, product, setProduct,
+  } = useContext(ProductContext);
+  console.log(product);
+
+  // const getMetaData = (prod) => {
+  //   const prodd = prod || product;
+  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${prodd.id}`, {
+  //     headers: {
+  //       Authorization: process.env.AUTH_TOKEN,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       setReviewsMeta(response.data);
+  //       // makeGetRequest();
+  //     })
+  //     .catch((err) => {
+  //       throw new Error('Error getting review meta data', err);
+  //     });
+  // };
 
   useEffect(() => {
     axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products?count=${20}`, {
+      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/40348', {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
         },
       })
       .then((result) => {
-        setProduct(result.data[4]);
+        setProduct(result.data);
+        // getMetaData(result.data);
       })
+      // .then(() => {
+      //   getMetaData();
+      // })
       .catch((err) => {
         throw new Error('Error in getting data', err);
       });
@@ -41,6 +65,7 @@ function App() {
       })
       .then((result) => {
         setProduct(result.data);
+        // getMetaData(result.data);
       })
       .catch((err) => {
         throw new Error('Error in changing product', err);
@@ -48,7 +73,7 @@ function App() {
   };
 
   return (
-    <ProductContext.Provider value={product}>
+    <div>
       {product.id === undefined
         ? <Loading />
         : (
@@ -67,7 +92,7 @@ function App() {
             </div>
           </div>
         )}
-    </ProductContext.Provider>
+    </div>
   );
 }
 

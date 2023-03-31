@@ -7,7 +7,7 @@ import ProductOverview from './ProductOverview';
 import StyleSelector from './StyleSelector';
 import AddToCart from './AddToCart';
 import Gallery from './Gallery';
-import ProductContext from '../../contexts/ProductContext';
+import { ProductContext } from '../../contexts/ProductContext';
 import Features from './Features';
 import { generateAverage } from '../RIC/HelperFunctions';
 import Stars from '../RIC/Stars';
@@ -16,12 +16,10 @@ import ExpandedView from './ExpandedView';
 export const CurrentProduct = createContext(null);
 
 function Overview() {
-  const product = useContext(ProductContext);
-  const prodDes = { product };
-  const prod = prodDes.product;
-  const [dataRetrieved, setDataRetrieved] = useState(false);
+  const { setReviewsMeta, product } = useContext(ProductContext);
+  const [dataRetrieved, setDataRetrieved] = useState(true);
   const [styles, setStyles] = useState([]);
-  const [features, setFeatures] = useState([]);
+  const [features, setFeatures] = useState(product.features);
   const [currentStyle, setCurrentStyle] = useState({});
   const [inventory, setInventory] = useState({});
   const [styleID, setStyleID] = useState(0);
@@ -32,21 +30,21 @@ function Overview() {
   const [numOfRatings, setNumOfRatings] = useState(0);
   const [normalView, setNormalView] = useState(true);
 
-  useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
-      headers: { Authorization: process.env.AUTH_TOKEN },
-    })
-      .then((response) => {
-        setDataRetrieved(true);
-        setFeatures(response.data.features);
-      })
-      .catch((err) => {
-        console.log('cant get prod details: ', err);
-      });
-  }, [prod.id]);
+  // useEffect(() => {
+  //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product.id}`, {
+  //     headers: { Authorization: process.env.AUTH_TOKEN },
+  //   })
+  //     .then((response) => {
+  //       setDataRetrieved(true);
+  //       setFeatures(response.data.features);
+  //     })
+  //     .catch((err) => {
+  //       console.log('cant get prod details: ', err);
+  //     });
+  // }, [product.id]);
 
   useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}/styles`, {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product.id}/styles`, {
       headers: { Authorization: process.env.AUTH_TOKEN },
     })
       .then((response) => {
@@ -63,7 +61,7 @@ function Overview() {
       .catch((err) => {
         console.log('error getting prod styles: ', err);
       });
-  }, [prod.id]);
+  }, [product.id]);
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta', {
@@ -71,10 +69,11 @@ function Overview() {
         Authorization: process.env.AUTH_TOKEN,
       },
       params: {
-        product_id: prod.id,
+        product_id: product.id,
       },
     })
       .then((results) => {
+        setReviewsMeta(results.data);
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
@@ -82,7 +81,7 @@ function Overview() {
       .catch((err) => {
         console.log('err getting metadata: ', err);
       });
-  }, [prod.id]);
+  }, [product.id]);
 
   const changeStyle = (elementID) => {
     setStyleID(Number(elementID));
@@ -116,7 +115,7 @@ function Overview() {
         </div>
 
         <div className="flex flex-row w-[100%] justify-center mt-[10px]">
-          <ProductOverview slogan={prod.slogan} description={prod.description} />
+          <ProductOverview slogan={product.slogan} description={product.description} />
           <Features features={features} />
         </div>
       </div>
@@ -152,8 +151,8 @@ function Overview() {
             : null}
           <ProductInfo
             currentStyle={currentStyle}
-            category={prod.category}
-            name={prod.name}
+            category={product.category}
+            name={product.name}
           />
           <StyleSelector
             styles={styles}
@@ -167,7 +166,7 @@ function Overview() {
         </div>
       </div>
       <div className="flex flex-row w-[100%] justify-center mt-[10px]">
-        <ProductOverview slogan={prod.slogan} description={prod.description} />
+        <ProductOverview slogan={product.slogan} description={product.description} />
         <Features features={features} />
       </div>
     </div>
