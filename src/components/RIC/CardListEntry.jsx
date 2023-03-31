@@ -9,7 +9,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
-import ProductContext from '../../contexts/ProductContext';
+import { ProductContext } from '../../contexts/ProductContext';
 import Stars from './Stars';
 
 function CardListEntry({
@@ -21,10 +21,7 @@ function CardListEntry({
   const [clicked, setClick] = useState(false);
   const [onSale, setSale] = useState(null);
   const [modal, setModal] = useState(false);
-  const product = useContext(ProductContext);
-  const prodDes = { product };
-  const prod = prodDes.product;
-  // const [prodFeatures, setProdFeatures] = useState([]);
+  const { product } = useContext(ProductContext);
 
   useEffect(() => {
     // console.log('related item id', relatedItem.id, 'prodId', product);
@@ -69,19 +66,6 @@ function CardListEntry({
         setRating(avgRating[0]);
       })
       .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
-
-  //   axios
-  //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
-  //       headers: {
-  //         Authorization: process.env.AUTH_TOKEN,
-  //       },
-  //     })
-  //     .then((result) => {
-  //       // console.log('features data', result.data);
-  //       // console.log(result.data.features);
-  //       setProdFeatures(result.data.features);
-  //     })
-  //     .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
   }, []);
 
   return (
@@ -195,8 +179,8 @@ function CardListEntry({
           relatedItem={relatedItem}
           modal={modal}
           setModal={setModal}
-          prodFeatures={prod.features}
-          prod={prod}
+          prodFeatures={product.features}
+          prod={product}
         />
         )}
       </div>

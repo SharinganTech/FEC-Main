@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import AddReviewStars from './AddReviewStars';
 import CharacterInput from './CharacterInput';
-import ProductContext from '../../../../contexts/ProductContext';
+import { ProductContext } from '../../../../contexts/ProductContext';
 
 function ReviewForm({ reviewsMeta, setShowModal }) {
   const product = useContext(ProductContext);
@@ -50,7 +50,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         recommend,
         name: form.nickname.value,
         email: form.email.value,
-        photos: [],
+        photos: ['https://i.ibb.co/vzHHFQ3/IDream-Of-Do.jpg'],
         characteristics,
       }, {
         headers: {

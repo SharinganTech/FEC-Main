@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Overview from './Overview';
 import RelatedItemsAndComparison from './RIC';
 import QA from './QA';
 import RatingsAndReviews from './RatingsAndReviews';
-import ProductContext from '../contexts/ProductContext';
+import { ProductContext } from '../contexts/ProductContext';
 import Loading from './RIC/Loading';
 import Navigation from './Navigation';
 
@@ -14,12 +14,15 @@ import Navigation from './Navigation';
 // }
 
 function App() {
-  const [product, setProduct] = useState({});
+  // const [product, setProduct] = useState({});
   const [itemsTotal, setItemsTotal] = useState(0);
+  const {
+    product, setProduct,
+  } = useContext(ProductContext);
 
   useEffect(() => {
     axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${40348}`, {
+      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/40348', {
         headers: {
           Authorization: process.env.AUTH_TOKEN,
         },
@@ -52,8 +55,9 @@ function App() {
     e.preventDefault();
     setItemsTotal(itemsTotal + 1);
   };
+
   return (
-    <ProductContext.Provider value={product}>
+    <div>
       {product.id === undefined
         ? <Loading />
         : (
@@ -72,7 +76,7 @@ function App() {
             </div>
           </div>
         )}
-    </ProductContext.Provider>
+    </div>
   );
 }
 
