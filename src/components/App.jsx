@@ -23,7 +23,9 @@ function App() {
   useEffect(() => {
     axios
       .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/40348', {
-        Authorization: process.env.AUTH_TOKEN,
+        headers: {
+          Authorization: process.env.AUTH_TOKEN,
+        },
       })
       .then((result) => {
         setProduct(result.data);
