@@ -1,8 +1,13 @@
 const path = require('path');
 const webpack = require('webpack'); //eslint-disable-line
 const DotEnv = require('dotenv-webpack'); //eslint-disable-line
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
   mode: 'development',
   entry: path.join(__dirname, 'src/index.jsx'),
   output: {

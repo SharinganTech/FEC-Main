@@ -24,7 +24,7 @@ function CardListEntry({
   const product = useContext(ProductContext);
   const prodDes = { product };
   const prod = prodDes.product;
-  const [prodFeatures, setProdFeatures] = useState([]);
+  // const [prodFeatures, setProdFeatures] = useState([]);
 
   useEffect(() => {
     // console.log('related item id', relatedItem.id, 'prodId', product);
@@ -70,18 +70,18 @@ function CardListEntry({
       })
       .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
 
-    axios
-      .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
-        headers: {
-          Authorization: process.env.AUTH_TOKEN,
-        },
-      })
-      .then((result) => {
-        // console.log('features data', result.data);
-        // console.log(result.data.features);
-        setProdFeatures(result.data.features);
-      })
-      .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
+  //   axios
+  //     .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prod.id}`, {
+  //       headers: {
+  //         Authorization: process.env.AUTH_TOKEN,
+  //       },
+  //     })
+  //     .then((result) => {
+  //       // console.log('features data', result.data);
+  //       // console.log(result.data.features);
+  //       setProdFeatures(result.data.features);
+  //     })
+  //     .catch((err) => console.log(`Error ${err} in CardListEntry axios get request`));
   }, []);
 
   return (
@@ -195,7 +195,7 @@ function CardListEntry({
           relatedItem={relatedItem}
           modal={modal}
           setModal={setModal}
-          prodFeatures={prodFeatures}
+          prodFeatures={prod.features}
           prod={prod}
         />
         )}
