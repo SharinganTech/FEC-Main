@@ -13,7 +13,7 @@ function ReviewImages({ reviewPhotos }) {
       >
         X
       </button>
-      <img className="w-full object-cover" src={source} alt="Review" />
+      <img className="w-full object-cover rounded-b" src={source} alt="Review" />
     </div>
   );
 
@@ -32,8 +32,3 @@ function ReviewImages({ reviewPhotos }) {
 }
 
 export default ReviewImages;
-
-// <button onClick={() => setShowFullImage(true)} type="button">
-// <img className="w-full h-40 object-contain" key={image.id} src={image.url} alt="Review" />
-// </button>
-// {showFullImage ? <Modal modalContent={fullImage(image.url)} /> : null}

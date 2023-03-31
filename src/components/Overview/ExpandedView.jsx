@@ -8,7 +8,7 @@ function ExpandedView({
   stylePhotos, mainImage, changeMain, changeView,
 }) {
   const [photos, setPhotos] = useState(stylePhotos);
-  const [activeIndex, setActiveIndex] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
   const [imageScaled, setImageScaled] = useState(false);
   useEffect(() => {
     setPhotos(stylePhotos);
@@ -24,7 +24,7 @@ function ExpandedView({
 
   const changeNext = (e) => {
     e.preventDefault();
-    const nextImageIndex = Number(e.target.value) + 1;
+    const nextImageIndex = activeIndex + 1;
     if (nextImageIndex === stylePhotos.length) {
       setActiveIndex(0);
       changeMain(stylePhotos[0].url);
@@ -37,7 +37,7 @@ function ExpandedView({
   const changePrev = (e) => {
     console.log(e.target);
     e.preventDefault();
-    const nextImageIndex = Number(e.target.value) - 1;
+    const nextImageIndex = activeIndex - 1;
     if (nextImageIndex < 0) {
       setActiveIndex(stylePhotos.length - 1);
       changeMain(stylePhotos[stylePhotos.length - 1].url);
@@ -49,18 +49,19 @@ function ExpandedView({
   const zoomImage = () => {
     setImageScaled(!imageScaled);
   };
-  if (imageScaled) {
-    return (
-      <ZoomedImage mainImage={mainImage} zoomImage={zoomImage}/>
-    );
-  }
+  // if (imageScaled) {
+  //   return (
+  //     <ZoomedImage mainImage={mainImage} zoomImage={zoomImage}/>
+  //   );
+  // }
   return (
-    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[750px] w-[100%] rounded-md overflow-hidden">
+    <div className="flex flex-row bg-[#EFE1CE] justify-around h-[750px] w-[100%] rounded-lg overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
         <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
+            onClick={changePrev}
           />
         </button>
         <div className="flex flex-col shrink-0 grow-0 justify-start items-center overflow-visible w-[95px] max-h-[560px] hmt-[10px] z-10 transition-transform" style={{ transform: `translateY(-${activeIndex * 16.25}%)` }}>
@@ -88,6 +89,7 @@ function ExpandedView({
         <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
+            onClick={changeNext}
             className="self-center z-40 bg-[#EFE1CE]"
           />
         </button>
@@ -96,12 +98,14 @@ function ExpandedView({
         <button type="button" value={activeIndex} className="h-[100%] w-[68px] z-10" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowLeft}
+            onClick={changePrev}
             className="self-center"
           />
         </button>
         <img data-testid="mainImage" className="object-contain w-[80%] h-[90%]" src={mainImage} alt="" />
         <button data-testid="arrowRight" type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
           <FontAwesomeIcon
+            onClick={changeNext}
             icon={faArrowRight}
             className="self-center z-0"
           />

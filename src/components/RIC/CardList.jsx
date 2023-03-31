@@ -19,8 +19,9 @@ function CardList({ prod, changeProdClick }) {
         },
       })
       .then(({ data }) => {
+        const uniqueId = [...new Set(data)];
         // console.log('related items id', data);
-        const listOfRelatedItems = data.map((relatedId) => (
+        const listOfRelatedItems = uniqueId.map((relatedId) => (
           axios
             .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedId}`, {
               headers: {
@@ -70,18 +71,21 @@ function CardList({ prod, changeProdClick }) {
             />
           </div>
         )}
-      <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent" data-testid="clRAContainer">
-        <FontAwesomeIcon
-          data-testid="clRightArrow"
-          icon={faArrowRight}
-          className="absolute right-0 self-center mr-5"
-          onClick={() => {
-            handleNext();
-          }}
-        />
-      </div>
+      {relatedItems.length > 0
+        && (
+        <div className="absolute right-0 flex h-[28rem] w-24 z-50 bg-gradient-to-l from-[#EDF1FF] to-transparent" data-testid="clRAContainer">
+          <FontAwesomeIcon
+            data-testid="clRightArrow"
+            icon={faArrowRight}
+            className="absolute right-0 self-center mr-5"
+            onClick={() => {
+              handleNext();
+            }}
+          />
+        </div>
+        )}
       {relatedItems.length === 0
-        ? <h1 data-testid="riLoading"> Loading... </h1>
+        ? <h1 data-testid="riLoading" className="relative text-pastelBlack left-3"> No Related Items </h1>
         : (
           <div className="relative flex flex-row whitespace-nowrap overflow-hidden space-x-5 w-full h-full left-3" data-testid="cardList">
             {relatedItems.map((relatedItem, i) => (

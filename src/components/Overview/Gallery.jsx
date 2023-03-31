@@ -8,7 +8,7 @@ function Gallery({
   stylePhotos, mainImage, changeMain, changeView,
 }) {
   const [photos, setPhotos] = useState(stylePhotos);
-  const [activeIndex, setActiveIndex] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
     setPhotos(stylePhotos);
   }, [stylePhotos]);
@@ -23,7 +23,7 @@ function Gallery({
 
   const changeNext = (e) => {
     e.preventDefault();
-    const nextImageIndex = Number(e.target.value) + 1;
+    const nextImageIndex = activeIndex + 1;
     if (nextImageIndex === stylePhotos.length) {
       setActiveIndex(0);
       changeMain(stylePhotos[0].url);
@@ -35,7 +35,7 @@ function Gallery({
 
   const changePrev = (e) => {
     e.preventDefault();
-    const nextImageIndex = Number(e.target.value) - 1;
+    const nextImageIndex = activeIndex - 1;
     if (nextImageIndex < 0) {
       setActiveIndex(stylePhotos.length - 1);
       changeMain(stylePhotos[stylePhotos.length - 1].url);
@@ -47,13 +47,14 @@ function Gallery({
   return (
     <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl rounded-lg">
       <div id="sideThumbnails" className="max-h-[100%] row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-start items-center overflow-hidden">
-        <button data-testid="arrowUp" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onClick={changePrev}>
+        <button data-testid="arrowUp" id="arrowUpButton" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
+            onClick={changePrev}
           />
         </button>
-        <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 13.80}%)` }}>
+        <div className="row-start-2 flex flex-col max-h-[80%] justify-start z-20 transition-transform" style={{ transform: `translateY(-${activeIndex * 13.35}%)` }}>
           {photos.map((style, index) => (
             <button
               data-testid={`${index}thumbnail`}
@@ -75,10 +76,11 @@ function Gallery({
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="row-start-5 row-end-6 h-[5em] w-[5em] justify-self-center items-center z-30 bg-[#EFE1CE]" onClick={changeNext}>
+        <button type="button" id="arrowDownButton" value={activeIndex} className="row-start-5 row-end-6 h-[5em] w-[5em] justify-self-center items-center z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
             className="self-center z-40 bg-inherit"
+            onClick={changeNext}
           />
         </button>
       </div>
@@ -86,6 +88,7 @@ function Gallery({
         <FontAwesomeIcon
           icon={faArrowLeft}
           className="self-center"
+          onClick={changePrev}
         />
       </button>
       <button className="z-0 row-start-2 p-top-[25px] row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%]" type="button" onClick={changeView}>
@@ -100,6 +103,7 @@ function Gallery({
         <FontAwesomeIcon
           icon={faArrowRight}
           className="self-center z-0"
+          onClick={changeNext}
         />
       </button>
       <button data-testid="expandIcon" type="button" className="place-self-center row-start-1 row-end-2 col-start-6 col-end-7" onClick={changeView}>

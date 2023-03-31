@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import ProductContext from '../../../../contexts/ProductContext';
+import { ProductContext } from '../../../../contexts/ProductContext';
 import ReviewForm from './ReviewForm';
 import Modal from '../Modal';
 
