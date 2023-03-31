@@ -15,6 +15,7 @@ import Navigation from './Navigation';
 
 function App() {
   const [product, setProduct] = useState({});
+  const [itemsTotal, setItemsTotal] = useState(0);
 
   useEffect(() => {
     axios
@@ -47,17 +48,21 @@ function App() {
       });
   };
 
+  const incrementCart = (e) => {
+    e.preventDefault();
+    setItemsTotal(itemsTotal + 1);
+  };
   return (
     <ProductContext.Provider value={product}>
       {product.id === undefined
         ? <Loading />
         : (
           <div className="font-display">
-            <div className="max-w-[100%]">
-              <Navigation />
+            <div className="max-w-[100%] mb-[10px]">
+              <Navigation itemsTotal={itemsTotal} />
             </div>
             <div className="max-w-[90%] mx-auto">
-              <Overview />
+              <Overview incrementCart={incrementCart} />
               <div className="h-[7rem]" />
               <RelatedItemsAndComparison changeProdClick={changeProdClick} />
               <div className="h-[40rem]" />
