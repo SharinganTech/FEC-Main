@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "start": "webpack && node server.js"
     "test": "jest",
     "dev": "webpack serve",
     "build": "webpack --watch",
