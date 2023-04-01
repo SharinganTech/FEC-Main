@@ -17,31 +17,35 @@ function Gallery({
     const newURLMain = stylePhotos.filter((style) => (
       style.thumbnail_url === e.target.src
     ));
+    console.log('new main url', newURLMain[0].url);
     changeMain(newURLMain[0].url);
+    console.log(' the e.target', e.target.id);
     setActiveIndex(e.target.id);
   };
 
   const changeNext = (e) => {
     e.preventDefault();
-    const nextImageIndex = activeIndex + 1;
-    if (nextImageIndex === stylePhotos.length) {
+    console.log(photos);
+    const nextImageIndex = Number(activeIndex) + 1;
+    console.log(nextImageIndex);
+    if (nextImageIndex === photos.length) {
       setActiveIndex(0);
-      changeMain(stylePhotos[0].url);
+      changeMain(photos[0].url);
     } else {
       setActiveIndex(nextImageIndex);
-      changeMain(stylePhotos[nextImageIndex].url);
+      changeMain(photos[nextImageIndex].url);
     }
   };
 
   const changePrev = (e) => {
     e.preventDefault();
-    const nextImageIndex = activeIndex - 1;
-    if (nextImageIndex < 0) {
+    const prevImageIndex = Number(activeIndex) - 1;
+    if (prevImageIndex < 0) {
       setActiveIndex(stylePhotos.length - 1);
-      changeMain(stylePhotos[stylePhotos.length - 1].url);
+      changeMain(photos[stylePhotos.length - 1].url);
     } else {
-      setActiveIndex(nextImageIndex);
-      changeMain(stylePhotos[nextImageIndex].url);
+      setActiveIndex(prevImageIndex);
+      changeMain(photos[prevImageIndex].url);
     }
   };
   return (
