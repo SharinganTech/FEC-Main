@@ -32,7 +32,7 @@ function Modal({
                   <div className="grid col-start-2 col-span-1 row-start-1 text-center content-center">
                     {obj.feature}
                   </div>
-                  <div className="grid col-start-3 col-span-1 row-start-1 text-center justify-center content-center">
+                  <div className="grid col-start-3 col-span-1 row-start-1 text-center justify-center content-center pr-1">
                     { featureValue(obj.value) }
                   </div>
                 </div>
@@ -47,7 +47,7 @@ function Modal({
                     <div className="grid col-start-2 col-span-1 row-start-1 text-center content-center">
                       {obj.feature}
                     </div>
-                    <div className="grid col-start-3 col-span-1 row-start-1 text-center content-center">
+                    <div className="grid col-start-3 col-span-1 row-start-1 text-center content-center pr-1">
                       {includesFeature(obj, prodFeatures)}
                     </div>
                   </div>
