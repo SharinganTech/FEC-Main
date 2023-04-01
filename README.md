@@ -33,6 +33,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 - A carousel displaying related products
 - A modal comparing product features
 - A list of products saved by the user
+- **Zoom In feature in progress**
 
 <img src="readMeImages/RIC/relatedItems.png" width="600"/>
 
