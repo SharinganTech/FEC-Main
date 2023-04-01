@@ -29,7 +29,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ![overview-readme](readMeImages/Overview/overview.jpg)
 
-## Related Products & Your Outfit by Aidan Fisher
+## Related Products & Your Outfit
 #### Features
 - A carousel displaying a list of products related to the item in overview.
 - A feature that allows the user to add items to a user-specific list called 'Your Outfit'.
