@@ -50,12 +50,12 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Question and Answers lists with Load More functionality
 - Question and Answer modals for adding to the list
 
-<img src="readMeImages/QA/QAForm.png"/>
+<img src="readMeImages/QA/QAList.png"/>
 
 <details>
     <summary>See Q&A Details</summary>
 
-<img src="readMeImages/QA/QAList.png"/>
+<img src="readMeImages/QA/QAForm.png"/>
 
 </details>
 
