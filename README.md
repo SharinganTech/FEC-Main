@@ -4,10 +4,11 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Authors
 
+[Nam Nguyen](https://www.github.com/nnguye47)\
 [Aidan Fisher](https://www.github.com/aidanFisher97)\
 [Andrew Ihn](https://www.github.com/roormade)\
-[Kyle Stevens](https://www.github.com/kylestevens32)\
-[Nam Nguyen](https://www.github.com/nnguye47)
+[Kyle Stevens](https://www.github.com/kylestevens32)
+
 
 ## Built With
 ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)![Tailwind CSS](https://img.shields.io/badge/tailwindcss-ff69b4?style=for-the-badge&logo=tailwindcss&logoColor=white)![Axios](https://img.shields.io/badge/axios-CA4245?style=for-the-badge&logo=axios&logoColor=white)
@@ -20,26 +21,26 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Overview
 #### Features
-- Interactive image gallery with zoom-in features
-- Details page describing product attributes and pricing
-- Styles selector along with a user-friendly size guide
+- Interactive gallery with scrolling features
+- Product information displaying the price, category, reviews, and name
+- Interactive style selector to change the gallery images
+- Size/Quantity selectors to add item to cart
+- **Zoom In feature in progress**
 
-![fec-overview-readme](https://user-images.githubusercontent.com/106297124/208506471-d7e17ca2-3b99-4c99-9c5b-2db417800de1.png)
+![overview-readme](readMeImages/Overview/overview.jpg)
 
-## Related Products & Your Outfit
+## Related Products & Your Outfit by Aidan Fisher
 #### Features
-- A carousel displaying related products
-- A modal comparing product features
-- A list of products saved by the user
+- A carousel displaying a list of products related to the item in overview.
+- A feature that allows the user to add items to a user-specific list called 'Your Outfit'.
+- A modal to compare a related item to the overview item.
 
-![fec-related-products readme](readMeImages/RIC/Screenshot 2023-04-01 at 11.26.12 AM.png)
+<img src="readMeImages/RIC/relatedItems.png"/>
 
 <details>
     <summary>See Comparison Details</summary>
 
-
-![Screen Shot 2022-12-17 at 10 26 06 AM](https://user-images.githubusercontent.com/99362878/208256245-965a0942-026c-4fcc-9fb6-d99c5b242f65.png)
-
+<img src="readMeImages/RIC/modal.png" width="600"/>
 
 </details>
 
@@ -49,16 +50,12 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Question and Answers lists with Load More functionality
 - Question and Answer modals for adding to the list
 
-<!-- ![Questions and Answers](https://user-images.githubusercontent.com/52551319/208265749-aa075175-c951-4d29-bf6d-26f5789e94db.png) -->
-![fec-qa-readme](https://user-images.githubusercontent.com/106297124/208510609-244cfc80-1e29-4884-a6cf-00f5ff014afd.png)
-<!-- ![qaforms](https://user-images.githubusercontent.com/52551319/208266127-5a313e33-37d7-4804-a53f-1541c13b101b.png) -->
+<img src="readMeImages/QA/QAGithubBg.png" width="600"/>
 
 <details>
-    <summary>See Q&A Forms</summary>
+    <summary>See Q&A Details</summary>
 
-
-![fec-qa-forms-readme](https://user-images.githubusercontent.com/106297124/208513128-e0b8570a-50a1-45b2-8ce3-60275610ee67.png)
-
+<img src="readMeImages/QA/QAGithubBg.png" width="600"/>
 
 </details>
 
@@ -77,7 +74,7 @@ A fashionable e-commerce site built for a pleasent user experience.
     <summary>See R&R Form</summary>
 
 
-<img src="readMeImages/RatingsAndReviews/FormWithValidation.png" width="600"/>
+<img className="mx-auto" src="readMeImages/RatingsAndReviews/FormWithValidation.png" width="600"/>
 
 
 </details>
