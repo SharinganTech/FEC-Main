@@ -77,6 +77,7 @@ function Overview({ incrementCart }) {
     setStylePhotos(newStyle[0].photos);
   };
   const changeMain = (newMainURL) => {
+    console.log(newMainURL);
     setMainImage(newMainURL);
   };
   const changeView = () => {
