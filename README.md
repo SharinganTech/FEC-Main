@@ -4,10 +4,10 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Authors
 
-[Nam Nguyen](https://www.github.com/nnguye47)\
-[Aidan Fisher](https://www.github.com/aidanFisher97)\
-[Andrew Ihn](https://www.github.com/roormade)\
-[Kyle Stevens](https://www.github.com/kylestevens32)
+[Nam Nguyen](https://www.github.com/nnguye47) - [Overview](#overview)\
+[Aidan Fisher](https://www.github.com/aidanFisher97) - [Related Items & Your Outfit](#related-items)\
+[Andrew Ihn](https://www.github.com/roormade) - [Questions & Answers](#qa)\
+[Kyle Stevens](https://www.github.com/kylestevens32) - [Ratings & Reviews](#ratings-reviews)
 
 
 ## Built With
@@ -25,16 +25,18 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Product information displaying the price, category, reviews, and name
 - Interactive style selector to change the gallery images
 - Size/Quantity selectors to add item to cart
+- **Zoom In feature in progress**
 
 ![overview-readme](readMeImages/Overview/overview.jpg)
 
-## Related Products & Your Outfit
+<a name="related-items"></a>
+## Related Items & Your Outfit
 #### Features
-- A carousel displaying related products
-- A modal comparing product features
-- A list of products saved by the user
+- A carousel displaying a list of products related to the item in overview.
+- A feature that allows the user to add items to a user-specific list called 'Your Outfit'.
+- A modal to compare a related item to the overview item.
 
-<img src="readMeImages/RIC/relatedItems.png" width="600"/>
+<img src="readMeImages/RIC/relatedItems.png"/>
 
 <details>
     <summary>See Comparison Details</summary>
@@ -43,37 +45,39 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 </details>
 
+<a name="qa"></a>
 ## Questions & Answers
 #### Features
-- Search functionality to filter questions by title
-- Question and Answers lists with Load More functionality
-- Question and Answer modals for adding to the list
+- Search bar capable of filtering the Q&A list after 3 characters
+- See More buttons render remaining Q&A
+- Question and Answer modals to add user-based questions and answers
 
-<img src="readMeImages/QA/QAGithubBg.png" width="600"/>
+<img src="readMeImages/QA/QAList.png"/>
 
 <details>
     <summary>See Q&A Details</summary>
 
-<img src="readMeImages/QA/QAGithubBg.png" width="600"/>
+<img src="readMeImages/QA/QAForm.png"/>
 
 </details>
 
 
+<a name="ratings-reviews"></a>
 ## Ratings & Reviews
 #### Features
-- Filter reviews by both rating and query
-- Visual represention of the breakdown of product ratings and characteristics
-- A custom form for adding reviews
+- Breakdown of ratings based on certain characteristics and review data
+- List of reviews that can be filtered by rating and sorted by different factors
+- A form for adding reviews
 
 
-![fec-rr-readme](https://user-images.githubusercontent.com/106297124/208514439-aa206fda-aedb-473b-84d2-7d7ad32e8516.png)
+![fec-rr-readme](readMeImages/RatingsAndReviews/RatingsAndReviews.jpg)
 
 
 <details>
     <summary>See R&R Form</summary>
 
 
-![fec-rr-form-readme](https://user-images.githubusercontent.com/106297124/208514913-6194587f-4a35-4c23-ae6c-43cf25fa522d.png)
+<img src="readMeImages/RatingsAndReviews/FormWithValidation.jpg" width="600"/>
 
 
 </details>
