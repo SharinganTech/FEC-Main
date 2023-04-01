@@ -5,9 +5,9 @@ A fashionable e-commerce site built for a pleasent user experience.
 ## Authors
 
 [Nam Nguyen](https://www.github.com/nnguye47) - [Overview](#overview)\
-[Aidan Fisher](https://www.github.com/aidanFisher97) - [Related Items & Your Outfit](#related-items-&-comparisons)\
-[Andrew Ihn](https://www.github.com/roormade) - [Questions & Answers](#questions-&-answers)\
-[Kyle Stevens](https://www.github.com/kylestevens32) - [Ratings & Reviews](#ratings-&-reviews)
+[Aidan Fisher](https://www.github.com/aidanFisher97) - [Related Items & Your Outfit](#related-items-comparisons)\
+[Andrew Ihn](https://www.github.com/roormade) - [Questions & Answers](#questions-answers)\
+[Kyle Stevens](https://www.github.com/kylestevens32) - [Ratings & Reviews](#ratings-reviews)
 
 
 ## Built With
