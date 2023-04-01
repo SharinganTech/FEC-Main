@@ -4,10 +4,10 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Authors
 
-### Overview [Nam Nguyen](https://www.github.com/nnguye47)\
-### Related Items and Comparison [Aidan Fisher](https://www.github.com/aidanFisher97)\
-### Questions and Answers [Andrew Ihn](https://www.github.com/roormade)\
-### Ratings and Reviews [Kyle Stevens](https://www.github.com/kylestevens32)
+[Nam Nguyen](https://www.github.com/nnguye47)\
+[Aidan Fisher](https://www.github.com/aidanFisher97)\
+[Andrew Ihn](https://www.github.com/roormade)\
+[Kyle Stevens](https://www.github.com/kylestevens32)
 
 
 ## Built With
@@ -25,15 +25,15 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Product information displaying the price, category, reviews, and name
 - Interactive style selector to change the gallery images
 - Size/Quantity selectors to add item to cart
+**Zoom In feature in progress**
 
 ![overview-readme](readMeImages/Overview/overview.jpg)
 
-## Related Products & Your Outfit
+## Related Products & Your Outfit by Aidan Fisher
 #### Features
-- A carousel displaying related products
-- A modal comparing product features
-- A list of products saved by the user
-- **Zoom In feature in progress**
+- A carousel displaying a list of products related to the item in overview.
+- A feature where the user can add items to a list called 'Your Outfit'.
+- A modal to compare a related item to the overview item. 
 
 <img src="readMeImages/RIC/relatedItems.png"/>
 
