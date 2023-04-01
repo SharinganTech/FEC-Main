@@ -32,7 +32,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 - A modal comparing product features
 - A list of products saved by the user
 
-![fec-related-products readme](readMeImages/RIC/Screenshot 2023-04-01 at 11.26.12 AM.png)
+![fec-related-products readme](readMeImages/RIC/relatedItems.png)
 
 <details>
     <summary>See Comparison Details</summary>
