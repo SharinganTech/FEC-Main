@@ -4,10 +4,10 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Authors
 
-[Nam Nguyen](https://www.github.com/nnguye47)\
-[Aidan Fisher](https://www.github.com/aidanFisher97)\
-[Andrew Ihn](https://www.github.com/roormade)\
-[Kyle Stevens](https://www.github.com/kylestevens32)
+### Overview [Nam Nguyen](https://www.github.com/nnguye47)\
+### Related Items and Comparison [Aidan Fisher](https://www.github.com/aidanFisher97)\
+### Questions and Answers [Andrew Ihn](https://www.github.com/roormade)\
+### Ratings and Reviews [Kyle Stevens](https://www.github.com/kylestevens32)
 
 
 ## Built With
