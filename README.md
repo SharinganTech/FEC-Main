@@ -46,9 +46,9 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Questions & Answers
 #### Features
-- Search functionality to filter questions by title
-- Question and Answers lists with Load More functionality
-- Question and Answer modals for adding to the list
+- Search bar capable of filtering the Q&A list after 3 characters
+- See More buttons render remaining Q&A
+- Question and Answer modals to add user-based questions and answers
 
 <img src="readMeImages/QA/QAList.png"/>
 
