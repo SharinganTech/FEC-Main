@@ -74,7 +74,7 @@ A fashionable e-commerce site built for a pleasent user experience.
     <summary>See R&R Form</summary>
 
 
-<img className="mx-auto" src="readMeImages/RatingsAndReviews/FormWithValidation.png" width="600"/>
+<img className="mx-auto" src="readMeImages/RatingsAndReviews/FormWithValidation.jpg" width="600"/>
 
 
 </details>
