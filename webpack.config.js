@@ -8,7 +8,7 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin()],
   },
-  mode: 'development',
+  mode: 'production',
   entry: path.join(__dirname, 'src/index.jsx'),
   output: {
     filename: 'bundle.js',
