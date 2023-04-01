@@ -1,6 +1,6 @@
 # Techstyles
 
-A modernized e-commerce site built for an optimal user browsing experience.
+A fashionable e-commerce site built for a pleasent user experience. 
 
 ## Authors
 
@@ -10,11 +10,13 @@ A modernized e-commerce site built for an optimal user browsing experience.
 [Nam Nguyen](https://www.github.com/nnguye47)
 
 ## Built With
-![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)![Tailwind](https://img.shields.io/badge/Tailwind-#06B6D4?style=for-the-badge&logo=tailwind&logoColor=white)![Axios](https://img.shields.io/badge/axios-##5A29E4?style=for-the-badge&logo=axios&logoColor=white)
 
 ## Key Features
-- Light/dark mode toggle
-- Optimized performance using Redux
+- An Overview section displaying a product and its styles. 
+- A Related Items and Comparison section where the user can view related items and build an outfit. 
+- A Q&A section used for asking, answering, and browsing user generated questions. 
+- A Ratings and Reviews section for writing, browsing, and filtering reviews. 
 
 ## Overview
 #### Features
