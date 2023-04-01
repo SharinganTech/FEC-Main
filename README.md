@@ -34,7 +34,6 @@ A fashionable e-commerce site built for a pleasent user experience.
 - A list of products saved by the user
 
 <img src="readMeImages/RIC/relatedItems.png" width="600"/>
-<img src="readMeImages/RIC/yourOutfit.png" width="600"/>
 
 <details>
     <summary>See Comparison Details</summary>
