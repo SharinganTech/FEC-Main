@@ -62,9 +62,9 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Ratings & Reviews
 #### Features
-- Filter reviews by both rating and query
-- Visual represention of the breakdown of product ratings and characteristics
-- A custom form for adding reviews
+- Breakdown of ratings based on certain characteristics and review data
+- List of reviews that can be filtered by rating and sorted by different factors
+- A form for adding reviews
 
 
 ![fec-rr-readme](readMeImages/RatingsAndReviews/RatingsAndReviews.jpg)
