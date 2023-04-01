@@ -10,7 +10,8 @@ A fashionable e-commerce site built for a pleasent user experience.
 [Nam Nguyen](https://www.github.com/nnguye47)
 
 ## Built With
-![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)![Tailwind](https://img.shields.io/badge/Tailwind-#06B6D4?style=for-the-badge&logo=tailwind&logoColor=white)![Axios](https://img.shields.io/badge/axios-##5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)![Tailwind CSS](https://img.shields.io/badge/tailwindcss-#ff69b4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Axios](https://img.shields.io/badge/axios-#FF5733?style=for-the-badge&logo=axios&logoColor=white)
 
 ## Key Features
 - An Overview section displaying a product and its styles. 
@@ -25,19 +26,6 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Styles selector along with a user-friendly size guide
 
 ![fec-overview-readme](https://user-images.githubusercontent.com/106297124/208506471-d7e17ca2-3b99-4c99-9c5b-2db417800de1.png)
-
-<details>
-    <summary>Additional Features</summary>
-	<ul>
-		<li>Social media sharing ability</li>
-		<li>Checkout cart for product purchases</li>
-	</ul>
-	
-	
-![fec-cart-readme](https://user-images.githubusercontent.com/106297124/208507697-c684493c-0899-4e74-bf68-2bb1635b1fb8.png)
-	
-	
-</details>
 
 ## Related Products & Your Outfit
 #### Features
