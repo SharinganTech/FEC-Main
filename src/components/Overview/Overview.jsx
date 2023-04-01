@@ -104,9 +104,9 @@ function Overview({ incrementCart }) {
     );
   }
   return (
-    <div className="justify-center content-center">
-      <div className="mx-auto place-self-center flex flex-row justify-end flex-wrap max-w-[90%] h-[650px]">
-        <div className="w-[55%] max-h-[100%] mr-[10px] rounded-md">
+    <div className="justify-center content-center h-[100%]">
+      <div className="mx-auto place-self-center flex flex-row justify-center flex-wrap min-w-[600x] max-w-[90%] h-[100%]">
+        <div className="w-[45%] min-w-[390px] max-h-[650px] mr-[10px] rounded-md flex flex-end">
           <Gallery
             styleID={styleID}
             stylePhotos={stylePhotos}
@@ -116,7 +116,7 @@ function Overview({ incrementCart }) {
             changeView={changeView}
           />
         </div>
-        <div className="flex flex-col w-[40%] mt-[10px]">
+        <div className="flex flex-col w-[250px] mt-[10px]">
           {numOfRatings
             ? (
               <div>
@@ -147,10 +147,10 @@ function Overview({ incrementCart }) {
             incrementCart={incrementCart}
           />
         </div>
-      </div>
-      <div className="flex flex-row w-[100%] justify-center mt-[10px]">
-        <ProductOverview slogan={product.slogan} description={product.description} />
-        <Features features={product.features} />
+        <div className="flex flex-row flex-wrap w-[80%] justify-center mt-[10px] gap-[15px]">
+          <ProductOverview slogan={product.slogan} description={product.description} />
+          <Features features={product.features} />
+        </div>
       </div>
     </div>
   );

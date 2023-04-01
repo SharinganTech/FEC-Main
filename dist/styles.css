@@ -822,9 +822,6 @@ video {
 .h-\[100px\] {
   height: 100px;
 }
-.h-\[150px\] {
-  height: 150px;
-}
 .h-\[1rem\] {
   height: 1rem;
 }
@@ -837,23 +834,20 @@ video {
 .h-\[28rem\] {
   height: 28rem;
 }
-.h-\[2rem\] {
-  height: 2rem;
-}
 .h-\[3\.8rem\] {
   height: 3.8rem;
 }
 .h-\[30px\] {
   height: 30px;
 }
-.h-\[40rem\] {
-  height: 40rem;
-}
 .h-\[4rem\] {
   height: 4rem;
 }
 .h-\[5\.5em\] {
   height: 5.5em;
+}
+.h-\[50\%\] {
+  height: 50%;
 }
 .h-\[50px\] {
   height: 50px;
@@ -870,17 +864,11 @@ video {
 .h-\[60px\] {
   height: 60px;
 }
-.h-\[650px\] {
-  height: 650px;
-}
 .h-\[70vh\] {
   height: 70vh;
 }
 .h-\[750px\] {
   height: 750px;
-}
-.h-\[7rem\] {
-  height: 7rem;
 }
 .h-\[80px\] {
   height: 80px;
@@ -914,6 +902,9 @@ video {
 }
 .max-h-\[600px\] {
   max-height: 600px;
+}
+.max-h-\[650px\] {
+  max-height: 650px;
 }
 .max-h-\[80\%\] {
   max-height: 80%;
@@ -951,6 +942,9 @@ video {
 .w-\[16px\] {
   width: 16px;
 }
+.w-\[250px\] {
+  width: 250px;
+}
 .w-\[25px\] {
   width: 25px;
 }
@@ -972,9 +966,6 @@ video {
 .w-\[50\%\] {
   width: 50%;
 }
-.w-\[55\%\] {
-  width: 55%;
-}
 .w-\[5em\] {
   width: 5em;
 }
@@ -989,9 +980,6 @@ video {
 }
 .w-\[68px\] {
   width: 68px;
-}
-.w-\[700px\] {
-  width: 700px;
 }
 .w-\[80\%\] {
   width: 80%;
@@ -1027,8 +1015,17 @@ video {
 .min-w-\[100\%\] {
   min-width: 100%;
 }
+.min-w-\[300px\] {
+  min-width: 300px;
+}
 .min-w-\[320px\] {
   min-width: 320px;
+}
+.min-w-\[390px\] {
+  min-width: 390px;
+}
+.min-w-\[600x\] {
+  min-width: 600x;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -1038,6 +1035,12 @@ video {
 }
 .max-w-\[1100px\] {
   max-width: 1100px;
+}
+.max-w-\[200px\] {
+  max-width: 200px;
+}
+.max-w-\[600px\] {
+  max-width: 600px;
 }
 .max-w-\[90\%\] {
   max-width: 90%;
@@ -1148,6 +1151,9 @@ video {
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
+}
+.gap-y-\[20px\] {
+  row-gap: 20px;
 }
 .space-x-10 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1458,17 +1464,14 @@ video {
   font-size: 3.75rem;
   line-height: 1;
 }
+.text-\[1\.5em\] {
+  font-size: 1.5em;
+}
 .text-\[1em\] {
   font-size: 1em;
 }
 .text-\[20px\] {
   font-size: 20px;
-}
-.text-\[22px\] {
-  font-size: 22px;
-}
-.text-\[25px\] {
-  font-size: 25px;
 }
 .text-\[2em\] {
   font-size: 2em;
