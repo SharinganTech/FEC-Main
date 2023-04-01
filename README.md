@@ -25,7 +25,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Product information displaying the price, category, reviews, and name
 - Interactive style selector to change the gallery images
 - Size/Quantity selectors to add item to cart
-**Zoom In feature in progress**
+- **Zoom In feature in progress**
 
 ![overview-readme](readMeImages/Overview/overview.jpg)
 
