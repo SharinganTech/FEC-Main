@@ -24,7 +24,7 @@ function StyleSelector({
           const imgUrl = `${style.photos[0].thumbnail_url}`;
           return (
             <div key={index} id={style.style_id}>
-              <button key={index} type="button" className="relative w-[4rem] h-[4rem]" onKeyPress={changeName} onClick={changeName}>
+              <button key={index} aria-label={`style ${index + 1}`} type="button" className="relative w-[4rem] h-[4rem]" onKeyPress={changeName} onClick={changeName}>
                 {(styleID === style.style_id) ? <FontAwesomeIcon key="checkmark" className="absolute text-[20px] top-0 right-0 bg-white rounded-full" icon={faCircleCheck} style={{ color: '#926AA6' }} /> : null}
                 <img
                   id={style.style_id}

@@ -48,10 +48,11 @@ function Gallery({
   return (
     <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl rounded-lg">
       <div id="sideThumbnails" className="max-h-[100%] row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-start items-center overflow-hidden">
-        <button data-testid="arrowUp" id="arrowUpButton" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onKeyPress={changePrev} onClick={changePrev}>
+        <button data-testid="arrowUp" id="arrowUpButton" aria-label="arrow up" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onKeyPress={changePrev} onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
+            aria-label="arrow up"
             onKeyPress={changePrev}
             onClick={changePrev}
           />
@@ -60,6 +61,7 @@ function Gallery({
           {photos.map((style, index) => (
             <button
               data-testid={`${index}thumbnail`}
+              aria-label={`thumbnail ${index + 1}`}
               className="justfy-center rounded-md items-center border-line z-0 border-2 border-black w-[60px] h-[60px] mt-[10px]"
               key={index}
               id={index}
@@ -70,6 +72,7 @@ function Gallery({
               <img
                 id={index}
                 key={index}
+                aria-label={`thumbnail ${index + 1}`}
                 className={(style.url === mainImage)
                   ? 'opacity-100 object-cover rounded-sm w-[60px] h-[57px]'
                   : 'opacity-40 object-cover rounded-sm w-[60px] h-[57px]'}
@@ -79,15 +82,16 @@ function Gallery({
             </button>
           ))}
         </div>
-        <button type="button" id="arrowDownButton" value={activeIndex} className="row-start-5 row-end-6 h-[5em] w-[5em] justify-self-center items-center z-30 bg-[#EFE1CE]" onClick={changeNext}>
+        <button type="button" id="arrowDownButton" aria-label="next image" value={activeIndex} className="row-start-5 row-end-6 h-[5em] w-[5em] justify-self-center items-center z-30 bg-[#EFE1CE]" onKeyPress={changeNext} onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
             className="self-center z-40 bg-inherit"
+            onKeyPress={changeNext}
             onClick={changeNext}
           />
         </button>
       </div>
-      <button data-testid="arrowLeft" type="button" value={activeIndex} className="row-star-5 row-end-6 col-start-3 col-end-4" onKeyPress={changePrev} onClick={changePrev}>
+      <button data-testid="arrowLeft" type="button" aria-label="previous image" value={activeIndex} className="row-star-5 row-end-6 col-start-3 col-end-4" onKeyPress={changePrev} onClick={changePrev}>
         <FontAwesomeIcon
           icon={faArrowLeft}
           className="self-center"
@@ -95,7 +99,7 @@ function Gallery({
           onClick={changePrev}
         />
       </button>
-      <button className="z-0 row-start-2 p-top-[25px] row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%]" type="button" onClick={changeView}>
+      <button className="z-0 row-start-2 p-top-[25px] row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%]" type="button" aria-label="expand main image" onClick={changeView}>
         <img
           data-testid="mainImage"
           className="z-0 row-start-2 row-end-5 col-start-2 col-end-6 max-h-[100%] min-w-[100%] object-contain"
@@ -103,7 +107,7 @@ function Gallery({
           alt=""
         />
       </button>
-      <button data-testid="arrowRight" type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" onKeyPress={changeNext} onClick={changeNext}>
+      <button data-testid="arrowRight" type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" aria-label="next image" onKeyPress={changeNext} onClick={changeNext}>
         <FontAwesomeIcon
           icon={faArrowRight}
           className="self-center z-0"
@@ -111,7 +115,7 @@ function Gallery({
           onClick={changeNext}
         />
       </button>
-      <button data-testid="expandIcon" type="button" className="place-self-center row-start-1 row-end-2 col-start-6 col-end-7" onClick={changeView}>
+      <button data-testid="expandIcon" type="button" className="place-self-center row-start-1 row-end-2 col-start-6 col-end-7" aria-label="expand image" onClick={changeView}>
         <FontAwesomeIcon
           icon={faExpand}
           className="h-[25px] w-[25px] mt-[10px]"
