@@ -19,15 +19,12 @@ function Gallery({
     ));
     console.log('new main url', newURLMain[0].url);
     changeMain(newURLMain[0].url);
-    console.log(' the e.target', e.target.id);
     setActiveIndex(e.target.id);
   };
 
   const changeNext = (e) => {
     e.preventDefault();
-    console.log(photos);
     const nextImageIndex = Number(activeIndex) + 1;
-    console.log(nextImageIndex);
     if (nextImageIndex === photos.length) {
       setActiveIndex(0);
       changeMain(photos[0].url);
@@ -51,10 +48,11 @@ function Gallery({
   return (
     <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl rounded-lg">
       <div id="sideThumbnails" className="max-h-[100%] row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-start items-center overflow-hidden">
-        <button data-testid="arrowUp" id="arrowUpButton" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onClick={changePrev}>
+        <button data-testid="arrowUp" id="arrowUpButton" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onKeyPress={changePrev} onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
+            onKeyPress={changePrev}
             onClick={changePrev}
           />
         </button>
@@ -66,6 +64,7 @@ function Gallery({
               key={index}
               id={index}
               type="button"
+              onKeyPress={clickThumbnail}
               onClick={clickThumbnail}
             >
               <img
@@ -88,10 +87,11 @@ function Gallery({
           />
         </button>
       </div>
-      <button data-testid="arrowLeft" type="button" value={activeIndex} className="row-star-5 row-end-6 col-start-3 col-end-4" onClick={changePrev}>
+      <button data-testid="arrowLeft" type="button" value={activeIndex} className="row-star-5 row-end-6 col-start-3 col-end-4" onKeyPress={changePrev} onClick={changePrev}>
         <FontAwesomeIcon
           icon={faArrowLeft}
           className="self-center"
+          onKeyPress={changePrev}
           onClick={changePrev}
         />
       </button>
@@ -103,10 +103,11 @@ function Gallery({
           alt=""
         />
       </button>
-      <button data-testid="arrowRight" type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" onClick={changeNext}>
+      <button data-testid="arrowRight" type="button" value={activeIndex} className="row-start-5 row-end-6 col-start-4 col-end-5 justfy-self-center" onKeyPress={changeNext} onClick={changeNext}>
         <FontAwesomeIcon
           icon={faArrowRight}
           className="self-center z-0"
+          onKeyPress={changeNext}
           onClick={changeNext}
         />
       </button>

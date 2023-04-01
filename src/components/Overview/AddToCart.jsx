@@ -48,7 +48,7 @@ function AddToCart({ inventory, incrementCart }) {
   return (
     <div data-testid="quantityDropDown" className="flex flex-col flex-nowrap w-[320px]">
       <div className="flex flex-row mb-2">
-        <select data-testid="sizeDropdown" className="w-[50%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onChange={handleChange}>
+        <select data-testid="sizeDropdown" className="w-[50%] bg-transparent text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded" id={currentSize} value={currentSize} onKeyPress={handleChange} onChange={handleChange}>
           <option value="canPick">SELECT SIZE</option>
           {sizeOptions()}
         </select>
@@ -74,6 +74,7 @@ function AddToCart({ inventory, incrementCart }) {
             ? 'bg-[#926AA6] text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[40%]'
             : 'text-black border-2 border-black font-bold py-4 px-4 mr-2 rounded w-[40%]'}
           type="button"
+          onKeyPress={likeItem}
           onClick={likeItem}
         >
           FAVORITE
