@@ -32,7 +32,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 ## Related Products & Your Outfit by Aidan Fisher
 #### Features
 - A carousel displaying a list of products related to the item in overview.
-- A feature where the user can add items to a list called 'Your Outfit'.
+- A feature that allows the user to add items to a user-specific list called 'Your Outfit'.
 - A modal to compare a related item to the overview item. 
 
 <img src="readMeImages/RIC/relatedItems.png"/>
