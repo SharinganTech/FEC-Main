@@ -102,7 +102,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 Installation
 - Clone the repository
     ```
-        git clone https://github.com/KFEC/TechStyles.git
+        git clone https://github.com/SharinganTech/FEC-Main.git
     ```
 - Install the dependencies
     ```
@@ -110,13 +110,9 @@ Installation
     ```
 - Copy example.env file and rename to .env with the following within
     ```
-        PORT=3000
-        HOST='localhost'
         API_TOKEN='Insert API token'
-        WEBPACK_MODE='development'
     ```
-- Run the following script
+- Run the following scripts
     ```
-        npm run dev
         npm run start
     ```
