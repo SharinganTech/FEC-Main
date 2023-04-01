@@ -33,13 +33,13 @@ A fashionable e-commerce site built for a pleasent user experience.
 - A list of products saved by the user
 
 ![fec-related-products readme](readMeImages/RIC/relatedItems.png)
+![fec-related-products readme](readMeImages/RIC/yourOutfit.png)
 
 <details>
     <summary>See Comparison Details</summary>
 	
 	
-![Screen Shot 2022-12-17 at 10 26 06 AM](https://user-images.githubusercontent.com/99362878/208256245-965a0942-026c-4fcc-9fb6-d99c5b242f65.png)
-	
+![fec-related-products readme](readMeImages/RIC/modal.png)
 	
 </details>
 
