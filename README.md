@@ -48,16 +48,12 @@ A fashionable e-commerce site built for a pleasent user experience.
 - Question and Answers lists with Load More functionality
 - Question and Answer modals for adding to the list
 
-<!-- ![Questions and Answers](https://user-images.githubusercontent.com/52551319/208265749-aa075175-c951-4d29-bf6d-26f5789e94db.png) -->
-![fec-qa-readme](https://user-images.githubusercontent.com/106297124/208510609-244cfc80-1e29-4884-a6cf-00f5ff014afd.png)
-<!-- ![qaforms](https://user-images.githubusercontent.com/52551319/208266127-5a313e33-37d7-4804-a53f-1541c13b101b.png) -->
+<img src="readMeImages/QA/QAandModal.png" width="600"/>
 
 <details>
-    <summary>See Q&A Forms</summary>
+    <summary>See Q&A Details</summary>
 	
-	
-![fec-qa-forms-readme](https://user-images.githubusercontent.com/106297124/208513128-e0b8570a-50a1-45b2-8ce3-60275610ee67.png)
-
+<img src="readMeImages/QA/QAandModal.png" width="600"/>
 	
 </details>
 
