@@ -61,6 +61,7 @@ function ExpandedView({
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
+            onKeyPress={changePrev}
             onClick={changePrev}
           />
         </button>
@@ -72,6 +73,7 @@ function ExpandedView({
               key={index}
               id={index}
               type="button"
+              onKeyPress={clickThumbnail}
               onClick={clickThumbnail}
             >
               <img
@@ -89,6 +91,7 @@ function ExpandedView({
         <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
+            onKeyPress={changeNext}
             onClick={changeNext}
             className="self-center z-40 bg-[#EFE1CE]"
           />
@@ -98,6 +101,7 @@ function ExpandedView({
         <button type="button" value={activeIndex} className="h-[100%] w-[68px] z-10" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowLeft}
+            onKeyPress={changePrev}
             onClick={changePrev}
             className="self-center"
           />
@@ -105,6 +109,7 @@ function ExpandedView({
         <img data-testid="mainImage" className="object-contain w-[80%] h-[90%]" src={mainImage} alt="" />
         <button data-testid="arrowRight" type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
           <FontAwesomeIcon
+            onKeyPress={changePrev}
             onClick={changeNext}
             icon={faArrowRight}
             className="self-center z-0"

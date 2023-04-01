@@ -330,6 +330,8 @@ object-assign
 
 /*! ./components/App */
 
+/*! ./contexts/ProductContext */
+
 /*! ./core/Axios.js */
 
 /*! ./core/AxiosError.js */
