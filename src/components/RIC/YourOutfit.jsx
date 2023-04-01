@@ -32,7 +32,7 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit, changeProdClick }) {
   };
 
   return (
-    <div className="relative flex h-[28rem] left-3">
+    <div className="relative flex h-[100%] left-3">
       {/* map over the related items to create a card for each item */}
       <div
         data-testid="yourOutfitCard"

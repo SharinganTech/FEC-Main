@@ -65,14 +65,19 @@ function App() {
             <div className="max-w-[100%] mb-[10px]">
               <Navigation itemsTotal={itemsTotal} />
             </div>
-            <div className="max-w-[90%] mx-auto">
-              <Overview incrementCart={incrementCart} />
-              <div className="h-[7rem]" />
-              <RelatedItemsAndComparison changeProdClick={changeProdClick} />
-              <div className="h-[40rem]" />
-              <QA />
-              <div className="h-[2rem]" />
-              <RatingsAndReviews />
+            <div className="max-w-[90%] mx-auto flex flex-col gap-y-[20px]">
+              <div>
+                <Overview incrementCart={incrementCart} />
+              </div>
+              <div>
+                <RelatedItemsAndComparison changeProdClick={changeProdClick} />
+              </div>
+              <div>
+                <QA />
+              </div>
+              <div>
+                <RatingsAndReviews />
+              </div>
             </div>
           </div>
         )}

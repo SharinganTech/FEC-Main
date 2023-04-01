@@ -46,7 +46,7 @@ function Gallery({
     }
   };
   return (
-    <div className="h-[100%] w-[100%] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl rounded-lg">
+    <div className="h-[100%] max-w-[600px] min-w-[320px] grid grid-cols-[14.2%_14.2%_20%_20%_20%_10%] grid-rows-[8%_27%_27%_27%_11%] bg-[#EFE1CE] shadow-xl rounded-lg">
       <div id="sideThumbnails" className="max-h-[100%] row-start-1 row-end-6 col-start-1 col-end-2 flex flex-col justify-start items-center overflow-hidden">
         <button data-testid="arrowUp" id="arrowUpButton" aria-label="arrow up" type="button" value={activeIndex} className="h-[5.5em] w-[5em] mb-[0.5em] justify-center z-30 bg-[#EFE1CE]" onKeyPress={changePrev} onClick={changePrev}>
           <FontAwesomeIcon
