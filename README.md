@@ -29,7 +29,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ![overview-readme](readMeImages/Overview/overview.jpg)
 
-<a name="related_items" ></a>
+<a name="related-items"></a>
 ## Related Items & Your Outfit
 #### Features
 - A carousel displaying a list of products related to the item in overview.
@@ -45,7 +45,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 </details>
 
-<a name="qa" ></a>
+<a name="qa"></a>
 ## Questions & Answers
 #### Features
 - Search bar capable of filtering the Q&A list after 3 characters
@@ -62,7 +62,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 </details>
 
 
-<a name="ratings_reviews" ></a>
+<a name="ratings-reviews"></a>
 ## Ratings & Reviews
 #### Features
 - Breakdown of ratings based on certain characteristics and review data
