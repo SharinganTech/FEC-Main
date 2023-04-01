@@ -5,9 +5,9 @@ import CharacterInput from './CharacterInput';
 import { ProductContext } from '../../../../contexts/ProductContext';
 
 function ReviewForm({ reviewsMeta, setShowModal }) {
-  const product = useContext(ProductContext);
-  const prodDes = { product };
-  const prod = prodDes.product;
+  const { product } = useContext(ProductContext);
+  // const prodDes = { product };
+  // const prod = prodDes.product;
   const [stars, setStars] = useState(0);
   const [reviewImages, setReviewImages] = useState([]);
   const [showStarWarning, setShowStarWarning] = useState(false);
@@ -43,7 +43,7 @@ function ReviewForm({ reviewsMeta, setShowModal }) {
         characteristics[charID] = Number(form[char].value);
       });
       axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/', {
-        product_id: prod.id,
+        product_id: product.id,
         rating: stars,
         summary: form.summary.value,
         body: form.body.value,
