@@ -97,7 +97,7 @@ Installation
     ```
 - Copy example.env file and rename to .env with the following within
     ```
-        API_TOKEN='Insert API token'
+        API_TOKEN='Insert API Token'
     ```
 - Run the following scripts
     ```
