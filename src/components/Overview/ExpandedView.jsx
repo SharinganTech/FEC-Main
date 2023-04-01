@@ -57,7 +57,7 @@ function ExpandedView({
   return (
     <div className="flex flex-row bg-[#EFE1CE] justify-around h-[750px] w-[100%] rounded-lg overflow-hidden">
       <div id="sideThumbnails" className="flex flex-col justify-between items-center">
-        <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
+        <button type="button" aria-label="previous image" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowUp}
             className="self-center"
@@ -70,6 +70,7 @@ function ExpandedView({
             <button
               data-testid={`${index}thumbnail`}
               className=" border-line z-0 border-2 border-black w-[85px] h-[85px] mt-[2.5px] mb-[2.5px] rounded-md"
+              aria-label={`thumbnail ${index + 1}`}
               key={index}
               id={index}
               type="button"
@@ -88,7 +89,7 @@ function ExpandedView({
             </button>
           ))}
         </div>
-        <button type="button" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
+        <button type="button" aria-label="next image" value={activeIndex} className="h-[50px] w-[95px] z-30 bg-[#EFE1CE]" onClick={changeNext}>
           <FontAwesomeIcon
             icon={faArrowDown}
             onKeyPress={changeNext}
@@ -97,8 +98,8 @@ function ExpandedView({
           />
         </button>
       </div>
-      <div data-testid="arrowLeft" id="mainImage" className="flex items-center justify-evenly grow-0 w-[1370px] h-[98%]">
-        <button type="button" value={activeIndex} className="h-[100%] w-[68px] z-10" onClick={changePrev}>
+      <div data-testid="arrowLeft" id="" className="flex items-center justify-evenly grow-0 w-[1370px] h-[98%]">
+        <button type="button" value={activeIndex} className="h-[100%] w-[68px] z-10" aria-label="previous image" onClick={changePrev}>
           <FontAwesomeIcon
             icon={faArrowLeft}
             onKeyPress={changePrev}
@@ -107,7 +108,7 @@ function ExpandedView({
           />
         </button>
         <img data-testid="mainImage" className="object-contain w-[80%] h-[90%]" src={mainImage} alt="" />
-        <button data-testid="arrowRight" type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" onClick={changeNext}>
+        <button data-testid="arrowRight" type="button" value={activeIndex} className="h-[100%] z-10 w-[68px]" aria-label="next image" onClick={changeNext}>
           <FontAwesomeIcon
             onKeyPress={changePrev}
             onClick={changeNext}
@@ -116,7 +117,7 @@ function ExpandedView({
           />
         </button>
       </div>
-      <button type="button" className="self-start justify-self-end z-10" onClick={changeView}>
+      <button type="button" aria-label="expand image" className="self-start justify-self-end z-10" onClick={changeView}>
         <FontAwesomeIcon
           icon={faExpand}
           className="h-[25px] w-[25px] mt-[10px]"
