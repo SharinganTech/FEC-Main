@@ -21,10 +21,10 @@ A fashionable e-commerce site built for a pleasent user experience.
 
 ## Overview
 #### Features
-- Interactive gallery with scrolling features
+- Interactive gallery with a fully functional gallery
 - Product information displaying the price, category, reviews, and name
 - Interactive style selector to change the gallery images
-- Size/Quantity selectors to add item to cart
+- Size/Quantity selectors to add items to cart
 - **Zoom In feature in progress**
 
 ![overview-readme](readMeImages/Overview/overview.jpg)
