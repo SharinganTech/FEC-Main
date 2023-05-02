@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-// import '../../styles.css';
-// import RatingStars from './RatingStars';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as farStar, faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-// import 'path';
 import Loading from './Loading';
 import { generateAverage } from './HelperFunctions';
 import Modal from './Modal';
@@ -24,7 +21,6 @@ function CardListEntry({
   const { product } = useContext(ProductContext);
 
   useEffect(() => {
-    // console.log('related item id', relatedItem.id, 'prodId', product);
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedItem.id}/styles`, {
         headers: {
@@ -32,16 +28,12 @@ function CardListEntry({
         },
       })
       .then(({ data }) => {
-        // console.log('price and photo data', data);
-        // console.log(data.results);
         const sale = data.results[0].sale_price;
         if (sale !== null) {
           setSale(sale);
         }
         const photo = data.results[0].photos[0].thumbnail_url;
         if (photo === null) {
-          // console.log(__dirname);
-          // setThumbNail(path.join(__dirname, 'assets/Image_not_available.png'));
           setThumbNail('./assets/Image_not_available.png');
         } else {
           setThumbNail(photo);
@@ -59,8 +51,6 @@ function CardListEntry({
         },
       })
       .then((results) => {
-        // console.log('ratings data', results);
-        // console.log(results.data.ratings);
         const avgRating = generateAverage(results.data.ratings);
         setNumOfRatings(avgRating[1]);
         setRating(avgRating[0]);
