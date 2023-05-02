@@ -17,17 +17,17 @@ function YourOutfit({ prod, yourOutfit, setYourOutfit, changeProdClick }) {
 
   const handleNext = () => {
     if (activeIndex === yourOutfit.length - 1) {
-      setActiveIndex(0); // set index back to first element
+      setActiveIndex(0);
     } else {
-      setActiveIndex(activeIndex + 1); // increment index
+      setActiveIndex(activeIndex + 1);
     }
   };
 
   const handlePrev = () => {
     if (activeIndex === 0) {
-      setActiveIndex(yourOutfit.length - 1); // set index to last element
+      setActiveIndex(yourOutfit.length - 1);
     } else {
-      setActiveIndex(activeIndex - 1); // decrement index
+      setActiveIndex(activeIndex - 1);
     }
   };
 
