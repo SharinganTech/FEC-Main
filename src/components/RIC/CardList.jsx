@@ -7,11 +7,10 @@ import CardListEntry from './CardListEntry';
 function CardList({ prod, changeProdClick }) {
   const prodId = prod.id;
   const [activeIndex, setActiveIndex] = useState(0);
-  // set a state for the related items array
   const [relatedItems, setRelatedItems] = useState([]);
-  // useEffect to make a get request for the relaed items
+  
+  // useEffect to make a get request for the related items
   useEffect(() => {
-    // console.log('here');
     axios
       .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodId}/related`, {
         headers: {
@@ -20,7 +19,6 @@ function CardList({ prod, changeProdClick }) {
       })
       .then(({ data }) => {
         const uniqueId = [...new Set(data)];
-        // console.log('related items id', data);
         const listOfRelatedItems = uniqueId.map((relatedId) => (
           axios
             .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedId}`, {
@@ -33,7 +31,6 @@ function CardList({ prod, changeProdClick }) {
         ));
         Promise.all(listOfRelatedItems)
           .then((result) => {
-            // console.log('list of related items', result);
             setRelatedItems(result);
           });
       });
@@ -41,17 +38,17 @@ function CardList({ prod, changeProdClick }) {
 
   const handleNext = () => {
     if (activeIndex === relatedItems.length - 1) {
-      setActiveIndex(0); // set index back to first element
+      setActiveIndex(0);
     } else {
-      setActiveIndex(activeIndex + 1); // increment index
+      setActiveIndex(activeIndex + 1);
     }
   };
 
   const handlePrev = () => {
     if (activeIndex === 0) {
-      setActiveIndex(relatedItems.length - 1); // set index to last element
+      setActiveIndex(relatedItems.length - 1);
     } else {
-      setActiveIndex(activeIndex - 1); // decrement index
+      setActiveIndex(activeIndex - 1);
     }
   };
 
