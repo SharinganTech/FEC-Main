@@ -6,8 +6,6 @@ import { ProductContext } from '../../contexts/ProductContext';
 function RelatedItemsAndComparison({ changeProdClick }) {
   const { product } = useContext(ProductContext);
   const [yourOutfit, setYourOutfit] = useState([]);
-  // console.log(prodId);
-  // const [outfit, setOutfit] = useState([]);
 
   useEffect(() => {
     const data = window.localStorage.getItem('Outfit');
