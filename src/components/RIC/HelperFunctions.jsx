@@ -79,7 +79,3 @@ export function generatePartialStar(fullStars, rating, color) {
     </div>
   );
 }
-
-// export function getRatings() {
-
-// };
