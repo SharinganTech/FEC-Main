@@ -6,8 +6,6 @@ import { includesFeature, overviewContains, featureValue } from './HelperFunctio
 function Modal({
   relatedItem, modal, setModal, prodFeatures, prod, outfit, setOutfit,
 }) {
-  // console.log('relatedItem', relatedItem.features);
-  // console.log('overview item', prodFeatures);
 
   return (
     <div data-testid="modal" className="transform-none flex fixed inset-0 z-50 justify-center items-center outline-none focus:outline-none bg-slate-500/50">
