@@ -55,7 +55,7 @@ A fashionable e-commerce site built for a pleasent user experience.
 <img src="readMeImages/QA/QAList.png"/>
 
 <details>
-    <summary>See Q&A Details</summary>
+    <summary>See Q&A Modal</summary>
 
 <img src="readMeImages/QA/QAForm.png"/>
 
