@@ -1,6 +1,6 @@
 # SharinganTech
 
-A fashionable e-commerce site built for a pleasent user experience.
+A fashionable e-commerce site built for a pleasant user experience.
 
 ## Authors
 
